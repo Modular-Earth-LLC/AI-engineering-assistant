@@ -195,19 +195,19 @@ Complete workflow for developing an open source AI-driven MVP software product r
 
 #### End-to-End Development Workflow (Works in Progress)
 
-1. **`requirements_analysis.user.prompt.md`** — Analyze market needs, define product requirements, and validate AI use cases for your MVP concept
-2. **`tech_stack_generation.user.prompt.md`** — Select optimal AI frameworks, cloud platforms, and development tools aligned with your requirements and team capabilities  
-3. **`technical_project_plan_generation.user.prompt.md`** — Create detailed implementation roadmaps, sprint planning, and risk mitigation strategies for AI product development
-4. **`team_composition_generation.user.prompt.md`** — Determine ideal team structure, skill requirements, and hiring priorities for your AI startup or product team
-5. **`project_cost_estimation.user.prompt.md`** — Calculate development costs, infrastructure expenses, and resource allocation for realistic budgeting and investor presentations
-6. **`sales_proposal.user.prompt.md`** — Generate compelling commercial proposals, business models, and go-to-market strategies for your AI product
+1. **`workflow/requirements_analysis.user.prompt.md`** — Analyze market needs, define product requirements, and validate AI use cases for your MVP concept
+2. **`workflow/tech_stack_generation.user.prompt.md`** — Select optimal AI frameworks, cloud platforms, and development tools aligned with your requirements and team capabilities  
+3. **`workflow/technical_project_plan_generation.user.prompt.md`** — Create detailed implementation roadmaps, sprint planning, and risk mitigation strategies for AI product development
+4. **`workflow/team_composition_generation.user.prompt.md`** — Determine ideal team structure, skill requirements, and hiring priorities for your AI startup or product team
+5. **`workflow/project_cost_estimation.user.prompt.md`** — Calculate development costs, infrastructure expenses, and resource allocation for realistic budgeting and investor presentations
+6. **`workflow/sales_proposal.user.prompt.md`** — Generate compelling commercial proposals, business models, and go-to-market strategies for your AI product
 
 ### Utility User Prompts
 
 These specialized prompts help optimize and improve your prompts:
 
-- `reduce_redundancy.user.prompt.md` — Advanced content optimization system that analyzes documents for redundant content and generates consolidation strategies to maximize context window efficiency while preserving semantic meaning
-- `improve_prompts.user.prompt.md` — Human-in-the-loop prompt improvement planner that generates sequential, actionable improvement plans for attached prompts, allowing you to validate and implement changes incrementally
+- `utility/reduce_redundancy.user.prompt.md` — Advanced content optimization system that analyzes documents for redundant content and generates consolidation strategies to maximize context window efficiency while preserving semantic meaning
+- `utility/improve_prompts.user.prompt.md` — Human-in-the-loop prompt improvement planner that generates sequential, actionable improvement plans for attached prompts, allowing you to validate and implement changes incrementally
 
 ---
 
