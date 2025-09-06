@@ -1,8 +1,6 @@
 ---
 title: Advanced Context Optimization and Redundancy Elimination System
 description: State-of-the-art prompt leveraging multi-stage reasoning, self-reflection, and constitutional principles to systematically identify and eliminate redundant content while maximizing context window efficiency.
-version: 3.0
-last_updated: 2025-09-05
 ---
 
 ## System Identity and Expert Activation
