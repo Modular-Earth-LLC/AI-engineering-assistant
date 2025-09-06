@@ -1,3 +1,13 @@
+# AI Engineering Assistant
+
+**What it does**: Load `prompt_engineering_assistant.system.prompt.md` into Cursor or GitHub Copilot, and you get an AI expert that helps you write better prompts. 
+
+**Why it's useful**: Instead of guessing how to structure prompts, you get step-by-step guidance, built-in validation, and copy-paste-ready results.
+
+**Bonus**: It can improve itself and other prompts automatically by researching the latest AI techniques.
+
+---
+
 ## Quick Start: Use the Prompt Engineering Assistant in Cursor and GitHub Copilot
 
 1. Open `prompt_engineering_assistant.system.prompt.md`.
@@ -31,9 +41,16 @@
 
 ---
 
-## Project Description
+## How To Use These Prompts Day-to-Day
 
-A practical, open-source toolkit of prompts and patterns that augment AI engineers in their daily work. The centerpiece is `prompt_engineering_assistant.system.prompt.md`, a high-rigor system prompt that helps you draft, refine, and validate best-in-class prompts and prompt-systems. User prompts like `start_AI_singularity.user.prompt.md`) kick off iterative, recursive improvement cycles so the system continually gets better as you use it.
+1. Load `prompt_engineering_assistant.system.prompt.md` into your chat tool (pin it).
+2. Describe your task (e.g., “Create a deployment prompt for our Python service”).
+3. Follow the assistant’s checklist to clarify objectives, constraints, audience, and success signals.
+4. Ask it to generate a prompt pack (system, user, rubric) with placeholders and a validation plan.
+5. Run the built-in validation. Address findings; iterate as needed.
+6. Optionally, run `start_AI_singularity.user.prompt.md` to improve both your new prompt and the system prompt for next time.
+
+Expected result: A copy-paste-ready prompt set, validated and aligned with current best practices, that you can reuse and adapt.
 
 ---
 
@@ -160,19 +177,6 @@ Each stage uses the Prompt Engineering Assistant as its foundation, ensuring con
 - Rollback procedures if improvements don't meet standards
 
 **Result**: Your system prompts evolve to incorporate cutting-edge techniques, becoming more effective and staying current with AI research developments.
-
----
-
-## How To Use These Prompts Day-to-Day
-
-1. Load `prompt_engineering_assistant.system.prompt.md` into your chat tool (pin it).
-2. Describe your task (e.g., “Create a deployment prompt for our Python service”).
-3. Follow the assistant’s checklist to clarify objectives, constraints, audience, and success signals.
-4. Ask it to generate a prompt pack (system, user, rubric) with placeholders and a validation plan.
-5. Run the built-in validation. Address findings; iterate as needed.
-6. Optionally, run `start_AI_singularity.user.prompt.md` to improve both your new prompt and the system prompt for next time.
-
-Expected result: A copy-paste-ready prompt set, validated and aligned with current best practices, that you can reuse and adapt.
 
 ---
 
