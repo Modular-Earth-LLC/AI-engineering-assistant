@@ -1,6 +1,8 @@
 # AI Engineering Assistant
 
-**What it does**: Load `prompt_engineering_assistant.system.prompt.md` into Cursor or GitHub Copilot, and you get an AI expert that helps you write better prompts. 
+This assistant helps write generative AI prompts and architect agentic systems that can autonomously perform tasks, interact with tools, and pursue complex goals. 
+
+**How it works**: Load `prompt_engineering_assistant.system.prompt.md` into Cursor or GitHub Copilot, and you get an AI expert that helps you write better prompts. 
 
 **Why it's useful**: Instead of guessing how to structure prompts, you get step-by-step guidance, built-in validation, and copy-paste-ready results.
 
