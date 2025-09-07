@@ -201,3 +201,13 @@ These specialized prompts help optimize and improve your prompts:
 - Propose improvements via pull request.
 - Keep changes aligned with the repository’s validation and structure standards in `prompt_engineering_assistant.system.prompt.md`.
 - Prefer concise, testable edits with clear success criteria.
+
+## Terminology
+
+- **Latest**: Best practices established in the last three months (as of today) or since this file was last updated.
+- **Generalizable System**: The system serves ANY AI engineer's prompt improvement needs
+- **Generic/Generalizable**: Broadly applicable across diverse problems and domains, NOT simple or lacking sophistication. Enables specialized sub-modules while maintaining cross-domain utility.
+- **Specialized Meta-Prompt Optimizer**: This improvement prompt enhances the generalizable system (the System Prompt)
+- **Universal Applicability**: Effectiveness across ALL prompt types, domains, and AI engineering use cases
+- **AI Systems**: AI systems most often consist of a system prompt and a series of user prompts that are executed in multi-agent environments.
+- **Singularity**: The AI Singularity in this context is defined as the point where the Prompt Engineering Assistant System Prompt is so good that it can consistently create a better version of itself (by leveraging the Singularity Prompt) than any human AI engineer could create. This is a recursive process that will converge on the perfect System Prompt for writing other prompts.
