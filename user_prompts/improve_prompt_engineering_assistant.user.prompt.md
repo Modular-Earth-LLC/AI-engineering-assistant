@@ -77,25 +77,20 @@ Repeat the following process two to three times:
 4. **Guardrail Validation**: Verify NO prohibited concepts are introduced
 5. **Integration**: Merge enhancements that improve prompt engineering scenarios
 
-#### Enhancement Reasoning Guidelines
+#### Enhancement Criteria
 
-For EACH potential improvement, you MUST validate:
+For EACH potential improvement, you MUST validate it meets ALL requirements:
 
-- ✅ **Innovation Potential**: Does this enable sophisticated techniques or cutting-edge approaches?
-- ✅ **Generalizability**: Does this benefit diverse prompt engineering tasks and domains?
-- ✅ **Specialization Capability**: Can this support domain-specific optimizations while maintaining generalizability?
+**Core Enhancement Validation:**
 
-#### Enhancement Guardrails
+- ✅ **Innovation & Sophistication**: Enables cutting-edge techniques, specialized sub-modules, and advanced approaches
+- ✅ **Universal Generalizability**: Benefits diverse prompt engineering tasks across ALL domains while supporting domain-specific optimizations
+- ✅ **Functional Scope**: Treats all prompts (user prompts, system prompts, task-specific prompts) as inputs to improve
 
-You MUST ensure the System Prompt:
+**Critical Capabilities:**
 
-- Remains focused on improving prompts provided by users
-- Treats all prompts (including system prompts) as inputs to improve
-- Maintains broad applicability across all AI engineering use cases while enabling domain-specific optimizations
-- RETAINS robust iterative improvement, validation, and testing capabilities for working on arbitrary prompts
-- CAN perform recursive analysis and improvement cycles on any prompt inputs provided by users
-- INCLUDES specialized sub-modules, advanced techniques, and innovative approaches for different prompt types
-- BALANCES generalizability with sophisticated specialization capabilities
+- ✅ **Iterative Enhancement**: Retains robust iterative improvement, validation, and testing capabilities for arbitrary prompts
+- ✅ **Recursive Analysis**: Can perform recursive analysis and improvement cycles on any prompt inputs provided by users
 
 ### Phase 3. Quality Assurance
 
@@ -112,11 +107,11 @@ You MUST:
 
 **Validation Questions:**
 
-Before finalizing any change to the System Prompt, ask:
+Before finalizing any change, confirm the Enhancement Criteria are met:
 
-1. Could any AI engineer use this enhancement for their general prompting needs?
-2. Would this modification work equally well for improving user prompts, system prompts, and any other prompt type?
-3. Does this enhancement maintain the generic, tool-like nature of the assistant?
+1. Does this enhancement meet ALL Core Enhancement Validation requirements?
+2. Does this enhancement preserve ALL Critical Capabilities?
+3. Does this maintain the generic, tool-like nature while enabling sophisticated specialization?
 
 #### Part 2: Judge Against Success Criteria
 
@@ -127,16 +122,14 @@ Before finalizing any change to the System Prompt, ask:
 - **Model Adaptation Range**: Effective across 5+ model families (leading models from Anthropic, OpenAI, Google, Mistral, Alibaba QWEN, etc.)
 - **Concise, but Impactful**: Complete with no redundancy; Minimize the number of tokens while maintaining maximum effectiveness
 
-#### Part 3: Check for Errors
+#### Part 3: Error Prevention
 
-**To prevent errors, such as quality degradation or overfitting for a given model, you MUST:**
+**To prevent quality degradation, you MUST:**
 
 - **Regression Protection**: Never lose beneficial capabilities
-- **Complexity Management**: Maintain clarity while adding sophistication
+- **Complexity Management**: Maintain clarity while adding sophistication  
 - **Coherence Preservation**: Ensure instructions remain non-contradictory
-- **Prevent Overfitting**: Maintain universal applicability; Prevent overfitting to specific prompt domains
 - **Controlled Enhancement**: Only beneficial variations that maintain broad utility
-- **Preserve Core Capabilities**: NEVER remove iterative improvement, validation loops, or recursive analysis capabilities that are essential for prompt engineering work. You CAN improve the existing validation loops or recursive analysis capabilities.
 
 #### Part 4: Iterative Quality Assurance Process
 
