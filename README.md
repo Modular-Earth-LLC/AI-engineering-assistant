@@ -1,16 +1,20 @@
 # AI Engineering Assistant
 
-This assistant helps write generative AI prompts and develop agentic systems that can autonomously perform tasks, interact with tools, and pursue complex goals.
+This assistant helps write generative AI prompts and develop agentic systems. These systems can autonomously perform tasks, interact with tools, and pursue complex goals.
 
-**How it works**: Load `prompt_engineering_assistant.system.prompt.md` into Cursor or GitHub Copilot, and you get an AI expert that helps you write better prompts. 
+**How it works**: Load `prompt_engineering_assistant.system.prompt.md` into Cursor or GitHub Copilot, and you get an AI expert that helps you write better prompts.
 
-**Why it's useful**: Instead of guessing how to structure prompts, you get step-by-step guidance, built-in validation, and copy-paste-ready results.
+**Why it's useful**: Instead of guessing how to structure prompts, you get:
+
+- Step-by-step guidance
+- Built-in validation
+- Copy-paste-ready results
 
 **Bonus**: It can improve itself and other prompts automatically by researching the latest AI techniques.
 
 ---
 
-## Quick Start: Use the Prompt Engineering Assistant in Cursor and GitHub Copilot
+## Quick Start
 
 1. Open `prompt_engineering_assistant.system.prompt.md`.
 2. Copy all contents to your clipboard.
@@ -56,9 +60,15 @@ Expected result: A copy-paste-ready prompt set, validated and aligned with curre
 
 ---
 
-## AI Engineering Workflow (How These Prompts Work Together)
+## AI Engineering Workflow
 
-This repository implements an iterative, recursive AI development workflow where prompts improve themselves and each other. The workflow combines foundational prompt engineering with specialized AI development tasks, creating a comprehensive toolkit for building AI systems.
+This repository implements an iterative, recursive AI development workflow where prompts improve themselves and each other.
+
+The workflow combines:
+
+- Foundational prompt engineering
+- Specialized AI development tasks
+- Comprehensive toolkit for building AI systems
 
 ### Core Recursive Loop
 
@@ -95,63 +105,79 @@ The foundation of this workflow is the recursive interaction between two key pro
 
 ## Concrete Use Case Example
 
-**Scenario**: You need to create a Python code review assistant for your engineering team that provides consistent, helpful feedback on pull requests.
+**Scenario**: You need to create a Python code review assistant for your engineering team. The assistant should provide consistent, helpful feedback on pull requests.
 
 **Workflow with this system**:
 
 1. **Load the System Prompt**: Set up `prompt_engineering_assistant.system.prompt.md` as a custom mode in Cursor or GitHub Copilot
 
-2. **Define Your Task**: "Create a Python code review assistant that checks for security issues, performance problems, and coding standards compliance"
+2. **Define Your Task**: "Create a Python code review assistant that checks for:
+   - Security issues
+   - Performance problems
+   - Coding standards compliance"
 
 3. **Guided Requirements Gathering**: The system prompts you to clarify:
-   - Target audience: Senior vs junior developers?
-   - Code review scope: Security, performance, style, architecture?
-   - Integration needs: GitHub, GitLab, standalone?
-   - Tone requirements: Constructive, detailed, concise?
+   - **Target audience**: Senior vs junior developers?
+   - **Code review scope**: Security, performance, style, architecture?
+   - **Integration needs**: GitHub, GitLab, standalone?
+   - **Tone requirements**: Constructive, detailed, concise?
 
 4. **Structured Prompt Generation**: Receive a complete prompt pack including:
-   - System prompt defining the reviewer's expertise and approach
-   - User prompt template for submitting code
-   - Validation rubric for consistent review quality
-   - Example inputs/outputs for testing
+   - **System prompt**: Defines the reviewer's expertise and approach
+   - **User prompt template**: For submitting code
+   - **Validation rubric**: Ensures consistent review quality
+   - **Example inputs/outputs**: For testing
 
-5. **Built-in Validation**: The "Prompt Tester" validates your prompt by simulating code reviews, identifying gaps like:
+5. **Built-in Validation**: The "Prompt Tester" validates your prompt by simulating code reviews, identifying gaps such as:
    - Missing error handling checks
    - Inconsistent feedback tone
    - Unclear improvement suggestions
 
-6. **Optimization** (Optional): Use `reduce_redundancy.user.prompt.md` to streamline verbose sections and `improve_prompts.user.prompt.md` to generate incremental improvements
+6. **Optimization** (Optional):
+   - Use `reduce_redundancy.user.prompt.md` to streamline verbose sections
+   - Use `improve_prompts.user.prompt.md` to generate incremental improvements
 
-**Result**: A production-ready, validated code review assistant that your team can deploy immediately, with clear success criteria and rollback procedures documented.
+**Result**: A production-ready, validated code review assistant that your team can deploy immediately. The assistant includes:
+- Clear success criteria
+- Documented rollback procedures
+- Immediate deployment readiness
 
 ---
 
-## Supporting Prompt for Bootstrapping Improvements
+## Bootstrap Prompt
 
 - `start_AI_singularity.user.prompt.md` — Purpose-built user prompt that:
   - Directs the assistant to research current prompting practices
   - Iteratively improves the system prompt and itself (recursive loop)
   - Validates improvements against explicit success metrics and guardrails
 
-### How AI Engineers Use This for System Prompt Enhancement
+### System Prompt Enhancement Workflow
 
 **Self-Improvement Workflow**: Use this prompt to enhance any system prompt, including the Prompt Engineering Assistant itself:
 
-1. **Set up the Prompt Engineering Assistant**: Load `prompt_engineering_assistant.system.prompt.md` as a custom chat mode in Cursor or GitHub Copilot (see Quick Start guide)
+1. **Set up the Prompt Engineering Assistant**: Load `prompt_engineering_assistant.system.prompt.md` as a custom chat mode in Cursor or GitHub Copilot. See the Quick Start guide for detailed instructions.
 
 2. **Start New Chat**: Begin a new chat session with the Prompt Engineering Assistant mode active
 
-3. **Attach Target File**: Attach the system prompt file you want to improve to the chat (this could be `prompt_engineering_assistant.system.prompt.md` itself for recursive self-improvement, or any other system prompt)
+3. **Attach Target File**: Attach the system prompt file you want to improve to the chat. This could be:
 
-4. **Execute Bootstrap Command**: Copy the entire contents of `start_AI_singularity.user.prompt.md` and paste it into the chat window, then hit enter
+   - `prompt_engineering_assistant.system.prompt.md` itself for recursive self-improvement
+   - Any other system prompt you want to enhance
 
-5. **Watch the Enhancement Process**: The Prompt Engineering Assistant analyzes the attached system prompt and generates an improved version, automatically:
-   - Searching for latest prompt engineering research and best practices
-   - Analyzing the current prompt against state-of-the-art techniques
-   - Identifying specific gaps and improvement opportunities
-   - Generating improved versions with enhanced reasoning frameworks, model-adaptive optimizations, and better context efficiency
+4. **Execute Bootstrap Command**: 
+   - Copy the entire contents of `start_AI_singularity.user.prompt.md`
+   - Paste it into the chat window
+   - Hit enter to execute
 
-6. **Deploy Improved Prompt**: Copy the enhanced system prompt from the chat output and load it into your preferred AI system, chat mode, or agent platform
+5. **Watch the Enhancement Process**: The Prompt Engineering Assistant analyzes the attached system prompt and generates an improved version. The process automatically includes:
+   - **Research**: Searching for latest prompt engineering research and best practices
+   - **Analysis**: Comparing the current prompt against state-of-the-art techniques
+   - **Gap Identification**: Finding specific improvement opportunities
+   - **Generation**: Creating improved versions with enhanced reasoning frameworks, model-adaptive optimizations, and better context efficiency
+
+6. **Deploy Improved Prompt**: 
+   - Copy the enhanced system prompt from the chat output
+   - Load it into your preferred AI system, chat mode, or agent platform
 
 **Example Applications**:
 
@@ -210,4 +236,4 @@ These specialized prompts help optimize and improve your prompts:
 - **Specialized Meta-Prompt Optimizer**: This improvement prompt enhances the generalizable system (the System Prompt)
 - **Universal Applicability**: Effectiveness across ALL prompt types, domains, and AI engineering use cases
 - **AI Systems**: AI systems most often consist of a system prompt and a series of user prompts that are executed in multi-agent environments.
-- **Singularity**: The AI Singularity in this context is defined as the point where the Prompt Engineering Assistant System Prompt is so good that it can consistently create a better version of itself (by leveraging the Singularity Prompt) than any human AI engineer could create. This is a recursive process that will converge on the perfect System Prompt for writing other prompts.
+- **Singularity**: The AI Singularity in this context is defined as the point where the Prompt Engineering Assistant System Prompt is so good that it can consistently create a better version of itself than any human AI engineer could create. This achievement is reached by leveraging the Singularity Prompt in a recursive process that will converge on the perfect System Prompt for writing other prompts.
