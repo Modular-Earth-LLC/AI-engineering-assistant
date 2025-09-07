@@ -1,6 +1,6 @@
 # AI Engineering Assistant
 
-This assistant helps write generative AI prompts and architect agentic systems that can autonomously perform tasks, interact with tools, and pursue complex goals. 
+This assistant helps write generative AI prompts and develop agentic systems that can autonomously perform tasks, interact with tools, and pursue complex goals.
 
 **How it works**: Load `prompt_engineering_assistant.system.prompt.md` into Cursor or GitHub Copilot, and you get an AI expert that helps you write better prompts. 
 
@@ -56,7 +56,7 @@ Expected result: A copy-paste-ready prompt set, validated and aligned with curre
 
 ---
 
-## AI Development Workflow (How These Prompts Work Together)
+## AI Engineering Workflow (How These Prompts Work Together)
 
 This repository implements an iterative, recursive AI development workflow where prompts improve themselves and each other. The workflow combines foundational prompt engineering with specialized AI development tasks, creating a comprehensive toolkit for building AI systems.
 
@@ -80,18 +80,7 @@ The foundation of this workflow is the recursive interaction between two key pro
 1. **System Prompt Enhancement**: `start_AI_singularity.user.prompt.md` improves `prompt_engineering_assistant.system.prompt.md`
 2. **Bootstrap Prompt Refinement**: The enhanced system prompt improves `start_AI_singularity.user.prompt.md`
 3. **Self-Improvement**: The system prompt iteratively improves itself using recursive meta-prompting techniques
-4. **Workflow Evolution**: Utility user prompts improve the overall development workflow
-5. **Propagation**: Improvements from the system prompt and utility prompts cascade to other prompts in the repository
-
-### Extended AI Development Pipeline
-
-Beyond the core recursive loop, this workflow integrates specialized prompts for complete AI project development:
-
-- **Requirements Analysis** → **Tech Stack Generation** → **Technical Project Planning** → **Team Composition Generation** → **Project Cost Estimation** → **Sales Proposal**
-
-Each stage uses the Prompt Engineering Assistant as its foundation, ensuring consistent quality and recursive improvement capabilities across the entire development lifecycle.
-
-**Outcome**: This architecture creates a self-improving ecosystem where AI engineers get progressively better tools, higher-quality outputs, and more reliable development workflows through continuous recursive enhancement. Finally, the workflow helps to create a sales proposal to kick off a commercialization effort to help sell the AI systems the engineer creates.
+4. **Propagation**: Improvements from the system prompt and utility prompts cascade to other prompts in the repository
 
 ---
 
@@ -188,19 +177,6 @@ Each stage uses the Prompt Engineering Assistant as its foundation, ensuring con
 
 - `prompt_engineering_assistant.system.prompt.md` — The main system prompt (start here).
 - `start_AI_singularity.user.prompt.md` — User prompt to recursively improve prompts and workflow.
-
-### AI Development Pipeline Prompts
-
-Complete workflow for developing an open source AI-driven MVP software product ready for commercialization. Each prompt guides AI engineers through critical decisions from initial concept to market-ready proposal.
-
-#### End-to-End Development Workflow (Works in Progress)
-
-1. **`workflow/requirements_analysis.user.prompt.md`** — Analyze market needs, define product requirements, and validate AI use cases for your MVP concept
-2. **`workflow/tech_stack_generation.user.prompt.md`** — Select optimal AI frameworks, cloud platforms, and development tools aligned with your requirements and team capabilities  
-3. **`workflow/technical_project_plan_generation.user.prompt.md`** — Create detailed implementation roadmaps, sprint planning, and risk mitigation strategies for AI product development
-4. **`workflow/team_composition_generation.user.prompt.md`** — Determine ideal team structure, skill requirements, and hiring priorities for your AI startup or product team
-5. **`workflow/project_cost_estimation.user.prompt.md`** — Calculate development costs, infrastructure expenses, and resource allocation for realistic budgeting and investor presentations
-6. **`workflow/sales_proposal.user.prompt.md`** — Generate compelling commercial proposals, business models, and go-to-market strategies for your AI product
 
 ### Utility User Prompts
 
