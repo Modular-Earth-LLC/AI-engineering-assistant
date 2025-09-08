@@ -275,3 +275,19 @@ Essentially, an effective agentic prompt acts as a comprehensive, well-structure
 - **Custom Mode**: A feature in AI tools that lets you save and reuse system prompts
 - **Validation**: Testing prompts to make sure they work correctly and consistently
 - **Singularity**: The AI Singularity in this context is defined as the point where the Prompt Engineering Assistant System Prompt is so good that it can consistently create a better version of itself than any human AI engineer could create. This achievement is reached by leveraging the [Singularity Prompt](user_prompts/improve_prompt_engineering_assistant.user.prompt.md) in a recursive process that will converge on the perfect System Prompt for writing other prompts.
+
+### Why I chose the MIT License
+
+This license aligns with Modular Earth's mission to support social good through open-source AI-driven applications and our commitment to accessibility, privacy, trust, and minimizing costs.
+
+**Permissive Use**: The MIT License is one of the most permissive licenses, allowing for the software to be used, modified, and distributed freely, even for commercial purposes. This aligns well with Modular Earth's goal of making wealth accessible and supporting a wide range of uses without restrictive conditions.
+
+**Simplicity and Clarity**: The MIT License is short and straightforward, making it easy for users to understand their rights and obligations. This simplicity can help ensure broader adoption and use of the AI assistant.
+
+**Compatibility**: The MIT License is compatible with many other licenses, which can be beneficial if the financial assistant needs to be integrated with other software or libraries that have different licensing terms.
+
+**Community Trust**: The MIT License is widely recognized and trusted in the open-source community. Using a well-known and respected license can help build trust with users and contributors.
+
+**Minimal Restrictions**: The only significant requirement of the MIT License is that the original copyright and permission notice be included in all copies or substantial portions of the software. This minimal restriction supports Modular Earth's principles of minimizing costs and maximizing accessibility.
+
+The MIT License effectively supports Modular Earth's mission and principles. It allows this AI assistant to be accessible to all.
