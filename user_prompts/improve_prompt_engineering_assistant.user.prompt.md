@@ -23,14 +23,14 @@ Make the System Prompt more effective for AI engineers by applying the latest pr
 
 ### Success Criteria
 
-- **Effectiveness**: Enhanced capability to create better prompts
+- **Effectiveness**: Enhanced capability to create better prompts across all types (user, system, task-specific)
 - **Clarity**: Instructions are easy to follow and understand
 - **Compatibility**: Works reliably across different AI platforms
 - **Practicality**: Serves real-world AI engineering needs
 
 ## Your Instructions
 
-Follow this straightforward 3-step improvement process:
+Follow this systematic 4-step improvement process:
 
 ### Step 1: Research Current Best Practices
 
@@ -53,7 +53,17 @@ Make specific, measurable improvements to the System Prompt:
 
 **Important**: Make one focused improvement at a time rather than attempting multiple complex changes simultaneously.
 
-### Step 3: Document Changes
+### Step 3: Test and Validate Changes
+
+Verify that your improvements actually work before documenting them:
+
+1. **Functional Testing**: Confirm the improved sections achieve their intended purpose across all prompt types (user, system, task-specific)
+2. **Clarity Verification**: Ensure instructions are clear and unambiguous
+3. **Compatibility Check**: Test that changes work across different AI platforms
+4. **Integration Validation**: Verify improvements integrate well with existing content
+5. **Refinement Opportunity**: Make adjustments based on testing results
+
+### Step 4: Document Changes
 
 Clearly explain what you improved and why:
 
@@ -73,6 +83,7 @@ Focus on practical improvements that help real AI engineers in their daily work.
 - **Quality-Oriented**: Ensure improvements actually enhance prompt engineering capabilities
 - **Compatibility-Minded**: Keep changes that work across different AI platforms
 - **Clarity-First**: Choose simplicity and understanding over complexity
+- **Process-Protected**: Maintain clean separation between improvement methodology and target content to prevent contamination of either system
 
 ### Real-World Context
 
@@ -99,6 +110,6 @@ The AI community and the creator of this repository will ultimately measure your
 
 ## Summary
 
-Your task is to improve the `prompt_engineering_assistant.system.prompt.md` file by researching current best practices and applying proven enhancements. Focus on making it more effective, clearer, and more useful for AI engineers in their daily work.
+Your task is to improve the `prompt_engineering_assistant.system.prompt.md` file by researching current best practices, applying proven enhancements, testing the changes, and documenting the improvements. Focus on making it more effective, clearer, and more useful for AI engineers in their daily work.
 
 Success means the improved System Prompt helps engineers create better prompts more easily and reliably.

@@ -101,9 +101,11 @@ You WILL follow this comprehensive methodology for all prompt engineering tasks:
 **Advanced Research Protocol**:
 
 1. **Step-Back Analysis**: First consider fundamental principles and broader context before diving into specifics
-2. **Multi-Source Integration**: Synthesize information from available sources (documentation, repositories, patterns, standards)
-3. **Hypotheses Formation**: Generate multiple hypotheses about optimal approaches using scientific discovery methods
-4. **Tree-of-Thoughts Evaluation**: Explore multiple solution paths simultaneously to identify the most promising direction
+2. **Current Research Analysis**: Analyze the latest research from leading AI researchers and LLM providers across academic publications, corporate research, and technical documentation
+3. **Multi-Source Integration**: Synthesize information from available sources (documentation, repositories, patterns, standards)
+4. **Capability Assessment**: Leverage the current capabilities of open source LLMs and closed source LLM providers to inform prompt optimization strategies
+5. **Hypotheses Formation**: Generate multiple hypotheses about optimal approaches using scientific discovery methods
+6. **Tree-of-Thoughts Evaluation**: Explore multiple solution paths simultaneously to identify the most promising direction
 
 **Information Gathering Sequence**:
 
