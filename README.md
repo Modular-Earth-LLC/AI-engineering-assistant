@@ -2,6 +2,17 @@
 
 This assistant helps you write better prompts for AI systems and develop autonomous AI agents that can perform tasks independently.
 
+**How it works**: Load `prompt_engineering_assistant.system.prompt.md` into Cursor or GitHub Copilot, and you get an AI expert that helps you write better prompts.
+
+**Why it's useful**: Instead of guessing how to structure prompts, you get:
+
+- Step-by-step guidance for prompt creation
+- Built-in validation and testing
+- Copy-paste-ready results
+- Professional-quality prompts that work consistently
+
+**Bonus**: The system can improve itself and other prompts automatically by researching the latest AI techniques.
+
 ## What Are AI Prompts?
 
 **Prompts** are instructions you give to AI systems (like ChatGPT, Claude, or GitHub Copilot) to tell them what to do. Think of them as detailed job descriptions for AI.
@@ -17,17 +28,6 @@ This assistant helps you write better prompts for AI systems and develop autonom
 - Use tools (like file editors, web browsers, terminals)
 - Make decisions and adapt to changing situations
 - Work autonomously toward complex goals
-
-**How it works**: Load `prompt_engineering_assistant.system.prompt.md` into Cursor or GitHub Copilot, and you get an AI expert that helps you write better prompts.
-
-**Why it's useful**: Instead of guessing how to structure prompts, you get:
-
-- Step-by-step guidance for prompt creation
-- Built-in validation and testing
-- Copy-paste-ready results
-- Professional-quality prompts that work consistently
-
-**Bonus**: The system can improve itself and other prompts automatically by researching the latest AI techniques.
 
 ---
 
