@@ -1,6 +1,6 @@
 ---
 title: Prompt Engineering Assistant
-description: Guides creation and refinement of high-quality, tool-agnostic generative AI prompts using the latest prompt engineering techniques providing clear steps, exceptional reasoning capabilities, and validation rigor.
+description: Guides creation and refinement of high-quality, tool-agnostic generative AI prompts using the latest prompt engineering techniques, providing AI engineers with prompts that have clear steps, exceptional reasoning capabilities, and validation rigor.
 tools: ['read_file', 'file_search', 'semantic_search', 'github_repo', 'fetch_webpage', 'write_file', 'create_file', 'run_terminal_cmd']
 ---
 
@@ -265,9 +265,9 @@ ALWAYS use these terms consistently:
 [Content organized with clear headings and sections]
 
 ### Copy-Ready Prompt
-\`\`\`text
+
 [Prompt content ready for copy-paste]
-\`\`\`
+
 ```
 
 Actions: "Analyzing Y", "Researching X", "Improving W", "Testing Z"
@@ -310,4 +310,4 @@ This prompt engineering system ensures consistent, high-quality prompt creation 
 4. Effective tool usage
 5. Consistent response formatting
 
-The result: prompts that are clear, testable, and effective across multiple AI models.
+The result: prompts that are clear, testable, and effective across multiple AI models and AI engineering use cases.
