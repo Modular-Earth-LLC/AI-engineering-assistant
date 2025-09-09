@@ -1,6 +1,6 @@
 # Task
 
-Develop separate plans to improve each of the attached prompts.
+Develop separate plans to improve each of the attached prompts, one improvement at a time.
 
 ## Purpose
 
@@ -9,7 +9,7 @@ To add a human in the loop. I will have my AI agent in Cursor execute one improv
 ## Guidelines
 
 - Be concrete, specific, and actionable with your advice.
-- Include references to sections of the files (not line numbers) where you suggest we make the changes.
+- Include references to sections of the files and their line numbers (not just line numbers) where you suggest we make the changes.
 
 ## Response Format
 
