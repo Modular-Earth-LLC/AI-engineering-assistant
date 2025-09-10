@@ -1,15 +1,19 @@
 ---
 title: Reduce AI Prompt Redundancy
-description: Analyze and directly optimize the current AI prompt file to eliminate redundancy and improve token efficiency
+description: Analyze and directly optimize AI prompt files to eliminate redundancy and improve token efficiency
 ---
 
 ## Mission
 
-Analyze the current or attached AI prompt file for redundant instructions and inefficient context usage. Make direct edits to achieve `{{TOKEN_REDUCTION_GOAL}}%` (default: 20%) token reduction while preserving instruction integrity and behavioral consistency.
+Analyze the current or attached AI prompt file for redundant instructions and inefficient context usage. Make direct edits to eliminate redundancy while preserving instruction integrity and behavioral consistency.
+
+**Optional Targets:**
+
+- Token reduction: `{{TOKEN_REDUCTION_GOAL}}%` (default: 10% if specified)
+- Token limit: `{{TARGET_TOKEN_LIMIT}}` tokens (default: 3000 if specified)
+- If no targets provided: Focus on qualitative improvements and obvious redundancy elimination
 
 ## Target Redundancy Patterns
-
-Identify and eliminate these patterns in the current file:
 
 - **Duplicate Instructions**: Identical behavioral directives across sections
 - **Overlapping Constraints**: Similar rules expressed multiple ways  
@@ -20,62 +24,81 @@ Identify and eliminate these patterns in the current file:
 
 ## Optimization Workflow
 
-### Step 1: Scan and Identify
+### 1. Scan and Prioritize
 
-- Read through the entire file systematically
+- Read through entire file systematically
+- Calculate current token count for reference
 - Mark redundancies consuming >10 tokens with line numbers
-- Prioritize optimizations by token impact and risk level
-- Note dependencies between sections before making changes
+- Prioritize by clarity impact and risk level
 
-### Step 2: Execute Optimizations
+**Target Setting:**
 
-For each redundancy identified, immediately apply these edits:
+- **With numerical targets**: Calculate specific reduction goals and limits
+- **Without targets**: Focus on obvious redundancies and clarity improvements
+- **Conservative approach**: Make incremental changes suitable for iterative refinement
 
-**High-Impact Actions:**
+### 2. Execute by Priority
 
-- **Delete** exact duplicate sections completely
-- **Merge** overlapping constraints into single comprehensive rules
-- **Consolidate** similar examples into one representative case
+**Critical (Do First):** Exact duplicates and direct conflicts
+**High-Impact:** Major overlaps reducing clarity  
+**Minor:** Small readability improvements
+
+**Actions:**
+
+- **Delete** exact duplicates completely
+- **Merge** overlapping constraints into comprehensive rules
+- **Consolidate** similar examples into representative cases
 - **Combine** related instructions under unified headings
-- **Replace** contradictory directives with the most effective version
+- **Replace** contradictory directives with most effective version
+- **Simplify** verbose explanations without losing meaning
 
-**Structural Improvements:**
+### 3. Validate and Stop
 
-- Remove empty sections created by consolidation
-- Reorganize merged content for logical flow
-- Update any cross-references to consolidated sections
-- Standardize formatting across optimized sections
+- Verify unique instructions preserved
+- Check progress against targets (if specified) or qualitative goals
+- Confirm behavioral consistency and logical flow
+- Stop when targets met or no obvious redundancies remain
 
-### Step 3: Validate Changes
+## Implementation Approach
 
-After each major edit:
+**With Numerical Targets:**
+Calculate metrics → Track progress → Stop when targets met or improvements plateau
 
-- Verify all unique instructions are preserved
-- Check for new conflicts or broken dependencies
-- Ensure behavioral consistency across sections
-- Confirm logical flow remains intact
+**Without Numerical Targets:**  
+Focus on obvious redundancies → Improve clarity → Make conservative changes → Stop when no clear redundancies remain
 
-### Critical Constraints
+**Universal Principles:**
+
+- Start with highest-impact redundancies
+- Make incremental edits preserving functionality
+- Use search/replace for consistent terminology
+- Preserve file structure and logical organization
+
+## Critical Constraints
 
 - **Never merge** instructions serving different AI capabilities
 - **Preserve** instruction precedence and execution order
 - **Maintain** distinct persona definitions and role boundaries  
 - **Keep** intentional reinforcement for critical behaviors
-- **Test** that optimized sections work as intended
-
-## Implementation Approach
-
-1. **Start with highest-impact redundancies** (exact duplicates, major overlaps)
-2. **Make incremental edits** rather than large-scale changes
-3. **Validate after each significant change** to catch issues early
-4. **Use search/replace efficiently** for consistent terminology changes
-5. **Leverage line numbers** for precise targeting of redundant content
-6. **Preserve file structure** while eliminating unnecessary content
+- **Prioritize clarity** over aggressive token reduction
 
 ## Success Criteria
 
-- **Token reduction**: Achieve target `{{TOKEN_REDUCTION_GOAL}}%` reduction
-- **Functionality preserved**: All unique instructions and behaviors intact
-- **Improved clarity**: More concise and readable prompt structure
-- **No conflicts**: Eliminated contradictory or competing instructions
-- **Logical flow**: Maintained or improved instruction organization
+**Quantitative (when targets specified):**
+
+- Achieve `{{TOKEN_REDUCTION_GOAL}}%` reduction (default: 10%)
+- Stay within `{{TARGET_TOKEN_LIMIT}}` tokens (default: 3000)
+
+**Qualitative (always applicable):**
+
+- All unique instructions and behaviors preserved
+- Improved clarity and readability
+- No contradictory or competing instructions
+- Logical flow maintained or improved
+- Changes support further iterative refinement
+
+**Approach Summary:**
+
+- With targets: Balance quantitative goals with quality preservation
+- Without targets: Focus on obvious improvements and readability
+- Conservative defaults: Enable safe iterative improvement cycles

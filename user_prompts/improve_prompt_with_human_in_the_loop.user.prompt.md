@@ -1,10 +1,10 @@
 # Task
 
-Develop separate plans to improve each of the attached prompts, one improvement at a time.
+Improve the attached prompt with, me, a human in the loop. Develop a sequential plan to improve the attached prompt, listing one improvement at a time in the optimal order in which the improvements should be implemented. Each improvement should be presented as a separate and complete prompt.
 
 ## Purpose
 
-To add a human in the loop. I will have my AI agent in Cursor execute one improvement at a time. Then I can more easily validate and edit each change.
+I will have my AI agent in Cursor execute one improvement at a time. Then I can more easily validate and edit each change.
 
 ## Guidelines
 
