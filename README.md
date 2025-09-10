@@ -1,8 +1,6 @@
 # AI Engineering Assistant
 
-We've all been there: your AI prompt works perfectly on Tuesday, fails completely on Wednesday, and you have no idea what changed. You spend more time debugging prompts than writing code, and "it worked in my chat" becomes your least favorite phrase.
-
-This system ends that frustration. It's like having a senior prompt engineer sitting next to you, helping you build AI prompts that work reliably, every single time.
+A world class Artificial Intelligence (AI) researcher and engineer that specializes in prompt engineering and context engineering. This AI assistant helps you write and improve AI agents and their prompts.
 
 ## Quick Start
 
@@ -18,35 +16,11 @@ That's it. No complex setup, no configuration hell. Just copy, paste, and start 
 
 ## What This Solves
 
-After building AI systems that served thousands of healthcare professionals, I learned that prompt consistency beats prompt cleverness every time. This system captures those hard-won lessons - it's the prompt engineering assistant I wish I had when debugging voice AI at 2 AM because a slight wording change broke everything.
+After 15 years of building AI systems, I learned that prompt consistency beats prompt cleverness every time. We've all been there: your AI prompt works perfectly on Tuesday, fails completely on Wednesday, and you have no idea what changed. You spend more time debugging prompts than writing code, and "it worked in my chat" becomes your least favorite phrase.
 
-## Examples
+This system ends that frustration. It's like having a senior prompt engineer sitting next to you, helping you build AI prompts that work reliably, every single time.
 
-### Example 1: Fix Inconsistent API Documentation
-
-**The Problem**: "My AI generates different API docs format every time - sometimes detailed, sometimes minimal, never consistent."
-
-**The Solution**: Ask the assistant: "Create an API documentation prompt with consistent format requirements"
-
-**The Result**: You get a prompt that outputs the same structured format every time - method signatures, parameters, examples, and error codes in a predictable layout your team can rely on.
-
-### Example 2: Debug Flaky Test Generation
-
-**The Problem**: "AI writes tests that sometimes check return values, sometimes don't, and randomly include edge cases."
-
-**The Solution**: Use the dual-persona system - the Builder creates the test prompt, then the Tester validates it catches all scenarios consistently.
-
-**The Result**: Your test generation prompt now always includes assertions, edge cases, and error scenarios. No more manually fixing AI-generated tests.
-
-### Example 3: Standardize Code Reviews
-
-**The Problem**: "Different team members get wildly different code review feedback from AI - some get security warnings, others don't."
-
-**The Solution**: Create a validated code review prompt with explicit criteria: security, performance, readability, and team standards.
-
-**The Result**: Every PR gets the same thorough review covering all critical areas. Junior engineers learn faster, senior engineers save time.
-
-## Installation/Setup
+## CompleteInstallation/Setup
 
 ### For Cursor (Recommended - 2 minutes)
 
@@ -78,30 +52,6 @@ After building AI systems that served thousands of healthcare professionals, I l
 
 Copy the system prompt and use it as custom instructions in Claude, ChatGPT, or any AI that supports system prompts. You'll get the core functionality even without platform-specific features.
 
-## Common Issues
-
-### "The assistant doesn't appear in my dropdown"
-
-**For Cursor**: Settings → Chat → Custom Modes → Make sure it's enabled and restart Cursor
-
-**For GitHub Copilot**: Make sure your file ends with `.chatmode.md` (not just `.md`)
-
-### "I get generic/unhelpful responses"
-
-This happens when the system prompt isn't loaded correctly. Start a fresh chat and make sure you've selected "Prompt Engineering Assistant" from the mode dropdown before typing anything.
-
-### "My prompts still aren't consistent"
-
-The assistant has two personas - Builder and Tester. After creating a prompt, always ask: "Now test this prompt as the Prompt Tester". This catches issues before you deploy.
-
-### "Token limit errors"
-
-Use the redundancy reduction tool: `user_prompts/reduce_prompt_redundancy.user.prompt.md`. It removes duplicate content and improves token efficiency while preserving all functionality.
-
-### "Works in Cursor but not in production"
-
-Make sure you're using the generated prompts exactly as provided - including all variables, examples, and success criteria. The structure matters as much as the content.
-
 ## Next Steps
 
 ### Your First Real Project
@@ -128,11 +78,61 @@ The `user_prompts/` folder contains specialized tools:
 
 Start with the basics. You'll know when you need these advanced tools.
 
+## Examples
+
+### Example 1: Fix Inconsistent API Documentation
+
+**The Problem**: "My AI generates different API docs format every time - sometimes detailed, sometimes minimal, never consistent."
+
+**The Solution**: Ask the assistant: "Create an API documentation prompt with consistent format requirements"
+
+**The Result**: You get a prompt that outputs the same structured format every time - method signatures, parameters, examples, and error codes in a predictable layout your team can rely on.
+
+### Example 2: Debug Flaky Test Generation
+
+**The Problem**: "AI writes tests that sometimes check return values, sometimes don't, and randomly include edge cases."
+
+**The Solution**: Use the dual-persona system - the Builder creates the test prompt, then the Tester validates it catches all scenarios consistently.
+
+**The Result**: Your test generation prompt now always includes assertions, edge cases, and error scenarios. No more manually fixing AI-generated tests.
+
+### Example 3: Standardize Code Reviews
+
+**The Problem**: "Different team members get wildly different code review feedback from AI - some get security warnings, others don't."
+
+**The Solution**: Create a validated code review prompt with explicit criteria: security, performance, readability, and team standards.
+
+**The Result**: Every PR gets the same thorough review covering all critical areas. Junior engineers learn faster, senior engineers save time.
+
+## Common Issues
+
+### "The assistant doesn't appear in my dropdown"
+
+**For Cursor**: Settings → Chat → Custom Modes → Make sure it's enabled and restart Cursor
+
+**For GitHub Copilot**: Make sure your file ends with `.chatmode.md` (not just `.md`)
+
+### "I get generic/unhelpful responses"
+
+This happens when the system prompt isn't loaded correctly. Start a fresh chat and make sure you've selected "Prompt Engineering Assistant" from the mode dropdown before typing anything.
+
+### "My prompts still aren't consistent"
+
+The assistant has two personas - Builder and Tester. After creating a prompt, always ask: "Now test this prompt as the Prompt Tester". This catches issues before you deploy.
+
+### "Token limit errors"
+
+Use the redundancy reduction tool: `user_prompts/reduce_prompt_redundancy.user.prompt.md`. It removes duplicate content and improves token efficiency while preserving all functionality.
+
+### "Works in Cursor but not in production"
+
+Make sure you're using the generated prompts exactly as provided - including all variables, examples, and success criteria. The structure matters as much as the content.
+
 ---
 
 ## About This Project
 
-Built by engineers who learned the hard way that inconsistent AI prompts waste more time than they save. After shipping AI to thousands of users, we captured what works in this system.
+Built by engineers who learned the hard way that inconsistent AI prompts waste more time than they save.
 
 **License**: MIT - Use it anywhere, including commercial projects
 
