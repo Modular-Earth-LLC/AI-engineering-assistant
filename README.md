@@ -89,22 +89,13 @@ This three-layer architecture delivers:
 5. Paste the entire file contents into Instructions
 6. Save and select from the dropdown in any chat
 
-### For GitHub Copilot (3 minutes)
+### For GitHub Copilot (2 minutes)
 
 1. Press `Ctrl+Shift+P` (Windows) or `⇧⌘P` (Mac)
 2. Select "Chat: New Mode File"
 3. Save as `PromptEngineer.chatmode.md`
-4. Add this header:
-
-   ```yaml
-   ---
-   description: 'Prompt engineering assistant'
-   tools: ['codebase', 'search', 'fetch', 'websearch']
-   ---
-   ```
-
-5. Paste the system prompt content below the header
-6. Select "PromptEngineer" from chat dropdown
+4. Paste the system prompt content
+5. Select "PromptEngineer" from chat dropdown
 
 ### For Other AI Platforms
 
