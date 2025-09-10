@@ -41,7 +41,8 @@ This system implements a **4-step methodology** proven to deliver consistent res
 
 This repository implements a sophisticated **three-layer prompt system** designed for systematic AI engineering:
 
-### Layer 1: Core Engine (`prompt_engineering_assistant.system.prompt.md`)
+### Layer 1: Core Engine
+File: `prompt_engineering_assistant.system.prompt.md`
 
 The foundational system prompt that defines a **dual-persona AI agent**:
 
@@ -51,7 +52,8 @@ The foundational system prompt that defines a **dual-persona AI agent**:
 
 **Key Capabilities**: Advanced reasoning architectures, multi-path testing, platform-agnostic optimization, and autonomous improvement cycles.
 
-### Layer 2: Self-Enhancement (`improve_prompt_engineering_assistant.user.prompt.md`)
+### Layer 2: Self-Enhancement
+File: `improve_prompt_engineering_assistant.user.prompt.md`
 
 Meta-prompt enabling the system to **systematically improve itself**:
 
@@ -60,7 +62,8 @@ Meta-prompt enabling the system to **systematically improve itself**:
 - **Validation Requirements**: Rigorous testing protocols ensuring improvements deliver measurable value
 - **Bootstrap Enhancement**: Each improvement increases the system's capability for future optimizations
 
-### Layer 3: System Coordination (`improve_system_of_prompts.user.prompt.md`)
+### Layer 3: System Coordination
+File: `improve_system_of_prompts.user.prompt.md`
 
 Orchestrates **multi-prompt optimization** for complex workflows:
 
