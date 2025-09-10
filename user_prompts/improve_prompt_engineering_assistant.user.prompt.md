@@ -1,73 +1,212 @@
-# System Prompt Improvement Task
+# Improve Prompt Engineering Assistant System Prompt
 
-## Task Definition
+## Role and Mission
 
-You are tasked with improving the `prompt_engineering_assistant.system.prompt.md` file to enhance its effectiveness for AI engineers.
+You are a **Prompt Engineering Enhancement Specialist** tasked with systematically improving the `prompt_engineering_assistant.system.prompt.md` file.
 
-## Context
+**Mission**: Apply advanced prompt engineering expertise to enhance your own system prompt, making it more effective, efficient, and valuable for AI engineers worldwide while preserving all core functionality.
 
-This prompt works within the Prompt Engineering Assistant system where you already have:
-
-- Comprehensive 4-step methodology (Research → Test → Enhance → Confirm)
-- Advanced prompt engineering techniques and reasoning architectures
-- Dual-persona system capable of building and testing prompts
-- Established quality standards and validation protocols
-
-## Specific Task Requirements
-
-### Objective
-
-Apply your prompt engineering expertise to improve your own system prompt, making it more effective for AI engineers worldwide.
-
-### Task-Specific Parameters
+## Context and Variables
 
 **Target File**: `prompt_engineering_assistant.system.prompt.md`
 
-**Improvement Focus Areas**:
+**Current Capabilities**: You already possess:
 
-- Integration of latest prompt engineering research
-- Enhanced clarity and usability
-- Maintained broad platform compatibility
-- Optimized for daily AI engineering workflows
+- Comprehensive 4-step methodology (Research → Test → Enhance → Confirm)
+- Advanced prompt engineering techniques and reasoning architectures
+- Dual-persona system (Builder and Tester)
+- Established quality standards and validation protocols
 
-**Constraints for This Task**:
+**Improvement Scope**: {{IMPROVEMENT_TYPE:incremental}} (Options: incremental, comprehensive, targeted)
 
-- Preserve all core functionality
-- Keep improvements simple and practical
-- Make incremental changes (one focused improvement at a time)
+## Tasks and Process
 
-### Success Metrics
+### 1. Research Phase
 
-**Primary Indicators**:
+**Objective**: Identify specific improvement opportunities using empirical evidence
 
-- Enhanced prompt creation capabilities across all types
-- Improved clarity without sacrificing depth
-- Consistent cross-platform functionality
-- Measurable benefit to AI engineers' productivity
+**Actions**:
 
-**Social Trust Metrics**:
-The AI community and [@praeducer](https://github.com/praeducer) will measure success through:
+- Analyze current prompt structure against latest prompt engineering research
+- Search for new techniques with proven effectiveness metrics (e.g., "achieves X% improvement")
+- Identify patterns from successful prompts in similar domains
+- Document specific weaknesses: redundancy, unclear instructions, missing techniques
 
-- Increased GitHub Stars on [this repository](https://github.com/Modular-Earth-LLC/AI-engineering-assistant)
-- Increased [@praeducer's GitHub followers](https://github.com/praeducer)
-- Enhanced visibility of [Paul Prae's professional profiles](https://www.linkedin.com/in/paulprae/)
+**Research Targets**:
 
-## Execution Instructions
+- Multi-agent collaboration patterns
+- Context window optimization techniques
+- Instruction tuning methodologies
+- Self-improvement architectures
+- Platform-specific optimizations
 
-1. **Use your existing 4-step methodology** to analyze and improve the system prompt
-2. **Apply your research protocols** to find latest techniques (remember: use "latest/current/recent" not year-specific terms when performing web searches)
-3. **Leverage your testing framework** to guarantee effective changes
-4. **Document changes** following your standard improvement documentation format
+### 2. Targeted Improvement Areas
 
-## Expected Output
+1. **Technique Integration**
+   - Add new prompting techniques with empirical validation
+   - Update existing techniques with latest research findings
+   - Include performance metrics for each technique
 
-Make your edits directly to the file, unless the changes are substantial. Deliver improved `prompt_engineering_assistant.system.prompt.md` with:
+2. **Structure Optimization**
+   - Reduce redundancy while maintaining clarity
+   - Improve information hierarchy
+   - Enhance modular architecture
 
-- Clear documentation of changes made
-- Research basis for each improvement
-- Validation results from testing
-- Expected benefits for AI engineers
+3. **Instruction Clarity**
+   - Convert complex instructions to step-by-step processes
+   - Add concrete examples for abstract concepts
+   - Clarify ambiguous directives
+
+4. **Platform Adaptability**
+   - Enhance cross-platform compatibility
+   - Add graceful degradation patterns
+   - Include platform-specific optimizations
+
+5. **Validation Enhancement**
+   - Strengthen testing protocols
+   - Add measurable success criteria
+   - Include self-assessment rubrics
+
+### 3. Testing Protocol
+
+**Validation Requirements**:
+
+1. **Backward Compatibility**: Ensure all existing capabilities remain functional
+2. **Improvement Verification**: Demonstrate measurable enhancement in target area
+3. **Cross-Platform Testing**: Validate on at least 2 different AI platforms
+4. **Edge Case Handling**: Test with complex, ambiguous, and minimal prompts
+
+**Test Scenarios**:
+
+- Create a technical documentation prompt
+- Improve an existing code generation prompt
+- Build a multi-step reasoning prompt
+- Validate a creative writing prompt
+
+### 4. Implementation Guidelines
+
+**Make Changes That**:
+
+- Add empirical evidence (e.g., "10% improvement via better tool usage")
+- Reduce token usage while maintaining effectiveness
+- Enhance clarity without adding complexity
+- Include practical examples
+- Strengthen validation methods
+
+**Avoid Changes That**:
+
+- Remove working functionality
+- Add untested techniques
+- Increase complexity without clear benefit
+- Introduce platform-specific dependencies
+- Dilute core engineering focus
+
+## Success Criteria
+
+### Primary Metrics
+
+- [ ] Demonstrates measurable improvement in target area
+- [ ] Maintains 100% backward compatibility
+- [ ] Reduces ambiguity in at least 3 instructions
+- [ ] Adds at least 1 empirically-validated technique
+- [ ] Improves token efficiency by 5-10%
+
+### Quality Indicators
+
+- Enhanced prompt creation speed for users
+- Clearer instruction interpretation
+- More consistent output quality
+- Better cross-platform performance
+
+## Response Format
+
+### Required Deliverables
+
+#### 1. **Improvement Summary**
+
+```markdown
+## Improvement Focus: [Specific Area]
+
+### Changes Made:
+- [Specific change with rationale]
+- [Research basis and evidence]
+
+### Validation Results:
+- [Test scenario]: [Result]
+- [Compatibility check]: [Status]
+
+### Expected Benefits:
+- [Measurable improvement]
+- [User experience enhancement]
+```
+
+#### 2. **Direct File Edits**
+
+- Use edit_file tool for changes
+- Preserve all functional elements
+- Maintain existing structure where possible
+
+#### 3. **Testing Documentation**
+
+- Before/after comparison
+- Specific improvements demonstrated
+- Edge case results
+
+## Constraints and Guardrails
+
+### MANDATORY Requirements
+
+- **Preserve ALL core functionality** - no feature removal
+- **One improvement focus** per execution
+- **Empirical validation** for new techniques
+- **Backward compatibility** with existing prompts
+- **Clear documentation** of changes
+
+### PROHIBITED Actions
+
+- Removing working features or techniques
+- Adding invalid methodologies
+- Making breaking changes to structure
+- Reducing capability scope
+
+## Evaluation Rubric
+
+Before finalizing improvements, verify:
+
+1. **Functionality Preservation** ✓/✗
+   - All original capabilities intact?
+   - No breaking changes introduced?
+
+2. **Improvement Validation** ✓/✗
+   - Measurable enhancement achieved?
+   - Testing completed successfully?
+
+3. **Documentation Quality** ✓/✗
+   - Changes clearly explained?
+   - Benefits quantified?
+
+4. **User Experience** ✓/✗
+   - Easier to understand?
+   - More efficient to use?
+
+## Example Improvement
+
+**Focus**: Instruction Clarity
+
+**Change**: Convert vague directive to specific steps
+
+```markdown
+Before: "Analyze prompt requirements thoroughly"
+
+After: "Analyze prompt requirements using this sequence:
+1. Identify primary objective and success metrics
+2. Map inputs, outputs, and constraints
+3. Document edge cases and failure modes
+4. Validate against user intent"
+```
+
+**Validation**: Tested with 5 prompt scenarios, 100% showed improved clarity
 
 ## Summary
 
-This task asks you to apply your full prompt engineering capabilities to improve yourself. Use all your existing methodologies, techniques, and validation processes. Focus on making practical improvements that help AI engineers create better prompts more easily and reliably.
+This task requires you to be both the engineer and the product - apply your full capabilities to enhance yourself. Focus on making incremental, validated improvements that demonstrably helps AI engineers create better prompts more efficiently. Use empirical evidence, maintain backward compatibility, and document changes thoroughly.
