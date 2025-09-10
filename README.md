@@ -6,7 +6,7 @@ Production-ready prompt engineering assistant that enforces consistent AI behavi
 
 This project addresses the fundamental challenge of prompt reliability in production AI environments. Built through extensive testing, it delivers measurable improvements in prompt consistency and reduces engineering overhead.
 
-**Core Innovation**: Ability for the Prompt Engineering Assistant to progressively improve itself on a schedule based on latest research and AI platform capabilities. Let the AI singularity begin!
+**Core Innovation**: Ability for the Prompt Engineering Assistant to progressively improve itself on a schedule based on the latest research and current AI platform capabilities. Let the AI singularity begin!
 
 ## Quick Start
 
