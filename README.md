@@ -14,7 +14,7 @@ This project addresses the fundamental challenge of prompt reliability in produc
 
 1. **Download** `prompt_engineering_assistant.system.prompt.md` from this repository
 2. **Load into Cursor**: Settings → Chat → Custom Modes → New Mode → Paste file contents  
-3. **Execute test**: Ask "Create a financial assistant for a small business" in chat
+3. **Execute test**: Ask "Create a financial assistant for a small construction services business" in chat
 4. **Validate output**: Complete prompt with examples, success criteria, and validation tests
 5. **Deploy confidently**: Use the generated prompt in your production environment
 
