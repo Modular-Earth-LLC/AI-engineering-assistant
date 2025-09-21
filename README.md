@@ -183,8 +183,8 @@ Process: Redundancy detection → Information flow optimization → Validation
 
 **Token Optimization**:
 
-- System prompt: 1,200 tokens (core functionality)
-- Average query response: 400-800 tokens
+- System prompt length: 1,200 tokens (core functionality)
+- Average query length: 400-800 tokens
 - Optimization tools reduce context by 25-35% when needed
 
 **Security and Compliance**:
