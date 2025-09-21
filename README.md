@@ -161,7 +161,7 @@ Process: Redundancy detection → Information flow optimization → Validation
 
 **Minimum Requirements**:
 
-- System prompt support (200+ token context)
+- System prompt support (1,200+ token context)
 - Multi-turn conversation capability
 - Structured output formatting
 
