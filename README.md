@@ -83,7 +83,7 @@ This three-layer architecture delivers:
 
 ## Installation and Configuration
 
-### For Cursor (Recommended - 2 minutes)
+### For Cursor (Recommended)
 
 1. Download `prompt_engineering_assistant.system.prompt.md` from this repository
 2. Open Cursor Settings → Chat → Custom Modes
@@ -92,7 +92,7 @@ This three-layer architecture delivers:
 5. Paste the entire file contents into Instructions
 6. Save and select from the dropdown in any chat
 
-### For GitHub Copilot (2 minutes)
+### For GitHub Copilot
 
 1. Press `Ctrl+Shift+P` (Windows) or `⇧⌘P` (Mac)
 2. Select "Chat: New Mode File"
