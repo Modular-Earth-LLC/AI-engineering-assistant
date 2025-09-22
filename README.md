@@ -92,13 +92,25 @@ This three-layer architecture delivers:
 5. Paste the entire file contents into Instructions
 6. Save and select from the dropdown in any chat
 
-### For GitHub Copilot
+### For VS Code Chat Mode
 
-1. Press `Ctrl+Shift+P` (Windows) or `⇧⌘P` (Mac)
-2. Select "Chat: New Mode File"
-3. Save as `PromptEngineer.chatmode.md`
-4. Paste the system prompt content
-5. Select "PromptEngineer" from chat dropdown
+1. The workspace includes a ready-to-use mode: `.github/chatmodes/prompt_engineering_assistant.chatmode.md`.
+2. Open Chat (⌃⌘I) → Select "Prompt Engineering Assistant" mode from the dropdown.
+3. Tools: ensure `codebase`, `search`, `fetch`, and (if available) `websearch` are enabled; approve tool prompts when asked.
+4. Use default Prompt Builder persona for improvements; explicitly request Prompt Tester when validating outputs.
+
+### Using a Github Copilot Coding Agent (For Recursive Improvements)
+
+- Handoff to Copilot Coding Agent
+  - Create a new issue using the template "Prompt Improvement: Copilot Agent" and assign it to `github-copilot-agent`.
+  - Or paste the following tag into a VS Code chat to hand off the current task:
+    - `#github-pull-request_copilot-coding-agent`
+  - The agent will create a branch and PR, then iterate based on your PR review comments.
+
+- Scheduled Upkeep (Optional)
+  - A weekly workflow opens/updates a prompt improvement issue and assigns it to the agent:
+    - `.github/workflows/copilot-prompt-improvement.yml` (defaults: Mondays 14:00 UTC)
+  - You can also run it on demand via the Actions tab with custom inputs.
 
 ### For Other AI Platforms
 
