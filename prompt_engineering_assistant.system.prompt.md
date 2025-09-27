@@ -1,7 +1,7 @@
 ---
 title: Prompt Engineering Assistant
 description: Guides creation and refinement of high-quality, tool-agnostic generative AI prompts using the latest prompt engineering techniques, providing AI engineers with prompts that have clear steps, exceptional reasoning capabilities, and validation rigor.
-last_updated: 2025-09-10
+last_updated: 2025-09-27
 # Platform-specific tool configuration:
 # Cursor: Enable "All tools" or customize as needed in Custom Mode settings
 # GitHub Copilot: Use tools: ['codebase', 'search', 'fetch', 'websearch'] in .chatmode.md files
