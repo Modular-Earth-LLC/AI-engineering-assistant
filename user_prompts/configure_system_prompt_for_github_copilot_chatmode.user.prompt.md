@@ -1,5 +1,23 @@
-# Task
-Update #file:../.github/chatmodes/prompt_engineering_assistant.chatmode.md by copying and reconfiguring the contents of #file:../prompt_engineering_assistant.system.prompt.md to the contents of this new chatmode (https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes).
+# Configure System Prompt for GitHub Copilot Chat Mode
+
+## Usage Instructions
+
+**How to use this user prompt**:
+1. Open Cursor AI Pane with Prompt Engineering Assistant mode active (or use VS Code Copilot)
+2. Attach or mention this file in your chat
+3. The agent will configure the chatmode file for GitHub Copilot/VS Code
+4. Validate the output and test the configured chat mode
+
+**What this does**: Instructs the agent to adapt the system prompt for GitHub Copilot/VS Code compatibility
+
+**What you get**: Properly configured `.chatmode.md` file ready for VS Code use
+
+**Context**: This is a task instruction sent TO the Prompt Engineering Assistant agent, helping maintain cross-platform compatibility
+
+---
+
+## Task
+Update `.github/chatmodes/prompt_engineering_assistant.chatmode.md` by copying and reconfiguring the contents of `prompt_engineering_assistant.system.prompt.md` to work as a VS Code custom chat mode (https://code.visualstudio.com/docs/copilot/customization/custom-chat-modes).
 
 ## Problem Statement
 #file:../prompt_engineering_assistant.system.prompt.md has been primarily configured and tested to run as a custom mode in my other IDE, Cursor (https://cursor.com/docs/agent/modes#custom).

@@ -1,6 +1,23 @@
 ---
 title: Reduce AI Prompt Redundancy
 description: Analyze and directly optimize AI prompt files to eliminate redundancy and improve token efficiency
+usage: Send this user prompt TO your Cursor/Copilot Prompt Engineering Assistant agent along with the prompt file you want to optimize
+execution_context: This is a task instruction for the agent running IN Cursor, helping you optimize a single prompt file
+---
+
+## Usage Instructions
+
+**How to use this user prompt**:
+1. Open Cursor AI Pane with Prompt Engineering Assistant mode active
+2. Attach or mention this file in your chat
+3. Attach the prompt file you want to optimize (or use currently open file)
+4. Optionally specify token reduction goals
+5. The agent will eliminate redundancies while preserving functionality
+
+**What this does**: Instructs the Cursor agent to analyze and optimize a single prompt file
+
+**What you get**: Optimized prompt with reduced redundancy, ready for deployment to any platform
+
 ---
 
 ## Mission

@@ -1,6 +1,22 @@
 ---
 title: Improve System of Prompts
 description: Analyzes and optimizes interactions between multiple prompts working as a system, eliminating redundancy and ensuring perfect complementarity using advanced reasoning techniques
+usage: Send this user prompt TO your Cursor/Copilot Prompt Engineering Assistant agent along with the prompt files you want to optimize
+execution_context: This is a task instruction for the agent running IN Cursor, helping you optimize prompts that may be deployed anywhere (OpenAI, Claude, Bedrock, etc.)
+---
+
+## Usage Instructions
+
+**How to use this user prompt**:
+1. Open Cursor AI Pane with Prompt Engineering Assistant mode active
+2. Attach or mention this file in your chat
+3. Attach the prompt files you want to analyze and optimize
+4. The agent will analyze your prompt system and eliminate redundancies
+
+**What this does**: Instructs the Cursor agent to optimize multiple prompts as a coordinated system
+
+**What you get**: Optimized prompts ready for deployment to any platform
+
 ---
 
 ## Role and Mission

@@ -1,6 +1,24 @@
 ---
 title: Create Professional AI Documentation for Engineering Excellence
 description: Transform any README into a professional, accurate, and engaging guide that engineers across all levels will respect and share. Emphasizes innovation, clarity, and engineering excellence appropriate for enterprise, research, and startup environments.
+usage: Send this user prompt TO your Cursor/Copilot Prompt Engineering Assistant agent along with the README file you want to improve
+execution_context: This is a task instruction for the agent running IN Cursor, helping you create exceptional documentation
+---
+
+## Usage Instructions
+
+**How to use this user prompt**:
+1. Open Cursor AI Pane with Prompt Engineering Assistant mode active
+2. Attach or mention this file in your chat
+3. Attach the README.md file you want to improve (or reference current workspace README)
+4. The agent will analyze and transform your documentation
+
+**What this does**: Instructs the Cursor agent to transform README files into professional, engineering-grade documentation
+
+**What you get**: Production-ready README with clear value proposition, quick start, and technical excellence
+
+**Context**: This is a task instruction sent TO the Prompt Engineering Assistant agent running IN Cursor
+
 ---
 
 ## Role and Mission

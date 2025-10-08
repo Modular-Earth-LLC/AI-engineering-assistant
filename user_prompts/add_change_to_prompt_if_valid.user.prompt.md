@@ -1,4 +1,23 @@
-# Add my change if it is valid and beneficial
+# Add Change to Prompt If Valid
+
+## Usage Instructions
+
+**How to use this user prompt**:
+1. Open Cursor AI Pane with Prompt Engineering Assistant mode active
+2. Attach or mention this file in your chat
+3. Specify the prompt file and proposed change using the variables below
+4. The agent will evaluate if the change is beneficial
+5. If valid, the agent will implement the change; if not, it will explain why
+
+**What this does**: Instructs the Cursor agent to validate and conditionally apply a proposed change to a prompt
+
+**What you get**: Expert analysis of your proposed change and implementation if beneficial
+
+**Context**: This is a task instruction sent TO the Prompt Engineering Assistant agent running IN Cursor
+
+---
+
+## Task
 
 Is the following change beneficial? Explain why or why not. If it is beneficial, make the change to {{@FILE_NAME}} only.
 
