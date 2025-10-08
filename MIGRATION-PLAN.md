@@ -1,5 +1,6 @@
 # AI Repository Migration & Merge Plan
-**Quick Reference Guide - 1-2 Day Timeline**
+
+## Quick Reference Guide - 1-2 Day Timeline
 
 **Goal**: Merge AI Architecture Assistant (source) into AI Engineering Assistant (destination) to create unified AI development workflow
 
@@ -10,11 +11,13 @@
 ## 🎯 Executive Summary
 
 **What's Happening**:
+
 - Merging complex multi-agent AI Architecture Assistant into focused AI Engineering Assistant
 - Result: Unified multi-agent AI development system running in Cursor IDE
 - Prompt Engineering Assistant becomes 6th specialized agent alongside Requirements, Architecture, Engineering, Deployment, and Optimization agents
 
 **Critical Success Factors**:
+
 1. ✅ Preserve Prompt Engineering Assistant functionality (production-proven)
 2. ✅ Integrate 5 new specialized agents + Supervisor
 3. ✅ Maintain knowledge base architecture for agent coordination
@@ -28,6 +31,7 @@
 ### ☐ Step 0.1: Commit All Changes (5 minutes)
 
 **Engineering Assistant Repo:**
+
 ```powershell
 cd "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
 git status
@@ -37,6 +41,7 @@ git push origin main
 ```
 
 **Architecture Assistant Repo:**
+
 ```powershell
 cd "C:\Users\paulp\OneDrive\Documents\GitHub\AI-architecture-assistant"
 git status
@@ -52,6 +57,7 @@ git push origin main
 ### ☐ Step 0.2: Create Migration Branch (2 minutes)
 
 **In Engineering Assistant repo:**
+
 ```powershell
 cd "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
 git checkout -b merge-architecture-assistant
@@ -64,6 +70,7 @@ git checkout -b merge-architecture-assistant
 ### ☐ Step 0.3: Document Current State (5 minutes)
 
 **Create snapshot of Engineering Assistant:**
+
 ```powershell
 # List all files for reference
 Get-ChildItem -Recurse -File | Select-Object FullName | Out-File "pre-migration-file-list.txt"
@@ -78,6 +85,7 @@ Get-ChildItem -Recurse -File | Select-Object FullName | Out-File "pre-migration-
 ### ☐ Step 1.1: Create New Folder Structure (5 minutes)
 
 **Cursor Prompt #1:**
+
 ```
 Create the following folder structure in the AI Engineering Assistant repository to prepare for the Architecture Assistant merge:
 
@@ -109,6 +117,7 @@ List all changes made.
 ```
 
 **Manual Alternative (PowerShell):**
+
 ```powershell
 cd "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
 
@@ -142,6 +151,7 @@ Get-ChildItem "user_prompts\*.md" | Move-Item -Destination "user_prompts\prompt_
 ### ☐ Step 1.2: Update Prompt Engineering Assistant Reference Paths (10 minutes)
 
 **Cursor Prompt #2:**
+
 ```
 The user prompts have been moved from `user_prompts/` to `user_prompts/prompt_engineering/`. 
 
@@ -167,6 +177,7 @@ List all changes made with line numbers.
 ### ☐ Step 1.3: Test Prompt Engineering Assistant Still Works (10 minutes)
 
 **Manual Test in Cursor:**
+
 1. Open Cursor IDE
 2. Load `prompt_engineering_assistant.system.prompt.md` into a custom chat mode
 3. Test with: "Create a simple code review assistant for Python"
@@ -192,6 +203,7 @@ git status
 ### ☐ Step 2.1: Copy AI Agents (10 minutes)
 
 **PowerShell Script:**
+
 ```powershell
 $source = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-architecture-assistant"
 $dest = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
@@ -205,7 +217,8 @@ Copy-Item "$source\ai_agents\*" "$dest\ai_agents\" -Recurse -Force
 Write-Host "✅ Copied Supervisor Agent and 5 specialized agents"
 ```
 
-**Validation**: 
+**Validation**:
+
 ```powershell
 Get-ChildItem "ai_agents" | Select-Object Name
 # Should show: architecture_agent, deployment_agent, engineering_agent, optimization_agent, requirements_agent
@@ -216,6 +229,7 @@ Get-ChildItem "ai_agents" | Select-Object Name
 ### ☐ Step 2.2: Copy User Prompts (10 minutes)
 
 **PowerShell Script:**
+
 ```powershell
 $source = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-architecture-assistant"
 $dest = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
@@ -241,7 +255,8 @@ Copy-Item "$source\user_prompts\proposals\*" "$dest\user_prompts\proposals\" -Fo
 Write-Host "✅ Copied all user prompts to categorical folders"
 ```
 
-**Validation**: 
+**Validation**:
+
 ```powershell
 Get-ChildItem "user_prompts" -Recurse -File | Measure-Object | Select-Object Count
 # Should show 33+ files (7 original + 26 from architecture)
@@ -252,6 +267,7 @@ Get-ChildItem "user_prompts" -Recurse -File | Measure-Object | Select-Object Cou
 ### ☐ Step 2.3: Copy Knowledge Base (5 minutes)
 
 **PowerShell Script:**
+
 ```powershell
 $source = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-architecture-assistant"
 $dest = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
@@ -262,6 +278,7 @@ Write-Host "✅ Copied knowledge base files"
 ```
 
 **Validation**:
+
 ```powershell
 Get-ChildItem "knowledge_base"
 # Should show: design_decisions.json, README.md, system_config.json, user_requirements.json
@@ -272,6 +289,7 @@ Get-ChildItem "knowledge_base"
 ### ☐ Step 2.4: Copy Documentation, Guides, Templates (10 minutes)
 
 **PowerShell Script:**
+
 ```powershell
 $source = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-architecture-assistant"
 $dest = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
@@ -292,6 +310,7 @@ Write-Host "✅ Copied documentation, guides, templates, outputs"
 ```
 
 **Validation**:
+
 ```powershell
 Get-ChildItem "docs","guides","templates","outputs" -Recurse | Measure-Object | Select-Object Count
 ```
@@ -301,6 +320,7 @@ Get-ChildItem "docs","guides","templates","outputs" -Recurse | Measure-Object | 
 ### ☐ Step 2.5: Copy Scripts (Deployment Only) (5 minutes)
 
 **PowerShell Script:**
+
 ```powershell
 $source = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-architecture-assistant"
 $dest = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
@@ -316,6 +336,7 @@ Write-Host "⚠️  Python scripts excluded per user instruction"
 ```
 
 **Validation**:
+
 ```powershell
 Get-ChildItem "scripts"
 # Should show only: deploy_cursor.ps1, deploy_cursor.sh, DEPLOYMENT.md, README.md
@@ -326,6 +347,7 @@ Get-ChildItem "scripts"
 ### ☐ Step 2.6: Copy LICENSE and CHANGELOG (5 minutes)
 
 **PowerShell Script:**
+
 ```powershell
 $source = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-architecture-assistant"
 $dest = "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
@@ -362,6 +384,7 @@ git status
 ### ☐ Step 3.1: Integrate Prompt Engineering Assistant with Supervisor (30 minutes)
 
 **Cursor Prompt #3:**
+
 ```
 Update the Supervisor Agent (supervisor_agent.system.prompt.md) to recognize the Prompt Engineering Assistant as the 6th specialized agent.
 
@@ -414,6 +437,7 @@ Make these changes while preserving all existing content and functionality. List
 ### ☐ Step 3.2: Update Engineering Agent to Reference Prompt Engineering Assistant (20 minutes)
 
 **Cursor Prompt #4:**
+
 ```
 Update the Engineering Agent (ai_agents/engineering_agent.system.prompt.md) to reference the Prompt Engineering Assistant as a specialized capability it can invoke.
 
@@ -442,10 +466,12 @@ The Architecture Assistant has an "Optimization Agent" that optimizes entire AI 
 The Engineering Assistant has "improve" prompts that improve individual prompts.
 
 These are DIFFERENT concepts:
+
 - **Optimize** (Optimization Agent): Broad system-level improvements across multiple agents, following Well-Architected principles
 - **Improve** (Prompt Engineering): Narrow prompt-level improvements for individual prompts or prompt systems
 
 **Cursor Prompt #5:**
+
 ```
 Analyze and clarify the distinction between "optimization" (system-level) and "improvement" (prompt-level) across all files in the repository.
 
@@ -463,21 +489,25 @@ Tasks:
 
 Create a terminology guide snippet that can be added to relevant files:
 ```
+
 ## Terminology: Optimization vs Improvement
 
 **System Optimization** (Optimization Agent):
+
 - Scope: Entire AI systems, multi-agent architectures
 - Focus: AWS Well-Architected principles, lifecycle awareness, measurable business impact
 - Location: ai_agents/optimization_agent.system.prompt.md
 - User Prompts: user_prompts/optimization/*
 
 **Prompt Improvement** (Prompt Engineering Assistant):
+
 - Scope: Individual prompts, prompt systems, prompt workflows
 - Focus: Clarity, efficiency, platform optimization, redundancy reduction
 - Location: prompt_engineering_assistant.system.prompt.md
 - User Prompts: user_prompts/prompt_engineering/improve_*
 
 **Integration**: Optimization Agent may invoke Prompt Engineering Assistant to improve prompts as part of system-wide optimization.
+
 ```
 
 List all files reviewed and any changes made.
@@ -490,6 +520,7 @@ List all files reviewed and any changes made.
 ### ☐ Step 3.4: Update User Prompt Cross-References (30 minutes)
 
 **Cursor Prompt #6:**
+
 ```
 Update all user prompts in user_prompts/optimization/ to reference correct file paths after the repository reorganization.
 
@@ -512,6 +543,7 @@ List all files checked and any changes made.
 ### ☐ Step 3.5: Create Cross-Reference Documentation (20 minutes)
 
 **Cursor Prompt #7:**
+
 ```
 Create a new file: docs/agent-relationships.md
 
@@ -594,6 +626,7 @@ git status
 **Test Scenario**: Create a simple prompt using Prompt Engineering Assistant
 
 **Steps**:
+
 1. Load Supervisor Agent
 2. Request: "I need to create a SQL query assistant for my team"
 3. Verify Supervisor routes to Prompt Engineering Assistant
@@ -601,6 +634,7 @@ git status
 5. Validate output quality
 
 **Success Criteria**:
+
 - ✅ Supervisor correctly identifies request as prompt engineering task
 - ✅ Prompt Engineering Assistant creates valid SQL query assistant
 - ✅ Output is copy-paste ready
@@ -615,6 +649,7 @@ git status
 **Test Scenario**: Design complete AI system using multiple agents
 
 **Steps**:
+
 1. Load Supervisor Agent
 2. Request: "I want to build a financial operations assistant"
 3. Follow through Requirements → Architecture → Engineering → Prompt Engineering (for creating target system prompts)
@@ -622,6 +657,7 @@ git status
 5. Verify agents hand off correctly
 
 **Success Criteria**:
+
 - ✅ Requirements Agent populates user_requirements.json
 - ✅ Architecture Agent reads requirements, populates design_decisions.json
 - ✅ Engineering Agent reads design decisions, creates prototype
@@ -638,6 +674,7 @@ git status
 **Test Scenario**: Optimize an existing AI system
 
 **Steps**:
+
 1. Load Optimization Agent directly
 2. Request: "Analyze the AI Engineering Assistant repository for optimization opportunities"
 3. Verify it discovers all agents, identifies relationships
@@ -645,6 +682,7 @@ git status
 5. Verify it can recommend involving Prompt Engineering Assistant for prompt-level improvements
 
 **Success Criteria**:
+
 - ✅ Discovers all 6 agents
 - ✅ Correctly categorizes files (agents vs user prompts vs docs)
 - ✅ Uses "optimization" terminology for system-level
@@ -660,6 +698,7 @@ git status
 **Test Scenario**: Verify knowledge base is accessible to all agents
 
 **Steps**:
+
 1. Manually edit knowledge_base/system_config.json with test project info
 2. Load Requirements Agent, verify it can read system_config
 3. Load Architecture Agent, verify it reads and writes correctly
@@ -667,6 +706,7 @@ git status
 5. Verify JSON files are valid
 
 **Success Criteria**:
+
 - ✅ All agents can read system_config.json
 - ✅ Requirements Agent can write to user_requirements.json
 - ✅ Architecture Agent can write to design_decisions.json
@@ -683,6 +723,7 @@ git status
 **Test Scenario**: Verify Prompt Engineering Assistant works independently (not just through Supervisor)
 
 **Steps**:
+
 1. Load Prompt Engineering Assistant directly (not through Supervisor)
 2. Test improvement workflow: "Improve this prompt: [paste sample prompt]"
 3. Test system optimization: "Analyze these 3 prompts for redundancy"
@@ -690,6 +731,7 @@ git status
 5. Verify all original user prompts in user_prompts/prompt_engineering/ work
 
 **Success Criteria**:
+
 - ✅ Works standalone without Supervisor
 - ✅ All original features preserved
 - ✅ User prompts in prompt_engineering folder accessible
@@ -710,6 +752,7 @@ git status
 4. Document minor issues for future improvement
 
 **Cursor Prompt #8 (if needed):**
+
 ```
 Based on testing, the following issues were identified:
 
@@ -746,6 +789,7 @@ git status
 ### ☐ Step 5.1: Merge READMEs into Comprehensive README (45 minutes)
 
 **Cursor Prompt #9:**
+
 ```
 Create a new, comprehensive README.md that merges content from both repositories:
 
@@ -788,6 +832,7 @@ Structure the new README as follows:
 
 ## Repository Structure
 ```
+
 ├── supervisor_agent.system.prompt.md       # Start here
 ├── prompt_engineering_assistant.system.prompt.md  # Standalone prompt engineering
 ├── ai_agents/                              # 5 specialized agents
@@ -798,6 +843,7 @@ Structure the new README as follows:
 ├── templates/                              # Reusable templates
 ├── scripts/                                # Deployment automation
 └── outputs/                                # Generated prototypes
+
 ```
 
 ## Common Workflows
@@ -853,6 +899,7 @@ Save as README-new.md (don't overwrite existing README yet).
 ### ☐ Step 5.2: Update TODO.md (15 minutes)
 
 **Cursor Prompt #10:**
+
 ```
 Update TODO.md to reflect the post-merge state of the repository.
 
@@ -903,6 +950,7 @@ Update file accordingly.
 ### ☐ Step 5.3: Create Migration Summary Document (20 minutes)
 
 **Cursor Prompt #11:**
+
 ```
 Create a new file: docs/migration-summary.md
 
@@ -975,6 +1023,7 @@ See TODO.md for post-merge task list
 ### ☐ Step 5.4: Update CHANGELOG (15 minutes)
 
 **Cursor Prompt #12:**
+
 ```
 Update CHANGELOG.md (or create if it doesn't exist) with the migration event.
 
@@ -1050,6 +1099,7 @@ Merged AI Architecture Assistant repository into AI Engineering Assistant to cre
 7. ☐ Review folder structure - clean and logical?
 
 **Cleanup Tasks:**
+
 ```powershell
 # Delete any temporary files
 Remove-Item "pre-migration-file-list.txt" -ErrorAction SilentlyContinue
@@ -1076,6 +1126,7 @@ git log --oneline -10  # Review commit history
 ### ☐ Step 6.1: Final Testing Before Merge (10 minutes)
 
 **Quick Smoke Test:**
+
 1. Load Supervisor Agent in Cursor
 2. Test: "I need to build a data engineering AI assistant"
 3. Verify complete workflow works
@@ -1111,6 +1162,7 @@ git push origin main
 ### ☐ Step 6.3: Deploy to Cursor (10 minutes)
 
 **Run deployment script:**
+
 ```powershell
 cd "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
 
@@ -1119,6 +1171,7 @@ cd "C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant"
 ```
 
 **Or manual setup in Cursor:**
+
 1. Open Cursor Settings → Chat → Custom Modes
 2. Create new mode: "Supervisor Agent"
 3. Copy contents of supervisor_agent.system.prompt.md
@@ -1157,6 +1210,7 @@ git push origin v0.3.0
 5. Create the data engineering assistant
 
 **Success Criteria**:
+
 - ✅ Complete workflow executes without errors
 - ✅ Knowledge base populated correctly
 - ✅ Output is usable for Friday deadline
@@ -1188,6 +1242,7 @@ git push origin v0.3.0
 5. Run a user prompt from user_prompts/prompt_engineering/
 
 **Success Criteria**:
+
 - ✅ All original workflows function correctly
 - ✅ No regression in functionality
 - ✅ User prompts accessible and work as expected
@@ -1259,11 +1314,13 @@ Create file: post-migration-report.md
 ### Most Common Commands
 
 **Start Supervisor Agent:**
+
 ```
 Open Cursor → AI Chat → Select "Supervisor Agent" mode → Start conversation
 ```
 
 **Access Knowledge Base:**
+
 ```
 knowledge_base/system_config.json - Project configuration
 knowledge_base/user_requirements.json - Requirements (written by Requirements Agent)
@@ -1271,18 +1328,21 @@ knowledge_base/design_decisions.json - Architecture (written by Architecture Age
 ```
 
 **Create New Prompt:**
+
 ```
 Load "Prompt Engineering Assistant" mode OR
 Load "Supervisor Agent" and say "I need to create a new prompt"
 ```
 
 **Optimize System:**
+
 ```
 Load "Optimization Agent" OR
 Load "Supervisor Agent" and say "Optimize this AI system"
 ```
 
 **File Organization:**
+
 ```
 Root: Supervisor Agent, Prompt Engineering Assistant
 ai_agents/: 5 specialized agents
@@ -1297,21 +1357,27 @@ guides/: How-to guides and examples
 ## 🆘 Troubleshooting Guide
 
 ### Issue: Agent can't find knowledge base files
+
 **Solution**: Ensure running from repository root, check paths: `knowledge_base/[file].json`
 
 ### Issue: Supervisor not recognizing Prompt Engineering Assistant
+
 **Solution**: Re-read supervisor_agent.system.prompt.md, verify Phase 3 Step 3.1 was completed
 
 ### Issue: User prompts not accessible
+
 **Solution**: Verify folder structure, check user_prompts/* subfolders exist, verify file moves in Phase 1
 
 ### Issue: Circular references or ambiguity with "optimize" vs "improve"
+
 **Solution**: Review docs/agent-relationships.md and terminology guide, refer to Phase 3 Step 3.3
 
 ### Issue: Original Prompt Engineering workflows broken
+
 **Solution**: Check user_prompts/prompt_engineering/ folder exists with all original files, verify Phase 1 Step 1.2 completed correctly
 
-### Rollback if Needed:
+### Rollback if Needed
+
 ```powershell
 git checkout main
 git branch -D merge-architecture-assistant
@@ -1344,7 +1410,7 @@ git branch -D merge-architecture-assistant
 
 ---
 
-## 🚀 You're Done!
+## 🚀 You're Done
 
 **Time to build that data engineering AI assistant! 🎉**
 
