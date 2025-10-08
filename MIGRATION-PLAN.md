@@ -86,7 +86,7 @@ Get-ChildItem -Recurse -File | Select-Object FullName | Out-File "pre-migration-
 
 **Cursor Prompt #1:**
 
-```
+```text
 Create the following folder structure in the AI Engineering Assistant repository to prepare for the Architecture Assistant merge:
 
 Required folders:
@@ -152,7 +152,7 @@ Get-ChildItem "user_prompts\*.md" | Move-Item -Destination "user_prompts\prompt_
 
 **Cursor Prompt #2:**
 
-```
+```text
 The user prompts have been moved from `user_prompts/` to `user_prompts/prompt_engineering/`. 
 
 Update the following file to reflect the new paths:
@@ -385,7 +385,7 @@ git status
 
 **Cursor Prompt #3:**
 
-```
+```text
 Update the Supervisor Agent (supervisor_agent.system.prompt.md) to recognize the Prompt Engineering Assistant as the 6th specialized agent.
 
 Changes needed:
@@ -1024,7 +1024,7 @@ See TODO.md for post-merge task list
 
 **Cursor Prompt #12:**
 
-```
+```text
 Update CHANGELOG.md (or create if it doesn't exist) with the migration event.
 
 Add new entry at top:
