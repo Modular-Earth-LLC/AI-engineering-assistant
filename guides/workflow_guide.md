@@ -1,122 +1,92 @@
-# Workflow Guide - AI Architecture Assistant
+# Complete Workflow Guide
 
-**Purpose:** Step-by-step guide through the AI system design lifecycle  
-**Framework:** Runs in Cursor IDE (custom chat modes)  
-**Output:** AI systems for deployment to Cursor, Claude Projects, AWS Bedrock, or custom platforms  
-**Time:** 2-4 weeks from idea to deployed prototype
+**Step-by-step guide** through the AI system development lifecycle using the multi-agent framework.
 
----
-
-## Key Understanding: Two Levels
-
-**Meta-Level (YOU):**
-- AI Architecture Assistant agents (this framework)
-- Run IN Cursor IDE as custom chat modes
-- Help you design and build OTHER systems
-
-**Target-Level (OUTPUT):**
-- The AI systems you create
-- Deploy to Cursor, Claude Projects, AWS Bedrock, etc.
-- Solve your actual business problems
-
----
+**Time**: 2-4 weeks from idea to deployed system
 
 ## Workflow Overview
 
 ```
-Cursor IDE (this framework)
-    ↓
-Phase 0: Requirements (15 min - 2 hrs)
-    ↓ user_requirements.json (for your target system)
-Phase 1: Architecture (2-4 hrs, 6 steps)
-    ↓ design_decisions.json (for your target system)
-Phase 2: Engineering (1-2 weeks)
-    ↓ outputs/prototypes/[project]/ (prompts + code for your target system)
-Phase 3: Deployment (2-4 hrs)
-    ↓ Deployed target system (on chosen platform)
-Phase 4: Optimization (ongoing)
-    ↓ Refined system (or optimize this framework itself)
+Phase 0: Requirements    → 15 min - 2 hrs    → user_requirements.json
+Phase 1: Architecture    → 2-4 hrs (6 steps) → design_decisions.json
+Phase 2: Engineering     → 1-2 weeks         → Working prototype
+Phase 3: Deployment      → 2-4 hrs           → Deployed system
+Phase 4: Optimization    → Ongoing           → Continuous improvement
 ```
-
----
 
 ## Phase 0: Requirements Discovery
 
-**Agent:** Requirements Agent (running in Cursor)  
-**Purpose:** Gather requirements for the target system you want to build  
-**Time:** 15 minutes to 2 hours
+**Agent**: Requirements Agent  
+**Time**: 15 minutes to 2 hours  
+**Output**: `knowledge_base/user_requirements.json`
 
-### Choose Your Method
+### Choose Your Approach
 
-**Quick Discovery (15 min)** - RECOMMENDED FOR FIRST PROJECT
+**Quick Discovery** (15 min) — Recommended for first project
 - Use: `user_prompts/requirements/quick_discovery.user.prompt.md`
-- Best for: Simple use cases, solo-entrepreneurs
-- Process: Answer 10 questions about YOUR target system
+- Best for: Simple use cases, solo entrepreneurs
 
-**Standard Discovery (30-45 min)**
+**Standard Discovery** (30-45 min)
 - Use: `user_prompts/requirements/standard_discovery.user.prompt.md`
 - Best for: Small to medium teams
 
-**Comprehensive Workshop (90 min)**
+**Comprehensive Workshop** (90 min)
 - Use: `user_prompts/requirements/comprehensive_workshop.user.prompt.md`
-- Best for: Enterprise, multi-stakeholder
+- Best for: Enterprise, multiple stakeholders
 
-### Output
+### What You Get
 
-✅ `knowledge_base/user_requirements.json` populated with:
-- Problem statement for your target system
-- Business value quantified
-- AI suitability assessed
-- Success metrics defined
-- Target deployment platform (Cursor, Claude Projects, AWS Bedrock, custom)
-
----
+- Problem statement and business value
+- AI suitability assessment
+- Success metrics and criteria
+- Target deployment platform
 
 ## Phase 1: Architecture Design
 
-**Agent:** Architecture Agent (running in Cursor)  
-**Purpose:** Design YOUR target AI system architecture  
-**Time:** 2-4 hours (6 steps)
+**Agent**: Architecture Agent  
+**Time**: 2-4 hours  
+**Output**: `knowledge_base/design_decisions.json`
 
 ### 6-Step Process
 
-**Step 1: Tech Stack (30 min)**
+**Step 1: Tech Stack** (30 min)
 - Prompt: `user_prompts/architecture/tech_stack_selection.user.prompt.md`
-- Output: LLM provider, framework, infrastructure for YOUR target system
+- Selects: LLM provider, framework, infrastructure
 
-**Step 2: Architecture Diagram (20 min)**
+**Step 2: Architecture Diagram** (20 min)
 - Prompt: `user_prompts/architecture/architecture_diagram_generation.user.prompt.md`
-- Output: Visual design of YOUR target system (Mermaid, ASCII, or other format)
+- Creates: Visual system design (Mermaid or ASCII)
 
-**Step 3: Team Composition (20 min)**
+**Step 3: Team Composition** (20 min)
 - Prompt: `user_prompts/architecture/team_composition.user.prompt.md`
-- Output: Required roles, skills, hiring needs to build YOUR target system
+- Defines: Required roles, skills, hiring needs
 
-**Step 4: LOE Estimation (30 min)**
+**Step 4: LOE Estimation** (30 min)
 - Prompt: `user_prompts/architecture/loe_estimation.user.prompt.md`
-- Output: Engineering hours, timeline, complexity for YOUR target system
+- Calculates: Engineering hours, timeline, complexity
 
-**Step 5: Cost Estimation (20 min)**
+**Step 5: Cost Estimation** (20 min)
 - Prompt: `user_prompts/architecture/cost_estimation.user.prompt.md`
-- Output: Development + infrastructure + TCO + ROI for YOUR target system
+- Projects: Development + infrastructure + TCO + ROI
 
-**Step 6: Project Plan (40 min)**
+**Step 6: Project Plan** (40 min)
 - Prompt: `user_prompts/architecture/project_plan_generation.user.prompt.md`
-- Output: Phased roadmap, milestones, risks for YOUR target system
+- Delivers: Phased roadmap, milestones, risks
 
-### Output
+### What You Get
 
-✅ `design_decisions.json` complete (architecture for your target system)  
-✅ `outputs/presentations/[project]/` populated with all artifacts
-
----
+- Complete architecture design
+- Cost and timeline estimates
+- Project plan and risk assessment
+- All artifacts in `outputs/presentations/[project]/`
 
 ## Phase 2: Proposals (Optional)
 
-**Agent:** Architecture Agent (assembly mode)  
-**Time:** 30 minutes
+**Agent**: Architecture Agent  
+**Time**: 30 minutes  
+**Purpose**: Create executive presentations
 
-### Choose Format
+### Proposal Types
 
 **Pitch Deck** (for clients/investors)
 - Prompt: `user_prompts/proposals/pitch_deck_assembly.user.prompt.md`
@@ -126,28 +96,34 @@ Phase 4: Optimization (ongoing)
 - Prompt: `user_prompts/proposals/internal_proposal_assembly.user.prompt.md`
 - Output: 18-slide presentation + executive summary
 
----
+**Discovery Proposal**
+- Prompt: `user_prompts/proposals/discovery_proposal_assembly.user.prompt.md`
+- Output: SOW-style document
+
+**Implementation Proposal**
+- Prompt: `user_prompts/proposals/implementation_proposal_assembly.user.prompt.md`
+- Output: Technical implementation plan
 
 ## Phase 3: Engineering
 
-**Agent:** Engineering Agent (running in Cursor)  
-**Purpose:** Generate prompts and code for YOUR target system  
-**Time:** 1-2 weeks
+**Agent**: Engineering Agent  
+**Time**: 1-2 weeks  
+**Output**: Working prototype
 
 ### Process
 
-1. Engineering Agent (in Cursor) reads `design_decisions.json`
-2. Generates agent prompts for YOUR target system
-3. Writes implementation code for YOUR target system
-4. Creates UI (Streamlit/React/CLI) for YOUR target system
+1. Engineering Agent reads `design_decisions.json`
+2. Generates agent prompts for your system
+3. Writes implementation code
+4. Creates UI (Streamlit, React, or CLI)
 5. Builds demo scenarios
 
-### Output
+### What You Get
 
-✅ Complete prototype in `outputs/prototypes/[project-name]/`:
-- Agent prompts (`.system.prompt.md` files for your target system)
+Complete prototype in `outputs/prototypes/[project-name]/`:
+- Agent prompts (`.system.prompt.md` files)
 - Implementation code (Python, JavaScript, etc.)
-- UI application (if applicable)
+- UI application
 - Demo scenarios
 - Documentation
 - Deployment instructions
@@ -157,173 +133,180 @@ Phase 4: Optimization (ongoing)
 ```bash
 cd outputs/prototypes/[project-name]/
 pip install -r requirements.txt
-# Follow README.md instructions to test YOUR target system locally
+# Follow README.md to test locally
 ```
-
-**Note:** This is still on your local machine. Phase 4 will guide you to deploy to the target platform.
-
----
 
 ## Phase 4: Deployment
 
-**Agent:** Deployment Agent (running in Cursor)  
-**Purpose:** Guide you to deploy YOUR target system to its target platform  
-**Time:** 2-4 hours
+**Agent**: Deployment Agent  
+**Time**: 2-4 hours  
+**Output**: System deployed to production
 
-### Choose Target Platform for YOUR System
+### Target Platforms
 
-**Cursor:** Copy generated prompts to Cursor custom chat modes  
-**Claude Projects:** Create Claude Project, upload prompts + knowledge base  
-**AWS Bedrock:** Deploy as Bedrock Agents (single or multi-agent)  
-**Self-hosted:** Deploy to Ollama, Open WebUI, or custom infrastructure
+**Cursor IDE**
+- Copy prompts to Cursor custom chat modes
+- Best for: Development teams
+
+**Claude Projects**
+- Create project, upload prompts and knowledge base
+- Best for: Team collaboration
+
+**AWS Bedrock**
+- Deploy as Bedrock Agents with infrastructure
+- Best for: Production, enterprise scale
+
+**Custom Platforms**
+- Deploy to Ollama, LangChain, self-hosted
+- Best for: Specific requirements
 
 ### Process
 
-1. Deployment Agent (in Cursor) reads `design_decisions.json`
-2. Creates platform-specific deployment guide for YOUR target system
+1. Deployment Agent reads `design_decisions.json`
+2. Creates platform-specific deployment guide
 3. Generates testing strategy
 4. Assesses production readiness
-5. YOU execute the deployment steps on the target platform
+5. You execute deployment steps
 
-### Output
+### What You Get
 
-✅ YOUR target system deployed and ready for use on chosen platform  
-✅ Platform-specific deployment documentation  
-✅ Testing checklist and validation scripts
-
----
+- Deployed system on chosen platform
+- Platform-specific documentation
+- Testing checklist
+- Validation scripts
 
 ## Phase 5: Optimization
 
-**Agent:** Optimization Agent (running in Cursor)  
-**Purpose:** Optimize YOUR target system OR this AI Architecture Assistant framework  
-**Time:** Ongoing (monthly/quarterly)
+**Agent**: Optimization Agent  
+**Time**: Ongoing (monthly/quarterly)  
+**Purpose**: Continuous improvement
 
-### Two Optimization Scopes
+### What to Optimize
 
-**Optimize YOUR Target System:**
+**Your Deployed System**
 - Improve prompts, architecture, performance
 - Reduce costs, increase quality
 - Enhance user experience
 
-**Optimize This Framework (Meta-Level):**
-- Improve AI Architecture Assistant agents
-- Enhance workflows, documentation
-- Refine knowledge base structure
+**This Framework**
+- Improve agents and workflows
+- Enhance documentation
+- Refine processes
 
 ### Process
 
-Simply chat with the Optimization Agent in Cursor. It will ask:
-- What to optimize (your system, this framework, external system)
-- Development lifecycle stage
-- Optimization focus (performance, cost, quality, UX)
-- Preferred approach (analyze first, analyze & implement, assessment only)
+Chat with Optimization Agent:
+1. Specify what to optimize
+2. Define optimization focus (performance, cost, quality)
+3. Choose approach (analyze, implement, or assess)
 
-Then it will:
-1. Discover current system state
+Agent will:
+1. Discover current state
 2. Assess against best practices
-3. Propose prioritized improvements
-4. Execute safe, incremental changes (if approved)
-
-### Frequency
-
-Run optimization monthly or quarterly to continuously improve.
-
----
+3. Propose improvements
+4. Execute changes (if approved)
 
 ## Quick Reference
 
-**Meta-Level (This Framework):**
-- **Start:** Supervisor Agent in Cursor (`supervisor_agent.system.prompt.md`)  
-- **All agents run:** In Cursor IDE as custom chat modes
-- **Knowledge Base:** `knowledge_base/*.json` (requirements and designs for your target system)
+### Starting Your Project
 
-**Target-Level (What You Create):**
-- **User Prompts:** `user_prompts/[phase]/` (for architecting your target system)
-- **Outputs:** `outputs/presentations/` and `outputs/prototypes/` (prompts and code for your target system)
-- **Deployment:** Your target system goes to Cursor, Claude Projects, AWS Bedrock, or custom platforms
+1. **Install**: Run `.\scripts\deploy_cursor.ps1` (Windows) or `./scripts/deploy_cursor.sh` (Mac/Linux)
+2. **Open Cursor**: Load Supervisor Agent custom chat mode
+3. **Request**: "Build a [your system]"
+4. **Follow**: Requirements → Architecture → Engineering → Deployment
 
----
+### Key Files
 
-## Summary: The Complete Picture
+**Knowledge Base** (shared state):
+- `knowledge_base/system_config.json` — Platform constraints, team info
+- `knowledge_base/user_requirements.json` — Requirements (Requirements Agent writes)
+- `knowledge_base/design_decisions.json` — Architecture (Architecture Agent writes)
 
-```
-┌─────────────────────────────────────────────────┐
-│  AI ARCHITECTURE ASSISTANT (Meta-Level)         │
-│  Runs in: Cursor IDE (custom chat modes)        │
-│                                                  │
-│  Supervisor → Requirements → Architecture →     │
-│  Engineering → Deployment → Optimization        │
-│                                                  │
-│  Knowledge Base: requirements & designs         │
-└─────────────────────────────────────────────────┘
-                     ↓
-                  Generates
-                     ↓
-┌─────────────────────────────────────────────────┐
-│  YOUR TARGET SYSTEM (Target-Level)              │
-│  Deploys to: Cursor | Claude | Bedrock | Custom │
-│                                                  │
-│  Output:                                         │
-│  - Agent prompts (.system.prompt.md)            │
-│  - Implementation code (Python, JS, etc.)       │
-│  - UI (Streamlit, React, CLI)                   │
-│  - Knowledge base (JSON, docs)                  │
-│  - Deployment guide                             │
-└─────────────────────────────────────────────────┘
-```
+**User Prompts** (task instructions):
+- `user_prompts/requirements/` — Discovery tasks
+- `user_prompts/architecture/` — Design tasks
+- `user_prompts/engineering/` — Build tasks
+- `user_prompts/deployment/` — Deploy tasks
+- `user_prompts/optimization/` — Improve tasks
+- `user_prompts/proposals/` — Presentation tasks
 
-**Example Walkthrough:**
+**Outputs**:
+- `outputs/presentations/[project]/` — Diagrams, estimates, plans
+- `outputs/prototypes/[project]/` — Working code and prompts
 
-1. You open Cursor and chat with **Supervisor Agent** (in Cursor)
-2. Supervisor routes you to **Requirements Agent** (in Cursor) to gather needs for your **financial operations assistant** (target system)
-3. **Architecture Agent** (in Cursor) designs the architecture for your **financial operations assistant** (target system)
-4. **Engineering Agent** (in Cursor) generates:
-   - `financial_operations_agent.system.prompt.md` (for your target system)
-   - `analytics_agent.system.prompt.md` (for your target system)
-   - Python code for integrations
-   - Streamlit UI
-5. **Deployment Agent** (in Cursor) guides you to deploy your **financial operations assistant** to AWS Bedrock
-6. Your **financial operations assistant** is now running on AWS Bedrock (target platform), helping your business
+## Success Tips
 
----
+**Do**:
+- ✅ Follow phases in order
+- ✅ Review knowledge base files after each phase
+- ✅ Test locally before deploying
+- ✅ Commit to git after milestones
 
-## Tips for Success
-
-✅ Follow phases in order (requirements → architecture → engineering)  
-✅ Review knowledge base files after each phase  
-✅ Understand what runs WHERE (this framework in Cursor, target systems elsewhere)  
-✅ Commit to git after major milestones  
-✅ Test target systems locally before deploying to target platforms  
-
-❌ Don't skip requirements (leads to rework)  
-❌ Don't rush architecture (prevents expensive mistakes)  
-❌ Don't confuse this framework with the systems it creates  
-❌ Don't deploy without testing
-
----
+**Don't**:
+- ❌ Skip requirements (causes rework)
+- ❌ Rush architecture (expensive mistakes)
+- ❌ Deploy without testing
+- ❌ Ignore optimization phase
 
 ## Troubleshooting
 
-**Agent can't find knowledge base:**  
-→ Run from repository root, check paths are `knowledge_base/[file].json`
+**Agent can't find knowledge base**  
+→ Run from repository root, verify paths: `knowledge_base/*.json`
 
-**Architecture step errors:**  
+**Architecture step errors**  
 → Ensure previous step completed (check `design_decisions.json._metadata`)
 
-**Engineering Agent doesn't know what to build:**  
+**Engineering Agent doesn't know what to build**  
 → Verify `design_decisions.json` is complete (all 6 steps)
 
-**Generated system doesn't work as expected:**  
-→ Return to Engineering Agent in Cursor, request refinements, iterate on the design
+**Deployment fails**  
+→ Check platform-specific requirements in deployment guide
 
-**Confused about where things run:**  
-→ AI Architecture Assistant = Cursor only (custom chat modes)  
-→ Systems you create = Deploy to any platform (Cursor, Claude, Bedrock, custom)
+**Agent routing incorrect**  
+→ Be specific: "Build customer support system" not "I need help"
 
----
+## Example Walkthrough
 
-**Version:** 0.2  
-**Last Updated:** 2025-10-08  
-**Framework Platform:** Cursor IDE (ONLY)  
-**Target System Platforms:** Cursor | Claude Projects | AWS Bedrock | Custom
+**Goal**: Build financial operations assistant
+
+1. **Requirements** (15 min)
+   - Use Quick Discovery
+   - Define: invoicing automation + expense tracking
+   - Output: user_requirements.json
+
+2. **Architecture** (3 hrs)
+   - Select: Claude + Streamlit + AWS
+   - Design: 2-agent system (Operations + Analytics)
+   - Output: design_decisions.json
+
+3. **Engineering** (1 week)
+   - Generate: 2 agent prompts
+   - Build: Python code + Streamlit UI
+   - Output: Working prototype
+
+4. **Deployment** (2 hrs)
+   - Platform: AWS Bedrock
+   - Follow deployment guide
+   - Output: Production system
+
+5. **Optimization** (monthly)
+   - Improve: Response quality
+   - Reduce: API costs
+   - Output: Enhanced system
+
+## Next Steps
+
+**First Time?**
+- Start with Quick Discovery for a simple system
+- Follow all phases sequentially
+- Review knowledge base after each step
+
+**Experienced?**
+- Skip directly to specific agents
+- Use Optimization Agent for improvements
+- Customize user prompts for your workflow
+
+**Need Help?**
+- Check: `docs/agent-relationships.md`
+- Review: `guides/getting-started.md`
+- Read: `ARCHITECTURE.md`

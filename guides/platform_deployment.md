@@ -1,345 +1,321 @@
 # Platform Deployment Guide
 
-**Purpose:** Deploy the AI Architecture Assistant framework to Cursor IDE, and understand how to deploy the systems it creates to various platforms  
-**Framework Execution Platform:** Cursor IDE (ONLY)  
-**Target System Platforms:** Cursor IDE | Claude Projects | AWS Bedrock | Custom Platforms
+**Deploy the framework to Cursor IDE** and understand how to deploy generated systems to target platforms.
 
----
+## Framework Deployment (Cursor IDE)
 
-## Understanding Two Levels of "Deployment"
+### Quick Setup
 
-### Level 1: Deploying THIS Framework (Meta-Level)
-
-**What:** The AI Architecture Assistant (Supervisor + 5 specialized agents)  
-**Where:** Cursor IDE as custom chat modes  
-**Purpose:** To architect, engineer, and deploy OTHER AI systems
-
-### Level 2: Deploying Systems YOU CREATE (Target-Level)
-
-**What:** The AI systems this framework generates (e.g., financial assistant, email automation)  
-**Where:** Cursor IDE, Claude Projects, AWS Bedrock, or any platform you choose  
-**Purpose:** Production systems that solve your business problems
-
----
-
-## Part 1: Deploy AI Architecture Assistant to Cursor (Required)
-
-### Quick Start (Recommended)
-
-**Windows:**
+**Windows**:
 ```powershell
 .\scripts\deploy_cursor.ps1
 ```
 
-**Linux/Mac:**
+**Linux/Mac**:
 ```bash
 ./scripts/deploy_cursor.sh
 ```
 
-This installs all 6 agents as Cursor custom chat modes.
-
----
+Installs all 6 agents as Cursor custom chat modes.
 
 ### Manual Setup
 
-**Location:** 
-- Windows: `%APPDATA%\Cursor\User\globalStorage\`
-- Mac/Linux: `~/.config/Cursor/User/globalStorage/`
+1. Open Cursor → Settings → Chat → Custom Modes
+2. Create new mode: "Supervisor Agent"
+3. Copy contents of `supervisor_agent.system.prompt.md`
+4. Enable "All tools"
+5. Save
 
-**Files to copy:**
-1. `supervisor_agent.system.prompt.md` → Custom chat mode "Supervisor Agent"
-2. `ai_agents/requirements_agent.system.prompt.md` → Custom chat mode "Requirements Agent"
-3. `ai_agents/architecture_agent.system.prompt.md` → Custom chat mode "Architecture Agent"
-4. `ai_agents/engineering_agent.system.prompt.md` → Custom chat mode "Engineering Agent"
-5. `ai_agents/deployment_agent.system.prompt.md` → Custom chat mode "Deployment Agent"
-6. `ai_agents/optimization_agent.system.prompt.md` → Custom chat mode "Optimization Agent"
+Repeat for other agents in `ai_agents/` as needed.
 
----
+### Verify Installation
 
-### Usage
+1. Open Cursor AI Pane (`Ctrl+Shift+L`)
+2. Confirm "Supervisor Agent" appears in mode dropdown
+3. Test: "Build a customer support system"
+4. Verify agent responds and routes correctly
 
-1. Open Cursor IDE
-2. Open AI Pane (Ctrl+L or Cmd+L)
-3. Select Custom Chat Mode → "Supervisor Agent"
-4. Start: `"I want to build an AI system to automate [your use case]"`
+## Target System Deployment
 
-The Supervisor Agent will guide you through architecting and building your target system.
+After building a system with the framework, deploy it to your chosen platform.
 
----
+### Deployment to Cursor IDE
 
-### Validation
+**Best for**: Development teams, internal tools
 
-After deploying to Cursor, validate the framework:
+**Process**:
+1. Engineering Agent generates `.system.prompt.md` files
+2. Copy to Cursor Settings → Custom Modes
+3. Configure tools and permissions
+4. Team members can now use the agent
 
+**Example**:
 ```bash
-# Validate knowledge base structure
-python scripts/validate_knowledge_base.py
-
-# Run tests on agents
-python scripts/test_agents.py
-
-# Check Well-Architected compliance
-python scripts/score_well_architected.py
+# Generated files in outputs/prototypes/[project]/
+cp financial_operations_agent.system.prompt.md \
+   ~/.config/Cursor/User/chat_modes/
 ```
 
----
+### Deployment to Claude Projects
 
-## Part 2: Deploy Systems YOU CREATE to Target Platforms
+**Best for**: Team collaboration, non-technical users
 
-Once you've used the AI Architecture Assistant to design and build a system (e.g., a financial operations assistant), you can deploy that OUTPUT system to various platforms.
+**Process**:
+1. Create new Claude Project
+2. Upload generated prompts as Project Instructions
+3. Upload knowledge base files as Project Knowledge
+4. Configure access permissions
+5. Share with team
 
-The **Deployment Agent** (running in Cursor) will guide you through deploying your created system to the appropriate target platform.
+**Files to Upload**:
+- Agent prompts (`.system.prompt.md`)
+- Knowledge base (JSON files)
+- Documentation (README, usage guide)
 
----
+**Configuration**:
+- Set context window appropriately
+- Define response length preferences
+- Configure tools if needed
 
-### Option A: Deploy Your System to Cursor IDE
+### Deployment to AWS Bedrock
 
-**When to use:**
-- You're creating Cursor custom chat modes for yourself or others
-- Target users are developers/engineers using Cursor
-- Simple local deployment
+**Best for**: Production, enterprise, scalable systems
 
-**Process:**
-1. Engineering Agent generates agent prompts for your system (e.g., `financial_operations_agent.system.prompt.md`)
-2. Copy those generated prompts to Cursor custom chat modes directory
-3. Users open Cursor → Custom Chat Mode → Select your agent
+**Process**:
+1. Engineering Agent generates infrastructure code
+2. Deployment Agent creates Bedrock deployment guide
+3. Follow platform-specific steps:
 
-**Example:**
-```
-You built: Financial Operations Assistant
-Output: financial_operations_agent.system.prompt.md
-Deploy: Copy to Cursor custom chat modes
-Usage: Other developers load it in their Cursor IDE
-```
-
----
-
-### Option B: Deploy Your System to Claude Projects
-
-**When to use:**
-- Team collaboration needed
-- Persistent knowledge base across conversations
-- Non-developer users (business analysts, domain experts)
-
-**Process:**
-1. Engineering Agent generates:
-   - Agent prompts (for Custom Instructions)
-   - Knowledge base files (JSON/docs)
-   - Integration code (if applicable)
-
-2. Create new Claude Project in Claude.ai
-
-3. Upload knowledge base to Project Knowledge:
-   - Custom data files
-   - Documentation
-   - Context documents
-
-4. Add agent prompt to Custom Instructions:
-   - Copy content from generated `.system.prompt.md`
-   - Configure project settings
-
-5. Share project with team members
-
-**Example:**
-```
-You built: Customer Support Assistant
-Output: 
-  - customer_support_agent.system.prompt.md
-  - knowledge_base/product_docs.json
-  - knowledge_base/faq_database.json
-Deploy: Create Claude Project, upload files
-Usage: Support team members chat with the project
-```
-
----
-
-### Option C: Deploy Your System to AWS Bedrock
-
-**When to use:**
-- Production-grade deployment
-- Enterprise security and compliance
-- Scalable infrastructure
-- Multi-agent orchestration
-
-**Prerequisites:**
-- AWS account with Bedrock access
-- Claude model access enabled (Anthropic Claude on Bedrock)
-- IAM permissions configured
-- AWS CLI installed
-
-**Process:**
-
-**1. Create Bedrock Knowledge Base (if needed):**
+**Single Agent**:
 ```bash
-aws bedrock-agent create-knowledge-base \
-  --name "your-system-kb" \
-  --description "Knowledge base for your AI system" \
-  --role-arn "arn:aws:iam::ACCOUNT:role/BedrockKBRole"
-```
-
-Upload knowledge base documents:
-- Engineering Agent generates data files
-- Upload to S3 bucket
-- Configure vector embeddings (Amazon Titan Embeddings)
-
-**2. Deploy Agents to Bedrock Agents:**
-
-For single-agent systems:
-```bash
+# Deploy as Bedrock Agent
 aws bedrock-agent create-agent \
-  --agent-name "your-agent-name" \
-  --foundation-model "anthropic.claude-3-5-sonnet-20241022-v2:0" \
-  --instruction "$(cat generated_agent_prompt.txt)" \
-  --agent-resource-role-arn "arn:aws:iam::ACCOUNT:role/BedrockAgentRole"
+    --agent-name financial-ops-assistant \
+    --instruction-file agent_prompt.txt \
+    --foundation-model anthropic.claude-v2
 ```
 
-For multi-agent systems:
-- Deploy supervisor agent as orchestrator
-- Deploy specialized agents as sub-agents
-- Configure agent collaboration and routing
-
-**3. Configure Access:**
-- API Gateway for external access
-- Lambda functions for custom logic
-- CloudWatch for monitoring and logging
-- IAM roles for security
-
-**4. Test Deployment:**
+**Multi-Agent**:
 ```bash
-aws bedrock-agent-runtime invoke-agent \
-  --agent-id "AGENT_ID" \
-  --agent-alias-id "ALIAS_ID" \
-  --session-id "test-session" \
-  --input-text "Test query"
+# Deploy agent coordination infrastructure
+cd outputs/prototypes/[project]/infrastructure/
+terraform init
+terraform apply
 ```
 
-**Example:**
+**Required AWS Resources**:
+- IAM roles and policies
+- S3 buckets for knowledge base
+- Lambda functions for integrations
+- Bedrock Agent configuration
+
+### Deployment to Custom Platforms
+
+**Best for**: Self-hosted, specific requirements
+
+**Ollama (Local)**:
+```bash
+# Copy prompt to Ollama
+ollama create financial-ops -f agent_prompt.txt
+ollama run financial-ops
 ```
-You built: Financial Operations Multi-Agent Assistant
-Output:
-  - supervisor_agent.system.prompt.md
-  - operations_agent.system.prompt.md
-  - analytics_agent.system.prompt.md
-  - knowledge_base/*.json
-Deploy: AWS Bedrock with multi-agent orchestration
-Usage: Production users access via API or web app
+
+**LangChain**:
+```python
+# Use generated prompt in LangChain
+from langchain import PromptTemplate
+prompt = PromptTemplate.from_file("agent_prompt.txt")
 ```
 
----
+**AutoGen**:
+```python
+# Deploy as AutoGen agent
+from autogen import AssistantAgent
+agent = AssistantAgent(
+    name="financial_ops",
+    system_message=open("agent_prompt.txt").read()
+)
+```
 
-### Option D: Custom Platform Deployment
+**Open WebUI**:
+1. Open WebUI admin panel
+2. Create new model configuration
+3. Paste generated prompt as system prompt
+4. Configure parameters
+5. Save and test
 
-**When to use:**
-- Self-hosted LLMs (Ollama, vLLM, etc.)
-- Custom infrastructure
-- Unique deployment requirements
+## Platform Comparison
 
-**Process:**
-1. Engineering Agent generates prompts and code
-2. Adapt to your platform's API and format
-3. Deploy using your infrastructure
-4. Integrate with your existing systems
+| Platform | Setup Time | Best For | Cost | Scalability |
+|----------|-----------|----------|------|-------------|
+| **Cursor IDE** | 5 min | Development teams | Included | Per developer |
+| **Claude Projects** | 10 min | Team collaboration | $20-60/mo | Per user |
+| **AWS Bedrock** | 2-4 hrs | Production systems | Usage-based | High |
+| **Ollama** | 15 min | Self-hosted, local | Hardware only | Medium |
+| **Custom** | Varies | Specific needs | Varies | Varies |
 
-**Examples:**
-- Ollama + Open WebUI
-- LangChain + custom backend
-- AutoGen Studio
-- Your own orchestration framework
+## Deployment Checklist
 
-The Deployment Agent will provide platform-specific guidance based on your target.
+### Pre-Deployment
 
----
+- [ ] System fully tested locally
+- [ ] Knowledge base files validated
+- [ ] Documentation complete
+- [ ] Access permissions defined
+- [ ] Backup strategy in place
 
-## Deployment Decision Matrix
+### During Deployment
 
-| Platform | Best For | Setup Time | Cost | Scalability | Security |
-|----------|----------|------------|------|-------------|----------|
-| **Cursor** | Developers, local testing | 5 min | Free | N/A | Local only |
-| **Claude Projects** | Teams, collaboration | 15 min | $20-200/mo | Medium | Anthropic-managed |
-| **AWS Bedrock** | Production, enterprise | 2-4 hrs | Variable ($100-10K+/mo) | High | AWS-managed |
-| **Custom** | Unique requirements | Variable | Variable | Variable | Self-managed |
+- [ ] Follow platform-specific guide
+- [ ] Configure environment variables
+- [ ] Set up monitoring
+- [ ] Test basic functionality
+- [ ] Verify integrations work
 
----
+### Post-Deployment
 
-## Getting Deployment Help
+- [ ] Run validation tests
+- [ ] Monitor performance
+- [ ] Document any issues
+- [ ] Train users on system
+- [ ] Schedule optimization review
 
-After architecting and building your system with this framework, invoke the **Deployment Agent** in Cursor:
+## Security Considerations
 
-1. Open Cursor AI Pane
-2. Custom Chat Mode → "Deployment Agent"
-3. Provide your target platform and system details
-4. Follow the agent's platform-specific deployment guide
+### Cursor IDE
+- Runs locally, no data leaves machine
+- File access limited to workspace
+- No external API calls from framework
 
-The Deployment Agent will:
-- Read your `design_decisions.json` to understand your system
-- Generate platform-specific deployment instructions
-- Create testing strategies
-- Provide production readiness checklists
-- Guide you through the deployment process
+### Claude Projects
+- Data stored in Anthropic infrastructure
+- Enterprise plans offer data retention controls
+- Review Anthropic's privacy policy
 
----
+### AWS Bedrock
+- Full control over data residency
+- Configure VPCs and network isolation
+- Use IAM for access control
+- Enable CloudTrail for audit logs
+
+### Custom/Self-Hosted
+- Complete control over infrastructure
+- Responsibility for security updates
+- Must implement authentication
+- Consider compliance requirements
+
+## Cost Optimization
+
+### Development Phase
+- Use Cursor IDE (included in subscription)
+- Test locally before deploying
+- Optimize prompts to reduce tokens
+
+### Production Phase
+- Right-size infrastructure
+- Use Claude Projects for small teams (<20 users)
+- AWS Bedrock for high volume (>1000 requests/day)
+- Monitor usage and adjust
+
+### Token Optimization
+- Compress prompts without losing functionality
+- Use caching for repeated context
+- Implement response length limits
+- Consider cheaper models for simple tasks
+
+## Monitoring and Maintenance
+
+### Key Metrics
+- Response latency
+- Error rates
+- Token usage
+- User satisfaction
+- System availability
+
+### Monitoring Tools
+
+**Cursor IDE**:
+- Built-in chat history
+- Manual review
+
+**Claude Projects**:
+- Usage dashboard
+- Conversation logs
+
+**AWS Bedrock**:
+- CloudWatch metrics
+- Custom dashboards
+- Alarm configuration
+
+**Custom**:
+- Application-specific monitoring
+- Log aggregation
+- Performance tracking
+
+### Maintenance Schedule
+
+**Weekly**:
+- Review error logs
+- Check performance metrics
+- Monitor costs
+
+**Monthly**:
+- Analyze usage patterns
+- Optimize prompts
+- Update knowledge base
+
+**Quarterly**:
+- Run Optimization Agent
+- Review architecture
+- Plan enhancements
 
 ## Troubleshooting
 
-### AI Architecture Assistant Framework (This Repo)
+**Deployment fails**  
+→ Check platform-specific requirements  
+→ Verify credentials and permissions  
+→ Review error logs
 
-**Problem:** Custom chat modes not appearing in Cursor  
-**Solution:** 
-- Verify files copied to correct directory
-- Restart Cursor IDE
-- Check file permissions
+**System not responding**  
+→ Verify deployment completed  
+→ Check service status  
+→ Review configuration
 
-**Problem:** Agents can't find knowledge base files  
-**Solution:**
-- Run from repository root directory
-- Check paths are `knowledge_base/[file].json`
-- Verify files exist and are valid JSON
+**Poor performance**  
+→ Check token usage  
+→ Review prompt efficiency  
+→ Optimize knowledge base size
 
----
+**High costs**  
+→ Analyze usage patterns  
+→ Implement caching  
+→ Consider smaller models
 
-### Deployed Target Systems
+**Integration failures**  
+→ Verify API credentials  
+→ Check network connectivity  
+→ Review integration code
 
-**Problem:** Claude Project can't access knowledge base  
-**Solution:**
-- Ensure files uploaded to Project Knowledge
-- Check file size limits (32MB per file)
-- Verify file formats are supported
+## Support Resources
 
-**Problem:** Bedrock deployment fails  
-**Solution:**
-- Verify IAM permissions for Bedrock
-- Check model access enabled in AWS console
-- Review CloudWatch logs for errors
+**Platform Documentation**:
+- Cursor: https://cursor.sh/docs
+- Claude: https://docs.anthropic.com
+- AWS Bedrock: https://docs.aws.amazon.com/bedrock
+- Ollama: https://ollama.ai/docs
 
-**Problem:** Generated system not working as expected  
-**Solution:**
-- Return to Engineering Agent in Cursor
-- Request refinements or fixes
-- Iterate on the design
+**Framework Support**:
+- GitHub Issues for bugs
+- Discussions for questions
+- Deployment Agent for guidance
 
----
+## Next Steps
 
-## Summary
+1. Deploy framework to Cursor
+2. Build your first system
+3. Test locally
+4. Choose target platform
+5. Follow deployment guide
+6. Monitor and optimize
 
-**Remember:**
-1. **AI Architecture Assistant** → Runs ONLY in Cursor IDE (this framework)
-2. **Systems you create** → Deploy to any platform (Cursor, Claude, Bedrock, custom)
-3. **Deployment Agent** → Guides you to deploy your OUTPUT systems
-
-**Workflow:**
-```
-Cursor (this framework) 
-  → Requirements Agent → Gather requirements
-  → Architecture Agent → Design system
-  → Engineering Agent → Generate prompts/code
-  → Deployment Agent → Deploy to target platform
-     ↓
-Your target system running on chosen platform
-```
-
----
-
-**Version:** 0.2  
-**Last Updated:** 2025-10-08  
-**Framework Platform:** Cursor IDE (ONLY)  
-**Target System Platforms:** Cursor | Claude Projects | AWS Bedrock | Custom
+**Need Help?** Use Deployment Agent for platform-specific guidance.

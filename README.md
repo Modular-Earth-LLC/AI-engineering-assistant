@@ -1,492 +1,220 @@
 # AI Engineering Assistant
 
-> **🚧 MIGRATION IN PROGRESS**  
-> This repository is currently undergoing a major migration to integrate AI Architecture Assistant capabilities. The migration is in progress and may affect some functionality. For detailed information about the migration process, timeline, and current status, see [MIGRATION-PLAN.md](MIGRATION-PLAN.md).
-
-**Unified multi-agent AI development system** that guides you through the complete lifecycle of AI system design—from requirements gathering to architecture planning, code generation, and deployment guidance. Built for Cursor IDE with production-ready prompt engineering capabilities.
+**Systematic AI development framework** for Cursor IDE. Design, architect, and deploy production AI systems through a multi-agent workflow—from requirements gathering to deployment guidance.
 
 ## Overview
 
-This project addresses the fundamental challenge of AI system development by providing a comprehensive multi-agent framework that guides you through the complete lifecycle—from initial requirements to deployed production systems. Built through extensive testing, it delivers measurable improvements in development speed, system quality, and deployment reliability.
+Developing AI systems requires coordinated expertise across requirements, architecture, engineering, and deployment. This framework provides 6 specialized agents running in Cursor IDE that guide you through the complete development lifecycle with systematic rigor.
 
-## The 6 Specialized Agents
+**What it does**: Transforms your AI system idea into production-ready implementations through structured agent workflows.
 
-This repository implements a **supervisor-worker multi-agent pattern** with 6 specialized agents, all running in Cursor IDE as custom chat modes:
-
-### 🎯 Supervisor Agent
-**Location:** `supervisor_agent.system.prompt.md`  
-**Purpose:** Orchestrates all other agents and routes requests intelligently  
-**When to use:** Start here for any AI system development task
-
-### 📋 Requirements Agent  
-**Location:** `ai_agents/requirements_agent.system.prompt.md`  
-**Purpose:** Discovery, requirements gathering, and validation  
-**When to use:** "Help me understand what I need" or "Conduct discovery"
-
-### 🏗️ Architecture Agent
-**Location:** `ai_agents/architecture_agent.system.prompt.md`  
-**Purpose:** System design, tech stack selection, cost estimation, project planning  
-**When to use:** "Design a system" or "Select tech stack"
-
-### ⚙️ Engineering Agent
-**Location:** `ai_agents/engineering_agent.system.prompt.md`  
-**Purpose:** Prototype building, code generation, implementation  
-**When to use:** "Build a prototype" or "Generate agent code"
-
-### 🚀 Deployment Agent
-**Location:** `ai_agents/deployment_agent.system.prompt.md`  
-**Purpose:** Platform deployment, testing strategies, production handoff  
-**When to use:** "Deploy to production" or "Set up testing"
-
-### 🔧 Optimization Agent
-**Location:** `ai_agents/optimization_agent.system.prompt.md`  
-**Purpose:** System improvement, refactoring, performance optimization  
-**When to use:** "Improve the system" or "Analyze for optimization"
-
-### ✨ Prompt Engineering Agent
-**Location:** `ai_agents/prompt_engineering_assistant.system.prompt.md`  
-**Purpose:** Prompt creation, improvement, multi-prompt optimization  
-**When to use:** "Create a new prompt" or "Improve my prompt"
-
-**Knowledge Base Integration:** All agents share state through JSON files (`knowledge_base/`) for seamless handoffs and context preservation.
-
-### Two-Tier Architecture
-
-This repository implements a **two-tier prompt engineering system**:
-
-```
-┌─────────────────────────────────────────────────────────┐
-│ TIER 1: CURSOR/COPILOT WORKSPACE (This Repository)     │
-├─────────────────────────────────────────────────────────┤
-│ System Prompts → Cursor agents you run locally         │
-│ User Prompts → Task instructions you send to agents    │
-│ Purpose: AI engineering assistance in YOUR IDE         │
-└─────────────────────────────────────────────────────────┘
-                            │
-                            │ GENERATES
-                            ▼
-┌─────────────────────────────────────────────────────────┐
-│ TIER 2: EXTERNAL DEPLOYMENT (Output Prompts)           │
-├─────────────────────────────────────────────────────────┤
-│ Platforms: OpenAI GPTs • Claude Projects • Bedrock     │
-│ Purpose: Production AI systems for end users           │
-│ Created by: Tier 1 agents in this workspace            │
-└─────────────────────────────────────────────────────────┘
-```
-
-**Key Distinction**:
-- **Prompts IN this repo**: Run in Cursor/VS Code as custom agents to help YOU engineer prompts
-- **Prompts GENERATED by these agents**: Deploy to external platforms (OpenAI, Claude, etc.) for end users
-
-**Core Innovation**: The Prompt Engineering Assistant agent can progressively improve itself on a schedule based on the latest research and current AI platform capabilities.
+**Where it runs**: Cursor IDE (or VS Code with Copilot). Generates systems deployable to any platform—OpenAI, Claude Projects, AWS Bedrock, or custom infrastructure.
 
 ## Quick Start
 
-**Build your first AI system in 15 minutes:**
+### Complete System Development (15 minutes)
 
-### Option 1: Complete AI System Development
-1. **Start with Supervisor Agent**: Load `supervisor_agent.system.prompt.md` in Cursor
-2. **Request**: "I want to build a financial operations assistant"
-3. **Follow the workflow**: Requirements → Architecture → Engineering → Deployment
-4. **Deploy**: Choose your target platform (Cursor, Claude Projects, AWS Bedrock)
+1. **Install**: Copy `supervisor_agent.system.prompt.md` to Cursor Settings → Chat → Custom Modes
+2. **Start**: Open Cursor AI Pane, select "Supervisor Agent"
+3. **Request**: "Build a financial operations assistant"
+4. **Follow**: Requirements → Architecture → Engineering → Deployment
+5. **Deploy**: To your chosen platform
 
-### Option 2: Prompt Engineering Only
-1. **Load Prompt Engineering Agent**: `ai_agents/prompt_engineering_assistant.system.prompt.md`
+### Prompt Engineering Only (5 minutes)
+
+1. **Load**: `ai_agents/prompt_engineering_assistant.system.prompt.md` in Cursor
 2. **Request**: "Create a code review assistant for OpenAI GPT"
-3. **Answer questions**: Target platform, optimization focus
-4. **Get output**: Copy-paste ready prompt with character count validation
+3. **Deploy**: Copy generated prompt to target platform
 
-### Option 3: Specific Agent Tasks
-- **Requirements**: "Help me understand what I need for email automation"
-- **Architecture**: "Design a customer support system"
-- **Engineering**: "Build a prototype for my AI system"
-- **Deployment**: "Deploy my system to AWS Bedrock"
-- **Optimization**: "Improve my existing AI system"
+## The 6 Specialized Agents
 
-**What you're creating**: Complete AI systems for deployment to any platform  
-**Where you're working**: In Cursor AI Pane, using this repo's multi-agent system
+### 🎯 Supervisor Agent
+**Orchestrates** all agents and routes requests intelligently  
+**File**: `supervisor_agent.system.prompt.md`  
+**Use**: Start here for any AI system development
 
-**Need more clarity?** See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed system explanation
+### 📋 Requirements Agent
+**Discovers** what you need to build through structured inquiry  
+**File**: `ai_agents/requirements_agent.system.prompt.md`  
+**Use**: "Conduct discovery for email automation"
 
-## Interactive Workflow in Action
+### 🏗️ Architecture Agent
+**Designs** system architecture following AWS Well-Architected principles  
+**File**: `ai_agents/architecture_agent.system.prompt.md`  
+**Use**: "Design system architecture and select tech stack"
 
-Experience how the Cursor agent prevents deployment failures through intelligent requirements gathering:
+### ⚙️ Engineering Agent
+**Builds** working prototypes with production-ready code  
+**File**: `ai_agents/engineering_agent.system.prompt.md`  
+**Use**: "Generate prototype implementation"
 
-```markdown
-You (in Cursor AI Pane): "Create a code review assistant"
+### 🚀 Deployment Agent
+**Guides** platform-specific deployment with testing strategies  
+**File**: `ai_agents/deployment_agent.system.prompt.md`  
+**Use**: "Deploy to AWS Bedrock" or "Set up testing"
 
-Agent: "I'll help you create a code review assistant. To optimize for your needs:
+### 🔧 Optimization Agent
+**Improves** existing systems following Well-Architected principles  
+**File**: `ai_agents/optimization_agent.system.prompt.md`  
+**Use**: "Analyze system for optimization opportunities"
 
-Which platform will this be deployed to?
-- OpenAI GPT (~1,500 chars)
-- Anthropic Claude (~32,000 chars)
-- AWS Bedrock
-- Other (please specify)"
-
-You: "GPT"
-
-Agent: "For a code review assistant on GPT, I'll create a concise prompt.
-Any specific focus areas? (security, performance, style, or I'll determine)"
-
-You: "Focus on security"
-
-Agent: "Creating security-focused code review assistant for GPT deployment...
-
-[Generates complete prompt ready for OpenAI custom instructions]
-[1,423 / 1,500 characters]"
-```
-
-The agent asks only what's necessary—if you provide an existing prompt, it infers domain and complexity automatically.
-
-**Clarification**: You're chatting with the Cursor agent in YOUR workspace. The agent generates prompts for EXTERNAL platform deployment.
-
-## Technical Innovation
-
-### Interactive Requirements Architecture
-
-This system pioneered **conversational requirements gathering** that prevents the #1 cause of prompt deployment failures: platform incompatibility.
-
-**Key Innovations**:
-
-- **Progressive Interaction Model**: Gathers requirements in logical clusters, asking only what's necessary
-- **Platform-Aware Optimization**: Hard-coded character limits for major platforms prevent overflow failures
-- **Smart Inference Engine**: Analyzes existing prompts to skip redundant questions, respecting engineer time
-- **Risk Transparency**: Clearly communicates consequences of missing requirements without blocking progress
-
-### Enhanced 5-Step Methodology
-
-1. **Interactive Requirements**: Conversational gathering of platform, domain, and optimization preferences
-2. **Research Phase**: Platform-specific analysis using empirical data and current best practices
-3. **Multi-Path Testing**: Validation scaled to domain sensitivity (healthcare: comprehensive, creative: minimal)
-4. **Systematic Enhancement**: Optimization focused on gathered requirements and platform constraints
-5. **Final Confirmation**: Character count validation and platform compatibility verification
-
-### Advanced Engineering Features
-
-- **Dual-Persona Architecture**: Prompt Builder creates, Prompt Tester validates—systematic quality assurance
-- **Tree-of-Thoughts Processing**: Evaluates multiple solution paths simultaneously for optimal design
-- **Self-Consistency Validation**: Multiple reasoning paths ensure robust, production-ready outputs
-- **Platform Feature Mapping**: Automatically adapts to leverage platform-specific capabilities
-
-## Cohesive Prompt System Architecture
-
-This repository implements a sophisticated **three-layer agent system** running IN Cursor/VS Code to help you engineer prompts FOR external platforms:
-
-### Layer 1: Core Engine (System Prompt)
+### ✨ Prompt Engineering Agent
+**Creates** and optimizes prompts for any platform  
 **File**: `ai_agents/prompt_engineering_assistant.system.prompt.md`  
-**Runs**: As Cursor Custom Mode / VS Code Chat Mode  
-**Purpose**: Your primary prompt engineering agent
+**Use**: "Create a technical documentation assistant"
 
-The foundational Cursor agent featuring **interactive requirements gathering** and **dual-persona validation**:
+## Key Capabilities
 
-- **Interactive Workflow**: Progressive requirements gathering for prompts you're creating
-- **Platform Intelligence**: Built-in character limits for target platforms (OpenAI, Claude, Bedrock, etc.)
-- **Prompt Builder**: Creates platform-optimized prompts for external deployment
-- **Prompt Tester**: Validates generated outputs against target platform constraints
-- **Smart Inference**: Minimizes questions by analyzing your existing prompt content
+### Knowledge Base State Management
+All agents share context through JSON files in `knowledge_base/`:
+- `system_config.json`: Platform constraints, team info, Well-Architected definitions
+- `user_requirements.json`: Business requirements, success criteria (Requirements Agent)
+- `design_decisions.json`: Architecture decisions, costs, plans (Architecture Agent)
 
-**Usage**: Install in Cursor, then send tasks like "Create a code review GPT" or "Optimize my Claude prompt"
+### Multi-Agent Orchestration
+- Supervisor routes requests to appropriate specialized agents
+- Seamless handoffs with full context preservation
+- Agents collaborate on complex workflows
+- Clear separation of concerns
 
-### Layer 2: Self-Enhancement (User Prompt)
-**File**: `user_prompts/prompt_engineering/improve_prompt_engineering_assistant.user.prompt.md`  
-**Sent to**: The Cursor agent (Layer 1)  
-**Purpose**: Instruct the agent to improve itself
+### Production-Ready Outputs
+- Working prototypes with implementation code
+- Platform-optimized prompts (OpenAI, Claude, Bedrock, Cursor)
+- Deployment guides with step-by-step instructions
+- Cost estimates and project plans
 
-Meta-prompt enabling the agent to **systematically improve itself**:
+## Installation
 
-- **Empirical Analysis**: Research-driven identification of agent enhancement opportunities
-- **Backward Compatibility**: Preserves all existing agent functionality while adding capabilities
-- **Validation Requirements**: Rigorous testing ensuring agent improvements deliver value
-- **Bootstrap Enhancement**: Each improvement increases the agent's self-improvement capability
+### Automated Setup (Recommended)
 
-**Usage**: Attach this user prompt in Cursor to trigger agent self-improvement cycle
-
-### Layer 3: System Coordination (User Prompt)
-**File**: `user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md`  
-**Sent to**: The Cursor agent (Layer 1)  
-**Purpose**: Optimize multiple prompts as a coordinated system
-
-Instructs the agent to orchestrate **multi-prompt optimization**:
-
-- **Redundancy Detection**: Identifies duplicates across your prompt library
-- **Information Flow Optimization**: Ensures logical distribution of responsibilities
-- **Dependency Management**: Maintains clear execution order across prompt systems
-- **System Validation**: Comprehensive testing of prompt interaction patterns
-
-**Usage**: Attach this user prompt + your prompt files in Cursor to optimize your entire prompt library
-
-### Integration Benefits
-
-This three-layer architecture delivers measurable engineering value:
-- **Centralized workspace**: All prompt engineering happens in Cursor/VS Code
-- **Target platform optimization**: Generated prompts work perfectly on OpenAI, Claude, Bedrock, etc.
-- **Self-improving capability**: Agent can enhance itself based on latest research
-- **System-level optimization**: Manage complex multi-prompt workflows efficiently
-- **Production-ready outputs**: Copy-paste ready prompts with character count validation
-
-## Installation and Configuration
-
-**Important**: These installation steps set up agents IN YOUR IDE (Cursor/VS Code). These agents then help you create complete AI systems for deployment TO external platforms (OpenAI, Claude, Bedrock, etc.).
-
-### For Cursor (Recommended)
-
-**Purpose**: Install the multi-agent system as Cursor custom chat modes
-
-#### Option 1: Complete Multi-Agent System
-1. **Start with Supervisor Agent**: Download `supervisor_agent.system.prompt.md`
-2. **Open Cursor Settings** → Chat → Custom Modes
-3. **Create "Supervisor Agent" mode**: Paste content, enable "All tools"
-4. **Start using**: "I want to build an AI system" - Supervisor will route to appropriate agents
-
-#### Option 2: Individual Specialized Agents
-1. **Download any agent** from `ai_agents/` directory
-2. **Create custom mode** for each agent you want to use
-3. **Recommended agents to start with**:
-   - `supervisor_agent.system.prompt.md` (orchestrates all others)
-   - `ai_agents/prompt_engineering_assistant.system.prompt.md` (prompt engineering)
-   - `ai_agents/architecture_agent.system.prompt.md` (system design)
-
-#### Option 3: Quick Setup Script
 ```bash
-# Windows
-.\scripts\deploy_cursor.ps1
+# Clone repository
+git clone https://github.com/Modular-Earth-LLC/AI-engineering-assistant.git
+cd AI-engineering-assistant
 
-# Linux/Mac  
-./scripts/deploy_cursor.sh
+# Deploy to Cursor
+.\scripts\deploy_cursor.ps1    # Windows
+./scripts/deploy_cursor.sh     # Linux/Mac
 ```
 
-**Start using**: Load any agent and begin building AI systems
+### Manual Setup
 
-### For VS Code / GitHub Copilot
+1. Open Cursor Settings → Chat → Custom Modes
+2. Create mode: "Supervisor Agent"
+3. Copy contents of `supervisor_agent.system.prompt.md`
+4. Enable "All tools"
+5. Save and start using
 
-**Purpose**: Install the agent as a VS Code custom chat mode
+## Common Workflows
 
-1. The workspace includes a ready-to-use mode: `.github/chatmodes/prompt_engineering_assistant.chatmode.md`
-2. Open Chat (⌃⌘I) → Select "Prompt Engineering Assistant" mode from the dropdown
-3. Tools: ensure `codebase`, `search`, `fetch`, and (if available) `websearch` are enabled
-4. Use default Prompt Builder persona; explicitly request Prompt Tester when validating
-5. **Start using**: Send user prompts from the `user_prompts/` directory
+### New AI System
+```
+Supervisor Agent → Requirements Agent → Architecture Agent 
+→ Engineering Agent → Deployment Agent
+```
 
-### Using Github Copilot Coding Agent (For Recursive Self-Improvement)
+### System Improvement
+```
+Optimization Agent → analyzes system → recommends improvements
+→ Engineering Agent (if code changes) → Deployment Agent
+```
 
-**Purpose**: Automate iterative improvements to the agents themselves
-
-- **Handoff to Copilot Coding Agent**:
-  - Create a new issue using template "Prompt Improvement: Copilot Agent" and assign to `github-copilot-agent`
-  - Or paste `#github-pull-request_copilot-coding-agent` in VS Code chat
-  - Agent creates a branch and PR, iterates based on your review comments
-
-- **Scheduled Upkeep** (Optional):
-  - Weekly workflow: `.github/workflows/copilot-prompt-improvement.yml` (Mondays 14:00 UTC)
-  - Opens/updates improvement issues assigned to the agent
-  - Run on demand via Actions tab with custom inputs
-
-### Advanced: Running Agent Prompts in Other Platforms
-
-**Not recommended but possible**: While these agents are optimized for Cursor/Copilot with tool access, you can run them in Claude Projects or ChatGPT as custom instructions. Functionality will be limited without file access and search capabilities. This defeats the purpose—use them in Cursor/VS Code instead.
+### Prompt Creation
+```
+Prompt Engineering Agent → creates/optimizes → validates → deploys
+```
 
 ## Implementation Examples
 
-These examples show the Cursor agent in action, creating prompts for external platform deployment.
+### Financial Operations Assistant
+**Challenge**: Solo entrepreneur needs AI for invoicing and expense tracking  
+**Workflow**: Requirements (5min) → Architecture (10min) → Engineering (15min)  
+**Output**: 2-agent system (Operations + Analytics) deployable to AWS Bedrock  
+**Result**: Production system with Streamlit UI and Claude integration
 
-### Platform Migration: GPT to Claude
+### Customer Support Bot
+**Challenge**: E-commerce needs 24/7 support with product knowledge  
+**Workflow**: Complete lifecycle through all agents  
+**Output**: Single agent with knowledge base for Claude Projects  
+**Result**: Team-accessible support assistant
 
-**Challenge**: Marketing team's customer analysis prompt exceeded OpenAI's 1,500 character limit
+### Code Review Assistant
+**Challenge**: Development team needs automated Python code review  
+**Workflow**: Prompt Engineering Agent only  
+**Output**: Security-focused prompt for OpenAI GPT  
+**Result**: Copy-paste deployment in 5 minutes
 
-**Workflow in Cursor**:
+## Platform Deployment
 
-```markdown
-You (in Cursor AI Pane): "Improve my customer segmentation prompt"
-[Attach existing prompt file]
+### Where This Framework Runs
+**Cursor IDE** (or VS Code with Copilot) — Required for the agents in this repository
 
-Agent: "I'll help you improve this prompt. Which platform will this be deployed to?"
+### Where Generated Systems Deploy
+- **OpenAI Custom GPTs**: Character limit ~1,500
+- **Anthropic Claude Projects**: Character limit ~32,000
+- **AWS Bedrock Agents**: Production-grade infrastructure
+- **Cursor IDE**: Custom chat modes for teams
+- **Custom platforms**: Ollama, LangChain, AutoGen, self-hosted
 
-You: "OpenAI GPT"
+### Deployment Process
+1. Engineering Agent generates prompts, code, and infrastructure
+2. Deployment Agent creates platform-specific deployment guide
+3. Execute deployment steps
+4. System runs on target platform
 
-Agent: "Your current prompt is 3,200 characters. For GPT's ~1,500 limit, I'll:
-       1. Extract examples to external documentation
-       2. Compress instructions using structured format
-       3. Maintain all functionality"
+## System Requirements
 
-[Agent generates optimized prompt]
-Result: [1,487 / 1,500 characters] - Ready for GPT deployment
-```
+### For This Framework
+- Cursor IDE (recommended) or VS Code with GitHub Copilot
+- File system access for knowledge base
+- Internet connection for AI APIs
 
-**Impact**: 100% deployment success rate, 0% functionality loss, 54% size reduction
+### For Generated Systems
+- Platform-specific (varies by deployment target)
+- Deployment Agent provides complete requirements
 
-**What happened**: You used the Cursor agent to optimize a prompt FOR deployment TO OpenAI GPT
+## Documentation
 
-### Healthcare Diagnostic Assistant
+- **[ARCHITECTURE.md](ARCHITECTURE.md)**: Multi-agent system design and two-tier architecture
+- **[guides/getting-started.md](guides/getting-started.md)**: Detailed walkthrough
+- **[guides/workflow_guide.md](guides/workflow_guide.md)**: Complete workflow documentation
+- **[docs/agent-relationships.md](docs/agent-relationships.md)**: Agent capabilities and collaboration
 
-**Challenge**: Medical AI prompt required comprehensive testing due to domain sensitivity
+## User Prompts
 
-**Workflow in Cursor**:
+Specialized task instructions organized by category in `user_prompts/`:
+- `architecture/`: System design tasks (6 prompts)
+- `requirements/`: Discovery tasks (4 prompts)
+- `engineering/`: Prototype generation (1 prompt)
+- `deployment/`: Deployment and testing (2 prompts)
+- `optimization/`: System improvement (7 prompts)
+- `prompt_engineering/`: Prompt tasks (7 prompts)
+- `proposals/`: Executive presentations (4 prompts)
 
-```markdown
-You (in Cursor AI Pane): "Create a symptom analysis assistant for Claude"
+## Troubleshooting
 
-Agent: "I'll create a healthcare assistant. Given the medical domain, I'll apply 
-       comprehensive validation and safety constraints.
-       
-       Which specific aspects should it focus on? (triage, education, referral)"
+**Agent can't find knowledge base**  
+Ensure running from repository root. Paths: `knowledge_base/*.json`
 
-You: "Patient education and when to seek care"
+**Supervisor not routing correctly**  
+Be specific: "Build a customer support system" not "I need help"
 
-Agent: [Generates prompt with safety guardrails]
-       → Comprehensive testing for medical edge cases
-       → Safety constraint verification
-       → Explicit limitations and disclaimers
-       
-Result: Production-ready prompt for Claude Projects deployment
-```
+**Missing context between agents**  
+Verify knowledge base files populated by previous agent
 
-**Impact**: Medical-grade validation preventing misdiagnosis scenarios, ready for Claude deployment
+**Wrong platform deployment**  
+Specify target: "Deploy to AWS Bedrock" not just "Deploy"
 
-**What happened**: You used the Cursor agent to create a healthcare prompt FOR deployment TO Claude Projects
+## Contributing
 
-### Multi-Prompt System Optimization
+**Improvements**: Fork repository, submit pull requests  
+**Issues**: Report bugs via GitHub Issues  
+**Documentation**: PRs welcome for clarity improvements
 
-**Challenge**: Token inefficiency and redundant context across related prompts in your prompt library
+## License
 
-**Workflow in Cursor**:
+MIT License — Full commercial use permitted
 
-```markdown
-You (in Cursor AI Pane): [Send user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md]
-                         [Attach your 3 technical documentation prompts]
+## Repository
 
-Agent: [Analyzes prompt system]
-       → Identifies redundancies across prompts
-       → Proposes consolidation strategy
-       → Validates optimized system
-       
-Result: 27% token reduction, clearer separation of concerns, all functionality preserved
-```
-
-**Impact**: More efficient prompt library, faster execution, maintained functionality
-
-**What happened**: You used the Cursor agent's system optimization capabilities to improve prompts in YOUR library (which may be deployed anywhere)
-
-## System Requirements and Architecture
-
-### Platform Compatibility
-
-**Where This Repository's Agents Run (Tier 1)**:
-
-- **Cursor** ✓ Complete feature set with tool integration (recommended)
-- **VS Code / GitHub Copilot** ✓ Full functionality with custom chat modes
-- **Other platforms** ⚠️ Not recommended (no file/workspace access)
-
-**Where Generated Prompts Deploy (Tier 2)**:
-
-- **OpenAI Custom GPTs** - Character limit: ~1,500
-- **Anthropic Claude Projects** - Character limit: ~32,000
-- **AWS Bedrock Agents** - Varies by model
-- **Google Gemini** - Character limit: ~4,000
-- **Other Cursor/Copilot agents** - Character limit: ~8,000
-- **Perplexity, Mistral, and more** - Platform-specific optimization
-
-**Agent Requirements (Tier 1)**:
-
-- File system access for reading prompts and workspace files
-- Search capabilities for research and analysis
-- Multi-turn conversation for interactive requirements gathering
-- Tool execution for validation and testing
-
-### Performance Benchmarks
-
-**Prompt Generation Efficiency**:
-
-- **Initial Prompt Creation**: Faster than manual engineering
-- **Validation Cycle Time**: Reduction through systematic testing  
-- **Cross-Platform Deployment**: Zero additional configuration required
-
-**Quality Metrics**:
-
-- **Consistency Score**: Across repeated executions
-- **Validation Coverage**: Through dual-persona architecture
-- **Production Success Rate**: Deployment reliability
-
-### Deployment Considerations
-
-**Variable-Driven Architecture**:
-
-- **Core Variables**: 10 system variables drive all optimization decisions
-- **Requirements Storage**: ~200 tokens for complete requirement set
-- **Platform Constraints**: Automatic adaptation to target platform limits
-- **Smart Defaults**: 85% of variables can be inferred or use intelligent defaults
-
-**Token Optimization**:
-
-- System prompt length: ~16,800 characters (comprehensive functionality)
-- It can rewrite itself to be platform-specific by reducing its own character count
-- Interactive overhead: <100 tokens for typical requirement gathering
-- Output optimization: Automatic compression for character-limited platforms
-
-**Security and Compliance**:
-
-- No external API dependencies or data transmission
-- Full transparency in requirement collection
-- Compatible with enterprise AI governance and audit requirements
-
-## Advanced Configuration
-
-### Multi-Prompt System Optimization
-
-For complex workflows requiring multiple coordinated prompts:
-
-1. **System Analysis**: Use `user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md` to analyze prompt interactions
-2. **Redundancy Detection**: Identify and eliminate duplicate context across prompts  
-3. **Information Flow Optimization**: Ensure logical distribution of responsibilities
-4. **Validation Testing**: Comprehensive testing of prompt coordination patterns
-
-### Enterprise Integration Patterns
-
-**Team Deployment**:
-
-- Standardize prompt templates across engineering teams
-- Implement validation protocols for prompt quality assurance
-- Establish continuous improvement workflows
-
-**Production Optimization**:
-
-- Monitor prompt performance metrics and consistency scores
-- Implement A/B testing for prompt variations
-- Maintain prompt versioning and rollback capabilities
-
-## Troubleshooting and Support
-
-### Common Interactive Workflow Issues
-
-**Agent asks too many questions**: Provide context upfront. The agent infers requirements from existing prompts and clear initial requests like "Create a code review GPT" or "Improve my Claude prompt for healthcare".
-
-**Generated prompt exceeds character limit**: The agent automatically suggests optimizations for the target platform. Accept compression suggestions or request a different deployment platform with higher limits.
-
-**Wrong target platform**: Say "Actually, I need this deployed to [platform]" and the agent will re-optimize the generated prompt for that platform.
-
-**Agent doesn't have file access**: Ensure you're running in Cursor or VS Code with proper tool permissions. The agent needs file system access to read and optimize prompts.
-
-### Platform Configuration
-
-**Cursor Setup**: Enable "All tools" in Custom Mode settings for full capabilities (file reading, search, web research)
-
-**VS Code Setup**: Ensure tools (`codebase`, `search`, `fetch`, `websearch`) are enabled in chat mode configuration
-
-**Generated Prompt Deployment**: Copy generated prompts directly to target platform (OpenAI, Claude, Bedrock, etc.)
-
-### Architecture Questions
-
-**Confused about two-tier system?** See [ARCHITECTURE.md](ARCHITECTURE.md) for complete explanation
-
-**Where does what run?** Agents run IN Cursor/VS Code (this repo). Generated prompts deploy TO external platforms (OpenAI, Claude, etc.)
-
-## Contributing and License
-
-**License**: MIT - Full commercial and enterprise usage permitted
-
-**Contributing**: Improvements welcome—ensure agents remain fast, interactive workflow is smooth, and platform limits stay current
-
-**Engineering Philosophy**: Iterate often. Maintain maintainability. Demand simplicity. Respect engineer time. Prevent deployment failures. Optimize for every platform.
-
-**Architecture Documentation**: See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed system design and two-tier architecture explanation
-
-**Repository**: [AI Engineering Assistant](https://github.com/Modular-Earth-LLC/AI-engineering-assistant) - Production-ready Cursor/VS Code agents for systematic prompt engineering and deployment to external AI platforms.
+[AI Engineering Assistant](https://github.com/Modular-Earth-LLC/AI-engineering-assistant) — Production-ready multi-agent AI development framework for Cursor IDE
