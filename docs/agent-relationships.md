@@ -381,10 +381,10 @@ All agents share state through JSON files in the `knowledge_base/` directory:
 
 ### Getting Help
 
-**For workflow questions:** Ask the Supervisor Agent
-**For specific tasks:** Use the appropriate specialized agent
-**For system issues:** Check knowledge base files and agent logs
-**For platform questions:** See `docs/platform-clarification.md`
+**For workflow questions:** Ask the Supervisor Agent  
+**For specific tasks:** Use the appropriate specialized agent  
+**For system issues:** Check knowledge base files  
+**For platform questions:** See `ARCHITECTURE.md`
 
 ---
 
