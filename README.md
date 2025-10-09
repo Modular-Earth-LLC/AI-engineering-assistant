@@ -1,5 +1,8 @@
 # AI Engineering Assistant
 
+> **🚧 MIGRATION IN PROGRESS**  
+> This repository is currently undergoing a major migration to integrate AI Architecture Assistant capabilities. The migration is in progress and may affect some functionality. For detailed information about the migration process, timeline, and current status, see [MIGRATION-PLAN.md](MIGRATION-PLAN.md).
+
 Production-ready prompt engineering system that delivers platform-optimized AI prompts through interactive requirements gathering and systematic validation.
 
 ## Overview
