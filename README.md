@@ -40,7 +40,7 @@ This repository implements a **two-tier prompt engineering system**:
 
 **Set up your Cursor agent and generate your first validated prompt in 5 minutes:**
 
-1. **Download** `prompt_engineering_assistant.system.prompt.md` from this repository
+1. **Download** `ai_agents/prompt_engineering_assistant.system.prompt.md` from this repository
 2. **Install as Cursor agent**: Open Cursor Settings → Chat → Custom Modes → Paste content (see Installation section)
 3. **Send a task**: "Create a code review assistant for OpenAI GPT" or "Improve my Claude prompt"
 4. **Answer 2-3 quick questions**: Target platform for generated prompt, optimization focus
@@ -118,7 +118,7 @@ This system pioneered **conversational requirements gathering** that prevents th
 This repository implements a sophisticated **three-layer agent system** running IN Cursor/VS Code to help you engineer prompts FOR external platforms:
 
 ### Layer 1: Core Engine (System Prompt)
-**File**: `prompt_engineering_assistant.system.prompt.md`  
+**File**: `ai_agents/prompt_engineering_assistant.system.prompt.md`  
 **Runs**: As Cursor Custom Mode / VS Code Chat Mode  
 **Purpose**: Your primary prompt engineering agent
 
@@ -133,7 +133,7 @@ The foundational Cursor agent featuring **interactive requirements gathering** a
 **Usage**: Install in Cursor, then send tasks like "Create a code review GPT" or "Optimize my Claude prompt"
 
 ### Layer 2: Self-Enhancement (User Prompt)
-**File**: `user_prompts/improve_prompt_engineering_assistant.user.prompt.md`  
+**File**: `user_prompts/prompt_engineering/improve_prompt_engineering_assistant.user.prompt.md`  
 **Sent to**: The Cursor agent (Layer 1)  
 **Purpose**: Instruct the agent to improve itself
 
@@ -147,7 +147,7 @@ Meta-prompt enabling the agent to **systematically improve itself**:
 **Usage**: Attach this user prompt in Cursor to trigger agent self-improvement cycle
 
 ### Layer 3: System Coordination (User Prompt)
-**File**: `user_prompts/improve_system_of_prompts.user.prompt.md`  
+**File**: `user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md`  
 **Sent to**: The Cursor agent (Layer 1)  
 **Purpose**: Optimize multiple prompts as a coordinated system
 
@@ -177,7 +177,7 @@ This three-layer architecture delivers measurable engineering value:
 
 **Purpose**: Install the Prompt Engineering Assistant as a Cursor agent in your workspace
 
-1. Download `prompt_engineering_assistant.system.prompt.md` from this repository
+1. Download `ai_agents/prompt_engineering_assistant.system.prompt.md` from this repository
 2. Open Cursor Settings → Chat → Custom Modes
 3. Click "New Mode" and name it "Prompt Engineering Assistant"  
 4. Select "All tools enabled"
@@ -279,7 +279,7 @@ Result: Production-ready prompt for Claude Projects deployment
 **Workflow in Cursor**:
 
 ```markdown
-You (in Cursor AI Pane): [Send user_prompts/improve_system_of_prompts.user.prompt.md]
+You (in Cursor AI Pane): [Send user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md]
                          [Attach your 3 technical documentation prompts]
 
 Agent: [Analyzes prompt system]
@@ -362,7 +362,7 @@ Result: 27% token reduction, clearer separation of concerns, all functionality p
 
 For complex workflows requiring multiple coordinated prompts:
 
-1. **System Analysis**: Use `improve_system_of_prompts.user.prompt.md` to analyze prompt interactions
+1. **System Analysis**: Use `user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md` to analyze prompt interactions
 2. **Redundancy Detection**: Identify and eliminate duplicate context across prompts  
 3. **Information Flow Optimization**: Ensure logical distribution of responsibilities
 4. **Validation Testing**: Comprehensive testing of prompt coordination patterns

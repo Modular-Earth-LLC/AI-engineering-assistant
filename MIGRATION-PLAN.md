@@ -156,7 +156,7 @@ Get-ChildItem "user_prompts\*.md" | Move-Item -Destination "user_prompts\prompt_
 The user prompts have been moved from `user_prompts/` to `user_prompts/prompt_engineering/`. 
 
 Update the following file to reflect the new paths:
-- prompt_engineering_assistant.system.prompt.md
+- ai_agents/prompt_engineering_assistant.system.prompt.md
 
 Look for any references to user prompt file paths and update them to include the `prompt_engineering/` subfolder.
 
@@ -179,7 +179,7 @@ List all changes made with line numbers.
 **Manual Test in Cursor:**
 
 1. Open Cursor IDE
-2. Load `prompt_engineering_assistant.system.prompt.md` into a custom chat mode
+2. Load `ai_agents/prompt_engineering_assistant.system.prompt.md` into a custom chat mode
 3. Test with: "Create a simple code review assistant for Python"
 4. Verify it still works correctly
 5. Document any issues
@@ -591,7 +591,7 @@ Test each agent individually to ensure they work:
    - Verify it references knowledge base correctly
 
 4. **Prompt Engineering Assistant** (5 min):
-   - Load prompt_engineering_assistant.system.prompt.md
+   - Load ai_agents/prompt_engineering_assistant.system.prompt.md
    - Test: "Create a code review assistant"
    - Verify it still works after integration
 
@@ -834,8 +834,9 @@ Structure the new README as follows:
 ```
 
 ├── supervisor_agent.system.prompt.md       # Start here
-├── prompt_engineering_assistant.system.prompt.md  # Standalone prompt engineering
-├── ai_agents/                              # 5 specialized agents
+├── ai_agents/                              # 6 specialized agents
+│   ├── prompt_engineering_assistant.system.prompt.md  # Prompt engineering
+│   └── (5 more agents from Architecture Assistant)
 ├── user_prompts/                           # Task-specific workflows by category
 ├── knowledge_base/                         # JSON state management
 ├── guides/                                 # Documentation and examples

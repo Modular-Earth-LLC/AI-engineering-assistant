@@ -103,7 +103,7 @@ Inputs:
 - Chat mode: .github/chatmodes/prompt_engineering_assistant.chatmode.md
 - Issue template: .github/ISSUE_TEMPLATE/prompt-improvement-copilot-agent.yml
 - Scheduled workflow: .github/workflows/copilot-prompt-improvement.yml
-- System prompt: prompt_engineering_assistant.system.prompt.md
+- System prompt: ai_agents/prompt_engineering_assistant.system.prompt.md
 
 ## Notes for future iterations
 

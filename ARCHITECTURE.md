@@ -27,7 +27,7 @@ This document clarifies the **two-tier architecture** of the AI Engineering Assi
 │  │ SYSTEM PROMPTS (Cursor/Copilot Agents)                       │  │
 │  ├──────────────────────────────────────────────────────────────┤  │
 │  │                                                              │  │
-│  │ • prompt_engineering_assistant.system.prompt.md             │  │
+│  │ • ai_agents/prompt_engineering_assistant.system.prompt.md    │  │
 │  │   → Runs AS: Cursor Custom Mode / VS Code Chat Mode        │  │
 │  │   → Does: Generates prompts for external platforms         │  │
 │  │   → Tools: File access, search, web search, codebase       │  │
@@ -40,19 +40,19 @@ This document clarifies the **two-tier architecture** of the AI Engineering Assi
 │  │ USER PROMPTS (Task Instructions)                            │  │
 │  ├──────────────────────────────────────────────────────────────┤  │
 │  │                                                              │  │
-│  │ • user_prompts/improve_system_of_prompts.user.prompt.md     │  │
+│  │ • user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md     │  │
 │  │   → Sent TO: Cursor agent via AI Pane chat                 │  │
 │  │   → Instructs: Optimize multiple prompts as a system       │  │
 │  │                                                              │  │
-│  │ • user_prompts/improve_prompt_engineering_assistant...      │  │
+│  │ • user_prompts/prompt_engineering/improve_prompt_engineering_assistant...      │  │
 │  │   → Sent TO: Cursor agent via AI Pane chat                 │  │
 │  │   → Instructs: Improve the agent itself                    │  │
 │  │                                                              │  │
-│  │ • user_prompts/reduce_prompt_redundancy.user.prompt.md      │  │
+│  │ • user_prompts/prompt_engineering/reduce_prompt_redundancy.user.prompt.md      │  │
 │  │   → Sent TO: Cursor agent via AI Pane chat                 │  │
 │  │   → Instructs: Optimize single prompt file                 │  │
 │  │                                                              │  │
-│  │ • user_prompts/improve_prompt_with_human_in_the_loop...     │  │
+│  │ • user_prompts/prompt_engineering/improve_prompt_with_human_in_the_loop...     │  │
 │  │ • user_prompts/add_change_to_prompt_if_valid...             │  │
 │  │ • user_prompts/configure_system_prompt_for_github...        │  │
 │  │ • user_prompts/make_readme_awesome...                       │  │
@@ -130,7 +130,7 @@ This document clarifies the **two-tier architecture** of the AI Engineering Assi
 
 **What they are**: AI agent definitions that run IN your Cursor/VS Code workspace
 
-**Primary file**: `prompt_engineering_assistant.system.prompt.md`
+**Primary file**: `ai_agents/prompt_engineering_assistant.system.prompt.md`
 
 **How to use**:
 1. Install as Cursor Custom Mode or VS Code Chat Mode
@@ -157,7 +157,7 @@ This document clarifies the **two-tier architecture** of the AI Engineering Assi
 
 **What they are**: Task instructions you send TO the Cursor/Copilot agents
 
-**Location**: `user_prompts/*.user.prompt.md`
+**Location**: `user_prompts/prompt_engineering/*.user.prompt.md`
 
 **How to use**:
 1. Open Cursor AI Pane with agent active
@@ -222,7 +222,7 @@ RESULT (Tier 2): Production code review GPT running on OpenAI platform
 
 ```
 YOU → Cursor AI Pane: 
-  - Attach: user_prompts/improve_system_of_prompts.user.prompt.md
+  - Attach: user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md
   - Attach: your_prompt_1.md, your_prompt_2.md, your_prompt_3.md
 
 AGENT (Tier 1):
@@ -239,7 +239,7 @@ RESULT: Optimized prompt library with 20-30% size reduction, all functionality p
 
 ```
 YOU → Cursor AI Pane:
-  - Attach: user_prompts/improve_prompt_engineering_assistant.user.prompt.md
+  - Attach: user_prompts/prompt_engineering/improve_prompt_engineering_assistant.user.prompt.md
 
 AGENT (Tier 1):
   1. Researches latest prompt engineering techniques
@@ -255,7 +255,7 @@ RESULT: Enhanced Prompt Engineering Assistant agent with improved capabilities
 
 ### Q: Can I run the system prompt in Claude Projects?
 
-**A**: Not recommended. The system prompt (`prompt_engineering_assistant.system.prompt.md`) is optimized for Cursor/VS Code with tool access (file reading, search, etc.). Running it in Claude Projects defeats the purpose—it won't have access to your local files or workspace.
+**A**: Not recommended. The system prompt (`ai_agents/prompt_engineering_assistant.system.prompt.md`) is optimized for Cursor/VS Code with tool access (file reading, search, etc.). Running it in Claude Projects defeats the purpose—it won't have access to your local files or workspace.
 
 **Use instead**: Keep it in Cursor/VS Code where it belongs, and use it to **create** prompts **for** Claude Projects.
 
@@ -321,12 +321,14 @@ Variables specific to each task instruction:
 
 ```
 AI-engineering-assistant/
-├── prompt_engineering_assistant.system.prompt.md   # Main agent (Tier 1)
+├── ai_agents/                                      # Specialized agents
+│   └── prompt_engineering_assistant.system.prompt.md   # Main agent (Tier 1)
 ├── user_prompts/                                   # Task instructions (Tier 1)
-│   ├── improve_system_of_prompts.user.prompt.md
-│   ├── improve_prompt_engineering_assistant.user.prompt.md
-│   ├── reduce_prompt_redundancy.user.prompt.md
-│   ├── improve_prompt_with_human_in_the_loop.user.prompt.md
+│   └── prompt_engineering/                         # Prompt engineering tasks
+│       ├── improve_system_of_prompts.user.prompt.md
+│       ├── improve_prompt_engineering_assistant.user.prompt.md
+│       ├── reduce_prompt_redundancy.user.prompt.md
+│       ├── improve_prompt_with_human_in_the_loop.user.prompt.md
 │   ├── add_change_to_prompt_if_valid.user.prompt.md
 │   ├── configure_system_prompt_for_github_copilot_chatmode.user.prompt.md
 │   └── make_readme_awesome_for_junior_engineers.user.prompt.md
@@ -363,7 +365,7 @@ AI-engineering-assistant/
 **Files involved**:
 - `.github/workflows/copilot-prompt-improvement.yml` - Scheduled workflow
 - `.github/ISSUE_TEMPLATE/prompt-improvement-copilot-agent.yml` - Issue template
-- `user_prompts/improve_prompt_engineering_assistant.user.prompt.md` - Improvement instructions
+- `user_prompts/prompt_engineering/improve_prompt_engineering_assistant.user.prompt.md` - Improvement instructions
 
 ### Custom Chat Modes
 

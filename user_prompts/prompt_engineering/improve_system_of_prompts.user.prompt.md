@@ -27,7 +27,7 @@ You are a **Prompt System Optimization Specialist** analyzing how multiple promp
 
 ## Variables
 
-- **{{PROMPTS_TO_ANALYZE}}**: List of prompt files in the system (default: `prompt_engineering_assistant.system.prompt.md`, `improve_prompt_engineering_assistant.user.prompt.md`)
+- **{{PROMPTS_TO_ANALYZE}}**: List of prompt files in the system (default: `ai_agents/prompt_engineering_assistant.system.prompt.md`, `user_prompts/prompt_engineering/improve_prompt_engineering_assistant.user.prompt.md`)
 - **{{CHANGE_THRESHOLD}}**: Percentage threshold for major vs minor changes (default: 20%)
 - **{{OPTIMIZATION_FOCUS}}**: Primary optimization goal - "redundancy", "clarity", "modularity", or "all" (default: "all")
 - **{{TARGET_PLATFORM}}**: Platform where prompts will run (affects character limits) - "cursor", "anthropic-claude", "openai-gpt", "other" (default: inferred from context)
