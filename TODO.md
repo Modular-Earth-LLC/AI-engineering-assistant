@@ -1,10 +1,28 @@
-# TODO — Background Agent & Prompt Upkeep
+# TODO — Multi-Agent System & Prompt Upkeep
 
 Owner: @paulprae
 Repo: Modular-Earth-LLC/AI-engineering-assistant
-Date: 2025-09-21
+Date: 2025-10-09
 
-This checklist makes it trivial to run the Prompt Engineering Assistant as a background agent that iteratively improves prompts.
+This checklist covers the multi-agent AI Engineering Assistant system and automated prompt improvement workflows.
+
+## Multi-Agent System Overview
+
+**6 Specialized Agents:**
+- **Supervisor Agent** (`supervisor_agent.system.prompt.md`) - Orchestrates all others
+- **Requirements Agent** (`ai_agents/requirements_agent.system.prompt.md`) - Discovery & requirements
+- **Architecture Agent** (`ai_agents/architecture_agent.system.prompt.md`) - System design & planning
+- **Engineering Agent** (`ai_agents/engineering_agent.system.prompt.md`) - Prototype building
+- **Deployment Agent** (`ai_agents/deployment_agent.system.prompt.md`) - Platform deployment
+- **Optimization Agent** (`ai_agents/optimization_agent.system.prompt.md`) - System improvement
+- **Prompt Engineering Agent** (`ai_agents/prompt_engineering_assistant.system.prompt.md`) - Prompt creation
+
+**Knowledge Base Integration:**
+- `knowledge_base/system_config.json` - Platform constraints, team info
+- `knowledge_base/user_requirements.json` - Customer needs, use cases
+- `knowledge_base/design_decisions.json` - Architecture decisions, costs
+
+**Workflow:** Start with Supervisor Agent → Routes to specialized agents → Complete AI system development
 
 ## Quick Setup
 

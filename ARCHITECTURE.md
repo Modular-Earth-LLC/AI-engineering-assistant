@@ -1,6 +1,38 @@
 # AI Engineering Assistant - Architecture Overview
 
-This document clarifies the **two-tier architecture** of the AI Engineering Assistant system and eliminates ambiguity about where prompts run versus where they're deployed.
+This document explains the **multi-agent architecture** of the AI Engineering Assistant system, including the supervisor-worker pattern, agent relationships, and the two-tier deployment model.
+
+## Multi-Agent Architecture
+
+### Supervisor-Worker Pattern
+The AI Engineering Assistant implements a **supervisor-worker multi-agent pattern** with 6 specialized agents:
+
+```
+User Request
+     ↓
+Supervisor Agent (Orchestrator)
+     ↓
+     ├─→ Requirements Agent      → Discovery, requirements gathering
+     ├─→ Architecture Agent       → System design, tech stack, estimates
+     ├─→ Engineering Agent        → Prototype building, implementation
+     ├─→ Deployment Agent         → Platform deployment, testing
+     ├─→ Optimization Agent       → System improvement, refactoring
+     └─→ Prompt Engineering Agent → Prompt creation, optimization
+
+Knowledge Base (Shared State)
+├─→ system_config.json     → Platform constraints, team info
+├─→ user_requirements.json → Customer needs, use cases
+└─→ design_decisions.json  → Architecture decisions, costs
+```
+
+### Agent Specialization
+- **Supervisor Agent**: Orchestrates all other agents, routes requests intelligently
+- **Requirements Agent**: Discovery, requirements gathering, validation
+- **Architecture Agent**: System design, tech stack selection, cost estimation
+- **Engineering Agent**: Prototype building, code generation, implementation
+- **Deployment Agent**: Platform deployment, testing strategies, handoff
+- **Optimization Agent**: System improvement, refactoring, performance optimization
+- **Prompt Engineering Agent**: Prompt creation, improvement, multi-prompt optimization
 
 ## Critical Distinction
 
@@ -8,13 +40,13 @@ This document clarifies the **two-tier architecture** of the AI Engineering Assi
 **Location**: Your local Cursor/VS Code workspace  
 **Execution Environment**: Cursor AI Pane / VS Code Copilot Chat  
 **Purpose**: AI engineering assistance **for you**  
-**Components**: System prompts (agents) + User prompts (task instructions)
+**Components**: 6 specialized agents + User prompts (task instructions)
 
 ### Tier 2: Generated Outputs (External Deployment)
 **Location**: External AI platforms (OpenAI, Claude, Bedrock, etc.)  
 **Execution Environment**: Production AI systems  
 **Purpose**: AI capabilities **for end users**  
-**Components**: Prompts created by Tier 1 agents
+**Components**: Complete AI systems created by Tier 1 agents
 
 ## Architecture Diagram
 

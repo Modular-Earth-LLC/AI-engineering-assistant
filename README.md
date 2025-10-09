@@ -3,11 +3,52 @@
 > **🚧 MIGRATION IN PROGRESS**  
 > This repository is currently undergoing a major migration to integrate AI Architecture Assistant capabilities. The migration is in progress and may affect some functionality. For detailed information about the migration process, timeline, and current status, see [MIGRATION-PLAN.md](MIGRATION-PLAN.md).
 
-Production-ready prompt engineering system that delivers platform-optimized AI prompts through interactive requirements gathering and systematic validation.
+**Unified multi-agent AI development system** that guides you through the complete lifecycle of AI system design—from requirements gathering to architecture planning, code generation, and deployment guidance. Built for Cursor IDE with production-ready prompt engineering capabilities.
 
 ## Overview
 
-This project addresses the fundamental challenge of prompt reliability in production AI environments. Built through extensive testing, it delivers measurable improvements in prompt consistency and reduces engineering overhead.
+This project addresses the fundamental challenge of AI system development by providing a comprehensive multi-agent framework that guides you through the complete lifecycle—from initial requirements to deployed production systems. Built through extensive testing, it delivers measurable improvements in development speed, system quality, and deployment reliability.
+
+## The 6 Specialized Agents
+
+This repository implements a **supervisor-worker multi-agent pattern** with 6 specialized agents, all running in Cursor IDE as custom chat modes:
+
+### 🎯 Supervisor Agent
+**Location:** `supervisor_agent.system.prompt.md`  
+**Purpose:** Orchestrates all other agents and routes requests intelligently  
+**When to use:** Start here for any AI system development task
+
+### 📋 Requirements Agent  
+**Location:** `ai_agents/requirements_agent.system.prompt.md`  
+**Purpose:** Discovery, requirements gathering, and validation  
+**When to use:** "Help me understand what I need" or "Conduct discovery"
+
+### 🏗️ Architecture Agent
+**Location:** `ai_agents/architecture_agent.system.prompt.md`  
+**Purpose:** System design, tech stack selection, cost estimation, project planning  
+**When to use:** "Design a system" or "Select tech stack"
+
+### ⚙️ Engineering Agent
+**Location:** `ai_agents/engineering_agent.system.prompt.md`  
+**Purpose:** Prototype building, code generation, implementation  
+**When to use:** "Build a prototype" or "Generate agent code"
+
+### 🚀 Deployment Agent
+**Location:** `ai_agents/deployment_agent.system.prompt.md`  
+**Purpose:** Platform deployment, testing strategies, production handoff  
+**When to use:** "Deploy to production" or "Set up testing"
+
+### 🔧 Optimization Agent
+**Location:** `ai_agents/optimization_agent.system.prompt.md`  
+**Purpose:** System improvement, refactoring, performance optimization  
+**When to use:** "Improve the system" or "Analyze for optimization"
+
+### ✨ Prompt Engineering Agent
+**Location:** `ai_agents/prompt_engineering_assistant.system.prompt.md`  
+**Purpose:** Prompt creation, improvement, multi-prompt optimization  
+**When to use:** "Create a new prompt" or "Improve my prompt"
+
+**Knowledge Base Integration:** All agents share state through JSON files (`knowledge_base/`) for seamless handoffs and context preservation.
 
 ### Two-Tier Architecture
 
@@ -41,20 +82,31 @@ This repository implements a **two-tier prompt engineering system**:
 
 ## Quick Start
 
-**Set up your Cursor agent and generate your first validated prompt in 5 minutes:**
+**Build your first AI system in 15 minutes:**
 
-1. **Download** `ai_agents/prompt_engineering_assistant.system.prompt.md` from this repository
-2. **Install as Cursor agent**: Open Cursor Settings → Chat → Custom Modes → Paste content (see Installation section)
-3. **Send a task**: "Create a code review assistant for OpenAI GPT" or "Improve my Claude prompt"
-4. **Answer 2-3 quick questions**: Target platform for generated prompt, optimization focus
-5. **Receive validated output**: Copy-paste ready prompt for external deployment with character count
+### Option 1: Complete AI System Development
+1. **Start with Supervisor Agent**: Load `supervisor_agent.system.prompt.md` in Cursor
+2. **Request**: "I want to build a financial operations assistant"
+3. **Follow the workflow**: Requirements → Architecture → Engineering → Deployment
+4. **Deploy**: Choose your target platform (Cursor, Claude Projects, AWS Bedrock)
 
-The agent progressively gathers only essential requirements, letting you work at your preferred speed.
+### Option 2: Prompt Engineering Only
+1. **Load Prompt Engineering Agent**: `ai_agents/prompt_engineering_assistant.system.prompt.md`
+2. **Request**: "Create a code review assistant for OpenAI GPT"
+3. **Answer questions**: Target platform, optimization focus
+4. **Get output**: Copy-paste ready prompt with character count validation
 
-**What you're creating**: Prompts for deployment to OpenAI, Claude, Bedrock, etc.  
-**Where you're working**: In Cursor AI Pane, using this repo's agent
+### Option 3: Specific Agent Tasks
+- **Requirements**: "Help me understand what I need for email automation"
+- **Architecture**: "Design a customer support system"
+- **Engineering**: "Build a prototype for my AI system"
+- **Deployment**: "Deploy my system to AWS Bedrock"
+- **Optimization**: "Improve my existing AI system"
 
-**Need more clarity?** See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed two-tier system explanation
+**What you're creating**: Complete AI systems for deployment to any platform  
+**Where you're working**: In Cursor AI Pane, using this repo's multi-agent system
+
+**Need more clarity?** See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed system explanation
 
 ## Interactive Workflow in Action
 
@@ -174,19 +226,36 @@ This three-layer architecture delivers measurable engineering value:
 
 ## Installation and Configuration
 
-**Important**: These installation steps set up agents IN YOUR IDE (Cursor/VS Code). These agents then help you create prompts for deployment TO external platforms (OpenAI, Claude, Bedrock, etc.).
+**Important**: These installation steps set up agents IN YOUR IDE (Cursor/VS Code). These agents then help you create complete AI systems for deployment TO external platforms (OpenAI, Claude, Bedrock, etc.).
 
 ### For Cursor (Recommended)
 
-**Purpose**: Install the Prompt Engineering Assistant as a Cursor agent in your workspace
+**Purpose**: Install the multi-agent system as Cursor custom chat modes
 
-1. Download `ai_agents/prompt_engineering_assistant.system.prompt.md` from this repository
-2. Open Cursor Settings → Chat → Custom Modes
-3. Click "New Mode" and name it "Prompt Engineering Assistant"  
-4. Select "All tools enabled"
-5. Paste the entire file contents into Instructions
-6. Save and select from the dropdown in any chat
-7. **Start using**: Send tasks like "Create a GPT for code review" or "Improve my Claude prompt"
+#### Option 1: Complete Multi-Agent System
+1. **Start with Supervisor Agent**: Download `supervisor_agent.system.prompt.md`
+2. **Open Cursor Settings** → Chat → Custom Modes
+3. **Create "Supervisor Agent" mode**: Paste content, enable "All tools"
+4. **Start using**: "I want to build an AI system" - Supervisor will route to appropriate agents
+
+#### Option 2: Individual Specialized Agents
+1. **Download any agent** from `ai_agents/` directory
+2. **Create custom mode** for each agent you want to use
+3. **Recommended agents to start with**:
+   - `supervisor_agent.system.prompt.md` (orchestrates all others)
+   - `ai_agents/prompt_engineering_assistant.system.prompt.md` (prompt engineering)
+   - `ai_agents/architecture_agent.system.prompt.md` (system design)
+
+#### Option 3: Quick Setup Script
+```bash
+# Windows
+.\scripts\deploy_cursor.ps1
+
+# Linux/Mac  
+./scripts/deploy_cursor.sh
+```
+
+**Start using**: Load any agent and begin building AI systems
 
 ### For VS Code / GitHub Copilot
 
