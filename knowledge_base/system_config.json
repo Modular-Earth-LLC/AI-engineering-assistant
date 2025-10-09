@@ -1,0 +1,418 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Architecture Assistant - System Configuration",
+  "description": "Read-only configuration file for platform settings, constraints, stakeholders, and team information. AI engineers update this manually or as human-in-the-loop.",
+  "version": "0.1.0",
+  "last_updated": "2025-10-05",
+  
+  "project": {
+    "name": "",
+    "type": "",
+    "organization": "",
+    "description": "",
+    "_comment_type": "Options: web_app, mobile_app, api, desktop_app, data_pipeline, ml_model, genai_assistant, automation_system",
+    "_comment_organization": "Internal project or client name"
+  },
+  
+  "platform": {
+    "target": "",
+    "deployment": "",
+    "region": "",
+    "multi_cloud": false,
+    "_comment_target": "Options: cursor, claude_projects, aws_bedrock, azure_openai, google_vertex, custom",
+    "_comment_deployment": "Options: cloud, on_prem, hybrid, edge",
+    "_comment_region": "AWS: us-east-1, us-west-2, eu-west-1, etc. | Azure: eastus, westus, etc. | GCP: us-central1, us-west1, etc."
+  },
+  
+  "stakeholders": {
+    "decision_makers": [
+      {
+        "role": "",
+        "name": "",
+        "approval_authority": "",
+        "communication_preference": "",
+        "_comment_role": "CEO, CFO, CTO, VP Engineering, VP Product, Director",
+        "_comment_approval_authority": "budget, technical, strategic, operational"
+      }
+    ],
+    "contributors": [
+      {
+        "role": "",
+        "name": "",
+        "expertise": "",
+        "involvement_level": "",
+        "_comment_role": "Product Manager, Domain Expert, Business Analyst, Technical Lead, Data Scientist",
+        "_comment_involvement_level": "primary, secondary, consultant, reviewer"
+      }
+    ],
+    "end_users": [
+      {
+        "persona": "",
+        "count": 0,
+        "technical_level": "",
+        "primary_needs": [],
+        "_comment_technical_level": "novice, intermediate, expert"
+      }
+    ]
+  },
+  
+  "constraints": {
+    "budget": {
+      "range": "",
+      "currency": "USD",
+      "breakdown": {
+        "development": 0,
+        "infrastructure": 0,
+        "third_party_services": 0,
+        "contingency_percent": 15
+      },
+      "approval_process": "",
+      "_comment_range": "e.g., $50,000 - $100,000 or exact amount",
+      "_comment_approval_process": "Who approves budget increases or changes"
+    },
+    "timeline": {
+      "deadline": "",
+      "flexibility": "",
+      "milestones": [],
+      "business_drivers": "",
+      "_comment_deadline": "ISO 8601 format: YYYY-MM-DD",
+      "_comment_flexibility": "hard (no flexibility), moderate (some flexibility), soft (flexible)"
+    },
+    "compliance": {
+      "regulations": [],
+      "certifications_required": [],
+      "data_residency": "",
+      "audit_requirements": "",
+      "_comment_regulations": "GDPR, HIPAA, SOC2, PCI-DSS, CCPA, ISO 27001, etc.",
+      "_comment_data_residency": "Specific countries/regions where data must reside"
+    },
+    "technical": {
+      "existing_infrastructure": [],
+      "required_integrations": [],
+      "technology_restrictions": [],
+      "performance_requirements": {
+        "latency_target_ms": 0,
+        "throughput_rps": 0,
+        "availability_percent": 99.9,
+        "concurrent_users": 0
+      },
+      "_comment_existing_infrastructure": "Systems that must be used or integrated with",
+      "_comment_technology_restrictions": "Technologies that cannot be used due to policy or licensing"
+    },
+    "strategic_priority": "",
+    "_comment_strategic_priority": "critical (top priority, resources guaranteed), high (important, resources likely), medium (standard priority), low (nice to have)"
+  },
+  
+  "team": {
+    "current_size": 0,
+    "available_capacity_percent": 0,
+    "experience_level": "",
+    "skills": [],
+    "gaps": [],
+    "hiring_budget": "",
+    "training_budget": "",
+    "_comment_experience_level": "junior (0-2 years), mid-level (3-5 years), senior (5-10 years), expert (10+ years)",
+    "_comment_skills": "List current team skills: python, react, aws, machine_learning, prompt_engineering, etc.",
+    "_comment_gaps": "List skills needed but not currently available"
+  },
+  
+  "preferences": {
+    "development_methodology": "",
+    "code_quality_standards": "",
+    "documentation_requirements": "",
+    "testing_requirements": "",
+    "ci_cd_preferences": "",
+    "_comment_development_methodology": "agile, scrum, kanban, waterfall, hybrid",
+    "_comment_code_quality_standards": "Style guides, linting rules, code review policies",
+    "_comment_testing_requirements": "Unit test coverage %, integration tests, e2e tests"
+  },
+  
+  "risk_tolerance": {
+    "innovation_vs_stability": "",
+    "cost_vs_speed": "",
+    "build_vs_buy": "",
+    "_comment_innovation_vs_stability": "innovative (cutting-edge tech acceptable), balanced (proven but modern), conservative (battle-tested only)",
+    "_comment_cost_vs_speed": "optimize_cost (slower but cheaper), balanced (reasonable trade-off), optimize_speed (faster delivery priority)",
+    "_comment_build_vs_buy": "prefer_build (custom solutions), balanced (case by case), prefer_buy (SaaS/managed services)"
+  },
+  
+  "aws_well_architected_framework": {
+    "_description": "Authoritative reference for AWS Well-Architected Framework (6 Pillars) and Generative AI Lens. All agents MUST reference this section instead of duplicating definitions.",
+    "pillars": {
+      "operational_excellence": {
+        "name": "Operational Excellence",
+        "description": "The ability to support development and run workloads effectively, gain insight into their operations, and continuously improve supporting processes and procedures to deliver business value.",
+        "key_areas": [
+          "Monitoring and logging",
+          "Automation and orchestration",
+          "Documentation and runbooks",
+          "Continuous improvement",
+          "Event response and incident management",
+          "Performance tracking and KPIs"
+        ]
+      },
+      "security": {
+        "name": "Security",
+        "description": "The security pillar encompasses the ability to protect data, systems, and assets to take advantage of cloud technologies to improve your security.",
+        "key_areas": [
+          "IAM and least privilege access",
+          "Data encryption (at rest and in transit)",
+          "Input validation and sanitization",
+          "Prompt injection protection",
+          "Content filtering and moderation",
+          "Security monitoring and threat detection",
+          "Compliance and audit logging"
+        ]
+      },
+      "reliability": {
+        "name": "Reliability",
+        "description": "The ability of a workload to perform its intended function correctly and consistently when it's expected to.",
+        "key_areas": [
+          "Fault tolerance and redundancy",
+          "Retry logic and exponential backoff",
+          "Circuit breakers and fallback mechanisms",
+          "Graceful degradation",
+          "Comprehensive testing (unit, integration, E2E)",
+          "Disaster recovery and backup strategies",
+          "Health checks and monitoring"
+        ]
+      },
+      "performance_efficiency": {
+        "name": "Performance Efficiency",
+        "description": "The ability to use computing resources efficiently to meet system requirements and to maintain that efficiency as demand changes and technologies evolve.",
+        "key_areas": [
+          "Model right-sizing and selection",
+          "Caching strategies (prompt, response, embedding)",
+          "Prompt optimization and token efficiency",
+          "Response time and latency optimization",
+          "Throughput and concurrency management",
+          "Resource utilization monitoring"
+        ]
+      },
+      "cost_optimization": {
+        "name": "Cost Optimization",
+        "description": "The ability to run systems to deliver business value at the lowest price point.",
+        "key_areas": [
+          "Model selection (right-sized for task complexity)",
+          "API call reduction and batching",
+          "Infrastructure right-sizing",
+          "Usage tracking and cost allocation",
+          "Reserved capacity and savings plans",
+          "Cost monitoring and alerting"
+        ]
+      },
+      "sustainability": {
+        "name": "Sustainability",
+        "description": "The ability to continually improve sustainability impacts by reducing energy consumption and increasing efficiency across all components of a workload.",
+        "key_areas": [
+          "Efficient resource utilization",
+          "Model compression and quantization",
+          "Batch processing over real-time when possible",
+          "Minimal computational waste",
+          "Carbon-aware computing",
+          "Right-sizing for workload requirements"
+        ]
+      }
+    },
+    "generative_ai_lens": {
+      "_description": "AWS Generative AI Lens provides AI-specific best practices that complement the 6 pillars",
+      "model_selection": {
+        "name": "Model Selection and Right-Sizing",
+        "description": "Choose models appropriate for task complexity to optimize cost and performance",
+        "best_practices": [
+          "Use smaller models for simple tasks (classification, categorization)",
+          "Reserve larger models for complex reasoning and generation",
+          "Benchmark multiple models against your use cases",
+          "Consider latency, cost, and accuracy trade-offs",
+          "Evaluate open-source vs. proprietary models"
+        ]
+      },
+      "prompt_engineering": {
+        "name": "Prompt Engineering Excellence",
+        "description": "Optimize prompts for clarity, efficiency, and effectiveness",
+        "best_practices": [
+          "Token efficiency (minimize unnecessary verbosity)",
+          "Clear instructions and role definitions",
+          "Context management (relevant information only)",
+          "Structured output formats (JSON, XML)",
+          "Few-shot examples for complex tasks",
+          "Chain-of-thought reasoning for transparency"
+        ]
+      },
+      "rag_optimization": {
+        "name": "RAG (Retrieval-Augmented Generation) Optimization",
+        "description": "Optimize knowledge retrieval and integration for accuracy and efficiency",
+        "best_practices": [
+          "Vector store efficiency (indexing, sharding)",
+          "Retrieval accuracy (embedding quality, chunk sizing)",
+          "Optimal chunk size (balance context vs. precision)",
+          "Embedding model selection",
+          "Reranking strategies",
+          "Cache frequently accessed knowledge"
+        ]
+      },
+      "multi_agent_coordination": {
+        "name": "Multi-Agent Coordination",
+        "description": "Efficient coordination and communication between multiple AI agents",
+        "best_practices": [
+          "Minimize redundant API calls across agents",
+          "Efficient handoffs and state management",
+          "Shared context management",
+          "Clear separation of concerns",
+          "Avoid capability duplication",
+          "Supervisor-worker patterns for orchestration"
+        ]
+      },
+      "responsible_ai": {
+        "name": "Responsible AI Practices",
+        "description": "Ensure ethical, fair, and transparent AI systems",
+        "best_practices": [
+          "Bias detection and mitigation",
+          "Explainability and interpretability",
+          "Content filtering and moderation",
+          "Human oversight and review",
+          "Ethical considerations and guardrails",
+          "Privacy and data protection",
+          "Transparency in AI-generated content"
+        ]
+      },
+      "knowledge_base_design": {
+        "name": "Knowledge Base Design",
+        "description": "Structure and manage knowledge for optimal AI access and updates",
+        "best_practices": [
+          "Structured formats (JSON preferred over unstructured)",
+          "Clear schemas and documentation",
+          "Efficient access patterns (READ/WRITE/UPDATE)",
+          "Version control friendly",
+          "Validation and consistency checks",
+          "Separation of configuration vs. data"
+        ]
+      }
+    },
+    "assessment_scoring": {
+      "_description": "Guidelines for scoring Well-Architected compliance",
+      "scale": "0-10 per pillar, where 0 = non-compliant, 5 = basic compliance, 10 = best-in-class",
+      "overall_calculation": "Average across all 6 pillars, weighted by importance if specified",
+      "thresholds": {
+        "excellent": 9.0,
+        "good": 7.0,
+        "acceptable": 5.0,
+        "needs_improvement": 3.0,
+        "critical": 0.0
+      }
+    }
+  },
+
+  "_usage_notes": {
+    "purpose": "This file is READ-ONLY for AI agents. It provides system-wide configuration that informs all architecture and design decisions.",
+    "update_process": "AI engineers update this file manually or through human-in-the-loop interactions with agents.",
+    "version_control": "Track changes in git to maintain configuration history.",
+    "validation": "Ensure all required fields are populated before beginning architecture design.",
+    "well_architected_reference": "All agents MUST reference aws_well_architected_framework section instead of duplicating pillar definitions inline."
+  },
+  
+  "_example": {
+    "project": {
+      "name": "Customer Support AI Assistant",
+      "type": "genai_assistant",
+      "organization": "Acme Corp - Customer Success",
+      "description": "AI-powered chatbot to handle tier 1 customer support inquiries"
+    },
+    "platform": {
+      "target": "aws_bedrock",
+      "deployment": "cloud",
+      "region": "us-east-1",
+      "multi_cloud": false
+    },
+    "stakeholders": {
+      "decision_makers": [
+        {
+          "role": "CTO",
+          "name": "Jane Smith",
+          "approval_authority": "technical, budget",
+          "communication_preference": "weekly status emails, monthly review meetings"
+        },
+        {
+          "role": "VP Customer Success",
+          "name": "John Doe",
+          "approval_authority": "strategic, operational",
+          "communication_preference": "bi-weekly demos"
+        }
+      ],
+      "contributors": [
+        {
+          "role": "Product Manager",
+          "name": "Alice Johnson",
+          "expertise": "customer_support_workflows, product_requirements",
+          "involvement_level": "primary"
+        }
+      ],
+      "end_users": [
+        {
+          "persona": "Customer Support Agent",
+          "count": 50,
+          "technical_level": "intermediate",
+          "primary_needs": ["fast_response", "accurate_information", "easy_escalation"]
+        }
+      ]
+    },
+    "constraints": {
+      "budget": {
+        "range": "$75,000 - $100,000",
+        "currency": "USD",
+        "breakdown": {
+          "development": 60000,
+          "infrastructure": 20000,
+          "third_party_services": 10000,
+          "contingency_percent": 15
+        },
+        "approval_process": "CFO approval required for >10% variance"
+      },
+      "timeline": {
+        "deadline": "2025-12-31",
+        "flexibility": "moderate",
+        "milestones": ["2025-11-01: Prototype", "2025-12-01: Beta Launch", "2025-12-31: Production"],
+        "business_drivers": "Q4 customer satisfaction initiative"
+      },
+      "compliance": {
+        "regulations": ["GDPR", "CCPA"],
+        "certifications_required": ["SOC2"],
+        "data_residency": "US, EU",
+        "audit_requirements": "Quarterly security audits"
+      },
+      "technical": {
+        "existing_infrastructure": ["AWS", "Zendesk", "Salesforce"],
+        "required_integrations": ["Zendesk API", "Salesforce API", "Internal KB"],
+        "technology_restrictions": ["No OpenAI (data privacy policy)", "Must use AWS services when possible"],
+        "performance_requirements": {
+          "latency_target_ms": 2000,
+          "throughput_rps": 50,
+          "availability_percent": 99.5,
+          "concurrent_users": 100
+        }
+      },
+      "strategic_priority": "high"
+    },
+    "team": {
+      "current_size": 4,
+      "available_capacity_percent": 60,
+      "experience_level": "mid-level",
+      "skills": ["python", "react", "aws", "rest_api", "postgresql"],
+      "gaps": ["prompt_engineering", "vector_databases", "langchain"],
+      "hiring_budget": "$200,000 for 2 additional engineers",
+      "training_budget": "$10,000 for prompt engineering and LLM training"
+    },
+    "preferences": {
+      "development_methodology": "agile",
+      "code_quality_standards": "PEP 8 for Python, ESLint for JavaScript, 80% test coverage",
+      "documentation_requirements": "Inline code docs, architecture docs, API docs, user guides",
+      "testing_requirements": "Unit tests (80% coverage), integration tests, e2e tests for critical paths",
+      "ci_cd_preferences": "GitHub Actions, automated deployment to staging, manual approval for production"
+    },
+    "risk_tolerance": {
+      "innovation_vs_stability": "balanced",
+      "cost_vs_speed": "balanced",
+      "build_vs_buy": "prefer_buy"
+    }
+  }
+}
