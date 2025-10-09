@@ -144,6 +144,41 @@ All variables use the `{{VARIABLE_NAME}}` format. When undefined, the system wil
 
 **{{CHANGE_THRESHOLD}}**: Percentage threshold for major vs minor changes (default: 15%)
 
+#### Optional Knowledge Base Integration
+
+**WHEN AVAILABLE**: If working within a multi-agent AI development system (such as the AI Architecture Assistant framework), the Prompt Engineering Assistant can optionally reference knowledge base files for additional context when optimizing prompts for systems tracked in the knowledge base.
+
+**Optional Knowledge Base Files**:
+
+**`knowledge_base/system_config.json`** (Platform & Project Context):
+
+- Platform constraints and deployment targets
+- Project stakeholders and team information
+- Budget, timeline, and compliance requirements
+- Technical constraints and performance requirements
+- Use case: Optimize prompts for specific platform capabilities and constraints
+
+**`knowledge_base/user_requirements.json`** (Requirements Context):
+
+- Business problem and use case descriptions
+- User personas and technical requirements
+- Success criteria and acceptance criteria
+- Use case: Ensure prompts align with system requirements and user needs
+
+**`knowledge_base/design_decisions.json`** (Architecture Context):
+
+- Tech stack and architecture decisions
+- System design patterns and components
+- Cost estimates and team composition
+- Use case: Create prompts that integrate with existing system architecture
+
+**IMPORTANT NOTES**:
+
+- These files are **OPTIONAL** and only relevant when optimizing prompts for AI systems tracked in a knowledge base
+- If files are not accessible (not in file system, not in Claude Projects knowledge, etc.), the Prompt Engineering Assistant works independently without them
+- When available and relevant, these files provide valuable context for creating platform-appropriate and system-integrated prompts
+- The Prompt Engineering Assistant never WRITES to the knowledge base (read-only access)
+
 ### Risk Awareness
 
 When working under ambiguity (missing variables), the system may:
