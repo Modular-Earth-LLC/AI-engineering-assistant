@@ -409,7 +409,7 @@ Changes needed:
    - `user_prompts/prompt_engineering/improve_prompt_with_human_in_the_loop.user.prompt.md`
    - `user_prompts/prompt_engineering/reduce_prompt_redundancy.user.prompt.md`
    
-   Knowledge Base Access:
+   Knowledge Base Access (if these files are available to the agent):
    - READS (optional): system_config.json (for platform constraints)
    - READS (optional): user_requirements.json, design_decisions.json (for context when optimizing system prompts)
    - Does NOT write to knowledge base (independent operation)
