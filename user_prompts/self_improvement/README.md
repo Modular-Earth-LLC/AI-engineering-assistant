@@ -82,8 +82,8 @@ The agent will systematically improve the entire framework
 **When to use:** After optimization quality issues, research updates  
 **Special note:** Self-improvement with recursion prevention
 
-#### `improve_prompt_engineering_assistant.user.prompt.md`
-**Target:** `ai_agents/prompt_engineering_assistant.system.prompt.md`  
+#### `improve_prompt_engineering_agent.user.prompt.md`
+**Target:** `ai_agents/prompt_engineering_agent.system.prompt.md`  
 **Focus:** Prompt engineering techniques, 4-step methodology, platform optimization  
 **When to use:** After prompt engineering research updates, quality issues  
 **Special note:** Self-improvement of prompt engineering capabilities
@@ -96,7 +96,7 @@ The agent will systematically improve the entire framework
 
 1. **Identify Need**: Determine which agent or system needs improvement
 2. **Select Prompt**: Choose appropriate improvement prompt from this directory
-3. **Load Agent**: Typically use Prompt Engineering Assistant or Optimization Agent
+3. **Load Agent**: Typically use Prompt Engineering Agent or Optimization Agent
 4. **Execute**: Reference the improvement prompt (e.g., `@improve_requirements_agent.user.prompt.md`)
 5. **Review**: Examine proposed changes and validation results
 6. **Apply**: Implement approved improvements
@@ -138,7 +138,7 @@ Optimization Agent + improve_ai_engineering_assistant.user.prompt.md
 
 ### Relationship to Prompt Engineering
 
-These prompts leverage the **Prompt Engineering Assistant** for applying prompt engineering best practices to agent system prompts. The improvement prompts use the assistant's 4-step methodology (Research → Test → Enhance → Confirm).
+These prompts leverage the **Prompt Engineering Agent** for applying prompt engineering best practices to agent system prompts. The improvement prompts use the assistant's 4-step methodology (Research → Test → Enhance → Confirm).
 
 ---
 
@@ -174,7 +174,7 @@ Where `<agent_name>` is:
 - `engineering_agent`
 - `deployment_agent`
 - `optimization_agent`
-- `prompt_engineering_assistant`
+- `prompt_engineering_agent`
 
 This clearly indicates these prompts improve agents **in this repository**.
 
@@ -222,7 +222,7 @@ When adding new self-improvement prompts:
 
 **Goal:** Improve an agent in this repo  
 **Location:** This directory (`user_prompts/self_improvement/`)  
-**Typical agent used:** Prompt Engineering Assistant or Optimization Agent  
+**Typical agent used:** Prompt Engineering Agent or Optimization Agent  
 **Frequency:** Quarterly or as-needed  
 **Duration:** 30 minutes to 4 hours (depending on scope)  
 **Safety:** Recursion prevention, fresh sessions, validation required

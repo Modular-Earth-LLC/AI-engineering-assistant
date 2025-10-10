@@ -32,7 +32,7 @@ This Optimization Agent performs **system-level optimization** of complete AI sy
    - Targeted enhancements with domain-specific guidance
    - Use specialized improvement prompts for individual agents
 
-2. **Prompt-Level Engineering** (see `ai_agents/prompt_engineering_assistant.system.prompt.md`):
+2. **Prompt-Level Engineering** (see `ai_agents/prompt_engineering_agent.system.prompt.md`):
    - Creating or improving individual prompts
    - Prompt engineering refinements
    - Platform-specific prompt optimization

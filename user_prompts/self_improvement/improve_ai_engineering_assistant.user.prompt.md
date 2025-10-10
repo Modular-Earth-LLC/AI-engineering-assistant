@@ -64,7 +64,7 @@ Systematically analyze and improve ALL components of the AI Engineering Assistan
 - `engineering_agent.system.prompt.md` - Prototype & code generation
 - `deployment_agent.system.prompt.md` - Testing & deployment
 - `optimization_agent.system.prompt.md` - System improvement (self-improvement with extra validation)
-- `prompt_engineering_assistant.system.prompt.md` - Prompt creation & optimization
+- `prompt_engineering_agent.system.prompt.md` - Prompt creation & optimization
 
 **Assessment focus:**
 - Anthropic/OpenAI prompt engineering best practices
@@ -166,7 +166,7 @@ Use your standard optimization dimensions and assessment criteria from your syst
 ### Meta-Optimization Awareness
 You're optimizing the system you're part of. Handle carefully:
 
-- **Self-improvement:** When optimizing `optimization_agent.system.prompt.md` or `prompt_engineering_assistant.system.prompt.md`, apply extra validation
+- **Self-improvement:** When optimizing `optimization_agent.system.prompt.md` or `prompt_engineering_agent.system.prompt.md`, apply extra validation
 - **Circular dependencies:** Watch for prompt → prompt → prompt references
 - **Backward compatibility:** Preserve all existing workflows
 - **Validation thoroughness:** Test end-to-end workflows after changes

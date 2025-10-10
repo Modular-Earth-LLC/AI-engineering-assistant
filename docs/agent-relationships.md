@@ -211,7 +211,7 @@ Knowledge Base (Shared State)
 ---
 
 ### ✨ Prompt Engineering Agent
-**File:** `ai_agents/prompt_engineering_assistant.system.prompt.md`  
+**File:** `ai_agents/prompt_engineering_agent.system.prompt.md`  
 **Role:** Prompt creation and optimization specialist
 
 **Capabilities:**

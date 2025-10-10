@@ -261,7 +261,7 @@ Optimization Agent → analyze → recommend
 
 ## Contributing
 
-**Agent Improvements**: Use Prompt Engineering Assistant  
+**Agent Improvements**: Use Prompt Engineering Agent  
 **Documentation**: Submit pull requests  
 **Examples**: Share successful projects
 

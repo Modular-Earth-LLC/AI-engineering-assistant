@@ -22,7 +22,7 @@ Developing AI systems requires coordinated expertise across requirements, archit
 
 ### Prompt Engineering Only (5 minutes)
 
-1. **Load**: `ai_agents/prompt_engineering_assistant.system.prompt.md` in Cursor
+1. **Load**: `ai_agents/prompt_engineering_agent.system.prompt.md` in Cursor
 2. **Request**: "Create a code review assistant for OpenAI GPT"
 3. **Deploy**: Copy generated prompt to target platform
 
@@ -60,7 +60,7 @@ Developing AI systems requires coordinated expertise across requirements, archit
 
 ### ✨ Prompt Engineering Agent
 **Creates** and optimizes high-quality prompts for any AI platform  
-**File**: `ai_agents/prompt_engineering_assistant.system.prompt.md`  
+**File**: `ai_agents/prompt_engineering_agent.system.prompt.md`  
 **Use**: "Create production-ready technical documentation assistant"
 
 ## Key Capabilities
@@ -197,7 +197,7 @@ Specialized task instructions organized by category in `user_prompts/`:
 
 **Optimize** — Comprehensive system-level improvements following Well-Architected principles. Use the Optimization Agent for entire AI systems.
 
-**Improve** — Targeted enhancements to specific components. Agent improvements use `self_improvement/` prompts; prompt improvements use the Prompt Engineering Assistant.
+**Improve** — Targeted enhancements to specific components. Agent improvements use `self_improvement/` prompts; prompt improvements use the Prompt Engineering Agent.
 
 **Enhance** — User experience and documentation improvements.
 

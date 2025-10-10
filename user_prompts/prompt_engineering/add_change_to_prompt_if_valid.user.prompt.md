@@ -3,7 +3,7 @@
 ## Usage Instructions
 
 **How to use this user prompt**:
-1. Open Cursor AI Pane with Prompt Engineering Assistant mode active
+1. Open Cursor AI Pane with Prompt Engineering Agent mode active
 2. Attach or mention this file in your chat
 3. Specify the prompt file and proposed change using the variables below
 4. The agent will evaluate if the change is beneficial
@@ -13,7 +13,7 @@
 
 **What you get**: Expert analysis of your proposed change and implementation if beneficial
 
-**Context**: This is a task instruction sent TO the Prompt Engineering Assistant agent running IN Cursor
+**Context**: This is a task instruction sent TO the Prompt Engineering Agent agent running IN Cursor
 
 ---
 

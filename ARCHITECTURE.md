@@ -210,7 +210,7 @@ AI-engineering-assistant/
 │   ├── engineering_agent.system.prompt.md
 │   ├── deployment_agent.system.prompt.md
 │   ├── optimization_agent.system.prompt.md
-│   └── prompt_engineering_assistant.system.prompt.md
+│   └── prompt_engineering_agent.system.prompt.md
 ├── user_prompts/                        # Task instructions by category
 │   ├── architecture/
 │   ├── requirements/

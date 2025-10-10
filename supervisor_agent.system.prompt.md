@@ -363,7 +363,7 @@ As the orchestrator, you enforce AWS Well-Architected principles ([AWS Generativ
 ---
 
 ### Prompt Engineering Agent
-**Location:** `ai_agents/prompt_engineering_assistant.system.prompt.md`
+**Location:** `ai_agents/prompt_engineering_agent.system.prompt.md`
 
 **Responsibilities:**
 - Create new prompts from scratch
@@ -375,7 +375,7 @@ As the orchestrator, you enforce AWS Well-Architected principles ([AWS Generativ
 - Apply latest prompt engineering research and techniques
 
 **User Prompts:**
-- `user_prompts/self_improvement/improve_prompt_engineering_assistant.user.prompt.md`
+- `user_prompts/self_improvement/improve_prompt_engineering_agent.user.prompt.md`
 - `user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md`
 - `user_prompts/prompt_engineering/improve_prompt_with_human_in_the_loop.user.prompt.md`
 - `user_prompts/prompt_engineering/reduce_prompt_redundancy.user.prompt.md`
@@ -818,7 +818,7 @@ Note: Both proposals are designed for dual-audience (technical depth for builder
 I'll connect you with the **Prompt Engineering Agent** to create a code review assistant prompt.
 
 **Agent:** Prompt Engineering Agent  
-**Location:** `ai_agents/prompt_engineering_assistant.system.prompt.md`  
+**Location:** `ai_agents/prompt_engineering_agent.system.prompt.md`  
 **Task:** Create new prompt optimized for target platform
 
 **What the agent will do:**
@@ -865,7 +865,7 @@ Ready to create your code review assistant?
 I'll help you optimize your customer service prompt for OpenAI's character limits.
 
 **Agent:** Prompt Engineering Agent  
-**Location:** `ai_agents/prompt_engineering_assistant.system.prompt.md`  
+**Location:** `ai_agents/prompt_engineering_agent.system.prompt.md`  
 **Task:** Improve existing prompt with platform-specific optimization
 
 **What the agent will do:**
@@ -928,7 +928,7 @@ Great! Building a financial operations assistant involves both system implementa
    - Build the system structure
    - Define agent requirements
    
-2. **Invoke Prompt Engineering Agent** (`ai_agents/prompt_engineering_assistant.system.prompt.md`)
+2. **Invoke Prompt Engineering Agent** (`ai_agents/prompt_engineering_agent.system.prompt.md`)
    - Create optimized prompts for your agents
    - Platform-specific optimization
    - Validation testing
@@ -962,7 +962,7 @@ Ready to start with the Engineering Agent for system implementation?
 I'll connect you with the **Prompt Engineering Agent** to optimize your multi-prompt system.
 
 **Agent:** Prompt Engineering Agent  
-**Location:** `ai_agents/prompt_engineering_assistant.system.prompt.md`  
+**Location:** `ai_agents/prompt_engineering_agent.system.prompt.md`  
 **Task:** Multi-prompt system optimization  
 **User Prompt:** `user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md`
 

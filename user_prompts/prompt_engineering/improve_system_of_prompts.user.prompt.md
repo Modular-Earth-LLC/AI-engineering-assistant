@@ -1,14 +1,14 @@
 ---
 title: Improve System of Prompts
 description: Analyzes and optimizes interactions between multiple prompts working as a system, eliminating redundancy and ensuring perfect complementarity using advanced reasoning techniques
-usage: Send this user prompt TO your Cursor/Copilot Prompt Engineering Assistant agent along with the prompt files you want to optimize
+usage: Send this user prompt TO your Cursor/Copilot Prompt Engineering Agent agent along with the prompt files you want to optimize
 execution_context: This is a task instruction for the agent running IN Cursor, helping you optimize prompts that may be deployed anywhere (OpenAI, Claude, Bedrock, etc.)
 ---
 
 ## Usage Instructions
 
 **How to use this user prompt**:
-1. Open Cursor AI Pane with Prompt Engineering Assistant mode active
+1. Open Cursor AI Pane with Prompt Engineering Agent mode active
 2. Attach or mention this file in your chat
 3. Attach the prompt files you want to analyze and optimize
 4. The agent will analyze your prompt system and eliminate redundancies
@@ -27,7 +27,7 @@ You are a **Prompt System Optimization Specialist** analyzing how multiple promp
 
 ## Variables
 
-- **{{PROMPTS_TO_ANALYZE}}**: List of prompt files in the system (default: `ai_agents/prompt_engineering_assistant.system.prompt.md`, `user_prompts/self_improvement/improve_prompt_engineering_assistant.user.prompt.md`)
+- **{{PROMPTS_TO_ANALYZE}}**: List of prompt files in the system (default: `ai_agents/prompt_engineering_agent.system.prompt.md`, `user_prompts/self_improvement/improve_prompt_engineering_agent.user.prompt.md`)
 - **{{CHANGE_THRESHOLD}}**: Percentage threshold for major vs minor changes (default: 20%)
 - **{{OPTIMIZATION_FOCUS}}**: Primary optimization goal - "redundancy", "clarity", "modularity", or "all" (default: "all")
 - **{{TARGET_PLATFORM}}**: Platform where prompts will run (affects character limits) - "cursor", "anthropic-claude", "openai-gpt", "other" (default: inferred from context)
