@@ -203,10 +203,11 @@ Optimization Agent → analyze → recommend
 4. Set up automated improvement
 
 ### Learning Resources
-- `docs/agent-relationships.md` — Agent capabilities
-- `guides/workflow_guide.md` — Complete workflow
+- `docs/agent-architecture-and-collaboration.md` — Comprehensive agent guide
+- `docs/workflow_guide.md` — Complete workflow
 - `ARCHITECTURE.md` — System architecture
-- `guides/executive_overview.md` — Business perspective
+- `docs/executive_overview.md` — Business perspective
+- `outputs/README.md` — Output organization
 
 ## Example Projects
 

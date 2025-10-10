@@ -237,10 +237,23 @@ Prompt Engineering Agent (Direct) → Creates/optimizes prompt → Validates →
 
 ## Documentation
 
-- **[ARCHITECTURE.md](ARCHITECTURE.md)**: Multi-agent system design and two-tier architecture
-- **[guides/getting-started.md](guides/getting-started.md)**: Detailed walkthrough
-- **[guides/workflow_guide.md](guides/workflow_guide.md)**: Complete workflow documentation
-- **[docs/agent-relationships.md](docs/agent-relationships.md)**: Agent capabilities and collaboration
+**Essential Reading:**
+- **[README.md](README.md)**: Quick start and system overview (you are here)
+- **[docs/getting-started.md](docs/getting-started.md)**: Step-by-step walkthrough for first project
+- **[docs/workflow_guide.md](docs/workflow_guide.md)**: Complete workflow documentation
+- **[ARCHITECTURE.md](ARCHITECTURE.md)**: System architecture and design
+
+**Reference Documentation:**
+- **[docs/agent-architecture-and-collaboration.md](docs/agent-architecture-and-collaboration.md)**: Comprehensive agent guide, capabilities, and collaboration patterns
+- **[docs/agent-design-patterns.md](docs/agent-design-patterns.md)**: Reusable AI agent design patterns
+- **[docs/platform_deployment.md](docs/platform_deployment.md)**: Platform-specific deployment guidance
+- **[docs/executive_overview.md](docs/executive_overview.md)**: Business perspective and value proposition
+
+**Specialized Documentation:**
+- **[knowledge_base/README.md](knowledge_base/README.md)**: Knowledge base usage and schema guide
+- **[user_prompts/self_improvement/README.md](user_prompts/self_improvement/README.md)**: Self-improvement prompts guide
+- **[outputs/README.md](outputs/README.md)**: Output directory structure and organization
+- **[templates/](templates/)**: Reusable templates for requirements, architecture, and checklists
 
 ## User Prompts
 

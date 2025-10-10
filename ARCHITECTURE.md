@@ -301,10 +301,12 @@ AI-engineering-assistant/
 
 ## References
 
-- **README.md**: Quick start and overview
-- **guides/getting-started.md**: Detailed walkthrough
-- **guides/workflow_guide.md**: Complete workflow documentation
-- **docs/agent-relationships.md**: Agent capabilities and collaboration patterns
+- **README.md**: Quick start and system overview
+- **docs/getting-started.md**: Step-by-step walkthrough
+- **docs/workflow_guide.md**: Complete workflow documentation
+- **docs/agent-architecture-and-collaboration.md**: Comprehensive agent guide and collaboration patterns
+- **docs/agent-design-patterns.md**: Reusable AI agent design patterns
+- **outputs/README.md**: Output directory structure and organization
 
 ## Version
 

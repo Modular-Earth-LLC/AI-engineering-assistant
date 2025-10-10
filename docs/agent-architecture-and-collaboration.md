@@ -857,6 +857,8 @@ The Supervisor analyzes your request and routes to the appropriate specialist ag
 **Related Documentation**:
 - `README.md` - Quick start and overview
 - `ARCHITECTURE.md` - Technical system architecture
-- `guides/getting-started.md` - Step-by-step tutorials
+- `docs/getting-started.md` - Step-by-step tutorials
+- `docs/workflow_guide.md` - Complete workflow guide
 - `docs/agent-design-patterns.md` - Design patterns and best practices
+- `outputs/README.md` - Output directory structure
 

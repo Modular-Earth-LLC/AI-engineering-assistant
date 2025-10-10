@@ -136,6 +136,15 @@
     "_comment_build_vs_buy": "prefer_build (custom solutions), balanced (case by case), prefer_buy (SaaS/managed services)"
   },
   
+  "output_configuration": {
+    "base_directory": "outputs",
+    "use_project_subdirectories": true,
+    "timestamp_files": false,
+    "_comment_base_directory": "Where agents save all generated content (requirements, architectures, prototypes, etc.)",
+    "_comment_use_project_subdirectories": "Organize outputs by project name for better organization",
+    "_comment_timestamp_files": "Add timestamps to filenames (usually false, git tracks history)"
+  },
+  
   "aws_well_architected_framework": {
     "_description": "Authoritative reference for AWS Well-Architected Framework (6 Pillars) and Generative AI Lens. All agents MUST reference this section instead of duplicating definitions.",
     "pillars": {
