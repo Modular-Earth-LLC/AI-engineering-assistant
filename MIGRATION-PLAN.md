@@ -108,7 +108,7 @@ Update user_prompts/ to have these subdirectories:
 - user_prompts/requirements/
 - user_prompts/engineering/
 - user_prompts/deployment/
-- user_prompts/optimization/
+- user_prompts/self_improvement/ (for improving agents in THIS repo)
 - user_prompts/proposals/
 
 Do NOT delete any existing files. Just create the new folders and move the existing user_prompts files into user_prompts/prompt_engineering/.
@@ -409,9 +409,9 @@ Changes needed:
    - `user_prompts/prompt_engineering/improve_prompt_with_human_in_the_loop.user.prompt.md`
    - `user_prompts/prompt_engineering/reduce_prompt_redundancy.user.prompt.md`
    
-   Knowledge Base Access (if these files are available to the agent):
-   - READS (optional): system_config.json (for platform constraints)
-   - READS (optional): user_requirements.json, design_decisions.json (for context when optimizing system prompts)
+   Knowledge Base Access (if these files are available/accessible to the agent):
+   - READS (optional if available/accessible): system_config.json (for platform constraints)
+   - READS (optional if available/accessible): user_requirements.json, design_decisions.json (for context when optimizing system prompts)
    - Does NOT write to knowledge base (independent operation)
    
    When to Route Here:
@@ -461,82 +461,95 @@ Make minimal changes - just add the connection points. Don't restructure the ent
 
 ### ☐ Step 3.3: Resolve Naming Conflicts - "Optimization" vs "Improvement" (40 minutes)
 
+**Cursor Prompt #5:**
+
+```Markdown
+Continuing with the migration plan, we need to resolve the ambiguity between "optimization" and "improvement" across all files in the repository. Example of how to do this includes better file names and naming standards, better separation of concerns between the purposes and instructions of AI agents and their prompts, clearer documentation for users (and instructions for agents)about use cases and how to use the agents and prompts in multi-agent/multi-shot prompting scenarios, reducing redundancy such as by removing redundant AI agents, and user prompts that are not needed or redundant.
+
 **Analysis First:**
-The Architecture Assistant has an "Optimization Agent" that optimizes entire AI systems.
-The Engineering Assistant has "improve" prompts that improve individual prompts.
+The Architecture Assistant repo had an "Optimization Agent" that optimized entire arbitrary external AI systems, and user prompts for improving specific agents in its own repo.
+The Engineering Assistant had "improve" prompts that improve individual prompts, including ones for improving the prompt engineering agent itself.
 
 These are DIFFERENT concepts:
 
-- **Optimize** (Optimization Agent): Broad system-level improvements across multiple agents, following Well-Architected principles
-- **Improve** (Prompt Engineering): Narrow prompt-level improvements for individual prompts or prompt systems
+- **Optimize** (Optimization Agent): Broad system-level improvements across multiple agents, following Well-Architected principles, applied to multi-agent and multi-shot prompting and AI engineering development workflows
+- **Improve Specific AI Agents** (AI Meta-Prompt Engineering): Improve specific AI agents, such as the Engineering Agent, Deployment Agent, etc.
+- **Improve Individual Prompts** (Prompt Engineering): Narrow prompt-level improvements for individual prompts or prompt systems
 
-**Cursor Prompt #5:**
 
-```
-Analyze and clarify the distinction between "optimization" (system-level) and "improvement" (prompt-level) across all files in the repository.
+Analyze and clarify the distinction between "optimization" (system-level) and "improvement" (prompt-level) across all files in the repository. Reduce redundancy between all improve prompts. Make it clear which prompts are used for improving prompts in this repo versus ones that the user can use on their own projects. I suspect part of this solution should include re-organizing files so there is a directory of agents and prompts just for improving files in this repo. It should still leverage and reference the more generic optimization agents and improve prompts from the overall AI architecture and engineering workflow defined in this repository. Create an overall efficient AI system regarding the number fo prompts and lines of code defining those prompts. Make sure it is easy to understand which context to use each prompt, both intuitively by scanning the files in the repo and also by reading updated and improved documentation that you must write after your other files changes are complete. 
 
 Context:
 - Optimization Agent (ai_agents/optimization_agent.system.prompt.md): Optimizes entire AI systems, multi-agent architectures, following AWS Well-Architected principles
+- AI Meta-Prompt Engineering (C:\Users\paulp\OneDrive\Documents\GitHub\AI-engineering-assistant\user_prompts\optimization): Improve specific AI agents, such as the agents that are part of the main AI system development workflow defined in this repository. 
 - Prompt Engineering user prompts (user_prompts/prompt_engineering/improve_*.md): Improve individual prompts or prompt systems
 
 These are DIFFERENT scopes and should be clearly distinguished.
 
 Tasks:
 1. Review all files that use "optimize", "optimization", "improve", or "improvement"
-2. Verify each usage is contextually clear (system-level vs prompt-level)
+2. Verify each usage is contextually clear (system-level vs agent-level vs prompt-level)
 3. Add clarifying comments or documentation where ambiguity exists
 4. Update any cross-references to use precise terminology
 
-Create a terminology guide snippet that can be added to relevant files:
-```
+Create a terminology guide snippet that can be added to relevant files.
 
-## Terminology: Optimization vs Improvement
-
-**System Optimization** (Optimization Agent):
-
-- Scope: Entire AI systems, multi-agent architectures
-- Focus: AWS Well-Architected principles, lifecycle awareness, measurable business impact
-- Location: ai_agents/optimization_agent.system.prompt.md
-- User Prompts: user_prompts/optimization/*
-
-**Prompt Improvement** (Prompt Engineering Assistant):
-
-- Scope: Individual prompts, prompt systems, prompt workflows
-- Focus: Clarity, efficiency, platform optimization, redundancy reduction
-- Location: prompt_engineering_assistant.system.prompt.md
-- User Prompts: user_prompts/prompt_engineering/improve_*
+Ensure effective integration between relevant prompts.
 
 **Integration**: Optimization Agent may invoke Prompt Engineering Assistant to improve prompts as part of system-wide optimization.
 
-```
+**Validation**: check for clarity for human readers and users. Make sure everything you write is clear, concise, coherent, and cohesive. Make sure all references are all correct and valid with every other file, and all logic you state is valid and factually accurate. Make sure world-class CTOs, data scientists, and AI researchers would be proud of your work after giving it a critical review. Validate and double-check all of your work. Incrementally commit your changes. Take all the time you need to create your best work ever. 
 
-List all files reviewed and any changes made.
-```
+Remember, the purpose of this repository is to make it easy to develop multi-agent systems using a multi-agent system (yes, this system is meta and self-improving) that follows best practices like the well-architected framework generative AI lens and standard AI/ML/software development workflows/lifecycles/processes.
 
-**Validation**: Review terminology guide, check for clarity
+```
 
 ---
 
-### ☐ Step 3.4: Update User Prompt Cross-References (30 minutes)
+### ✅ Step 3.4: Update User Prompt Cross-References (COMPLETED - October 10, 2025)
 
-**Cursor Prompt #6:**
+**Status:** COMPLETED - Directory reorganization completed with terminology clarification
 
-```
-Update all user prompts in user_prompts/optimization/ to reference correct file paths after the repository reorganization.
+**Changes implemented:**
 
-Specifically, check these files for references to other prompts or agents:
-- user_prompts/optimization/improve_ai_architecture_assistant.user.prompt.md (may reference other improvement prompts)
-- user_prompts/optimization/improve_optimization_agent.user.prompt.md (may reference system prompts)
-- All other improvement prompts in optimization folder
+1. **Created `user_prompts/self_improvement/` directory**
+   - Moved all 7 `improve_*_agent.user.prompt.md` files from `optimization/` to `self_improvement/`
+   - Removed empty `optimization/` directory
+   - Created comprehensive README.md in self_improvement/
 
-Tasks:
-1. Find all file path references in these user prompts
-2. Verify paths are correct after reorganization
-3. Update any broken references
-4. Add note at top of each optimization user prompt: "This prompt optimizes AI systems and multi-agent architectures. For improving individual prompts, see user_prompts/prompt_engineering/improve_*.md"
+2. **Created TERMINOLOGY.md at repository root**
+   - Defines three distinct scopes: System-Level Optimization, Agent-Level Improvement, Prompt-Level Engineering
+   - Includes Quick Decision Matrix
+   - Documents file organization and naming conventions
+   - Provides FAQ section
 
-List all files checked and any changes made.
-```
+3. **Updated main README.md**
+   - Changed `optimization/` reference to `self_improvement/`
+   - Added link to TERMINOLOGY.md
+
+4. **Updated Optimization Agent system prompt**
+   - Added SCOPE CLARIFICATION section
+   - Distinguished system-level optimization from agent improvement and prompt engineering
+   - Added reference to TERMINOLOGY.md
+
+**Rationale:**
+- `user_prompts/optimization/` contained agent improvement prompts but "optimization" implied system-level work
+- Created clear separation between:
+  - System-level optimization (Optimization Agent)
+  - Agent-level improvements (self_improvement/ directory)
+  - Prompt-level engineering (prompt_engineering/ directory)
+- Improved discoverability and reduced ambiguity
+
+**Files moved to `user_prompts/self_improvement/`:**
+- improve_ai_architecture_assistant.user.prompt.md
+- improve_supervisor_agent.user.prompt.md
+- improve_requirements_agent.user.prompt.md
+- improve_architecture_agent.user.prompt.md
+- improve_engineering_agent.user.prompt.md
+- improve_deployment_agent.user.prompt.md
+- improve_optimization_agent.user.prompt.md
+
+**Next:** Proceed to Step 3.5
 
 ---
 
