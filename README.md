@@ -12,19 +12,35 @@ Developing AI systems requires coordinated expertise across requirements, archit
 
 ## Quick Start
 
-### Complete System Development (15 minutes)
+### Choose Your Platform
 
+**Option A: Cursor IDE** (Recommended for developers)
+- Full multi-agent support (7 custom chat modes)
+- Local execution with file system access
+- Best for: Individual developers or teams using Cursor
+
+**Option B: Claude Projects** (Recommended for teams)
+- Cloud-based collaboration
+- Persistent project knowledge
+- Best for: Remote teams, no local setup needed
+
+### Complete System Development (15-30 minutes)
+
+**Cursor:**
 1. **Install**: Copy `supervisor_agent.system.prompt.md` to Cursor Settings → Chat → Custom Modes
 2. **Start**: Open Cursor AI Pane, select "Supervisor Agent"
-3. **Request**: "Build a financial operations assistant"
+3. **Request**: "Build a customer support chatbot"
 4. **Follow**: Requirements → Architecture → Engineering → Deployment
-5. **Deploy**: To your chosen platform
+5. **Outputs**: All deliverables saved to `outputs/` directory
 
-### Prompt Engineering Only (5 minutes)
+**Claude Projects:**
+1. **Create**: New Claude Project named "AI Engineering Assistant"
+2. **Upload**: All files from `knowledge_base/` to Project Knowledge
+3. **Configure**: Paste `supervisor_agent.system.prompt.md` into Custom Instructions
+4. **Request**: "Build a customer support chatbot"
+5. **Outputs**: Copy deliverables to your repository or documentation
 
-1. **Load**: `ai_agents/prompt_engineering_agent.system.prompt.md` in Cursor
-2. **Request**: "Create a code review assistant for OpenAI GPT"
-3. **Deploy**: Copy generated prompt to target platform
+**Full deployment guide:** [docs/deployment-guide.md](docs/deployment-guide.md)
 
 ## The 6 Specialized Agents
 
@@ -121,23 +137,31 @@ All agents share context through JSON files in `knowledge_base/`:
 
 ## Installation
 
-### Setup (5 minutes)
+### Clone Repository
 
 ```bash
-# Clone repository
 git clone https://github.com/Modular-Earth-LLC/AI-engineering-assistant.git
 cd AI-engineering-assistant
 ```
 
-### Configure Cursor
+### Deploy to Platform
 
+Choose your platform and follow the setup guide:
+
+**Cursor IDE** (5-10 minutes):
 1. Open Cursor → Settings → Chat → Custom Modes
-2. Create new mode: "Supervisor Agent"
-3. Copy contents of `supervisor_agent.system.prompt.md`
-4. Enable "All tools"
-5. Save and start using
+2. Create mode: "Supervisor Agent"
+3. Paste `supervisor_agent.system.prompt.md`
+4. Enable "All tools" → Save
+5. Repeat for specialized agents (optional)
 
-**Optional**: Create custom modes for individual specialized agents (`ai_agents/*.system.prompt.md`) for direct access
+**Claude Projects** (10-15 minutes):
+1. Create new project at [claude.ai/projects](https://claude.ai/projects)
+2. Upload `knowledge_base/*.json` to Project Knowledge
+3. Paste `supervisor_agent.system.prompt.md` to Custom Instructions
+4. Save and start using
+
+**Complete deployment guide:** [docs/deployment-guide.md](docs/deployment-guide.md)
 
 ## When to Use Each Agent
 
