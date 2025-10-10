@@ -384,6 +384,201 @@ Reference `templates/security-checklist.md` for comprehensive security validatio
 
 ---
 
+## Example: Financial Operations AI System Deployment
+
+<examples>
+
+### Example 1: Deploying Financial Operations Assistant to Claude Projects
+
+**Context:** Deploying the multi-agent financial operations assistant (from Engineering Agent) to Claude Projects for solo-entrepreneur use.
+
+**Prototype Location:** `outputs/prototypes/financial-operations-assistant/`
+
+**System Components:**
+- 2 agent prompts (Financial Operations Agent + Analytics Agent)
+- Python backend with Anthropic SDK
+- Streamlit UI
+- Local JSON knowledge base
+- Demo scenarios
+
+---
+
+**Deployment Agent Response:**
+
+```
+<thinking>
+1. Target platform: Claude Projects (from system_config.json or user specification)
+2. Prototype ready: Working prototype in outputs/prototypes/financial-operations-assistant/
+3. Deployment approach: Extract prompts, create Claude Project, upload knowledge base
+4. Testing: UAT scenarios for invoicing, expense categorization, reporting
+</thinking>
+
+I'll guide you through deploying your Financial Operations AI Assistant to Claude Projects.
+
+**Deployment Target:** Claude Projects  
+**System:** Multi-agent Financial Operations Assistant  
+**Prototype Location:** `outputs/prototypes/financial-operations-assistant/`
+
+---
+
+### Step 1: Platform-Specific Deployment Guide
+
+**Prerequisites:**
+- Claude Pro or Claude Team subscription
+- Anthropic API key (for backend if using API directly)
+- Prototype files from Engineering Agent
+
+**Deployment Steps:**
+
+**Option A: Claude Projects (Recommended for Solo-Entrepreneurs)**
+
+1. **Create Claude Project:**
+   - Go to [claude.ai/projects](https://claude.ai/projects)
+   - Click "New Project"
+   - Name: "Financial Operations Assistant"
+
+2. **Upload Agent Prompts to Project Knowledge:**
+   - Click "Add Content" → "Upload Files"
+   - Upload `prompts/financial_operations_agent.md`
+   - Upload `prompts/analytics_agent.md`
+   - Upload `config/business_rules.json` (if applicable)
+
+3. **Configure Project Instructions:**
+   - Click "Project Settings" → "Custom Instructions"
+   - Paste orchestrator logic or specify which agent to invoke:
+   
+   ```
+   You are the Financial Operations Assistant coordinator. 
+   
+   When the user needs invoicing or expense tracking, invoke the Financial Operations Agent.
+   When the user needs reports or analytics, invoke the Analytics Agent.
+   
+   Reference the uploaded agent prompts in Project Knowledge for detailed instructions.
+   ```
+
+4. **Test Basic Functionality:**
+   - Test: "Generate an invoice for Project ABC, 40 hours at $150/hr"
+   - Test: "Categorize this expense: Lunch with client, $85"
+   - Test: "Generate my monthly P&L report"
+
+**Validation:** ✅ All test scenarios should work correctly
+
+---
+
+### Step 2: Testing Strategy
+
+**User Acceptance Test (UAT) Scenarios for Stakeholders:**
+
+**Scenario 1: Invoice Generation**
+- **Input:** "Create invoice for Acme Corp: Website redesign project, 40 hours at $150/hour"
+- **Expected Output:** Professional invoice with:
+  - Invoice number (sequential)
+  - Client details
+  - Itemized services
+  - Total: $6,000
+  - Payment terms
+- **Success Criteria:** Invoice is client-ready, all calculations correct
+
+**Scenario 2: Expense Categorization**
+- **Input:** "Categorize this expense: Adobe Creative Cloud subscription, $54.99/month"
+- **Expected Output:** 
+  - Category: Software and Subscriptions
+  - Tax deductible: Yes
+  - Confidence: 95%+
+- **Success Criteria:** Correct IRS category, high confidence
+
+**Scenario 3: Monthly P&L Report**
+- **Input:** "Generate my September financial report"
+- **Expected Output:**
+  - Revenue summary (invoices sent/paid)
+  - Expense breakdown by category
+  - Net profit/loss
+  - Key insights and recommendations
+- **Success Criteria:** Report accurate, actionable insights provided
+
+**Scenario 4: Multi-Agent Coordination**
+- **Input:** "I just got paid for Invoice #005. Update my financial status and show impact on cash flow."
+- **Expected Output:**
+  - Financial Operations Agent marks invoice as paid
+  - Analytics Agent recalculates cash flow
+  - Coordinated response with updated metrics
+- **Success Criteria:** Agents work together seamlessly
+
+**Scenario 5: Error Handling**
+- **Input:** "Generate invoice with invalid data" (missing required fields)
+- **Expected Output:** Clear error message requesting missing information
+- **Success Criteria:** Graceful error handling, helpful guidance
+
+---
+
+### Step 3: Production Readiness Assessment
+
+**Security Checklist (Reference: `templates/security-checklist.md`):**
+
+| Security Area | Status | Gaps |
+|---------------|--------|------|
+| IAM & Least Privilege | ⚠️ Partial | Need: API key access controls |
+| Data Encryption | ⚠️ Partial | Financial data should be encrypted at rest |
+| Input Validation | ⚠️ Partial | Need: Comprehensive validation for financial amounts |
+| Prompt Injection Protection | ❌ Missing | Need: Input filtering for Claude prompts |
+| Content Filtering | ✅ Good | Claude built-in safety |
+| Security Monitoring | ❌ Missing | Need: Audit logging for financial transactions |
+| Compliance | ⚠️ Partial | Need: Tax data retention policy (7 years) |
+
+**Security Score:** 4.5/10 (Needs Improvement)
+
+**Critical Security Gaps:**
+1. **Financial data encryption** - Estimated effort: 2-3 hours
+2. **Audit logging for transactions** - Estimated effort: 4-6 hours
+3. **Input validation hardening** - Estimated effort: 3-4 hours
+4. **Tax compliance documentation** - Estimated effort: 2-3 hours
+
+**Total Security Hardening:** 11-16 hours
+
+---
+
+**Overall Production Readiness:**
+
+| Category | Status | Notes |
+|----------|--------|-------|
+| Functionality | ✅ Complete | All core features working |
+| Performance | ✅ Good | Claude Projects handles scale |
+| **Security** | ⚠️ Needs Hardening | See security gaps above |
+| Reliability | ✅ Good | Error handling implemented |
+| Documentation | ✅ Complete | User guide and setup docs ready |
+| Scalability | ✅ Good | Claude handles concurrent users |
+
+**Recommendation:**
+- ✅ Ready for solo-entrepreneur demo and beta testing (low-risk, single user)
+- ⚠️ NOT ready for multi-user production without security hardening
+- 📋 Estimated effort to production: 11-16 hours (security hardening) + 8-12 hours (production features)
+- 🔒 Complete security checklist before serving multiple users or handling sensitive financial data
+
+---
+
+### Step 4: Deployment Complete
+
+**Deployed System:**
+- **Platform:** Claude Projects
+- **URL:** [Project link]
+- **Access:** Solo-entrepreneur (owner)
+- **Status:** Beta (ready for stakeholder testing)
+
+**Next Steps for Production:**
+1. Implement security hardening per checklist
+2. Add comprehensive audit logging
+3. Test with 30-day beta period
+4. Gather user feedback
+5. Iterate based on feedback
+6. Deploy production-hardened version
+
+**Handoff to:** Stakeholder for testing → Optimization Agent for continuous improvement
+```
+
+</examples>
+
+---
+
 ## Communication Guidelines
 
 <guidelines>
