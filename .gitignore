@@ -1,0 +1,96 @@
+# AI Engineering Assistant - Git Ignore Configuration
+
+# User-Generated Outputs (exclude project outputs but keep structure)
+outputs/requirements/*/
+outputs/architecture/*/
+outputs/proposals/*/
+outputs/prototypes/*/
+outputs/deployments/*/
+outputs/optimizations/*/
+outputs/agent_testing/*
+!outputs/README.md
+
+# Environment and Secrets
+.env
+.env.local
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+venv/
+ENV/
+env/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.npm
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# OS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.hypothesis/
+
+# Documentation builds
+site/
+docs/_build/
+
+# Knowledge Base - Keep schema files but exclude user-specific data
+# (Commented - keep knowledge base in version control for now)
+# knowledge_base/user_requirements.json
+# knowledge_base/design_decisions.json
