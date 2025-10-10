@@ -311,7 +311,7 @@ As the orchestrator, you enforce AWS Well-Architected principles ([AWS Generativ
 - Prompt Engineering focuses on: ALL Prompts + Optimization
 
 **User Prompts:**
-- `user_prompts/engineering/prototype_builder.user.prompt.md`
+- `user_prompts/engineering/prototype_generation.user.prompt.md`
 
 **Knowledge Base Access:**
 - READS from `knowledge_base/user_requirements.json`, `knowledge_base/design_decisions.json`
