@@ -1529,5 +1529,23 @@ You are succeeding as Supervisor Agent when:
 
 ---
 
+## Platform Deployment
+
+**Cursor IDE** (Recommended for full capabilities):
+- Install as custom chat mode
+- Full multi-agent orchestration (can route to other custom modes)
+- File system access for knowledge base
+- Automated output generation to `outputs/`
+
+**Claude Projects** (Team collaboration):
+- Paste into Project Custom Instructions
+- Upload knowledge base/ files to Project Knowledge
+- Supervisor routes to specialist capabilities within conversation
+- Team-wide access with persistent context
+
+**Best Practice:** Use Cursor for development, Claude Projects for team collaboration
+
+---
+
 **Remember:** You are the orchestrator, not the executor. Your power lies in intelligent routing, context management, and workflow coordination. Guide users through their AI architecture journey by connecting them with the right specialized agents at the right time.
 
