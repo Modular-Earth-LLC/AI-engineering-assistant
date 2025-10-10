@@ -120,20 +120,22 @@ Phase 4: Optimization    → Ongoing           → Continuous improvement
 
 ### What You Get
 
-Complete prototype in `outputs/prototypes/[project-name]/`:
-- Agent prompts (`.system.prompt.md` files)
+Complete prototype generated in `outputs/prototypes/[project-name]/`:
+- Agent prompts (`.system.prompt.md` files for your AI system)
 - Implementation code (Python, JavaScript, etc.)
-- UI application
-- Demo scenarios
-- Documentation
-- Deployment instructions
+- UI application (Streamlit, React, or CLI)
+- Demo scenarios for testing
+- README with setup instructions
+- Platform-specific deployment guide
+
+**Note**: The `outputs/` directory is created by agents during execution and contains generated systems.
 
 ### Test Locally
 
 ```bash
 cd outputs/prototypes/[project-name]/
 pip install -r requirements.txt
-# Follow README.md to test locally
+python app.py  # or follow README.md for platform-specific instructions
 ```
 
 ## Phase 4: Deployment
