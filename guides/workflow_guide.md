@@ -227,7 +227,8 @@ Agent will:
 - `user_prompts/architecture/` — Design tasks
 - `user_prompts/engineering/` — Build tasks
 - `user_prompts/deployment/` — Deploy tasks
-- `user_prompts/optimization/` — Improve tasks
+- `user_prompts/self_improvement/` — Improve agents in THIS repo
+- `user_prompts/prompt_engineering/` — Generic prompt engineering
 - `user_prompts/proposals/` — Presentation tasks
 
 **Outputs**:
