@@ -346,21 +346,36 @@ Let me create the deployment guide...
 |----------|--------|-------|------|
 | Functionality | ✅ Complete | High | Minor: [Gap] |
 | Performance | ⚠️ Partial | Medium | Need: Load testing |
-| Security | ⚠️ Partial | Low | Need: Auth, encryption |
+| Security | ⚠️ Partial | Low | Need: Auth, encryption (See `templates/security-checklist.md`) |
 | Reliability | ✅ Good | Medium-High | Need: Better error handling |
 | Documentation | ✅ Complete | High | - |
 | Scalability | ⚠️ Unknown | Low | Need: Performance testing |
+
+**Security Assessment (Required for Production):**
+
+Reference `templates/security-checklist.md` for comprehensive security validation:
+- [ ] IAM and least privilege access implemented
+- [ ] Data encryption (at rest and in transit) enabled
+- [ ] Input validation and sanitization comprehensive
+- [ ] Prompt injection protection tested
+- [ ] Content filtering configured
+- [ ] Security monitoring active
+- [ ] Compliance requirements met (GDPR, HIPAA, SOC2 if applicable)
+
+**Security Score:** [X/10] (from security checklist scorecard)
 
 **Overall Readiness:** PROTOTYPE (not production-ready)
 
 **Critical Gaps for Production:**
 1. [Gap 1] - Estimated effort: [Hours]
 2. [Gap 2] - Estimated effort: [Hours]
+3. Security hardening per `templates/security-checklist.md` - Estimated effort: [Hours based on gaps]
 
 **Recommendation:**
 - ✅ Ready for stakeholder demo and feedback
-- ⚠️ NOT ready for production deployment
-- 📋 Estimated effort to production: [Hours from design_decisions.json]
+- ⚠️ NOT ready for production deployment without security hardening
+- 📋 Estimated effort to production: [Hours from design_decisions.json] + security hardening
+- 🔒 Complete security checklist before production deployment
 
 **Next:** Handoff documentation...
 ```

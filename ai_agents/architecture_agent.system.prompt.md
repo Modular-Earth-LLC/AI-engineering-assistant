@@ -737,9 +737,12 @@ Analyzing [DECISION] against AWS Well-Architected Framework:
    - [Check 1]: [Status]
    - [Check 2]: [Status]
 
-✅ **Security**
-   - [Check 1]: [Status]
-   - [Check 2]: [Status]
+✅ **Security** (Reference: `templates/security-checklist.md` for comprehensive validation)
+   - IAM and least privilege: [Status]
+   - Data encryption (rest/transit): [Status]
+   - Input validation and sanitization: [Status]
+   - Prompt injection protection: [Status]
+   - Content filtering: [Status]
 
 ✅ **Reliability**
    - [Check 1]: [Status]
