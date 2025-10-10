@@ -63,19 +63,55 @@ Developing AI systems requires coordinated expertise across requirements, archit
 **File**: `ai_agents/prompt_engineering_agent.system.prompt.md`  
 **Use**: "Create production-ready technical documentation assistant"
 
-## Key Capabilities
+## Agent Relationships & Collaboration
+
+### System Architecture
+
+```
+         ┌─────────────────────────┐
+         │   Supervisor Agent 🎯   │
+         │   (Orchestrator)        │
+         └───────────┬─────────────┘
+                     │ Routes requests
+         ┌───────────┼───────────────────┐
+         │           │                   │
+    ┌────▼───┐  ┌───▼────┐  ┌──────▼──────┐
+    │Require │  │  Arch  │  │ Engineering │←─┐
+    │ments📋 │  │ ecture │  │     ⚙️      │  │
+    └────┬───┘  │  🏗️   │  └──────┬──────┘  │
+         │      └───┬────┘         │         │
+         └──────────┼──────────────┘         │
+                    │                        │
+         ┌──────────┼────────────┐           │
+         │          │            │           │
+    ┌────▼────┐ ┌──▼────┐  ┌───▼──────┐    │
+    │Deployment│ │Optimi-│  │  Prompt  │────┘
+    │   🚀    │ │zation │  │Engineering|
+    └─────────┘ │  🔧   │  │    ✨    │
+                └───────┘  └──────────┘
+                               ↑
+                               │ Delegated
+                               │ by Eng
+```
+
+**Key Integrations**:
+- **Requirements → Architecture**: Provides structured requirements
+- **Architecture → Engineering**: Delivers complete design
+- **Engineering ↔ Prompt Engineering**: Engineering **delegates all prompt creation**
+- **Engineering → Deployment**: Provides working prototype
+- **Optimization ↔ All Agents**: Provides systematic improvements
+
+**Separation of Concerns**:
+- **Engineering Agent** = Code + UI + Implementation
+- **Prompt Engineering Agent** = ALL Prompts + Optimization
+
+**📚 Comprehensive Guide**: See `docs/agent-architecture-and-collaboration.md` for detailed workflows, collaboration patterns, and when to use each agent.
 
 ### Knowledge Base State Management
 All agents share context through JSON files in `knowledge_base/`:
 - `system_config.json`: Platform constraints, team info, Well-Architected definitions
 - `user_requirements.json`: Business requirements, success criteria (Requirements Agent)
 - `design_decisions.json`: Architecture decisions, costs, plans (Architecture Agent)
-
-### Multi-Agent Orchestration
-- Supervisor routes requests to specialized agents based on intent analysis
-- Seamless agent handoffs preserve full context across transitions
-- Agents collaborate effectively on complex multi-phase workflows
-- Clear separation of concerns across agent domains
 
 ### Production-Ready Outputs
 - Working prototypes with production-ready implementation code
@@ -105,23 +141,50 @@ cd AI-engineering-assistant
 4. Enable "All tools"
 5. Save and start using
 
+## When to Use Each Agent
+
+| I Want To... | Use This Agent | Example Request |
+|-------------|----------------|-----------------|
+| Start a new project | Requirements Agent | "Conduct discovery for email automation" |
+| Design complete system | Architecture Agent | "Design architecture and select tech stack" |
+| Build working prototype | Engineering Agent | "Build prototype from architecture design" |
+| **Create/optimize prompts** | **Prompt Engineering Agent** | **"Create code review assistant for GPT"** |
+| Deploy to platform | Deployment Agent | "Deploy to AWS Bedrock" |
+| Improve existing system | Optimization Agent | "Analyze system for optimizations" |
+| Not sure where to start? | **Supervisor Agent** | "Help me build [describe system]" |
+
 ## Common Workflows
 
-### New AI System
+### Complete System Development (2-4 weeks)
 ```
-Supervisor Agent → Requirements Agent → Architecture Agent 
-→ Engineering Agent → Deployment Agent
+1. Requirements Agent → Discovers needs (2-4 hours)
+2. Architecture Agent → Designs system (4-8 hours)
+3. Engineering Agent ↔ Prompt Engineering Agent → Builds prototype (2-5 days)
+   │ Engineering creates code/UI
+   └ Prompt Engineering creates ALL agent prompts
+4. Deployment Agent → Deploys to platform (4-8 hours)
+5. Optimization Agent → Continuous improvement (Ongoing)
 ```
 
-### System Improvement
+### Rapid Prompt Engineering (30 min - 2 hours)
 ```
-Optimization Agent → analyzes system → recommends improvements
-→ Engineering Agent (if code changes) → Deployment Agent
+Prompt Engineering Agent (Direct) → Creates/optimizes prompt → Validates → Delivers
 ```
 
-### Prompt Creation
+**Use Cases**:
+- Create custom GPT instructions
+- Optimize Claude Project prompts
+- Convert prompts between platforms
+- Improve existing prompts
+
+### System Optimization (1-2 weeks/cycle)
 ```
-Prompt Engineering Agent → creates/optimizes → validates → deploys
+1. Optimization Agent → Analyzes system
+2. Identifies improvements:
+   - Code → Engineering Agent
+   - Prompts → Prompt Engineering Agent
+   - Architecture → Architecture Agent
+3. Optimization Agent → Validates improvements
 ```
 
 ## Implementation Examples
