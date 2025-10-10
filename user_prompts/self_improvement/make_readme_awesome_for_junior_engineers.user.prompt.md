@@ -225,7 +225,7 @@ Address technical integration challenges:
 - ❌ Validation reports documenting what you did (belongs in git history)
 - ❌ Work logs or construction notes (belongs in commits)
 - ❌ Elaborate methodology explanations (keep it concise)
-- ❌ Migration histories in main docs (belongs in MIGRATION-PLAN.md if anywhere)
+- ❌ Migration histories in main docs (belongs in git history or separate migration docs)
 - ❌ Duplicate file structure explanations
 - ❌ Overly detailed FAQs that repeat earlier content
 
