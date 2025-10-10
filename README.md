@@ -34,34 +34,34 @@ Developing AI systems requires coordinated expertise across requirements, archit
 **Use**: Start here for complete AI system development workflows
 
 ### 📋 Requirements Agent
-**Discovers** what you need to build through structured inquiry  
+**Discovers** stakeholder needs and structures requirements through systematic inquiry  
 **File**: `ai_agents/requirements_agent.system.prompt.md`  
-**Use**: "Conduct discovery for email automation"
+**Use**: "Conduct discovery session for email automation"
 
 ### 🏗️ Architecture Agent
-**Designs** system architecture following AWS Well-Architected principles  
+**Designs** comprehensive system architecture following AWS Well-Architected principles  
 **File**: `ai_agents/architecture_agent.system.prompt.md`  
-**Use**: "Design system architecture and select tech stack"
+**Use**: "Design complete system architecture and select optimal tech stack"
 
 ### ⚙️ Engineering Agent
-**Builds** working prototypes with production-ready code  
+**Builds** functional prototypes with production-ready implementation code  
 **File**: `ai_agents/engineering_agent.system.prompt.md`  
-**Use**: "Generate prototype implementation"
+**Use**: "Generate working prototype implementation"
 
 ### 🚀 Deployment Agent
-**Guides** platform-specific deployment with testing strategies  
+**Guides** platform-specific deployment processes and testing strategies  
 **File**: `ai_agents/deployment_agent.system.prompt.md`  
-**Use**: "Deploy to AWS Bedrock" or "Set up testing"
+**Use**: "Deploy system to AWS Bedrock" or "Create comprehensive testing strategy"
 
 ### 🔧 Optimization Agent
-**Improves** existing systems following Well-Architected principles  
+**Improves** existing AI systems systematically following Well-Architected principles  
 **File**: `ai_agents/optimization_agent.system.prompt.md`  
-**Use**: "Analyze system for optimization opportunities"
+**Use**: "Analyze deployed system for optimization opportunities"
 
 ### ✨ Prompt Engineering Agent
-**Creates** and optimizes prompts for any platform  
+**Creates** and optimizes high-quality prompts for any AI platform  
 **File**: `ai_agents/prompt_engineering_assistant.system.prompt.md`  
-**Use**: "Create a technical documentation assistant"
+**Use**: "Create production-ready technical documentation assistant"
 
 ## Key Capabilities
 

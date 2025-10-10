@@ -1,6 +1,6 @@
 # System Architecture
 
-**Multi-agent AI development framework** with supervisor-worker pattern, shared knowledge base, and two-tier deployment model.
+**Multi-agent AI development framework** featuring supervisor-worker architecture pattern, shared knowledge base state management, and two-tier deployment model.
 
 ## Core Architecture
 
