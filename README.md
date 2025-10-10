@@ -363,9 +363,15 @@ Specify target: "Deploy to AWS Bedrock" not just "Deploy"
 
 ## Contributing
 
-**Improvements**: Fork repository, submit pull requests  
-**Issues**: Report bugs via GitHub Issues  
-**Documentation**: PRs welcome for clarity improvements
+We welcome contributions! See **[CONTRIBUTING.md](CONTRIBUTING.md)** for comprehensive guidelines.
+
+**Quick Start:**
+- **Agent improvements**: Use `user_prompts/self_improvement/` prompts
+- **Bug fixes**: Fork, fix, test, submit PR
+- **Documentation**: PRs welcome for clarity improvements
+- **Questions**: Open GitHub Discussion
+
+**All contributions** follow conventional commits and include tests where applicable.
 
 ## License
 
