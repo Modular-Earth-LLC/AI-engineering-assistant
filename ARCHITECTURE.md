@@ -224,7 +224,7 @@ AI-engineering-assistant/
 │   ├── user_requirements.json           # Business requirements
 │   ├── design_decisions.json            # Architecture decisions
 │   └── README.md                        # Knowledge base guide
-├── guides/                              # User documentation
+├── docs/                                # Complete documentation (GitHub Pages-ready)
 ├── docs/                                # Technical documentation
 ├── templates/                           # Reusable templates
 └── outputs/                             # Agent-generated content (created during use)

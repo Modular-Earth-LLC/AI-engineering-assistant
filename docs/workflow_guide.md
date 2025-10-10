@@ -78,7 +78,7 @@ Phase 4: Optimization    → Ongoing           → Continuous improvement
 - Complete architecture design
 - Cost and timeline estimates
 - Project plan and risk assessment
-- All artifacts in `outputs/presentations/[project]/`
+- All artifacts in `outputs/architecture/[project]/` and `outputs/proposals/[project]/`
 
 ## Phase 2: Proposals (Optional)
 
