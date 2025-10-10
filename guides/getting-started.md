@@ -17,7 +17,7 @@ By the end of this guide:
 
 ## Step 1: Installation (5 minutes)
 
-### Quick Setup (Recommended)
+### Setup Process
 
 1. **Clone repository**:
    ```bash
@@ -25,26 +25,20 @@ By the end of this guide:
    cd AI-engineering-assistant
    ```
 
-2. **Run deployment script**:
-   ```bash
-   # Windows
-   .\scripts\deploy_cursor.ps1
-   
-   # Linux/Mac
-   ./scripts/deploy_cursor.sh
-   ```
+2. **Configure Cursor**:
+   - Open Cursor → Settings → Chat → Custom Modes
+   - Click "New Mode"
+   - Name: "Supervisor Agent"
+   - Paste contents of `supervisor_agent.system.prompt.md`
+   - Enable "All tools"
+   - Save
 
 3. **Verify**:
-   - Open Cursor → Settings → Chat → Custom Modes
-   - Confirm "Supervisor Agent" appears in list
+   - Open Cursor AI Pane (`Ctrl+Shift+L` or `Cmd+Shift+L`)
+   - Confirm "Supervisor Agent" appears in dropdown
+   - Select it to begin
 
-### Manual Setup
-
-1. Copy `supervisor_agent.system.prompt.md`
-2. Cursor → Settings → Chat → Custom Modes → New Mode
-3. Name: "Supervisor Agent"
-4. Enable "All tools"
-5. Paste content, save
+**Optional**: Create additional custom modes for specialized agents (`ai_agents/*.system.prompt.md`) for direct access without routing through supervisor
 
 ## Step 2: Your First System (20 minutes)
 
@@ -216,12 +210,13 @@ Optimization Agent → analyze → recommend
 
 ## Example Projects
 
-### Financial Operations Assistant
-- Requirements: Invoicing + expense tracking
-- Architecture: 2-agent system (Operations + Analytics)
-- Engineering: Python + Streamlit + Claude
-- Deployment: AWS Bedrock
-- Impact: 80% time reduction, $40K-$80K annual value
+### Financial Operations AI System
+- Challenge: Automate financial operations for organizations
+- Approach: Collaborative design with AI engineer and domain expert
+- Architecture: Multi-agent system (Operations + Analytics + Reporting)
+- Technology: Python + Claude/GPT + AWS Bedrock or Claude Projects
+- Timeline: 2-4 weeks from requirements to deployment
+- Value: Significant time reduction and operational efficiency gains
 
 ### Customer Support Bot
 - Requirements: 24/7 e-commerce support

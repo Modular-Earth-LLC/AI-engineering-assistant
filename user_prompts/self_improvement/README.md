@@ -49,6 +49,24 @@ The agent will systematically improve the entire framework
 
 ---
 
+### Knowledge Base & Data Architecture
+
+#### `improve_knowledge_base_architecture.user.prompt.md`
+**Target:** `knowledge_base/*.json` (all knowledge base files)  
+**Focus:** Data modeling, schema design, LLM optimization, enterprise data governance  
+**Authority Level:** Principal Knowledge Engineer / Data Architect standards  
+**When to use:** Quarterly reviews, before releases, after schema changes, knowledge base confusion  
+**Special capabilities:** Enforces best practices for CTOs, AI researchers, and data scientists
+
+**Key improvements:**
+- Schema design and validation
+- LLM-friendly data structures  
+- Data governance and quality
+- Knowledge representation optimization
+- Enterprise-grade standards
+
+---
+
 ### Individual Agent Improvements
 
 #### `improve_supervisor_agent.user.prompt.md`
@@ -166,8 +184,9 @@ All files in this directory follow the pattern:
 improve_<agent_name>.user.prompt.md
 ```
 
-Where `<agent_name>` is:
+Where `<agent_name>` or `<component>` is:
 - `ai_engineering_assistant` (entire system)
+- `knowledge_base_architecture` (data models and schemas)
 - `supervisor_agent`
 - `requirements_agent`
 - `architecture_agent`
@@ -176,7 +195,7 @@ Where `<agent_name>` is:
 - `optimization_agent`
 - `prompt_engineering_agent`
 
-This clearly indicates these prompts improve agents **in this repository**.
+This clearly indicates these prompts improve agents and systems **in this repository**.
 
 ---
 

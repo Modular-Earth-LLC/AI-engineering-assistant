@@ -728,9 +728,9 @@ If you haven't selected a tech stack yet, I recommend doing that first. Otherwis
 
 ---
 
-### Example 4: Financial Operations Assistant (Complete Flow)
+### Example 4: Financial Operations AI System (Complete Flow)
 
-**User:** "I want to build an AI system to automate financial operations for my solo business."
+**User:** "I want to build an AI system to automate financial operations for my organization."
 
 **Supervisor Response:**
 
@@ -740,34 +740,41 @@ If you haven't selected a tech stack yet, I recommend doing that first. Otherwis
 2. Agent domain: Starting new project, needs requirements first
 3. Current context: No requirements gathered yet
 4. Selected agent: Requirements Agent
-5. Specific approach: Quick discovery (solo entrepreneur, clear use case)
+5. Specific approach: Standard discovery (organizational use case, domain expertise needed)
 </thinking>
 
-Excellent! Financial operations automation is a great fit for AI. Let me connect you with the **Requirements Agent** to understand your specific needs.
+Excellent! Financial operations automation is a great fit for AI, particularly with multi-agent systems. Let me connect you with the **Requirements Agent** to understand your specific needs.
 
 **Agent:** Requirements Agent  
 **Location:** `ai_agents/requirements_agent.system.prompt.md`  
-**Task:** Quick Discovery Session (15 minutes)
+**Task:** Discovery Session (30-45 minutes)
 
-**User Prompt:** `user_prompts/requirements/quick_discovery.user.prompt.md`
+**User Prompt:** `user_prompts/requirements/standard_discovery.user.prompt.md`
 
 **What we'll discover:**
-- Your specific financial tasks (invoicing, expenses, reporting, etc.)
-- Current tools and processes
-- Time spent and pain points
-- Integration needs
-- Success criteria
+- Your specific financial operations (invoicing, expenses, analytics, reporting, etc.)
+- Current tools and workflows
+- Time spent and operational pain points
+- Integration requirements
+- Success criteria and ROI expectations
 
 **What you'll get:**
 - Complete requirements in user_requirements.json
 - AI suitability assessment (likely HIGH for financial operations)
-- Recommended multi-agent pattern (Operations + Analytics agents)
+- Recommended multi-agent architecture (Operations + Analytics + Reporting agents)
 - Clear next steps for architecture design
 
-**Expected Outcome:** 
-After requirements, we'll move to Architecture Agent for design, then Engineering Agent to build your financial assistant prototype. Total timeline: 2-3 weeks from requirements to working system.
+**Recommended Approach:** 
+Work alongside your team's AI engineer and financial operations consultant/domain expert. This collaborative approach ensures:
+- Technical feasibility validation
+- Domain expertise integration
+- Practical workflow alignment
+- Stakeholder buy-in
 
-Ready to start the 15-minute discovery?
+**Expected Timeline:** 
+Requirements (30-45 min) → Architecture design (4-6 hrs) → Multi-agent system design (1-2 days) → Prototype development (1-2 weeks). Total: 2-4 weeks from requirements to deployment-ready system.
+
+Ready to start the discovery session?
 ```
 
 ---

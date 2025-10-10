@@ -212,22 +212,22 @@ AI-engineering-assistant/
 │   ├── optimization_agent.system.prompt.md
 │   └── prompt_engineering_agent.system.prompt.md
 ├── user_prompts/                        # Task instructions by category
-│   ├── architecture/
-│   ├── requirements/
-│   ├── engineering/
-│   ├── deployment/
-│   ├── optimization/
-│   ├── prompt_engineering/
-│   └── proposals/
+│   ├── architecture/                    # 6 prompts
+│   ├── requirements/                    # 4 prompts
+│   ├── engineering/                     # 1 prompt
+│   ├── deployment/                      # 2 prompts
+│   ├── self_improvement/                # 9 prompts
+│   ├── prompt_engineering/              # 6 prompts
+│   └── proposals/                       # 4 prompts
 ├── knowledge_base/                      # JSON state management
-│   ├── system_config.json
-│   ├── user_requirements.json
-│   └── design_decisions.json
+│   ├── system_config.json               # Platform constraints
+│   ├── user_requirements.json           # Business requirements
+│   ├── design_decisions.json            # Architecture decisions
+│   └── README.md                        # Knowledge base guide
 ├── guides/                              # User documentation
 ├── docs/                                # Technical documentation
 ├── templates/                           # Reusable templates
-├── scripts/                             # Deployment automation
-└── outputs/                             # Generated prototypes
+└── outputs/                             # Agent-generated content (created during use)
 ```
 
 ## Deployment Architecture
@@ -235,13 +235,14 @@ AI-engineering-assistant/
 ### Tier 1 Deployment (This Framework)
 
 **Target**: Cursor IDE custom chat modes  
-**Method**: Copy `.system.prompt.md` files to Cursor  
+**Method**: Copy `.system.prompt.md` files to Cursor Settings → Chat → Custom Modes  
 **Scope**: Single developer or team using Cursor
 
-**Automated**:
-```bash
-.\scripts\deploy_cursor.ps1
-```
+**Setup**:
+1. Open Cursor → Settings → Chat → Custom Modes
+2. Create new mode, paste `supervisor_agent.system.prompt.md`
+3. Enable "All tools"
+4. Repeat for specialized agents as needed
 
 ### Tier 2 Deployment (Generated Systems)
 

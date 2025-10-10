@@ -231,7 +231,6 @@
     "participants": [],
     "completeness_score": "",
     "validation_status": "",
-    "next_review_date": "",
     "_comment_discovery_method": "quick_discovery (15 min), standard_discovery (30 min), comprehensive_workshop (90 min), extraction_from_notes",
     "_comment_completeness_score": "incomplete (missing critical info), partial (some gaps), complete (ready for architecture)",
     "_comment_validation_status": "draft, reviewed, approved"

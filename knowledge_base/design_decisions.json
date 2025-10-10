@@ -495,15 +495,7 @@
     }
   },
   
-  "_change_history": [
-    {
-      "date": "",
-      "section_updated": "",
-      "reason": "",
-      "updated_by": "",
-      "approval_status": ""
-    }
-  ],
+  "_change_history": [],
   
   "_metadata": {
     "architecture_agent_version": "1.0",

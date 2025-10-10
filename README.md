@@ -121,25 +121,23 @@ All agents share context through JSON files in `knowledge_base/`:
 
 ## Installation
 
-### Automated Setup (Recommended)
+### Setup (5 minutes)
 
 ```bash
 # Clone repository
 git clone https://github.com/Modular-Earth-LLC/AI-engineering-assistant.git
 cd AI-engineering-assistant
-
-# Deploy to Cursor
-.\scripts\deploy_cursor.ps1    # Windows
-./scripts/deploy_cursor.sh     # Linux/Mac
 ```
 
-### Manual Setup
+### Configure Cursor
 
-1. Open Cursor Settings → Chat → Custom Modes
-2. Create mode: "Supervisor Agent"
+1. Open Cursor → Settings → Chat → Custom Modes
+2. Create new mode: "Supervisor Agent"
 3. Copy contents of `supervisor_agent.system.prompt.md`
 4. Enable "All tools"
 5. Save and start using
+
+**Optional**: Create custom modes for individual specialized agents (`ai_agents/*.system.prompt.md`) for direct access
 
 ## When to Use Each Agent
 
@@ -189,23 +187,24 @@ Prompt Engineering Agent (Direct) → Creates/optimizes prompt → Validates →
 
 ## Implementation Examples
 
-### Financial Operations Assistant
-**Challenge**: Solo entrepreneur needs AI for invoicing and expense tracking  
-**Workflow**: Requirements (5min) → Architecture (10min) → Engineering (15min)  
-**Output**: 2-agent system (Operations + Analytics) deployable to AWS Bedrock  
-**Result**: Production system with Streamlit UI and Claude integration
+### Financial Operations AI System
+**Challenge**: Organization needs AI-powered financial operations automation  
+**Workflow**: Work alongside human AI engineer and financial operations consultant  
+**Process**: Requirements discovery → System architecture → Multi-agent design → Prototype development  
+**Output**: Multi-agent AI team for financial operations (invoicing, expense tracking, analytics)  
+**Result**: Production-ready system architecture deployable to AWS Bedrock, Claude Projects, or custom infrastructure
 
 ### Customer Support Bot
 **Challenge**: E-commerce needs 24/7 support with product knowledge  
 **Workflow**: Complete lifecycle through all agents  
 **Output**: Single agent with knowledge base for Claude Projects  
-**Result**: Team-accessible support assistant
+**Result**: Team-accessible support assistant with knowledge retrieval
 
 ### Code Review Assistant
 **Challenge**: Development team needs automated Python code review  
-**Workflow**: Prompt Engineering Agent only  
+**Workflow**: Prompt Engineering Agent only (5-10 minutes)  
 **Output**: Security-focused prompt for OpenAI GPT  
-**Result**: Copy-paste deployment in 5 minutes
+**Result**: Copy-paste deployment ready for immediate use
 
 ## Platform Deployment
 
@@ -250,9 +249,11 @@ Specialized task instructions organized by category in `user_prompts/`:
 - `architecture/`: System design tasks (6 prompts)
 - `engineering/`: Prototype generation (1 prompt)
 - `deployment/`: Deployment and testing (2 prompts)
-- `self_improvement/`: Improve agents in THIS repo (8 prompts)
-- `prompt_engineering/`: Generic prompt engineering (6 prompts)
+- `self_improvement/`: Improve agents in THIS repo (10 prompts)
+- `prompt_engineering/`: Prompt creation and optimization (5 prompts)
 - `proposals/`: Executive presentations (4 prompts)
+
+**Total**: 32 user prompts organized across 7 categories
 
 ## Glossary
 

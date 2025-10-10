@@ -157,6 +157,26 @@ git commit -m "Complete tech stack selection"
 
 ---
 
+## Knowledge Base Quality & Optimization
+
+**For schema improvements and data architecture optimization:**
+
+Use the specialized knowledge base improvement prompt:
+- **File:** `user_prompts/self_improvement/improve_knowledge_base_architecture.user.prompt.md`
+- **Purpose:** Enterprise-grade schema design, data modeling, and LLM optimization
+- **Authority:** Principal Knowledge Engineer standards (CTO/AI researcher approved)
+- **When to use:** Quarterly reviews, before releases, schema confusion
+- **Agent to use:** Optimization Agent or Architecture Agent
+
+This prompt enforces best practices for:
+- Data modeling and schema design
+- LLM-friendly structures
+- Data governance and quality
+- Knowledge representation
+- Enterprise standards compliance
+
+---
+
 ## Troubleshooting
 
 **Agent can't find files:**  
@@ -171,6 +191,9 @@ git commit -m "Complete tech stack selection"
 **Conflicts between files:**  
 → user_requirements is source of truth for WHAT/WHY  
 → design_decisions is source of truth for HOW/HOW MUCH
+
+**Schema quality concerns:**  
+→ Use `@improve_knowledge_base_architecture.user.prompt.md` for systematic improvements
 
 ---
 
