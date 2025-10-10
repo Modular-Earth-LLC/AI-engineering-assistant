@@ -307,6 +307,13 @@ A successful team composition should result in:
 
 ---
 
-This prompt ensures optimal team building that balances technical expertise, business needs, and resource constraints for AI-driven products.
+**Version:** 1.0  
+**Last Updated:** 2025-10-10  
+**Purpose:** Define AI system team structure, roles, skills, and hiring needs  
+**Category:** Architecture Design  
+**Agent:** Architecture Agent
 
+---
+
+This prompt ensures optimal team building that balances technical expertise, business needs, and resource constraints for AI-driven products.
 

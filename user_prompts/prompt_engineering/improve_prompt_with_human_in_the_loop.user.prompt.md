@@ -35,3 +35,11 @@ I will have my AI agent in Cursor execute one improvement at a time. Then I can 
 - Organize the results in a sequential list based on the order in which they should be executed.
 - Describe each change that needs to be made as a generative AI coding prompt.
 - Share the lists in this chat window so I can easily copy out each of the prompts.
+
+---
+
+**Version:** 1.0  
+**Last Updated:** 2025-10-10  
+**Purpose:** Improve prompts iteratively with human validation at each step  
+**Category:** Prompt Engineering  
+**Agent:** Prompt Engineering Agent

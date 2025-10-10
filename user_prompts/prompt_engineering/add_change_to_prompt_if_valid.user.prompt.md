@@ -44,3 +44,11 @@ You WILL NOT:
 - Repeat ideas or increase repetition
 - Make significantly complex changes to the system
 - Lose any existing capabilities without approval from the user
+
+---
+
+**Version:** 1.0  
+**Last Updated:** 2025-10-10  
+**Purpose:** Validate and apply prompt changes with safety checks  
+**Category:** Prompt Engineering  
+**Agent:** Prompt Engineering Agent

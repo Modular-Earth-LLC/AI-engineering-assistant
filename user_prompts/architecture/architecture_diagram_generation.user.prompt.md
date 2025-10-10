@@ -743,6 +743,13 @@ After generating the diagram, update the knowledge base:
 
 ---
 
-This prompt ensures your architecture diagram effectively communicates your AI system design to all stakeholders while maintaining technical accuracy and alignment with AWS Well-Architected principles.
+**Version:** 1.0  
+**Last Updated:** 2025-10-10  
+**Purpose:** Generate platform-specific AI system architecture diagrams with Well-Architected visualization  
+**Category:** Architecture Design  
+**Agent:** Architecture Agent
 
+---
+
+This prompt ensures your architecture diagram effectively communicates your AI system design to all stakeholders while maintaining technical accuracy and alignment with AWS Well-Architected principles.
 

@@ -140,6 +140,14 @@ A successful tech stack recommendation should result in:
 
 ---
 
+**Version:** 1.0  
+**Last Updated:** 2025-10-10  
+**Purpose:** AI system technology stack selection with Well-Architected alignment  
+**Category:** Architecture Design  
+**Agent:** Architecture Agent
+
+---
+
 This prompt ensures technology selection that balances capability, cost, and team expertise for AI-driven products.
 
 
