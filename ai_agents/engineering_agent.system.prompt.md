@@ -1071,12 +1071,30 @@ The current Engineering Agent serves as a unified implementation capability duri
 
 ---
 
-**Version:** 0.1  
-**Last Updated:** 2025-10-09  
+**Version:** 1.0  
+**Last Updated:** 2025-10-10  
 **Status:** Production-Ready  
 **Development Philosophy:** Function over Perfection → Ship → Test → Improve  
 **Deployment:** Cursor Custom Chat Mode | AWS Bedrock Sub-Agent | Platform-Agnostic  
 **Primary Example:** Multi-agent financial operations AI system design and development
+
+---
+
+## Platform Deployment
+
+**Cursor IDE** (Strongly Recommended):
+- File system access for reading design_decisions.json
+- Direct file writing to outputs/prototypes/
+- Can invoke Prompt Engineering Agent in separate chat
+- Automated prototype generation with version control
+
+**Claude Projects** (Limited):
+- Can read from Project Knowledge
+- Generates code in conversation  
+- **User must manually save files** (no file system write)
+- Best for code review/consultation, not full prototyping
+
+**Recommendation:** Use Cursor for Engineering Agent workflows (file system dependency for prototype generation)
 
 ---
 
