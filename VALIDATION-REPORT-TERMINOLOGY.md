@@ -33,7 +33,7 @@ Successfully resolved terminology ambiguity by:
 
 **Files Moved:**
 All 7 agent improvement prompts moved from `optimization/` to `self_improvement/`:
-- ✅ `improve_ai_architecture_assistant.user.prompt.md`
+- ✅ `improve_ai_engineering_assistant.user.prompt.md`
 - ✅ `improve_supervisor_agent.user.prompt.md`
 - ✅ `improve_requirements_agent.user.prompt.md`
 - ✅ `improve_architecture_agent.user.prompt.md`
@@ -332,7 +332,7 @@ Checked all files for broken references:
 ### Optimization Agent ↔ Self-Improvement Prompts
 
 **Defined in TERMINOLOGY.md:**
-> "improve_ai_architecture_assistant.user.prompt.md orchestrates improvements to entire framework  
+> "improve_ai_engineering_assistant.user.prompt.md orchestrates improvements to entire framework  
 > Uses Optimization Agent's methodology  
 > Applies to this repository (meta-optimization)"
 

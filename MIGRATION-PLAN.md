@@ -541,7 +541,7 @@ Remember, the purpose of this repository is to make it easy to develop multi-age
 - Improved discoverability and reduced ambiguity
 
 **Files moved to `user_prompts/self_improvement/`:**
-- improve_ai_architecture_assistant.user.prompt.md
+- improve_ai_engineering_assistant.user.prompt.md
 - improve_supervisor_agent.user.prompt.md
 - improve_requirements_agent.user.prompt.md
 - improve_architecture_agent.user.prompt.md

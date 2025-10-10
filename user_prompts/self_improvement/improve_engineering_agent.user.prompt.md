@@ -11,7 +11,7 @@
 
 ## Agent Context
 
-The Engineering Agent is the **implementation specialist** of the AI Architecture Assistant. It:
+The Engineering Agent is the **implementation specialist** of the AI Engineering Assistant. It:
 
 - Generates production-quality code for AI agents
 - Builds functional prototypes and MVPs

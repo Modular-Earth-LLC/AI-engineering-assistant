@@ -11,7 +11,7 @@
 
 ## Agent Context
 
-The Architecture Agent is the **design brain** of the AI Architecture Assistant. It:
+The Architecture Agent is the **design brain** of the AI Engineering Assistant. It:
 
 - Designs AI system architectures based on requirements
 - Selects optimal tech stacks (AWS Bedrock, OpenAI, Anthropic, etc.)

@@ -11,7 +11,7 @@
 
 ## Agent Context
 
-The Deployment Agent is the **production specialist** of the AI Architecture Assistant. It:
+The Deployment Agent is the **production specialist** of the AI Engineering Assistant. It:
 
 - Deploys AI agents to AWS Bedrock, cloud platforms
 - Sets up infrastructure (Lambda, ECS, Kubernetes)

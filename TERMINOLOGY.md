@@ -51,7 +51,7 @@ This repository uses three distinct approaches at different levels of abstractio
 **Where:** `user_prompts/self_improvement/` directory contains prompts for improving agents in THIS repository
 
 **Files:**
-- `improve_ai_architecture_assistant.user.prompt.md` - Entire system improvement
+- `improve_ai_engineering_assistant.user.prompt.md` - Entire system improvement
 - `improve_supervisor_agent.user.prompt.md`
 - `improve_requirements_agent.user.prompt.md`
 - `improve_architecture_agent.user.prompt.md`
@@ -146,7 +146,7 @@ These three scopes can work together:
 - Changes integrated back into system-level optimization
 
 **Example 2: Self-improvement may use system optimization**
-- `improve_ai_architecture_assistant.user.prompt.md` orchestrates improvements to entire framework
+- `improve_ai_engineering_assistant.user.prompt.md` orchestrates improvements to entire framework
 - Uses Optimization Agent's methodology
 - Applies to this repository (meta-optimization)
 
@@ -191,7 +191,7 @@ These three scopes can work together:
 ```
 user_prompts/
 ├── self_improvement/          # For improving agents IN this repo
-│   ├── improve_ai_architecture_assistant.user.prompt.md
+│   ├── improve_ai_engineering_assistant.user.prompt.md
 │   ├── improve_supervisor_agent.user.prompt.md
 │   ├── improve_requirements_agent.user.prompt.md
 │   ├── improve_architecture_agent.user.prompt.md
@@ -255,7 +255,7 @@ The files in `self_improvement/` are for improving the **multi-agent development
 
 ### Q: Can the Optimization Agent improve agents in this repo?
 
-Yes! The `improve_ai_architecture_assistant.user.prompt.md` in `self_improvement/` instructs the Optimization Agent to optimize THIS repository as a system. This is "meta-optimization" where the agent improves the framework it's part of.
+Yes! The `improve_ai_engineering_assistant.user.prompt.md` in `self_improvement/` instructs the Optimization Agent to optimize THIS repository as a system. This is "meta-optimization" where the agent improves the framework it's part of.
 
 However, individual agent improvements (like improving just the Requirements Agent) use specialized prompts that provide domain-specific guidance.
 

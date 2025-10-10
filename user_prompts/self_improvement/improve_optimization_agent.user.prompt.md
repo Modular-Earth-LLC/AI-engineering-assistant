@@ -46,7 +46,7 @@ STOPPING to prevent infinite loop.
 
 **Target Agent:** The Optimization Agent defined in `ai_agents/optimization_agent.system.prompt.md`
 
-The Optimization Agent is the **continuous improvement specialist** of the AI Architecture Assistant. It:
+The Optimization Agent is the **continuous improvement specialist** of the AI Engineering Assistant. It:
 
 - Discovers system state through systematic analysis (never assumes structure)
 - Assesses against best practices (prompt engineering, multi-agent patterns, Well-Architected principles)
@@ -385,7 +385,7 @@ Why External? Avoids circular self-validation, tests general-purpose capability.
 
 ```text
 Context: Verify agent can still optimize THIS framework
-Task: ANALYZE (don't execute) potential optimization of AI Architecture Assistant
+Task: ANALYZE (don't execute) potential optimization of AI Engineering Assistant
 Success Criteria:
 - ✅ Would discover all components correctly
 - ✅ Would assess accurately against best practices
@@ -640,7 +640,7 @@ Consider creating a centralized best practices reference that all agents can rea
 ✅ **External Validation:** Tested on 2+ independent sample systems (not self-referential)
 ✅ **Objectivity Achieved:** Used external best practices as reference, not self-defined standards
 ✅ **Recursion Prevented:** Iteration tracking mathematically prevents infinite loops (OPTIMIZATION_ITERATION_COUNT enforced)
-✅ **Meta-Capability Verified:** Can still optimize AI Architecture Assistant framework after self-improvement
+✅ **Meta-Capability Verified:** Can still optimize AI Engineering Assistant framework after self-improvement
 ✅ **General-Purpose Preserved:** Can optimize user systems AND this framework equally well
 ✅ **Quality Demonstrated:** Measurable improvements shown through independent testing
 ✅ **Platform Appropriate:** Works across target platforms (Cursor, Claude Projects, AWS Bedrock)

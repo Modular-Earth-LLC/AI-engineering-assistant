@@ -33,7 +33,7 @@ Use prompts in this directory when you want to:
 
 ### System-Wide Improvement
 
-#### `improve_ai_architecture_assistant.user.prompt.md`
+#### `improve_ai_engineering_assistant.user.prompt.md`
 **Scope:** Entire AI Engineering Assistant repository  
 **What it does:** Comprehensive optimization of all agents, user prompts, knowledge base, documentation, and workflows  
 **When to use:** Quarterly reviews, after major research updates, before releases  
@@ -43,7 +43,7 @@ Use prompts in this directory when you want to:
 **Example usage:**
 ```
 Load: Optimization Agent
-Reference: @improve_ai_architecture_assistant.user.prompt.md
+Reference: @improve_ai_engineering_assistant.user.prompt.md
 The agent will systematically improve the entire framework
 ```
 
@@ -126,7 +126,7 @@ The **Optimization Agent** (`ai_agents/optimization_agent.system.prompt.md`) is 
 
 **Example integration:**
 ```
-Optimization Agent + improve_ai_architecture_assistant.user.prompt.md
+Optimization Agent + improve_ai_engineering_assistant.user.prompt.md
 = Complete system optimization of this repository
 ```
 

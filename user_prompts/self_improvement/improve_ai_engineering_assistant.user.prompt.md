@@ -1,8 +1,8 @@
-# Improve AI Architecture Assistant - System-Wide Optimization
+# Improve AI Engineering Assistant - System-Wide Optimization
 
-**Purpose:** Comprehensively optimize the entire AI Architecture Assistant multi-agent framework for maximum effectiveness, usability, and maintainability.
+**Purpose:** Comprehensively optimize the entire AI Engineering Assistant multi-agent framework for maximum effectiveness, usability, and maintainability.
 
-**Target System:** {{TARGET_SYSTEM}} = AI Architecture Assistant (this repository)  
+**Target System:** {{TARGET_SYSTEM}} = AI Engineering Assistant (this repository)  
 **Scope:** All agents, user prompts, knowledge base, documentation, workflows, and templates  
 
 **Role Clarity:** This user prompt specifies WHAT to optimize (target system, components, scope). Your system prompt defines HOW to optimize (methodology, assessment framework, validation protocols). Follow your standard Discover → Assess → Improve → Validate process.
@@ -53,7 +53,7 @@ BASE_CASE: OPTIMIZATION_ITERATION_COUNT >= MAX_ITERATIONS
 
 ## Optimization Scope
 
-Systematically analyze and improve ALL components of the AI Architecture Assistant:
+Systematically analyze and improve ALL components of the AI Engineering Assistant:
 
 ### 1. Agent System Prompts (`ai_agents/`)
 
@@ -64,6 +64,7 @@ Systematically analyze and improve ALL components of the AI Architecture Assista
 - `engineering_agent.system.prompt.md` - Prototype & code generation
 - `deployment_agent.system.prompt.md` - Testing & deployment
 - `optimization_agent.system.prompt.md` - System improvement (self-improvement with extra validation)
+- `prompt_engineering_assistant.system.prompt.md` - Prompt creation & optimization
 
 **Assessment focus:**
 - Anthropic/OpenAI prompt engineering best practices
@@ -81,7 +82,8 @@ Systematically analyze and improve ALL components of the AI Architecture Assista
 - `architecture/*.user.prompt.md` - Architecture tasks (6 prompts)
 - `engineering/*.user.prompt.md` - Engineering tasks (1 prompt)
 - `deployment/*.user.prompt.md` - Deployment tasks (2 prompts)
-- `optimization/*.user.prompt.md` - Optimization tasks (7 prompts, including THIS prompt)
+- `self_improvement/*.user.prompt.md` - Agent improvement tasks (7 prompts, including THIS prompt)
+- `prompt_engineering/*.user.prompt.md` - Prompt engineering tasks (7 prompts)
 - `proposals/*.user.prompt.md` - Proposal assembly (4 prompts)
 
 **Assessment focus:**
@@ -112,16 +114,18 @@ Systematically analyze and improve ALL components of the AI Architecture Assista
 ### 4. Documentation & Templates (`guides/`, `docs/`, `templates/`)
 
 **Files to optimize:**
-- User guides (workflow_guide.md, prototype-guide.md, demo-guide.md, etc.)
-- Technical documentation (agent-design-patterns.md)
+- User guides (workflow_guide.md, getting-started.md, platform_deployment.md, etc.)
+- Technical documentation (agent-design-patterns.md, agent-relationships.md)
 - Templates (requirements-template.md, architecture-template.md, etc.)
 - Executive overview and deployment guides
+- TERMINOLOGY.md (terminology standards)
 
 **Assessment focus:**
 - Beginner accessibility (<15 min to productivity)
 - Completeness (all workflows documented)
 - Accuracy (examples work as documented)
 - Platform-specific guidance (Cursor, AWS Bedrock, GitHub Copilot)
+- Terminology clarity and consistency
 
 ---
 
@@ -132,6 +136,7 @@ Systematically analyze and improve ALL components of the AI Architecture Assista
 - Multi-shot Architecture Agent workflow (6 orchestrated user prompts)
 - Knowledge base read/write patterns
 - Supervisor routing logic
+- Prompt Engineering Agent integration with other agents
 
 **User experience:**
 - Clear entry points (which agent/prompt for which task)
@@ -151,8 +156,9 @@ Use your standard optimization dimensions and assessment criteria from your syst
 - **User Experience**: Time to first result (<15 min), navigation clarity, platform deployment completeness
 - **Documentation Quality**: Onboarding, examples, troubleshooting guidance
 - **AWS Well-Architected Alignment**: Architecture Agent enforcement of 6 pillars + GenAI Lens
+- **Terminology Clarity**: Consistent use of "optimize" vs "improve" vs "enhance" (see TERMINOLOGY.md)
 
-*Note: Your system prompt contains the detailed assessment framework. This section highlights areas of particular importance for the AI Architecture Assistant.*
+*Note: Your system prompt contains the detailed assessment framework. This section highlights areas of particular importance for the AI Engineering Assistant.*
 
 ---
 
@@ -161,13 +167,13 @@ Use your standard optimization dimensions and assessment criteria from your syst
 ### Meta-Optimization Awareness
 You're optimizing the system you're part of. Handle carefully:
 
-- **Self-improvement:** When optimizing `optimization_agent.system.prompt.md`, apply extra validation
+- **Self-improvement:** When optimizing `optimization_agent.system.prompt.md` or `prompt_engineering_assistant.system.prompt.md`, apply extra validation
 - **Circular dependencies:** Watch for prompt → prompt → prompt references
 - **Backward compatibility:** Preserve all existing workflows
 - **Validation thoroughness:** Test end-to-end workflows after changes
 
 ### Agent-Specific Improvement Prompts
-Consider whether to use specialized improvement prompts for each agent:
+Consider whether to use specialized improvement prompts for each agent (in `user_prompts/self_improvement/`):
 - `improve_requirements_agent.user.prompt.md`
 - `improve_architecture_agent.user.prompt.md`
 - `improve_engineering_agent.user.prompt.md`
@@ -184,16 +190,17 @@ Consider whether to use specialized improvement prompts for each agent:
 This optimization succeeds when these **system-specific outcomes** are achieved:
 
 ✅ **Complete System Coverage**
-- All 6 agents optimized (supervisor + 5 specialized agents)
-- All 23+ user prompts reviewed and improved
+- All 7 agents optimized (supervisor + 6 specialized agents)
+- All 30+ user prompts reviewed and improved
 - Knowledge base schemas validated (3 JSON files)
-- Documentation updated (guides, templates, README)
+- Documentation updated (guides, templates, README, TERMINOLOGY.md)
 
 ✅ **Measurable System Improvements**
 - Overall system quality: 10%+ improvement across assessment dimensions
 - User time to first result: ≤15 minutes maintained or improved
 - Prompt engineering consistency: Common patterns across all agents
 - End-to-end workflows: Requirements → Architecture → Engineering → Deployment validated
+- Terminology clarity: Consistent "optimize" vs "improve" vs "enhance" usage
 
 ✅ **No Regressions**
 - All existing capabilities preserved
@@ -221,6 +228,7 @@ Test these critical workflows:
 - **Knowledge Base Operations**: Write user_requirements.json → Read → Write design_decisions.json
 - **Supervisor Routing**: Correct agent selection based on user request types
 - **Cross-references**: All agent ↔ knowledge base references valid
+- **Terminology Consistency**: Verify correct usage of "optimize" vs "improve" vs "enhance" across all files
 
 ### System-Specific Metrics to Track
 
@@ -232,12 +240,13 @@ Test these critical workflows:
 | User Experience | X/10 | Y/10 | +N |
 | Documentation Quality | X/10 | Y/10 | +N |
 | AWS Well-Architected Enforcement | X/10 | Y/10 | +N |
+| Terminology Clarity | X/10 | Y/10 | +N |
 
 ### Files Modified by Category
 - Agent prompts (ai_agents/*.system.prompt.md): [COUNT]
 - User prompts (user_prompts/*/*.user.prompt.md): [COUNT]
 - Knowledge base (knowledge_base/*.json): [COUNT]
-- Documentation (guides/, docs/, templates/): [COUNT]
+- Documentation (guides/, docs/, templates/, TERMINOLOGY.md): [COUNT]
 - Root files (README.md, etc.): [COUNT]
 
 ### Recursion Status
@@ -254,11 +263,12 @@ Test these critical workflows:
 - After significant AI research updates (new Anthropic/OpenAI guidance)
 - Following 5+ user projects (incorporate learnings)
 - When user feedback indicates systemic issues
+- After major feature additions or structural changes
 
 **Execution Steps:**
 1. Start **fresh session** (ensures OPTIMIZATION_ITERATION_COUNT = 0)
 2. Load Optimization Agent with `optimization_agent.system.prompt.md`
-3. Reference this prompt: `@improve_ai_architecture_assistant.user.prompt.md`
+3. Reference this prompt: `@improve_ai_engineering_assistant.user.prompt.md`
 4. Monitor execution and review optimization report
 5. Next cycle: 3-6 months or as triggered by conditions above
 
@@ -272,10 +282,15 @@ Test these critical workflows:
 
 **Validation Emphasis:** Test all critical workflows end-to-end before completion, including supervisor routing and multi-agent coordination.
 
+**Terminology Note:** This repository uses precise terminology as defined in TERMINOLOGY.md:
+- **Optimize**: System-level improvements (Optimization Agent's role)
+- **Improve**: Agent-level enhancements (this prompt's purpose) and prompt-level refinements
+- **Enhance**: User experience and documentation improvements
+
 ---
 
-**Version:** 0.1  
-**Last Updated:** 2025-10-05  
-**Maintained By:** AI Architecture Assistant Core Team  
+**Version:** 1.0  
+**Last Updated:** 2025-10-10  
+**Maintained By:** AI Engineering Assistant Core Team  
 **Optimization Cycle:** Quarterly or as-needed  
 **Safety Mechanism:** Iteration tracking prevents infinite loops (MAX_ITERATIONS = 1)

@@ -11,7 +11,7 @@
 
 ## Agent Context
 
-The Requirements Agent is the **first touchpoint** in the AI Architecture Assistant workflow. It:
+The Requirements Agent is the **first touchpoint** in the AI Engineering Assistant workflow. It:
 
 - Conducts discovery sessions (15-min quick, 30-min standard, 90-min comprehensive)
 - Extracts requirements from unstructured notes

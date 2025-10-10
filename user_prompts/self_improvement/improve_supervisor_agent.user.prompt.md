@@ -11,7 +11,7 @@
 
 ## Agent Context
 
-The Supervisor Agent is the **orchestration brain** of the AI Architecture Assistant. It:
+The Supervisor Agent is the **orchestration brain** of the AI Engineering Assistant. It:
 
 - Analyzes user intent to determine which agent to invoke
 - Routes requests to specialized agents (Requirements, Architecture, Engineering, Deployment, Optimization)
