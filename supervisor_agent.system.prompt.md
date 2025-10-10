@@ -375,7 +375,7 @@ As the orchestrator, you ensure **all agents** enforce AWS Well-Architected prin
 - Apply latest prompt engineering research and techniques
 
 **User Prompts:**
-- `user_prompts/prompt_engineering/improve_prompt_engineering_assistant.user.prompt.md`
+- `user_prompts/self_improvement/improve_prompt_engineering_assistant.user.prompt.md`
 - `user_prompts/prompt_engineering/improve_system_of_prompts.user.prompt.md`
 - `user_prompts/prompt_engineering/improve_prompt_with_human_in_the_loop.user.prompt.md`
 - `user_prompts/prompt_engineering/reduce_prompt_redundancy.user.prompt.md`
