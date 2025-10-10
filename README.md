@@ -6,9 +6,9 @@
 
 Developing AI systems requires coordinated expertise across requirements, architecture, engineering, and deployment. This framework provides 6 specialized agents running in Cursor IDE that guide you through the complete development lifecycle with systematic rigor.
 
-**What it does**: Transforms your AI system idea into production-ready implementations through structured agent workflows.
+**What it does**: Transforms your AI system concept into production-ready implementations through structured, multi-agent workflows.
 
-**Where it runs**: Cursor IDE (or VS Code with Copilot). Generates systems deployable to any platform—OpenAI, Claude Projects, AWS Bedrock, or custom infrastructure.
+**Where it runs**: Cursor IDE (or VS Code with GitHub Copilot). Generates AI systems deployable to any platform including OpenAI, Claude Projects, AWS Bedrock, and custom infrastructure.
 
 ## Quick Start
 
@@ -29,9 +29,9 @@ Developing AI systems requires coordinated expertise across requirements, archit
 ## The 6 Specialized Agents
 
 ### 🎯 Supervisor Agent
-**Orchestrates** all agents and routes requests intelligently  
+**Orchestrates** all agents and intelligently routes user requests to specialized agents  
 **File**: `supervisor_agent.system.prompt.md`  
-**Use**: Start here for any AI system development
+**Use**: Start here for complete AI system development workflows
 
 ### 📋 Requirements Agent
 **Discovers** what you need to build through structured inquiry  
