@@ -114,8 +114,8 @@ Systematically analyze and improve ALL components of the AI Engineering Assistan
 ### 4. Documentation & Templates (`docs/`, `templates/`, `outputs/`)
 
 **Files to optimize:**
-- User guides (getting-started.md, workflow_guide.md, platform_deployment.md, etc.)
-- Technical documentation (agent-architecture-and-collaboration.md, agent-design-patterns.md, executive_overview.md)
+- User guides (getting-started.md, workflow_guide.md, platform_deployment.md, executive_overview.md)
+- Technical documentation (agent-architecture-and-collaboration.md, agent-design-patterns.md)
 - Templates (requirements-template.md, architecture-template.md, handoff-checklist.md, development-checklist.md)
 - Output organization (outputs/README.md)
 
@@ -248,8 +248,8 @@ Test these critical workflows:
 - Agent prompts (ai_agents/*.system.prompt.md): [COUNT]
 - User prompts (user_prompts/*/*.user.prompt.md): [COUNT]
 - Knowledge base (knowledge_base/*.json): [COUNT]
-- Documentation (guides/, docs/, templates/): [COUNT]
-- Root files (README.md, etc.): [COUNT]
+- Documentation (docs/*, templates/*, outputs/README.md): [COUNT]
+- Root files (README.md, ARCHITECTURE.md): [COUNT]
 
 ### Recursion Status
 - ✅ OPTIMIZATION_ITERATION_COUNT: 1/1 (complete)
