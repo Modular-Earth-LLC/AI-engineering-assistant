@@ -193,11 +193,39 @@ Specialized task instructions organized by category in `user_prompts/`:
 
 ## Glossary
 
+### Process Terms
+
 **Optimize** — Comprehensive system-level improvements following Well-Architected principles. Use the Optimization Agent for entire AI systems.
 
 **Improve** — Targeted enhancements to specific components. Agent improvements use `self_improvement/` prompts; prompt improvements use the Prompt Engineering Assistant.
 
 **Enhance** — User experience and documentation improvements.
+
+**Multi-shot prompting** — Breaking complex tasks into a sequence of focused user prompts, each producing specific deliverables that inform the next step (e.g., Architecture Agent's 6-step design process).
+
+### System Architecture Terms
+
+**Supervisor-worker pattern** — Architecture where a Supervisor Agent analyzes user intent and routes requests to specialized worker agents (Requirements, Architecture, Engineering, Deployment, Optimization, Prompt Engineering).
+
+**Knowledge base** — JSON files in `knowledge_base/` that store shared state across agents: `system_config.json` (platform constraints), `user_requirements.json` (business requirements), `design_decisions.json` (architecture decisions).
+
+**Agent** — Specialized AI assistant (system prompt) with a specific domain of expertise. This framework contains 6 agents plus 1 supervisor.
+
+**User prompt** — Task-specific instructions that guide an agent to execute a particular workflow (e.g., `tech_stack_selection.user.prompt.md`). Distinct from system prompts which define an agent's core capabilities.
+
+### Deployment Terms
+
+**Meta-level** — This AI Architecture Assistant framework itself, running in Cursor IDE to help developers build AI systems.
+
+**Target-level** — The AI systems that users design and build using this framework, which are deployed to external platforms (OpenAI, Claude Projects, AWS Bedrock, etc.).
+
+**Platform** — Where an AI system runs. This framework runs in Cursor/VS Code. Generated systems can deploy to multiple platforms with different constraints (character limits, features, APIs).
+
+### Quality Framework Terms
+
+**Well-Architected Framework** — AWS framework with 6 pillars (Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability) used to assess and design robust AI systems. Definitions in `knowledge_base/system_config.json`.
+
+**GenAI Lens** — AWS Well-Architected Lens specifically for generative AI systems, covering Model Selection, Prompt Engineering, RAG Optimization, Multi-Agent Coordination, Responsible AI, and Knowledge Base Design.
 
 ## Troubleshooting
 
