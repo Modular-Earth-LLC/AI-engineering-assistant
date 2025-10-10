@@ -57,7 +57,8 @@ Developing AI systems requires coordinated expertise across requirements, archit
 4. **Request**: "Build a customer support chatbot"
 5. **Outputs**: Copy deliverables to your workspace
 
-**Full deployment guide:** [docs/deployment-guide.md](docs/deployment-guide.md)
+**Framework deployment guide:** [docs/deployment-guide.md](docs/deployment-guide.md) (Deploy THIS repository)  
+**Generated systems deployment:** [docs/platform_deployment.md](docs/platform_deployment.md) (Deploy systems you built)
 
 ## The 6 Specialized Agents
 
@@ -287,7 +288,8 @@ Prompt Engineering Agent (Direct) → Creates/optimizes prompt → Validates →
 **Reference Documentation:**
 - **[docs/agent-architecture-and-collaboration.md](docs/agent-architecture-and-collaboration.md)**: Comprehensive agent guide, capabilities, and collaboration patterns
 - **[docs/agent-design-patterns.md](docs/agent-design-patterns.md)**: Reusable AI agent design patterns
-- **[docs/platform_deployment.md](docs/platform_deployment.md)**: Platform-specific deployment guidance
+- **[docs/deployment-guide.md](docs/deployment-guide.md)**: Deploy framework to Cursor/Claude/Copilot (Tier 1)
+- **[docs/platform_deployment.md](docs/platform_deployment.md)**: Deploy generated systems to target platforms (Tier 2)
 - **[docs/executive_overview.md](docs/executive_overview.md)**: Business perspective and value proposition
 
 **Specialized Documentation:**

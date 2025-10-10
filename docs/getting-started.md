@@ -39,6 +39,10 @@ Choose your platform requirements:
 
 ## Step 1: Installation
 
+**Complete deployment instructions:** See `deployment-guide.md` for detailed setup on all platforms
+
+**Quick setup below for Cursor IDE:**
+
 ### Option A: Cursor IDE (5 minutes)
 
 1. **Clone repository**:

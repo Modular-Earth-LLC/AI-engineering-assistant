@@ -1,6 +1,13 @@
-# Deployment Guide - Multi-Platform
+# Deployment Guide - AI Engineering Assistant Framework
 
-**Complete deployment instructions** for running the AI Engineering Assistant on Cursor IDE, Claude Projects, and GitHub Copilot.
+**Complete deployment instructions** for running the AI Engineering Assistant framework (THIS repository) on Cursor IDE, Claude Projects, and GitHub Copilot.
+
+**Scope:** Tier 1 deployment (the framework itself)  
+**For deploying generated AI systems:** See `platform_deployment.md` (Tier 2 deployment)
+
+**Quick Navigation:**
+- Need to deploy THIS framework? → You're in the right place
+- Need to deploy a system you built WITH this framework? → See `platform_deployment.md`
 
 ---
 
