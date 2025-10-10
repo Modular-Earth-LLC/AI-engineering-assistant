@@ -72,16 +72,16 @@ All agents share context through JSON files in `knowledge_base/`:
 - `design_decisions.json`: Architecture decisions, costs, plans (Architecture Agent)
 
 ### Multi-Agent Orchestration
-- Supervisor routes requests to appropriate specialized agents
-- Seamless handoffs with full context preservation
-- Agents collaborate on complex workflows
-- Clear separation of concerns
+- Supervisor routes requests to specialized agents based on intent analysis
+- Seamless agent handoffs preserve full context across transitions
+- Agents collaborate effectively on complex multi-phase workflows
+- Clear separation of concerns across agent domains
 
 ### Production-Ready Outputs
-- Working prototypes with implementation code
-- Platform-optimized prompts (OpenAI, Claude, Bedrock, Cursor)
-- Deployment guides with step-by-step instructions
-- Cost estimates and project plans
+- Working prototypes with production-ready implementation code
+- Platform-optimized prompts for OpenAI, Claude, Bedrock, and Cursor
+- Deployment guides with detailed step-by-step instructions
+- Comprehensive cost estimates and project implementation plans
 
 ## Installation
 
