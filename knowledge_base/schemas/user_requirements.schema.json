@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Modular-Earth-LLC/AI-engineering-assistant/schemas/user_requirements.schema.json",
+  "title": "AI Architecture Assistant - User Requirements Schema",
+  "description": "Schema for business requirements and technical specifications gathered during discovery",
+  "type": "object",
+  "required": ["customer", "use_case", "business", "technical"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "industry": {"type": "string"},
+        "size": {"type": "string"},
+        "description": {"type": "string"}
+      }
+    },
+    "use_case": {
+      "type": "object",
+      "required": ["title", "summary"],
+      "properties": {
+        "title": {"type": "string"},
+        "summary": {"type": "string"},
+        "target_users": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "user_experience_goals": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "workflow_steps": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "business": {
+      "type": "object",
+      "required": ["problem", "desired_outcome"],
+      "properties": {
+        "problem": {"type": "string"},
+        "current_state": {
+          "type": "object",
+          "properties": {
+            "processes": {"type": "array", "items": {"type": "string"}},
+            "tools": {"type": "array", "items": {"type": "string"}},
+            "time_spent": {"type": "string"},
+            "costs": {"type": "string"},
+            "pain_points": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "desired_outcome": {
+          "type": "object",
+          "properties": {
+            "goals": {"type": "array", "items": {"type": "string"}},
+            "success_looks_like": {"type": "string"}
+          }
+        },
+        "business_value": {
+          "type": "object",
+          "properties": {
+            "time_savings": {"type": "string"},
+            "cost_reduction": {"type": "string"},
+            "revenue_impact": {"type": "string"},
+            "strategic_value": {"type": "string"}
+          }
+        },
+        "success_metrics": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "technical": {
+      "type": "object",
+      "properties": {
+        "functional_requirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {"type": "string"},
+              "priority": {
+                "type": "string",
+                "enum": ["MUST_HAVE", "SHOULD_HAVE", "NICE_TO_HAVE"]
+              },
+              "description": {"type": "string"},
+              "complexity": {
+                "type": "string",
+                "enum": ["LOW", "MEDIUM", "HIGH", "VERY_HIGH"]
+              },
+              "dependencies": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "non_functional_requirements": {
+          "type": "object",
+          "properties": {
+            "performance": {"type": "object"},
+            "scalability": {"type": "object"},
+            "security": {"type": "object"},
+            "usability": {"type": "object"}
+          }
+        },
+        "ai_services": {
+          "type": "object",
+          "properties": {
+            "models_to_evaluate": {"type": "array", "items": {"type": "string"}},
+            "evaluation_criteria": {"type": "object"},
+            "benchmark_metrics": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "data_requirements": {
+          "type": "object",
+          "properties": {
+            "data_sources": {"type": "array", "items": {"type": "string"}},
+            "data_volume": {"type": "string"},
+            "data_structure": {"type": "object"}
+          }
+        },
+        "integration_requirements": {
+          "type": "object",
+          "properties": {
+            "api_integrations": {"type": "array", "items": {"type": "object"}},
+            "data_storage": {"type": "string"},
+            "authentication": {"type": "string"}
+          }
+        }
+      }
+    },
+    "project_scope": {
+      "type": "object",
+      "properties": {
+        "in_scope": {"type": "array", "items": {"type": "string"}},
+        "out_of_scope": {"type": "array", "items": {"type": "string"}},
+        "phased_approach": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "financial": {
+      "type": "object",
+      "properties": {
+        "expected_roi": {"type": "string"},
+        "budget_available": {"type": "string"},
+        "cost_sensitivity": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        }
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["business", "technical", "operational", "financial"]
+          },
+          "description": {"type": "string"},
+          "impact": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low"]
+          },
+          "probability": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "mitigation": {"type": "string"}
+        }
+      }
+    },
+    "_metadata": {
+      "type": "object",
+      "properties": {
+        "discovery_method": {
+          "type": "string",
+          "enum": ["quick_discovery", "standard_discovery", "comprehensive_workshop", "extract_from_notes"]
+        },
+        "discovery_date": {"type": "string", "format": "date"},
+        "participants": {"type": "array", "items": {"type": "string"}},
+        "completeness_score": {
+          "type": "string",
+          "enum": ["COMPLETE", "PARTIAL", "DRAFT"]
+        },
+        "validation_status": {
+          "type": "string",
+          "enum": ["VALIDATED", "DRAFT", "NEEDS_REVIEW"]
+        },
+        "last_updated": {"type": "string", "format": "date"}
+      }
+    }
+  }
+}

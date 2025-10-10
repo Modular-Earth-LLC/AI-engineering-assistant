@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Modular-Earth-LLC/AI-engineering-assistant/schemas/design_decisions.schema.json",
+  "title": "AI Architecture Assistant - Design Decisions Schema",
+  "description": "Schema for architecture decisions, tech stack, costs, estimates, and project plans",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "executive_summary": {
+      "type": "object",
+      "properties": {
+        "recommendation": {"type": "string"},
+        "business_value": {"type": "array", "items": {"type": "string"}},
+        "investment_required": {"type": "object"},
+        "key_risks": {"type": "array", "items": {"type": "object"}},
+        "go_no_go_recommendation": {"type": "string"}
+      }
+    },
+    "tech_stack": {
+      "type": "object",
+      "properties": {
+        "llm_providers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "provider": {"type": "string"},
+              "models": {"type": "array", "items": {"type": "string"}},
+              "rationale": {"type": "string"},
+              "cost_estimate": {"type": "string"}
+            }
+          }
+        },
+        "orchestration_framework": {"type": "string"},
+        "backend_technologies": {"type": "array", "items": {"type": "string"}},
+        "frontend_technologies": {"type": "array", "items": {"type": "string"}},
+        "infrastructure": {"type": "array", "items": {"type": "string"}},
+        "integration_approach": {"type": "string"},
+        "alternatives_considered": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "architecture_design": {
+      "type": "object",
+      "properties": {
+        "diagram_format": {"type": "string", "enum": ["mermaid", "ascii", "lucidchart", "draw.io", "google_draw"]},
+        "diagram_content": {"type": "string"},
+        "components": {"type": "array", "items": {"type": "object"}},
+        "data_flows": {"type": "array", "items": {"type": "object"}},
+        "security_boundaries": {"type": "array", "items": {"type": "string"}},
+        "integration_points": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "team_composition": {
+      "type": "object",
+      "properties": {
+        "roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": {"type": "string"},
+              "skills_required": {"type": "array", "items": {"type": "string"}},
+              "team_size": {"type": "integer", "minimum": 0},
+              "allocation_percent": {"type": "number", "minimum": 0, "maximum": 100},
+              "cost_per_role": {"type": "string"}
+            }
+          }
+        },
+        "hiring_needs": {"type": "array", "items": {"type": "object"}},
+        "timeline": {"type": "string"}
+      }
+    },
+    "estimates": {
+      "type": "object",
+      "properties": {
+        "total_engineering_hours": {"type": "number", "minimum": 0},
+        "timeline_weeks": {"type": "number", "minimum": 0},
+        "complexity_rating": {
+          "type": "string",
+          "enum": ["LOW", "MEDIUM", "HIGH", "VERY_HIGH"]
+        },
+        "confidence_level": {
+          "type": "string",
+          "enum": ["HIGH", "MEDIUM", "LOW"]
+        },
+        "assumptions": {"type": "array", "items": {"type": "string"}},
+        "risk_buffers": {"type": "object"}
+      }
+    },
+    "costs": {
+      "type": "object",
+      "properties": {
+        "development_costs": {
+          "type": "object",
+          "properties": {
+            "total": {"type": "number", "minimum": 0},
+            "by_role": {"type": "object"}
+          }
+        },
+        "infrastructure_costs": {
+          "type": "object",
+          "properties": {
+            "monthly": {"type": "number", "minimum": 0},
+            "annual": {"type": "number", "minimum": 0},
+            "breakdown": {"type": "object"}
+          }
+        },
+        "third_party_costs": {"type": "object"},
+        "total_cost_of_ownership": {
+          "type": "object",
+          "properties": {
+            "year_1": {"type": "number"},
+            "year_2": {"type": "number"},
+            "year_3": {"type": "number"}
+          }
+        },
+        "roi_projections": {"type": "object"}
+      }
+    },
+    "project_plan": {
+      "type": "object",
+      "properties": {
+        "phases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {"type": "string"},
+              "duration": {"type": "string"},
+              "deliverables": {"type": "array", "items": {"type": "string"}},
+              "dependencies": {"type": "array", "items": {"type": "string"}}
+            }
+          }
+        },
+        "milestones": {"type": "array", "items": {"type": "object"}},
+        "critical_path": {"type": "array", "items": {"type": "string"}},
+        "success_criteria": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "model_evaluation": {
+      "type": "object",
+      "properties": {
+        "evaluation_criteria": {"type": "object"},
+        "benchmark_results": {"type": "array", "items": {"type": "object"}},
+        "selected_models": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "risks_and_mitigation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "risk": {"type": "string"},
+          "impact": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low"]
+          },
+          "probability": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          },
+          "mitigation_strategy": {"type": "string"}
+        }
+      }
+    },
+    "well_architected_assessment": {
+      "type": "object",
+      "description": "Compliance scores for 6 AWS Well-Architected pillars",
+      "properties": {
+        "operational_excellence": {"type": "number", "minimum": 0, "maximum": 10},
+        "security": {"type": "number", "minimum": 0, "maximum": 10},
+        "reliability": {"type": "number", "minimum": 0, "maximum": 10},
+        "performance_efficiency": {"type": "number", "minimum": 0, "maximum": 10},
+        "cost_optimization": {"type": "number", "minimum": 0, "maximum": 10},
+        "sustainability": {"type": "number", "minimum": 0, "maximum": 10},
+        "overall_score": {"type": "number", "minimum": 0, "maximum": 10}
+      }
+    },
+    "_metadata": {
+      "type": "object",
+      "properties": {
+        "created_date": {"type": "string", "format": "date"},
+        "last_updated": {"type": "string", "format": "date"},
+        "created_by_agent": {"type": "string"},
+        "version": {"type": "string"}
+      }
+    }
+  }
+}

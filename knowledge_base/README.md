@@ -210,8 +210,78 @@ This prompt enforces best practices for:
 - ✅ No information loss between agents
 - ✅ Traceability (requirements → design → implementation)
 - ✅ Version history (git tracks changes)
+- ✅ Schema validation (formal contracts and IDE support)
 
 ---
 
-**Version:** 0.1  
-**Last Updated:** 2025-10-08
+## JSON Schema Validation
+
+**Purpose:** Formal schemas enable automated validation and better IDE support
+
+**Schema Files (in `knowledge_base/schemas/`):**
+- `system_config.schema.json` - Validates system configuration structure
+- `user_requirements.schema.json` - Validates requirements format
+- `design_decisions.schema.json` - Validates architecture decisions
+
+**Using Schemas:**
+
+**In VS Code / Cursor:**
+- Schemas provide autocomplete and inline validation
+- Hover over fields for documentation
+- Errors highlighted in real-time
+
+**Command-Line Validation:**
+
+```bash
+# Install JSON schema validator (if needed)
+npm install -g ajv-cli
+
+# Validate system_config.json
+ajv validate -s knowledge_base/schemas/system_config.schema.json -d knowledge_base/system_config.json
+
+# Validate user_requirements.json  
+ajv validate -s knowledge_base/schemas/user_requirements.schema.json -d knowledge_base/user_requirements.json
+
+# Validate design_decisions.json
+ajv validate -s knowledge_base/schemas/design_decisions.schema.json -d knowledge_base/design_decisions.json
+```
+
+**Python Validation:**
+
+```python
+import json
+import jsonschema
+
+def validate_knowledge_base_file(data_file: str, schema_file: str):
+    """Validate JSON file against schema."""
+    with open(schema_file) as f:
+        schema = json.load(f)
+    with open(data_file) as f:
+        data = json.load(f)
+    
+    try:
+        jsonschema.validate(instance=data, schema=schema)
+        print(f"✅ {data_file} is valid")
+    except jsonschema.exceptions.ValidationError as e:
+        print(f"❌ {data_file} validation error: {e.message}")
+        return False
+    return True
+
+# Usage:
+validate_knowledge_base_file(
+    "knowledge_base/system_config.json",
+    "knowledge_base/schemas/system_config.schema.json"
+)
+```
+
+**Benefits of Schema Validation:**
+- Catch errors early (invalid enums, missing required fields, type mismatches)
+- Self-documenting structure (schema describes expected format)
+- IDE assistance (autocomplete, inline docs, error highlighting)
+- Consistency enforcement across manual edits
+
+---
+
+**Version:** 1.0  
+**Last Updated:** 2025-10-10  
+**Schema Support:** Added in v1.0 (JSON Schema Draft 2020-12)
