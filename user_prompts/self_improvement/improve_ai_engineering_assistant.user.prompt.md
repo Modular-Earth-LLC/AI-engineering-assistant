@@ -228,9 +228,11 @@ Test these critical workflows:
 - **Complete Lifecycle**: Requirements Agent → Architecture Agent → Engineering Agent → Deployment Agent
 - **Multi-shot Architecture Workflow**: Orchestration of 6 user prompts (tech stack → diagram → team → LOE → cost → plan)
 - **Knowledge Base Operations**: Write user_requirements.json → Read → Write design_decisions.json
+- **Output Directory Operations**: All agents write deliverables to `outputs/[category]/[project]/`
 - **Supervisor Routing**: Correct agent selection based on user request types
-- **Cross-references**: All agent ↔ knowledge base references valid
+- **Cross-references**: All agent ↔ knowledge base ↔ documentation references valid
 - **Terminology Consistency**: Verify correct usage of "optimize" vs "improve" vs "enhance" across all files
+- **Use Case Support**: Fork-and-use, Claude Projects deployment, AWS Bedrock deployment, custom Cursor modes
 
 ### System-Specific Metrics to Track
 
