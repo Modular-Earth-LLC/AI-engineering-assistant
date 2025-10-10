@@ -513,24 +513,17 @@ Remember, the purpose of this repository is to make it easy to develop multi-age
 **Changes implemented:**
 
 1. **Created `user_prompts/self_improvement/` directory**
-   - Moved all 7 `improve_*_agent.user.prompt.md` files from `optimization/` to `self_improvement/`
+   - Moved all 8 `improve_*_agent.user.prompt.md` files to `self_improvement/`
    - Removed empty `optimization/` directory
    - Created comprehensive README.md in self_improvement/
 
-2. **Created TERMINOLOGY.md at repository root**
-   - Defines three distinct scopes: System-Level Optimization, Agent-Level Improvement, Prompt-Level Engineering
-   - Includes Quick Decision Matrix
-   - Documents file organization and naming conventions
-   - Provides FAQ section
-
-3. **Updated main README.md**
+2. **Updated main README.md**
    - Changed `optimization/` reference to `self_improvement/`
-   - Added link to TERMINOLOGY.md
+   - Added concise glossary (Optimize vs Improve vs Enhance)
 
-4. **Updated Optimization Agent system prompt**
+3. **Updated Optimization Agent system prompt**
    - Added SCOPE CLARIFICATION section
    - Distinguished system-level optimization from agent improvement and prompt engineering
-   - Added reference to TERMINOLOGY.md
 
 **Rationale:**
 - `user_prompts/optimization/` contained agent improvement prompts but "optimization" implied system-level work

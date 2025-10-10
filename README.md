@@ -191,7 +191,13 @@ Specialized task instructions organized by category in `user_prompts/`:
 - `prompt_engineering/`: Generic prompt engineering (6 prompts)
 - `proposals/`: Executive presentations (4 prompts)
 
-**See [TERMINOLOGY.md](TERMINOLOGY.md)** for clear distinctions between system optimization, agent improvement, and prompt engineering.
+## Glossary
+
+**Optimize** — Comprehensive system-level improvements following Well-Architected principles. Use the Optimization Agent for entire AI systems.
+
+**Improve** — Targeted enhancements to specific components. Agent improvements use `self_improvement/` prompts; prompt improvements use the Prompt Engineering Assistant.
+
+**Enhance** — User experience and documentation improvements.
 
 ## Troubleshooting
 

@@ -8,7 +8,7 @@
 
 This directory contains specialized user prompts that instruct agents to improve the agents and systems **in this repository**. These are self-referential improvement tasks where the framework improves itself.
 
-**Key Distinction:** These prompts improve THIS repository's agents, not external AI systems or generic prompts. See [TERMINOLOGY.md](../../TERMINOLOGY.md) for complete definitions.
+**Key Distinction:** These prompts improve THIS repository's agents, not external AI systems or generic prompts.
 
 ---
 
@@ -192,8 +192,6 @@ This clearly indicates these prompts improve agents **in this repository**.
 | **deployment/** | Deployment and testing | "Deploy to AWS Bedrock" |
 | **proposals/** | Executive presentations | "Create pitch deck" |
 
-See [TERMINOLOGY.md](../../TERMINOLOGY.md) for comprehensive definitions.
-
 ---
 
 ## Contributing
@@ -229,7 +227,7 @@ When adding new self-improvement prompts:
 **Duration:** 30 minutes to 4 hours (depending on scope)  
 **Safety:** Recursion prevention, fresh sessions, validation required
 
-**Need help?** See [TERMINOLOGY.md](../../TERMINOLOGY.md) for definitions or [README.md](../../README.md) for framework overview.
+**Need help?** See [README.md](../../README.md) for framework overview.
 
 ---
 

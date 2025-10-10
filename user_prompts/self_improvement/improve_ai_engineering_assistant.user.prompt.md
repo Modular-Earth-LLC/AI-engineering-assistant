@@ -118,7 +118,6 @@ Systematically analyze and improve ALL components of the AI Engineering Assistan
 - Technical documentation (agent-design-patterns.md, agent-relationships.md)
 - Templates (requirements-template.md, architecture-template.md, etc.)
 - Executive overview and deployment guides
-- TERMINOLOGY.md (terminology standards)
 
 **Assessment focus:**
 - Beginner accessibility (<15 min to productivity)
@@ -156,7 +155,7 @@ Use your standard optimization dimensions and assessment criteria from your syst
 - **User Experience**: Time to first result (<15 min), navigation clarity, platform deployment completeness
 - **Documentation Quality**: Onboarding, examples, troubleshooting guidance
 - **AWS Well-Architected Alignment**: Architecture Agent enforcement of 6 pillars + GenAI Lens
-- **Terminology Clarity**: Consistent use of "optimize" vs "improve" vs "enhance" (see TERMINOLOGY.md)
+- **Terminology Clarity**: Consistent use of "optimize" vs "improve" vs "enhance"
 
 *Note: Your system prompt contains the detailed assessment framework. This section highlights areas of particular importance for the AI Engineering Assistant.*
 
@@ -193,7 +192,7 @@ This optimization succeeds when these **system-specific outcomes** are achieved:
 - All 7 agents optimized (supervisor + 6 specialized agents)
 - All 30+ user prompts reviewed and improved
 - Knowledge base schemas validated (3 JSON files)
-- Documentation updated (guides, templates, README, TERMINOLOGY.md)
+- Documentation updated (guides, templates, README)
 
 ✅ **Measurable System Improvements**
 - Overall system quality: 10%+ improvement across assessment dimensions
@@ -246,7 +245,7 @@ Test these critical workflows:
 - Agent prompts (ai_agents/*.system.prompt.md): [COUNT]
 - User prompts (user_prompts/*/*.user.prompt.md): [COUNT]
 - Knowledge base (knowledge_base/*.json): [COUNT]
-- Documentation (guides/, docs/, templates/, TERMINOLOGY.md): [COUNT]
+- Documentation (guides/, docs/, templates/): [COUNT]
 - Root files (README.md, etc.): [COUNT]
 
 ### Recursion Status
@@ -282,7 +281,7 @@ Test these critical workflows:
 
 **Validation Emphasis:** Test all critical workflows end-to-end before completion, including supervisor routing and multi-agent coordination.
 
-**Terminology Note:** This repository uses precise terminology as defined in TERMINOLOGY.md:
+**Terminology Note:** This repository uses precise terminology (see README.md glossary):
 - **Optimize**: System-level improvements (Optimization Agent's role)
 - **Improve**: Agent-level enhancements (this prompt's purpose) and prompt-level refinements
 - **Enhance**: User experience and documentation improvements

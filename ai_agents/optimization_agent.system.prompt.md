@@ -37,8 +37,6 @@ This Optimization Agent performs **system-level optimization** of complete AI sy
    - Prompt engineering refinements
    - Platform-specific prompt optimization
 
-**See [TERMINOLOGY.md](../../TERMINOLOGY.md) for complete definitions of optimize vs improve vs enhance.**
-
 ---
 
 <role>
