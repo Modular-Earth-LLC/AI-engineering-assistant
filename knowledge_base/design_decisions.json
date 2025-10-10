@@ -1,0 +1,525 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Architecture Assistant - Design Decisions",
+  "description": "All architecture decisions, estimates, costs, and plans. Written by Architecture Agent, read by Engineering/Deployment/Optimization agents.",
+  "version": "0.1.0",
+  "last_updated": "2025-10-05",
+  
+  "executive_summary": {
+    "recommended_approach": "",
+    "total_investment": "",
+    "expected_timeline": "",
+    "confidence_level": "",
+    "key_risks": [],
+    "key_benefits": [],
+    "go_no_go_recommendation": "",
+    "executive_talking_points": [],
+    "_comment_confidence_level": "high (well-understood, low risk), medium (some uncertainty), low (significant unknowns)",
+    "_comment_go_no_go_recommendation": "Strong GO / GO with conditions / PAUSE (need more info) / NO-GO",
+    "_comment": "This section is for business leaders (CEOs, CFOs, CTOs, VPs) to make informed decisions"
+  },
+  
+  "tech_stack": {
+    "decision_date": "",
+    "last_updated": "",
+    "primary_stack": {
+      "llm_platform": {
+        "provider": "",
+        "models": [],
+        "rationale_technical": "",
+        "rationale_business": "",
+        "cost_per_million_tokens": {},
+        "alternatives_considered": [],
+        "_comment_provider": "anthropic, openai, google, aws_bedrock, azure_openai, mistral, cohere, custom",
+        "_comment_models": "e.g., claude-3-sonnet, gpt-4-turbo, gemini-pro"
+      },
+      "orchestration": {
+        "framework": "",
+        "version": "",
+        "rationale": "",
+        "complexity": "",
+        "_comment_framework": "langchain, llamaindex, autogen, strands, custom, none",
+        "_comment_complexity": "low, medium, high"
+      },
+      "backend": {
+        "language": "",
+        "framework": "",
+        "api_design": "",
+        "rationale": "",
+        "_comment_language": "python, nodejs, go, java, rust",
+        "_comment_framework": "fastapi, django, express, spring_boot, gin",
+        "_comment_api_design": "rest, graphql, grpc, websocket"
+      },
+      "frontend": {
+        "framework": "",
+        "type": "",
+        "rationale": "",
+        "_comment_framework": "react, vue, angular, svelte, streamlit, cli, none",
+        "_comment_type": "web_app, mobile_app, desktop_app, cli, none"
+      },
+      "database": {
+        "primary_db": "",
+        "caching": "",
+        "vector_db": "",
+        "rationale": "",
+        "_comment_primary_db": "postgresql, mongodb, dynamodb, mysql, none",
+        "_comment_caching": "redis, memcached, none",
+        "_comment_vector_db": "pinecone, weaviate, chroma, qdrant, pgvector, opensearch, none"
+      },
+      "infrastructure": {
+        "cloud_provider": "",
+        "compute": "",
+        "container_orchestration": "",
+        "deployment_strategy": "",
+        "monitoring": "",
+        "logging": "",
+        "rationale": "",
+        "_comment_cloud_provider": "aws, azure, gcp, on_prem, hybrid, multi_cloud",
+        "_comment_compute": "ec2, ecs_fargate, lambda, kubernetes, app_engine, cloud_run, vm",
+        "_comment_container_orchestration": "docker_compose, kubernetes, ecs, none",
+        "_comment_deployment_strategy": "blue_green, canary, rolling, recreate"
+      }
+    },
+    "alternative_stacks": [
+      {
+        "name": "",
+        "summary": "",
+        "pros": [],
+        "cons": [],
+        "cost_comparison": "",
+        "why_not_selected": ""
+      }
+    ],
+    "integration_approach": {
+      "external_systems": [],
+      "authentication_strategy": "",
+      "api_versioning": "",
+      "error_handling_strategy": "",
+      "rate_limiting": ""
+    },
+    "well_architected_alignment": {
+      "operational_excellence": "",
+      "security": "",
+      "reliability": "",
+      "performance_efficiency": "",
+      "cost_optimization": "",
+      "sustainability": "",
+      "ml_lens_compliance": "",
+      "genai_lens_compliance": ""
+    }
+  },
+  
+  "architecture_design": {
+    "decision_date": "",
+    "last_updated": "",
+    "diagram_format": "",
+    "diagram_code": "",
+    "diagram_description": "",
+    "key_components": [
+      {
+        "name": "",
+        "technology": "",
+        "purpose": "",
+        "scalability_notes": "",
+        "cost_driver": false
+      }
+    ],
+    "data_flows": [
+      {
+        "name": "",
+        "path": "",
+        "description": "",
+        "latency_target_ms": 0,
+        "throughput_target": ""
+      }
+    ],
+    "security_boundaries": {
+      "public_facing": [],
+      "internal_only": [],
+      "data_encryption": [],
+      "compliance_zones": []
+    },
+    "well_architected_alignment": {
+      "security": "",
+      "reliability": "",
+      "performance": "",
+      "cost": "",
+      "operations": "",
+      "sustainability": ""
+    },
+    "genai_considerations": {
+      "model_selection_rationale": "",
+      "rag_approach": "",
+      "prompt_management": "",
+      "cost_optimization": "",
+      "safety_guardrails": ""
+    },
+    "presentation_notes": {
+      "technical_talking_points": [],
+      "business_talking_points": []
+    },
+    "_comment_diagram_format": "ascii, mermaid, lucidchart, drawio, google_draw"
+  },
+  
+  "team_composition": {
+    "decision_date": "",
+    "last_updated": "",
+    "required_roles": [
+      {
+        "role": "",
+        "count": 0,
+        "skills": [],
+        "experience_level": "",
+        "allocation_percent": 0,
+        "duration_weeks": 0,
+        "cost_per_role": 0,
+        "rationale": "",
+        "_comment_role": "e.g., ML Engineer, Prompt Engineer, Backend Developer, Frontend Developer, DevOps Engineer, QA Engineer, Technical Writer",
+        "_comment_experience_level": "junior, mid_level, senior, expert"
+      }
+    ],
+    "total_team_size": 0,
+    "total_ftes": 0,
+    "hiring_needs": {
+      "new_hires_required": [],
+      "contractors_needed": [],
+      "hiring_timeline": "",
+      "recruitment_cost": 0
+    },
+    "training_requirements": {
+      "skills_to_train": [],
+      "training_duration_weeks": 0,
+      "training_cost": 0
+    },
+    "team_allocation_by_phase": {
+      "phase_1_foundation": [],
+      "phase_2_development": [],
+      "phase_3_testing": [],
+      "phase_4_deployment": []
+    }
+  },
+  
+  "estimates": {
+    "decision_date": "",
+    "last_updated": "",
+    "methodology": "",
+    "confidence_level": "",
+    "total_engineering_hours": 0,
+    "hours_by_role": {},
+    "hours_by_phase": {
+      "phase_0_planning": 0,
+      "phase_1_foundation": 0,
+      "phase_2_core_development": 0,
+      "phase_3_integration": 0,
+      "phase_4_testing": 0,
+      "phase_5_deployment": 0,
+      "phase_6_documentation": 0
+    },
+    "timeline": {
+      "total_weeks": 0,
+      "start_date": "",
+      "end_date": "",
+      "milestones": [
+        {
+          "name": "",
+          "date": "",
+          "deliverables": [],
+          "dependencies": []
+        }
+      ],
+      "critical_path": []
+    },
+    "complexity_rating": "",
+    "complexity_factors": [],
+    "risk_buffers": {
+      "optimism_bias_adjustment_percent": 20,
+      "technical_risk_buffer_percent": 15,
+      "total_buffer_hours": 0
+    },
+    "assumptions": [],
+    "_comment_methodology": "bottom_up, top_down, three_point, expert_judgment, historical_comparison",
+    "_comment_confidence_level": "high (90%+), medium (70-90%), low (<70%)",
+    "_comment_complexity_rating": "low, medium, high, very_high"
+  },
+  
+  "costs": {
+    "decision_date": "",
+    "last_updated": "",
+    "currency": "USD",
+    "development_costs": {
+      "internal_team": {
+        "hours": 0,
+        "average_hourly_rate": 0,
+        "total": 0,
+        "breakdown_by_role": {}
+      },
+      "external_contractors": {
+        "hours": 0,
+        "average_hourly_rate": 0,
+        "total": 0
+      },
+      "recruitment_costs": 0,
+      "training_costs": 0,
+      "total_development": 0
+    },
+    "infrastructure_costs": {
+      "cloud_compute": {
+        "monthly": 0,
+        "first_year": 0,
+        "details": ""
+      },
+      "cloud_storage": {
+        "monthly": 0,
+        "first_year": 0,
+        "details": ""
+      },
+      "cloud_networking": {
+        "monthly": 0,
+        "first_year": 0,
+        "details": ""
+      },
+      "llm_api_usage": {
+        "monthly": 0,
+        "first_year": 0,
+        "usage_assumptions": "",
+        "cost_optimization_strategy": ""
+      },
+      "vector_database": {
+        "monthly": 0,
+        "first_year": 0,
+        "details": ""
+      },
+      "monitoring_observability": {
+        "monthly": 0,
+        "first_year": 0,
+        "tools": []
+      },
+      "total_infrastructure_first_year": 0
+    },
+    "third_party_costs": {
+      "tools_licenses": {
+        "monthly": 0,
+        "first_year": 0,
+        "tools": []
+      },
+      "saas_services": {
+        "monthly": 0,
+        "first_year": 0,
+        "services": []
+      },
+      "total_third_party_first_year": 0
+    },
+    "total_cost_of_ownership": {
+      "one_time_costs": 0,
+      "year_1_total": 0,
+      "year_2_total": 0,
+      "year_3_total": 0,
+      "three_year_tco": 0
+    },
+    "cost_breakdown_by_category": {
+      "development_percent": 0,
+      "infrastructure_percent": 0,
+      "third_party_percent": 0
+    },
+    "roi_projections": {
+      "expected_annual_savings": 0,
+      "expected_annual_revenue_increase": 0,
+      "payback_period_months": 0,
+      "roi_percentage_3yr": 0,
+      "net_present_value": 0
+    },
+    "cost_optimization_recommendations": []
+  },
+  
+  "model_evaluation": {
+    "decision_date": "",
+    "last_updated": "",
+    "models_evaluated": [
+      {
+        "provider": "",
+        "model_name": "",
+        "use_case_fit": "",
+        "performance_metrics": {},
+        "cost_per_million_tokens": {},
+        "strengths": [],
+        "weaknesses": [],
+        "recommended_for": ""
+      }
+    ],
+    "evaluation_methodology": "",
+    "benchmark_results": {},
+    "recommended_model": "",
+    "model_selection_rationale": "",
+    "fallback_model": "",
+    "evaluation_timeline": "",
+    "success_criteria": []
+  },
+  
+  "project_plan": {
+    "decision_date": "",
+    "last_updated": "",
+    "implementation_approach": "",
+    "phased_roadmap": {
+      "phase_1_mvp": {
+        "duration_weeks": 0,
+        "objectives": [],
+        "deliverables": [],
+        "success_criteria": [],
+        "team_allocation": [],
+        "cost": 0
+      },
+      "phase_2_enhancement": {
+        "duration_weeks": 0,
+        "objectives": [],
+        "deliverables": [],
+        "success_criteria": [],
+        "team_allocation": [],
+        "cost": 0
+      },
+      "phase_3_scale": {
+        "duration_weeks": 0,
+        "objectives": [],
+        "deliverables": [],
+        "success_criteria": [],
+        "team_allocation": [],
+        "cost": 0
+      }
+    },
+    "dependencies": {
+      "internal_dependencies": [],
+      "external_dependencies": [],
+      "blocking_issues": []
+    },
+    "critical_path": [],
+    "parallel_work_streams": [],
+    "deployment_strategy": {
+      "environment_strategy": "",
+      "rollout_plan": "",
+      "rollback_plan": "",
+      "monitoring_plan": ""
+    },
+    "success_criteria_and_kpis": {
+      "technical_kpis": [],
+      "business_kpis": [],
+      "measurement_approach": "",
+      "reporting_frequency": ""
+    },
+    "communication_plan": {
+      "stakeholder_updates": "",
+      "demo_schedule": [],
+      "decision_points": []
+    },
+    "_comment_implementation_approach": "waterfall, agile, hybrid, iterative"
+  },
+  
+  "risks_and_mitigation": {
+    "decision_date": "",
+    "last_updated": "",
+    "technical_risks": [
+      {
+        "risk_id": "",
+        "risk": "",
+        "impact": "",
+        "probability": "",
+        "severity": "",
+        "mitigation_strategy": "",
+        "contingency_plan": "",
+        "owner": "",
+        "_comment_impact": "low, medium, high, critical",
+        "_comment_probability": "low, medium, high",
+        "_comment_severity": "low, medium, high, critical (impact × probability)"
+      }
+    ],
+    "business_risks": [
+      {
+        "risk_id": "",
+        "risk": "",
+        "impact": "",
+        "probability": "",
+        "severity": "",
+        "mitigation_strategy": "",
+        "contingency_plan": "",
+        "owner": ""
+      }
+    ],
+    "dependencies_risks": [
+      {
+        "dependency": "",
+        "risk": "",
+        "mitigation": ""
+      }
+    ],
+    "overall_risk_rating": "",
+    "risk_management_approach": "",
+    "_comment_overall_risk_rating": "low, medium, high, critical"
+  },
+  
+  "compliance_and_security": {
+    "security_design_decisions": {
+      "authentication_approach": "",
+      "authorization_model": "",
+      "data_encryption": {
+        "at_rest": "",
+        "in_transit": "",
+        "key_management": ""
+      },
+      "secrets_management": "",
+      "network_security": "",
+      "api_security": []
+    },
+    "compliance_alignment": {
+      "regulations_addressed": [],
+      "audit_trail_approach": "",
+      "data_retention_policy": "",
+      "incident_response_plan": ""
+    },
+    "responsible_ai": {
+      "bias_mitigation": "",
+      "explainability_approach": "",
+      "human_oversight": "",
+      "safety_guardrails": [],
+      "ethical_considerations": []
+    }
+  },
+  
+  "_proposals_generated": {
+    "discovery_proposal": {
+      "generated": false,
+      "date": "",
+      "file_location": ""
+    },
+    "implementation_proposal": {
+      "generated": false,
+      "date": "",
+      "file_location": ""
+    }
+  },
+  
+  "_change_history": [],
+  
+  "_metadata": {
+    "architecture_agent_version": "1.0",
+    "design_process_completed": false,
+    "steps_completed": {
+      "step_1_tech_stack": false,
+      "step_2_architecture_diagram": false,
+      "step_3_team_composition": false,
+      "step_4_loe_estimation": false,
+      "step_5_cost_estimation": false,
+      "step_6_project_plan": false
+    },
+    "validation_status": "",
+    "review_date": "",
+    "approved_by": [],
+    "approval_date": "",
+    "_comment_validation_status": "draft, in_review, approved, changes_requested"
+  },
+  
+  "_usage_notes": {
+    "purpose": "This file stores all architecture decisions made by Architecture Agent. It is the source of truth for technical design, estimates, costs, and plans.",
+    "write_access": "Architecture Agent (primary), Engineering Agent (implementation notes), Optimization Agent (improvements)",
+    "read_access": "All agents, especially Engineering Agent (to build), Deployment Agent (to deploy), Proposal assembly prompts (to create executive docs)",
+    "update_frequency": "Continuously updated during architecture design phase. May be updated during implementation if learnings emerge.",
+    "version_control": "Critical - track all changes in git to maintain architecture decision history and enable rollbacks"
+  }
+}

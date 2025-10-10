@@ -1,0 +1,246 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AI Architecture Assistant - User Requirements",
+  "description": "Requirements gathered during discovery phase. Written by Requirements Agent, read by Architecture Agent.",
+  "version": "0.1.0",
+  "last_updated": "2025-10-05",
+  
+  "customer": {
+    "legal_name": "",
+    "brand_name": "",
+    "industry": "",
+    "market_position": "",
+    "business_model": "",
+    "ai_adoption_stage": "",
+    "ai_history": "",
+    "key_stakeholders": [],
+    "_comment_ai_adoption_stage": "beginner (first AI project), intermediate (some AI experience), advanced (mature AI capability)",
+    "_comment_ai_history": "Previous AI projects, successes, failures, lessons learned"
+  },
+  
+  "use_case": {
+    "title": "",
+    "summary": "",
+    "problem_statement": "",
+    "target_users": [],
+    "user_personas": [],
+    "user_experience_goals": "",
+    "workflow_steps": [],
+    "product_service_domain": "",
+    "_comment_target_users": "Who will use this system: internal employees, external customers, partners, etc.",
+    "_comment_workflow_steps": "High-level numbered steps describing the workflow this system enables"
+  },
+  
+  "business": {
+    "problem": "",
+    "current_state": {
+      "how_handled_today": "",
+      "pain_points": [],
+      "costs": "",
+      "time_spent": "",
+      "quality_issues": [],
+      "bottlenecks": []
+    },
+    "desired_outcome": {
+      "success_definition": "",
+      "expected_improvements": [],
+      "ideal_user_experience": ""
+    },
+    "business_value": {
+      "revenue_impact": "",
+      "cost_savings": "",
+      "strategic_value": "",
+      "efficiency_gains": "",
+      "competitive_advantage": "",
+      "risk_mitigation": ""
+    },
+    "success_metrics": {
+      "kpis": [],
+      "measurement_approach": "",
+      "baseline_values": {},
+      "target_values": {},
+      "timeframe": ""
+    },
+    "challenges": [],
+    "opportunities": [],
+    "stakeholder_inputs": []
+  },
+  
+  "technical": {
+    "functional_requirements": [
+      {
+        "id": "",
+        "title": "",
+        "description": "",
+        "priority": "",
+        "complexity": "",
+        "dependencies": [],
+        "_comment_priority": "must_have, should_have, nice_to_have",
+        "_comment_complexity": "low, medium, high, very_high"
+      }
+    ],
+    "non_functional_requirements": {
+      "performance": {
+        "response_time_target_ms": 0,
+        "throughput_target_rps": 0,
+        "concurrent_users_target": 0,
+        "batch_processing_requirements": ""
+      },
+      "scalability": {
+        "current_volume": "",
+        "expected_growth_rate": "",
+        "peak_load_scenarios": "",
+        "geographic_distribution": []
+      },
+      "reliability": {
+        "availability_target_percent": 99.9,
+        "acceptable_downtime": "",
+        "backup_requirements": "",
+        "disaster_recovery_rto": "",
+        "disaster_recovery_rpo": ""
+      },
+      "security": {
+        "authentication_requirements": [],
+        "authorization_model": "",
+        "data_encryption_requirements": [],
+        "audit_logging_requirements": "",
+        "penetration_testing_required": false
+      },
+      "usability": {
+        "accessibility_requirements": [],
+        "internationalization_requirements": [],
+        "mobile_responsiveness": "",
+        "user_training_needs": ""
+      },
+      "maintainability": {
+        "documentation_standards": "",
+        "code_quality_requirements": "",
+        "monitoring_requirements": "",
+        "alerting_requirements": ""
+      }
+    },
+    "ai_services": {
+      "models_to_evaluate": [],
+      "evaluation_criteria": [],
+      "benchmark_metrics": [],
+      "primary_platform_models": [],
+      "alternative_platform_models": [],
+      "fine_tuning_requirements": "",
+      "prompt_engineering_needs": "",
+      "_comment_models_to_evaluate": "3-6 AI models or API endpoints to evaluate during design phase",
+      "_comment_evaluation_criteria": "How models will be compared: accuracy, latency, cost, safety, etc."
+    },
+    "data_requirements": {
+      "data_sources": [],
+      "data_volume": "",
+      "data_quality_assessment": "",
+      "data_structure": "",
+      "data_completeness": "",
+      "labeling_requirements": "",
+      "synthetic_data_needs": "",
+      "data_pipeline_requirements": ""
+    },
+    "integration_requirements": {
+      "api_integrations": [],
+      "database_integrations": [],
+      "authentication_integration": "",
+      "third_party_services": [],
+      "legacy_system_integration": []
+    },
+    "compliance_requirements": {
+      "regulations": [],
+      "industry_standards": [],
+      "data_privacy": [],
+      "data_retention_policies": "",
+      "right_to_be_forgotten": false,
+      "explainability_requirements": ""
+    }
+  },
+  
+  "project_scope": {
+    "in_scope": [],
+    "out_of_scope": [],
+    "assumptions": [],
+    "constraints": [],
+    "deliverable_format": "",
+    "level_of_effort_estimate": "",
+    "timeline_estimate_weeks": 0,
+    "phased_approach": {
+      "phase_1_mvp": [],
+      "phase_2_enhancements": [],
+      "phase_3_scale": []
+    },
+    "_comment_deliverable_format": "Options: 1-5 page report, interactive dashboard, live demo, detailed technical docs",
+    "_comment_level_of_effort_estimate": "Rough estimate from discovery: 1-3 weeks, 4-8 weeks, 8-16 weeks, 16+ weeks"
+  },
+  
+  "financial": {
+    "expected_roi": {
+      "roi_percentage": "",
+      "payback_period_months": 0,
+      "net_present_value": "",
+      "internal_rate_of_return": ""
+    },
+    "total_cost_ownership_3yr": {
+      "year_1": 0,
+      "year_2": 0,
+      "year_3": 0,
+      "total": 0
+    },
+    "budget_constraints": {
+      "hard_limits": [],
+      "approval_thresholds": {},
+      "cost_optimization_priorities": []
+    }
+  },
+  
+  "risks": {
+    "business_risks": [
+      {
+        "risk": "",
+        "impact": "",
+        "probability": "",
+        "mitigation": "",
+        "_comment_impact": "low, medium, high, critical",
+        "_comment_probability": "low, medium, high"
+      }
+    ],
+    "technical_risks": [
+      {
+        "risk": "",
+        "impact": "",
+        "probability": "",
+        "mitigation": ""
+      }
+    ],
+    "assumptions": []
+  },
+  
+  "reference_materials": {
+    "documents": [],
+    "technical_specifications": [],
+    "reference_architectures": [],
+    "competitor_analysis": [],
+    "user_research": []
+  },
+  
+  "_metadata": {
+    "discovery_method": "",
+    "discovery_date": "",
+    "discovery_duration_minutes": 0,
+    "participants": [],
+    "completeness_score": "",
+    "validation_status": "",
+    "_comment_discovery_method": "quick_discovery (15 min), standard_discovery (30 min), comprehensive_workshop (90 min), extraction_from_notes",
+    "_comment_completeness_score": "incomplete (missing critical info), partial (some gaps), complete (ready for architecture)",
+    "_comment_validation_status": "draft, reviewed, approved"
+  },
+  
+  "_usage_notes": {
+    "purpose": "This file stores all requirements gathered during discovery phase. Requirements Agent WRITES to this file. Architecture Agent READS from this file.",
+    "write_access": "Requirements Agent only",
+    "read_access": "All agents",
+    "update_frequency": "Updated during discovery sessions and when new requirements emerge during architecture/implementation",
+    "version_control": "Track changes in git to maintain requirements history"
+  }
+}
