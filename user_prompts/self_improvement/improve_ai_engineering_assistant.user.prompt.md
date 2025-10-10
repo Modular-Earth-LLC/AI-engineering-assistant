@@ -82,8 +82,8 @@ Systematically analyze and improve ALL components of the AI Engineering Assistan
 - `architecture/*.user.prompt.md` - Architecture tasks (6 prompts)
 - `engineering/*.user.prompt.md` - Engineering tasks (1 prompt)
 - `deployment/*.user.prompt.md` - Deployment tasks (2 prompts)
-- `self_improvement/*.user.prompt.md` - Agent improvement tasks (7 prompts, including THIS prompt)
-- `prompt_engineering/*.user.prompt.md` - Prompt engineering tasks (7 prompts)
+- `self_improvement/*.user.prompt.md` - Agent improvement tasks (8 prompts, including THIS prompt)
+- `prompt_engineering/*.user.prompt.md` - Prompt engineering tasks (6 prompts)
 - `proposals/*.user.prompt.md` - Proposal assembly (4 prompts)
 
 **Assessment focus:**

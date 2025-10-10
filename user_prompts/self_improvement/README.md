@@ -82,6 +82,12 @@ The agent will systematically improve the entire framework
 **When to use:** After optimization quality issues, research updates  
 **Special note:** Self-improvement with recursion prevention
 
+#### `improve_prompt_engineering_assistant.user.prompt.md`
+**Target:** `ai_agents/prompt_engineering_assistant.system.prompt.md`  
+**Focus:** Prompt engineering techniques, 4-step methodology, platform optimization  
+**When to use:** After prompt engineering research updates, quality issues  
+**Special note:** Self-improvement of prompt engineering capabilities
+
 ---
 
 ## How to Use Self-Improvement Prompts
@@ -161,13 +167,14 @@ improve_<agent_name>.user.prompt.md
 ```
 
 Where `<agent_name>` is:
-- `ai_architecture_assistant` (entire system)
+- `ai_engineering_assistant` (entire system)
 - `supervisor_agent`
 - `requirements_agent`
 - `architecture_agent`
 - `engineering_agent`
 - `deployment_agent`
 - `optimization_agent`
+- `prompt_engineering_assistant`
 
 This clearly indicates these prompts improve agents **in this repository**.
 

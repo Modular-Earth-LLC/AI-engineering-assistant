@@ -187,8 +187,8 @@ Specialized task instructions organized by category in `user_prompts/`:
 - `architecture/`: System design tasks (6 prompts)
 - `engineering/`: Prototype generation (1 prompt)
 - `deployment/`: Deployment and testing (2 prompts)
-- `self_improvement/`: Improve agents in THIS repo (7 prompts)
-- `prompt_engineering/`: Generic prompt engineering (7 prompts)
+- `self_improvement/`: Improve agents in THIS repo (8 prompts)
+- `prompt_engineering/`: Generic prompt engineering (6 prompts)
 - `proposals/`: Executive presentations (4 prompts)
 
 **See [TERMINOLOGY.md](TERMINOLOGY.md)** for clear distinctions between system optimization, agent improvement, and prompt engineering.

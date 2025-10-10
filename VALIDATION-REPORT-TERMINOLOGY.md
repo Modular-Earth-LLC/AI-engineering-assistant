@@ -105,8 +105,8 @@ ls user_prompts/
 **Changed:**
 ```diff
 - `user_prompts/optimization/`: System improvement (7 prompts)
-+ `user_prompts/self_improvement/`: Improve agents in THIS repo (7 prompts)
-+ `user_prompts/prompt_engineering/`: Generic prompt engineering (7 prompts)
++ `user_prompts/self_improvement/`: Improve agents in THIS repo (8 prompts)
++ `user_prompts/prompt_engineering/`: Generic prompt engineering (6 prompts)
 +
 + **See [TERMINOLOGY.md](TERMINOLOGY.md)** for clear distinctions...
 ```
@@ -377,15 +377,15 @@ Checked all files for broken references:
 - user_prompts/prompt_engineering/: 7 files
 
 **After Reorganization:**
-- user_prompts/self_improvement/: 7 files + README.md
-- user_prompts/prompt_engineering/: 7 files (unchanged)
+- user_prompts/self_improvement/: 8 files + README.md
+- user_prompts/prompt_engineering/: 6 files
 
 **New Documentation:**
 - TERMINOLOGY.md (repository root)
 - user_prompts/self_improvement/README.md
 
 **Total New Files:** 2 documentation files  
-**Total Moved Files:** 7 agent improvement prompts  
+**Total Moved Files:** 8 agent improvement prompts (7 from optimization/ + 1 from prompt_engineering/)  
 **Total Deleted:** 0 files (all moved, not deleted)
 
 ---

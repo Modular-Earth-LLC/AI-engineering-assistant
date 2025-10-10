@@ -92,7 +92,6 @@ This repository uses three distinct approaches at different levels of abstractio
 **Where:** `user_prompts/prompt_engineering/` directory contains generic prompts usable in any project
 
 **Files:**
-- `improve_prompt_engineering_assistant.user.prompt.md` - Self-improvement of the prompt engineering agent
 - `improve_system_of_prompts.user.prompt.md` - Multi-prompt system optimization (comprehensive)
 - `reduce_prompt_redundancy.user.prompt.md` - Single prompt optimization (fast)
 - `improve_prompt_with_human_in_the_loop.user.prompt.md` - Interactive improvement
@@ -197,10 +196,10 @@ user_prompts/
 │   ├── improve_architecture_agent.user.prompt.md
 │   ├── improve_engineering_agent.user.prompt.md
 │   ├── improve_deployment_agent.user.prompt.md
-│   └── improve_optimization_agent.user.prompt.md
+│   ├── improve_optimization_agent.user.prompt.md
+│   └── improve_prompt_engineering_assistant.user.prompt.md
 │
 ├── prompt_engineering/        # Generic prompts usable in ANY project
-│   ├── improve_prompt_engineering_assistant.user.prompt.md
 │   ├── improve_system_of_prompts.user.prompt.md
 │   ├── reduce_prompt_redundancy.user.prompt.md
 │   ├── improve_prompt_with_human_in_the_loop.user.prompt.md
@@ -246,12 +245,6 @@ user_prompts/
 - **`reduce_prompt_redundancy`**: Fast optimization of a single prompt file, focuses on obvious redundancies, simpler and quicker
 
 Both are in `prompt_engineering/` because they're generic and usable in any project.
-
-### Q: Why is `improve_prompt_engineering_assistant` in `prompt_engineering/` not `self_improvement/`?
-
-This is a **prompt-level** self-improvement task that uses the Prompt Engineering Assistant's own capabilities to improve itself. It's domain-specific to prompt engineering (not multi-agent systems), so it belongs with other prompt engineering tasks.
-
-The files in `self_improvement/` are for improving the **multi-agent development workflow agents** (Requirements, Architecture, Engineering, Deployment, etc.).
 
 ### Q: Can the Optimization Agent improve agents in this repo?
 
