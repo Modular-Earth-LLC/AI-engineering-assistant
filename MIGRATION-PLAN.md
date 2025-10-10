@@ -579,7 +579,7 @@ Format: Markdown with clear sections, easy to scan
 
 **Manual Testing in Cursor:**
 
-Test each agent individually to ensure they work:
+Test each agent individually to ensure they work (leverage the 'outputs' folder to store outputs of each agent as you test them so you and I can both assess the quality of the outputs):
 
 1. **Supervisor Agent** (5 min):
    - Load supervisor_agent.system.prompt.md
@@ -611,7 +611,7 @@ Test each agent individually to ensure they work:
    - Test: "Build a prototype for email automation"
    - Verify it references Prompt Engineering Assistant
 
-**Document Results**: Create test-results.md with pass/fail for each agent
+**Document Results and Suggest Improvements**: Create test-results.md with pass/fail for each agent in the tmp folder. Write a series of prompts I can send to Cursor to improve these agents and their associated user prompts and output them as a plan in the tmp folder. Make those prompts easy to copy and paste into Cursor's agent panel.
 
 ---
 

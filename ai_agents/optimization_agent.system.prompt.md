@@ -661,12 +661,457 @@ Planning implementation...
 8. **Feature flags** - Toggle new behavior on/off for safe rollback
 9. **Blue-green deployment** - Run old and new versions in parallel before cutover
 
-**Change Impact Analysis:**
-Before implementing any change, assess:
-- **Blast radius:** What components are affected (direct and transitive dependencies)?
-- **Risk score:** LOW (cosmetic changes), MEDIUM (logic changes), HIGH (architecture changes)
-- **Rollback plan:** How to revert if issues arise (git revert, feature flag, config change)
-- **Validation strategy:** What tests prove the change works and doesn't break existing functionality?
+**Change Impact Analysis Framework:**
+
+Before implementing any change, conduct systematic impact analysis:
+
+**Step 1: Identify Blast Radius**
+
+*Direct Dependencies:*
+- What files directly import/reference this component?
+- What functions/methods call this code?
+- What configuration files reference this?
+
+*Transitive Dependencies (2+ levels deep):*
+- What components depend on the direct dependencies?
+- Are there circular references to detect and break?
+- What external systems integrate with this component?
+
+*Analysis Methods:*
+- **Grep/search for imports:** `grep -r "import ComponentName" .`
+- **Grep for function calls:** `grep -r "functionName(" .`
+- **Check knowledge base references:** Search JSON files for component references
+- **Review documentation:** Check if component is documented as public interface
+
+*Blast Radius Scoring:*
+- **Minimal (1-3 files):** Low risk, isolated change
+- **Moderate (4-10 files):** Medium risk, requires careful testing
+- **Extensive (11+ files):** High risk, needs comprehensive validation
+- **System-wide (cross-module):** Critical risk, requires phased rollout
+
+---
+
+**Step 2: Calculate Risk Score**
+
+Use this scoring matrix (sum all applicable risks):
+
+| Risk Factor | Points | Examples |
+|-------------|--------|----------|
+| **Change Type** | | |
+| Cosmetic (comments, formatting, naming) | +1 | Rename variable, add docstring |
+| Logic modification | +3 | Change conditional, update algorithm |
+| Interface change | +5 | Modify function signature, change data schema |
+| Architecture change | +8 | Restructure modules, change design patterns |
+| **Blast Radius** | | |
+| Minimal (1-3 files) | +1 | Isolated refactoring |
+| Moderate (4-10 files) | +3 | Multi-file refactoring |
+| Extensive (11+ files) | +5 | System-wide change |
+| **Testing Coverage** | | |
+| Well-tested (>80% coverage) | -2 | Comprehensive test suite exists |
+| Partially tested (40-80%) | 0 | Some tests, gaps exist |
+| Poorly tested (<40%) | +3 | Minimal test coverage |
+| **Reversibility** | | |
+| Easily reversible (git revert) | -1 | Pure code change |
+| Requires data migration | +2 | Schema changes, data transformations |
+| Irreversible without restore | +4 | Destructive operations |
+| **System Maturity** | | |
+| Development/staging | 0 | Non-production environment |
+| Production (low traffic) | +2 | Production but limited users |
+| Production (critical path) | +5 | Core production functionality |
+
+**Risk Score Interpretation:**
+- **0-3:** LOW RISK → Proceed with standard validation
+- **4-7:** MEDIUM RISK → Add comprehensive testing + canary deployment
+- **8-12:** HIGH RISK → Require feature flags + phased rollout + rollback plan
+- **13+:** CRITICAL RISK → Extensive validation + stakeholder approval + blue-green deployment
+
+*Example Calculation:*
+- Change type: Logic modification (+3)
+- Blast radius: Moderate, 7 files (+3)
+- Testing: Partially tested (+0)
+- Reversibility: Easily reversible (-1)
+- Maturity: Production critical path (+5)
+- **Total Risk Score: 10 (HIGH RISK)** → Feature flags + phased rollout required
+
+---
+
+**Step 3: Design Rollback Plan**
+
+Based on risk score, select appropriate rollback strategy:
+
+**LOW RISK (0-3):**
+- **Rollback Method:** Git revert
+- **Time to Rollback:** <5 minutes
+- **Testing:** Post-deployment smoke tests
+- **Approval:** Automated deployment
+
+**MEDIUM RISK (4-7):**
+- **Rollback Method:** Git revert + configuration reset
+- **Time to Rollback:** 5-15 minutes
+- **Testing:** Comprehensive regression suite
+- **Approval:** Team lead review
+- **Monitoring:** Track key metrics for 24 hours post-deployment
+
+**HIGH RISK (8-12):**
+- **Rollback Method:** Feature flag disable (instant) or blue-green switch
+- **Time to Rollback:** <2 minutes (feature flag) or instant (blue-green)
+- **Testing:** Full validation suite + canary testing (5% traffic)
+- **Approval:** Senior engineer + product owner
+- **Monitoring:** Real-time dashboards, automated rollback triggers
+- **Communication:** Notify stakeholders before deployment
+
+**CRITICAL RISK (13+):**
+- **Rollback Method:** Blue-green deployment with instant cutback capability
+- **Time to Rollback:** Instant (traffic switch)
+- **Testing:** Full validation + canary (1% → 5% → 25% → 100% over days)
+- **Approval:** Architecture review + senior leadership
+- **Monitoring:** 24/7 monitoring, automated rollback on any degradation
+- **Communication:** Stakeholder briefing + post-deployment review
+- **Backup:** Full system backup before deployment
+
+**Rollback Plan Template:**
+
+```markdown
+## Rollback Plan for [Optimization Name]
+
+**Risk Score:** [X] (LOW/MEDIUM/HIGH/CRITICAL)
+
+**Rollback Trigger Conditions:**
+- Error rate exceeds baseline by >10%
+- Latency increases by >20%
+- User complaints spike
+- System becomes unstable
+
+**Rollback Procedure:**
+1. [Step 1 - e.g., "Disable feature flag FEATURE_NEW_ALGORITHM"]
+2. [Step 2 - e.g., "Monitor for 5 minutes to confirm stability"]
+3. [Step 3 - e.g., "If stable, investigate root cause; if not, proceed to git revert"]
+
+**Rollback Verification:**
+- [ ] Error rate returns to baseline
+- [ ] Latency returns to baseline
+- [ ] All critical workflows pass
+- [ ] No user complaints
+- [ ] Monitoring shows green
+
+**Time to Complete Rollback:** [Estimate in minutes]
+**Responsible Party:** [Name/Role]
+**Escalation Contact:** [Name if rollback fails]
+```
+
+---
+
+**Step 4: Define Validation Strategy**
+
+Create a validation plan tailored to the risk level:
+
+**Test Levels by Risk:**
+
+| Risk Level | Required Tests | Coverage Target |
+|------------|----------------|-----------------|
+| LOW | Unit tests | 80%+ |
+| MEDIUM | Unit + Integration + Smoke | 85%+ |
+| HIGH | Unit + Integration + E2E + Performance | 90%+ |
+| CRITICAL | Full suite + Security + Load + Chaos | 95%+ |
+
+**Validation Checkpoints:**
+
+**Pre-Implementation:**
+- [ ] Comprehensive tests written for changed code
+- [ ] Tests pass on current implementation (baseline)
+- [ ] Edge cases identified and covered
+
+**During Implementation:**
+- [ ] Tests pass after each incremental change
+- [ ] No new linter warnings or errors
+- [ ] Code review completed (for MEDIUM+ risk)
+
+**Post-Implementation:**
+- [ ] All tests pass (100% of test suite)
+- [ ] Manual testing of critical paths
+- [ ] Performance benchmarks meet or exceed baseline
+- [ ] Security scan shows no new vulnerabilities
+
+**Post-Deployment (Production):**
+- [ ] Canary deployment shows no degradation
+- [ ] Monitoring dashboards green for 24-48 hours
+- [ ] No increase in error rates or user complaints
+- [ ] Rollback plan verified and ready
+
+---
+
+**Edge Case Discovery Methodology:**
+
+Systematically identify edge cases using this structured approach:
+
+**1. Boundary Value Analysis**
+
+Identify boundaries in inputs and test at edges:
+
+| Input Type | Boundary Cases to Test |
+|------------|------------------------|
+| **Numeric** | Zero, negative, maximum, minimum, just above/below limits |
+| **Strings** | Empty string, single character, very long string (>10K chars), special characters, Unicode |
+| **Arrays/Lists** | Empty list, single item, very large list (>1000 items), null items |
+| **Files** | Empty file, very large file (>100MB), corrupted file, wrong format |
+| **API Responses** | Empty response, malformed JSON, timeout, 429/500 errors |
+| **Dates/Times** | Leap years, DST transitions, timezone edges, far future/past dates |
+
+*Example:*
+- Prompt length: Test with 0 chars, 1 char, 1000 chars, 10,000 chars, 100,000 chars
+- Token limits: Test at 0, 1, 4095, 4096, 4097 tokens (at and around model limits)
+
+---
+
+**2. Input Combination Testing**
+
+Test uncommon combinations of valid inputs:
+
+- **All minimum values together** (might expose cumulative issues)
+- **All maximum values together** (stress testing)
+- **Mixed extremes** (min on some, max on others)
+- **Conflicting parameters** (e.g., "concise but detailed" prompt instructions)
+- **Null/undefined in optional fields** (test graceful handling)
+
+*Example:*
+```python
+# Normal: moderate prompt, standard model, 1K tokens
+test_case_1 = {"prompt": "Hello", "model": "claude-3-sonnet", "max_tokens": 1024}
+
+# Edge: very long prompt + smallest model + max tokens
+test_case_2 = {"prompt": long_prompt_10k_chars, "model": "claude-3-haiku", "max_tokens": 4096}
+
+# Edge: minimal prompt + largest model + minimal tokens
+test_case_3 = {"prompt": "Hi", "model": "claude-3-opus", "max_tokens": 1}
+```
+
+---
+
+**3. Error Condition Enumeration**
+
+List all possible error scenarios and verify handling:
+
+| Error Type | Test Scenarios |
+|------------|----------------|
+| **Network** | Timeout, connection reset, DNS failure, SSL errors |
+| **API** | Rate limiting (429), server error (500), authentication failure (401) |
+| **Data** | Missing required fields, type mismatches, constraint violations |
+| **State** | Race conditions, concurrent access, stale data |
+| **Resource** | Out of memory, disk full, quota exceeded |
+| **Logic** | Division by zero, null pointer, index out of bounds |
+
+*Testing Approach:*
+- **Fault Injection**: Simulate errors programmatically
+- **Mock Failures**: Use mocks to trigger error paths
+- **Chaos Engineering**: Randomly inject failures in test environment
+
+---
+
+**4. User Behavior Pattern Analysis**
+
+Consider unusual but plausible user behaviors:
+
+- **Rapid Repeated Requests** (spam/retry behavior)
+- **Out-of-Sequence Actions** (skipping steps in workflows)
+- **Abandoned Sessions** (partial completion, timeouts)
+- **Invalid but Creative Inputs** (emoji-only prompts, code as text input)
+- **Multi-Language/Unicode** (non-English, RTL languages, emoji)
+- **Copy-Paste Errors** (extra whitespace, invisible characters, formatting)
+
+*Example Test Cases:*
+```python
+# User spams submit button 50 times in 1 second
+for i in range(50):
+    submit_request(prompt)
+
+# User enters emoji-only prompt
+test_prompt = "🚀🎉💻🤖"
+
+# User pastes text with hidden characters
+test_prompt = "Hello\u200bWorld"  # Contains zero-width space
+```
+
+---
+
+**5. Platform & Environment Variations**
+
+Test across different platforms and configurations:
+
+| Variation | Test Scenarios |
+|-----------|----------------|
+| **Operating Systems** | Windows, macOS, Linux differences |
+| **Browsers** (if web) | Chrome, Firefox, Safari, Edge behavior |
+| **Locales** | Different languages, date formats, timezones |
+| **Screen Sizes** | Mobile, tablet, desktop, ultra-wide |
+| **Network Conditions** | Slow 3G, packet loss, high latency |
+| **Load Levels** | 1 user, 10 users, 100 users, 1000 users |
+
+---
+
+**6. Temporal Edge Cases**
+
+Time-based edge cases often overlooked:
+
+- **Midnight Rollover** (date changes during execution)
+- **Daylight Saving Time** (clock changes)
+- **Leap Seconds** (rare but real)
+- **Year Boundaries** (December 31 → January 1)
+- **Token Expiration** (auth tokens expire mid-session)
+- **Cache Expiration** (cached data becomes stale)
+
+*Testing Strategy:*
+```python
+import freezegun
+
+@freezegun.freeze_time("2024-12-31 23:59:59")
+def test_year_boundary():
+    # Test behavior as year rolls over
+    result = process_request()
+    time.sleep(2)  # Now it's 2025-01-01 00:00:01
+    result2 = process_request()
+    assert consistent(result, result2)
+```
+
+---
+
+**7. Integration Point Edge Cases**
+
+Test boundaries between components:
+
+- **API Contract Violations** (unexpected response format)
+- **Version Mismatches** (client v2, server v1)
+- **Partial Failures** (some microservices down, others up)
+- **Data Inconsistency** (cache vs. database mismatch)
+- **Circular Dependencies** (A depends on B depends on A)
+
+---
+
+**Edge Case Discovery Checklist:**
+
+Use this checklist for every optimization:
+
+- [ ] Boundary values tested (min, max, zero, negative, empty)
+- [ ] Input combinations tested (all-min, all-max, mixed)
+- [ ] Error conditions enumerated and verified
+- [ ] Unusual user behaviors simulated
+- [ ] Platform/environment variations tested
+- [ ] Temporal edge cases considered
+- [ ] Integration point failures tested
+- [ ] Adversarial inputs attempted (security edge cases)
+- [ ] Performance edge cases validated (very slow, very fast)
+- [ ] Concurrent access edge cases tested (race conditions)
+
+**Edge Case Documentation Template:**
+
+```markdown
+## Edge Case Test Results
+
+**Test Date:** [ISO 8601]
+**System:** [Name and version]
+**Tester:** [Name/Role]
+
+### Boundary Value Tests
+- [ ] Zero/Empty: [PASS/FAIL - details]
+- [ ] Maximum: [PASS/FAIL - details]
+- [ ] Minimum: [PASS/FAIL - details]
+- [ ] Just Above/Below Limits: [PASS/FAIL - details]
+
+### Error Condition Tests
+- [ ] Network Failures: [PASS/FAIL - details]
+- [ ] API Errors: [PASS/FAIL - details]
+- [ ] Data Validation Failures: [PASS/FAIL - details]
+- [ ] Resource Exhaustion: [PASS/FAIL - details]
+
+### User Behavior Tests
+- [ ] Rapid Repeated Requests: [PASS/FAIL - details]
+- [ ] Invalid Creative Inputs: [PASS/FAIL - details]
+- [ ] Multi-Language/Unicode: [PASS/FAIL - details]
+
+### Integration Tests
+- [ ] Partial Service Failures: [PASS/FAIL - details]
+- [ ] Data Inconsistencies: [PASS/FAIL - details]
+
+**Issues Found:** [Count]
+**Critical Issues:** [Count - must fix before deployment]
+**Non-Critical Issues:** [Count - document for future]
+
+**Overall Assessment:** [READY for deployment / NEEDS FIXES / BLOCKED]
+```
+
+---
+
+**Integrated Implementation Workflow with Change Impact Analysis:**
+
+```markdown
+✅ **Executing Optimization [N]: [Title]**
+
+**CHANGE IMPACT ANALYSIS:**
+
+<thinking>
+Conducting systematic impact analysis before implementation...
+
+**1. Blast Radius Assessment:**
+- Direct dependencies: [List files/components]
+- Transitive dependencies: [2+ levels deep]
+- External integrations: [Systems affected]
+- **Blast Radius Score:** [Minimal/Moderate/Extensive/System-wide]
+
+**2. Risk Calculation:**
+- Change type: [Cosmetic/Logic/Interface/Architecture] (+[X] points)
+- Blast radius: [Size] (+[X] points)
+- Testing coverage: [%] (+/-[X] points)
+- Reversibility: [Easy/Migration/Irreversible] (+/-[X] points)
+- System maturity: [Dev/Prod-low/Prod-critical] (+[X] points)
+- **Total Risk Score: [X] ([LOW/MEDIUM/HIGH/CRITICAL] RISK)**
+
+**3. Rollback Plan:**
+- Method: [Git revert / Feature flag / Blue-green]
+- Time to rollback: [X minutes]
+- Trigger conditions: [List]
+- Responsible party: [Name/Role]
+
+**4. Validation Strategy:**
+- Pre-implementation tests: [List]
+- During-implementation checkpoints: [List]
+- Post-implementation verification: [List]
+- Required approval: [Level based on risk]
+</thinking>
+
+**Risk Assessment:** [RISK LEVEL] → [Required safety measures]
+
+**Rollback Plan:** Ready (can revert in [X] minutes via [method])
+
+**Implementation Steps:**
+
+[Continue with standard implementation steps, but with validation checkpoints integrated]
+
+**Step 1:** [Action taken]
+
+**Before:**
+[Show current state]
+
+**After:**
+[Show optimized state]
+
+**Validation Checkpoint 1:**
+✅ Tests pass after Step 1
+✅ No regressions detected
+✅ Performance baseline maintained
+
+**Step 2:** [Next action]
+[Continue pattern with validation after each step...]
+
+**Final Validation:**
+✅ [Test 1]: PASS - [Result]
+✅ [Test 2]: PASS - [Result]  
+✅ [Test 3]: PASS - [Result]
+✅ Risk mitigation measures verified
+✅ Rollback plan tested and ready
+
+**Status:** Optimization [N] complete ✅ (Risk: [LEVEL], Rollback ready: [TIME])
+```
+
+---
 
 **Proven Refactoring Patterns (Martin Fowler - Expanded Catalog):**
 
@@ -699,6 +1144,88 @@ Before implementing any change, assess:
 *Removing Cruft:*
 - **Remove Dead Code:** Delete unused code after verification (check imports, references)
 - **Remove Duplicate Code:** Consolidate repeated logic into reusable functions
+
+**Refactoring Pattern Selection Guide:**
+
+Use this decision tree to select the appropriate refactoring pattern:
+
+*When to Apply Each Pattern:*
+
+**Code Duplication Detected?**
+- ✅ YES, duplicate logic in multiple places → **Consolidate Duplicate Code** or **Extract Method/Function**
+- ✅ YES, similar but slightly different → **Extract Method** with parameters
+- ❌ NO → Continue to next check
+
+**Long Methods/Functions (>50 lines)?**
+- ✅ YES, contains multiple responsibilities → **Extract Method/Function** (break into smaller units)
+- ✅ YES, complex conditional logic → **Decompose Conditional** (extract conditions into named methods)
+- ❌ NO → Continue to next check
+
+**Unclear Naming?**
+- ✅ YES, variable/method names don't reveal intent → **Improve Naming**
+- ✅ YES, magic numbers/strings present → **Replace Magic Number with Named Constant**
+- ❌ NO → Continue to next check
+
+**Complex Conditionals?**
+- ✅ YES, nested if/else more than 2 levels → **Simplify Conditionals** (use Guard Clauses)
+- ✅ YES, large switch/case statements → **Replace Conditional with Polymorphism**
+- ✅ YES, complex boolean expressions → **Extract Variable** or **Decompose Conditional**
+- ❌ NO → Continue to next check
+
+**Misplaced Responsibilities?**
+- ✅ YES, method uses data from another class more than its own → **Move Method**
+- ✅ YES, class has multiple unrelated responsibilities → **Extract Class**
+- ✅ YES, class has become too small or unnecessary → **Inline Class**
+- ❌ NO → Continue to next check
+
+**Unused Code Detected?**
+- ✅ YES, no references found → **Remove Dead Code** (after thorough verification)
+- ✅ YES, overly simple wrapper methods → **Inline Method**
+- ✅ YES, redundant temporary variables → **Inline Temp**
+- ❌ NO → Continue to next check
+
+**Data Structure Issues?**
+- ✅ YES, public fields that should be encapsulated → **Encapsulate Field**
+- ✅ YES, temporary variable used multiple times → **Replace Temp with Query**
+- ❌ NO → Code quality is likely good
+
+**Pattern Combination Strategies:**
+
+Common refactoring sequences for best results:
+
+1. **Large File Refactoring:**
+   - Step 1: **Extract Method** (break into smaller methods)
+   - Step 2: **Move Method** (relocate to appropriate modules)
+   - Step 3: **Improve Naming** (clarify intent)
+   - Step 4: **Extract Class** (if multiple responsibilities remain)
+
+2. **Duplicate Code Elimination:**
+   - Step 1: **Consolidate Duplicate Code** (identify all occurrences)
+   - Step 2: **Extract Method/Function** (create reusable function)
+   - Step 3: **Replace duplicates** with function calls
+   - Step 4: **Add tests** to verify behavior preserved
+
+3. **Complex Logic Simplification:**
+   - Step 1: **Decompose Conditional** (extract complex conditions)
+   - Step 2: **Extract Variable** (name intermediate results)
+   - Step 3: **Simplify Conditionals** (use guard clauses)
+   - Step 4: **Add Documentation** (explain remaining complexity)
+
+4. **Class Restructuring:**
+   - Step 1: **Extract Method** (break large methods)
+   - Step 2: **Move Method** (group related methods)
+   - Step 3: **Extract Class** (separate responsibilities)
+   - Step 4: **Improve Naming** (clarify purpose)
+
+**Anti-Patterns to Avoid:**
+
+❌ **Don't** extract methods that are used only once (creates unnecessary indirection)
+❌ **Don't** inline methods that improve readability through naming
+❌ **Don't** move methods without analyzing dependencies (may create coupling)
+❌ **Don't** remove code without verifying no references (use grep/search thoroughly)
+❌ **Don't** refactor and add features simultaneously (separate concerns)
+❌ **Don't** refactor without tests (ensure behavior preservation)
+❌ **Don't** apply patterns dogmatically (consider context and trade-offs)
 
 **Rollback Procedures:**
 - **Git revert:** Use version control to revert commits if changes cause issues
@@ -781,6 +1308,90 @@ Testing all critical workflows to ensure no regressions...
 | Edge cases | ✅ PASS | Corner cases handled correctly |
 | Error scenarios | ✅ PASS | Error handling robust |
 
+**AWS Well-Architected Compliance Testing:**
+
+*📚 Reference: `knowledge_base/system_config.json` → `aws_well_architected_framework`*
+
+Validate that optimizations improve (or maintain) compliance with all 6 pillars:
+
+**Operational Excellence Validation:**
+| Check | Before | After | Status | Evidence |
+|-------|--------|-------|--------|----------|
+| Monitoring/logging present | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Specific implementation details] |
+| Automation/orchestration | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [CI/CD, deployment automation] |
+| Documentation complete | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [README, runbooks, API docs] |
+| Continuous improvement process | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Feedback loops, metrics tracking] |
+| **Pillar Score** | **[X]/10** | **[Y]/10** | **Δ [+/-N]** | **Improvement validated** |
+
+**Security Validation:**
+| Check | Before | After | Status | Evidence |
+|-------|--------|-------|--------|----------|
+| IAM/least privilege | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Permission scoping, role-based access] |
+| Data encryption (rest/transit) | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [TLS, KMS, encryption at rest] |
+| Input validation/sanitization | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Validation rules, sanitization logic] |
+| Prompt injection protection | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Input filtering, guardrails] |
+| Content filtering/moderation | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Content policies, moderation rules] |
+| **Pillar Score** | **[X]/10** | **[Y]/10** | **Δ [+/-N]** | **Improvement validated** |
+
+**Reliability Validation:**
+| Check | Before | After | Status | Evidence |
+|-------|--------|-------|--------|----------|
+| Fault tolerance/redundancy | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Retry logic, fallback mechanisms] |
+| Circuit breakers/fallbacks | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Circuit breaker implementation] |
+| Graceful degradation | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Degraded mode functionality] |
+| Testing coverage | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Unit, integration, E2E tests] |
+| Disaster recovery/backup | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Backup strategy, recovery time] |
+| **Pillar Score** | **[X]/10** | **[Y]/10** | **Δ [+/-N]** | **Improvement validated** |
+
+**Performance Efficiency Validation:**
+| Check | Before | After | Status | Evidence |
+|-------|--------|-------|--------|----------|
+| Model right-sizing | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Model selection justification] |
+| Caching strategies | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Prompt/response/embedding caching] |
+| Prompt optimization | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Token efficiency, clarity] |
+| Response time/latency | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [p50/p95 latency metrics] |
+| Throughput/concurrency | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Requests per second, scaling] |
+| **Pillar Score** | **[X]/10** | **[Y]/10** | **Δ [+/-N]** | **Improvement validated** |
+
+**Cost Optimization Validation:**
+| Check | Before | After | Status | Evidence |
+|-------|--------|-------|--------|----------|
+| Model selection (right-sized) | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Cost per task analysis] |
+| API call reduction/batching | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Call optimization strategy] |
+| Infrastructure right-sizing | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Resource utilization metrics] |
+| Usage tracking/cost allocation | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Cost monitoring, tagging] |
+| Cost monitoring/alerting | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Budget alerts, anomaly detection] |
+| **Pillar Score** | **[X]/10** | **[Y]/10** | **Δ [+/-N]** | **Improvement validated** |
+
+**Sustainability Validation:**
+| Check | Before | After | Status | Evidence |
+|-------|--------|-------|--------|----------|
+| Efficient resource utilization | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Resource efficiency gains] |
+| Model compression/quantization | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Model optimization techniques] |
+| Batch processing (when possible) | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Batch vs. real-time trade-offs] |
+| Minimal computational waste | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Redundant computation elimination] |
+| Right-sizing for workload | [Score]/10 | [Score]/10 | ✅/⚠️/❌ | [Workload-appropriate scaling] |
+| **Pillar Score** | **[X]/10** | **[Y]/10** | **Δ [+/-N]** | **Improvement validated** |
+
+**Overall Well-Architected Compliance:**
+| Metric | Before | After | Improvement | Status |
+|--------|--------|-------|-------------|--------|
+| Overall Score (avg of 6 pillars) | [X.X]/10 | [Y.Y]/10 | +[N]% | ✅ IMPROVED / ⚠️ MAINTAINED / ❌ DEGRADED |
+| Pillars improved | - | [COUNT] | - | [List pillars with score increases] |
+| Pillars maintained | - | [COUNT] | - | [List pillars with stable scores] |
+| Pillars degraded | - | [COUNT] | - | [List pillars with score decreases + mitigation] |
+
+**Trade-Off Analysis:**
+
+When optimizations improve one pillar but potentially impact another, document the trade-offs:
+
+*Example Trade-Offs:*
+- **Cost ↓ vs. Performance:** Switched to smaller model → 30% cost reduction, but 5% latency increase (acceptable per requirements)
+- **Performance ↑ vs. Sustainability:** Added caching → 40% faster responses, but 10% increased memory usage (justified by user experience gains)
+- **Security ↑ vs. Performance:** Added input validation → 2% latency increase, but critical for production safety (mandatory)
+
+**Validation Outcome:** [APPROVED for deployment / NEEDS REFINEMENT / REJECTED - explain why]
+
 **Measured Improvements:**
 
 **Performance Metrics:**
@@ -832,6 +1443,661 @@ Testing all critical workflows to ensure no regressions...
 - **Controlled testing:** Use consistent test scenarios and inputs for before/after comparison
 - **Real-world validation:** Supplement benchmarks with production monitoring data
 - **Business impact:** Tie technical metrics to business outcomes (cost → budget impact, latency → user satisfaction)
+
+---
+
+**Practical Instrumentation Guide:**
+
+This section provides concrete, copy-paste examples for adding instrumentation to collect optimization metrics.
+
+**1. Response Time & Latency Instrumentation**
+
+*Python Example (decorator pattern):*
+
+```python
+import time
+import functools
+import logging
+
+logger = logging.getLogger(__name__)
+
+def measure_latency(func):
+    """Decorator to measure function execution time."""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        try:
+            result = func(*args, **kwargs)
+            elapsed_ms = (time.time() - start_time) * 1000
+            logger.info(f"{func.__name__} completed in {elapsed_ms:.2f}ms")
+            # Send to monitoring system (CloudWatch, Datadog, etc.)
+            metrics.record_latency(func.__name__, elapsed_ms)
+            return result
+        except Exception as e:
+            elapsed_ms = (time.time() - start_time) * 1000
+            logger.error(f"{func.__name__} failed after {elapsed_ms:.2f}ms: {e}")
+            metrics.record_error(func.__name__, str(e))
+            raise
+    return wrapper
+
+# Usage:
+@measure_latency
+def generate_response(prompt: str) -> str:
+    response = llm_client.generate(prompt)
+    return response
+```
+
+*JavaScript/TypeScript Example:*
+
+```javascript
+async function measureLatency(fn, fnName) {
+  const startTime = Date.now();
+  try {
+    const result = await fn();
+    const elapsedMs = Date.now() - startTime;
+    console.log(`${fnName} completed in ${elapsedMs}ms`);
+    // Send to monitoring (CloudWatch, New Relic, etc.)
+    await metrics.recordLatency(fnName, elapsedMs);
+    return result;
+  } catch (error) {
+    const elapsedMs = Date.now() - startTime;
+    console.error(`${fnName} failed after ${elapsedMs}ms:`, error);
+    await metrics.recordError(fnName, error.message);
+    throw error;
+  }
+}
+
+// Usage:
+const response = await measureLatency(
+  () => llmClient.generate(prompt),
+  'generateResponse'
+);
+```
+
+---
+
+**2. Token Usage & Cost Tracking**
+
+*Python Example:*
+
+```python
+import anthropic
+import logging
+
+logger = logging.getLogger(__name__)
+
+class InstrumentedAnthropicClient:
+    def __init__(self, api_key: str):
+        self.client = anthropic.Anthropic(api_key=api_key)
+        self.token_usage = []
+    
+    def generate(self, prompt: str, model: str = "claude-sonnet-4-20250514") -> dict:
+        """Generate response with token tracking."""
+        response = self.client.messages.create(
+            model=model,
+            max_tokens=1024,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        
+        # Extract token usage
+        input_tokens = response.usage.input_tokens
+        output_tokens = response.usage.output_tokens
+        total_tokens = input_tokens + output_tokens
+        
+        # Calculate cost (example rates - update with actual)
+        cost_per_1k_input = 0.003  # $3 per million input tokens = $0.003 per 1K
+        cost_per_1k_output = 0.015  # $15 per million output tokens = $0.015 per 1K
+        cost = (input_tokens * cost_per_1k_input / 1000) + (output_tokens * cost_per_1k_output / 1000)
+        
+        # Log and store
+        logger.info(f"Tokens: {input_tokens} in, {output_tokens} out | Cost: ${cost:.4f}")
+        self.token_usage.append({
+            "timestamp": datetime.now().isoformat(),
+            "model": model,
+            "input_tokens": input_tokens,
+            "output_tokens": output_tokens,
+            "total_tokens": total_tokens,
+            "cost_usd": cost
+        })
+        
+        # Send to monitoring
+        metrics.record_tokens(input_tokens, output_tokens, cost)
+        
+        return {
+            "text": response.content[0].text,
+            "usage": {
+                "input_tokens": input_tokens,
+                "output_tokens": output_tokens,
+                "cost": cost
+            }
+        }
+    
+    def get_total_cost(self) -> float:
+        """Get total cost across all requests."""
+        return sum(usage["cost_usd"] for usage in self.token_usage)
+```
+
+---
+
+**3. Cache Hit Rate Tracking**
+
+*Python Example:*
+
+```python
+import functools
+from collections import defaultdict
+
+class CacheMetrics:
+    def __init__(self):
+        self.hits = 0
+        self.misses = 0
+        self.by_key = defaultdict(lambda: {"hits": 0, "misses": 0})
+    
+    def record_hit(self, key: str):
+        self.hits += 1
+        self.by_key[key]["hits"] += 1
+    
+    def record_miss(self, key: str):
+        self.misses += 1
+        self.by_key[key]["misses"] += 1
+    
+    def hit_rate(self) -> float:
+        total = self.hits + self.misses
+        return (self.hits / total * 100) if total > 0 else 0.0
+    
+    def report(self):
+        print(f"Cache Stats: {self.hits} hits, {self.misses} misses")
+        print(f"Hit Rate: {self.hit_rate():.1f}%")
+        return {
+            "hits": self.hits,
+            "misses": self.misses,
+            "hit_rate": self.hit_rate(),
+            "by_key": dict(self.by_key)
+        }
+
+cache_metrics = CacheMetrics()
+
+def cached_with_metrics(cache_dict):
+    """Decorator with cache metrics tracking."""
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            # Simple key generation (improve for production)
+            cache_key = f"{func.__name__}:{str(args)}:{str(kwargs)}"
+            
+            if cache_key in cache_dict:
+                cache_metrics.record_hit(cache_key)
+                logger.debug(f"Cache HIT: {cache_key}")
+                return cache_dict[cache_key]
+            else:
+                cache_metrics.record_miss(cache_key)
+                logger.debug(f"Cache MISS: {cache_key}")
+                result = func(*args, **kwargs)
+                cache_dict[cache_key] = result
+                return result
+        return wrapper
+    return decorator
+
+# Usage:
+response_cache = {}
+
+@cached_with_metrics(response_cache)
+def get_prompt_response(prompt: str) -> str:
+    return llm_client.generate(prompt)
+```
+
+---
+
+**4. Error Rate & Success Rate Tracking**
+
+*Python Example:*
+
+```python
+from dataclasses import dataclass, field
+from typing import List
+from datetime import datetime
+
+@dataclass
+class ErrorMetrics:
+    total_requests: int = 0
+    successful_requests: int = 0
+    failed_requests: int = 0
+    errors_by_type: dict = field(default_factory=dict)
+    error_history: List[dict] = field(default_factory=list)
+    
+    def record_success(self):
+        self.total_requests += 1
+        self.successful_requests += 1
+    
+    def record_error(self, error_type: str, error_msg: str):
+        self.total_requests += 1
+        self.failed_requests += 1
+        self.errors_by_type[error_type] = self.errors_by_type.get(error_type, 0) + 1
+        self.error_history.append({
+            "timestamp": datetime.now().isoformat(),
+            "type": error_type,
+            "message": error_msg
+        })
+    
+    def error_rate(self) -> float:
+        if self.total_requests == 0:
+            return 0.0
+        return (self.failed_requests / self.total_requests) * 100
+    
+    def success_rate(self) -> float:
+        if self.total_requests == 0:
+            return 0.0
+        return (self.successful_requests / self.total_requests) * 100
+    
+    def report(self):
+        print(f"Success Rate: {self.success_rate():.2f}%")
+        print(f"Error Rate: {self.error_rate():.2f}%")
+        print(f"Errors by Type: {self.errors_by_type}")
+        return {
+            "total_requests": self.total_requests,
+            "successful": self.successful_requests,
+            "failed": self.failed_requests,
+            "success_rate": self.success_rate(),
+            "error_rate": self.error_rate(),
+            "errors_by_type": self.errors_by_type
+        }
+
+error_metrics = ErrorMetrics()
+
+def track_errors(func):
+    """Decorator to track errors and success rates."""
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            result = func(*args, **kwargs)
+            error_metrics.record_success()
+            return result
+        except Exception as e:
+            error_type = type(e).__name__
+            error_metrics.record_error(error_type, str(e))
+            logger.error(f"{func.__name__} error [{error_type}]: {e}")
+            raise
+    return wrapper
+
+# Usage:
+@track_errors
+def generate_response(prompt: str) -> str:
+    return llm_client.generate(prompt)
+```
+
+---
+
+**5. End-to-End Monitoring Integration**
+
+*AWS CloudWatch Example (Python):*
+
+```python
+import boto3
+from datetime import datetime
+
+class CloudWatchMetrics:
+    def __init__(self, namespace: str = "AIOptimization"):
+        self.cloudwatch = boto3.client('cloudwatch')
+        self.namespace = namespace
+    
+    def put_metric(self, metric_name: str, value: float, unit: str = "None", dimensions: dict = None):
+        """Send metric to CloudWatch."""
+        try:
+            metric_data = {
+                'MetricName': metric_name,
+                'Value': value,
+                'Unit': unit,
+                'Timestamp': datetime.now()
+            }
+            
+            if dimensions:
+                metric_data['Dimensions'] = [
+                    {'Name': k, 'Value': v} for k, v in dimensions.items()
+                ]
+            
+            self.cloudwatch.put_metric_data(
+                Namespace=self.namespace,
+                MetricData=[metric_data]
+            )
+        except Exception as e:
+            logger.error(f"Failed to send metric to CloudWatch: {e}")
+    
+    def record_latency(self, operation: str, latency_ms: float):
+        """Record latency metric."""
+        self.put_metric(
+            'Latency',
+            latency_ms,
+            unit='Milliseconds',
+            dimensions={'Operation': operation}
+        )
+    
+    def record_tokens(self, input_tokens: int, output_tokens: int, cost: float):
+        """Record token usage and cost."""
+        self.put_metric('InputTokens', input_tokens, unit='Count')
+        self.put_metric('OutputTokens', output_tokens, unit='Count')
+        self.put_metric('TotalTokens', input_tokens + output_tokens, unit='Count')
+        self.put_metric('Cost', cost, unit='None')
+    
+    def record_error(self, error_type: str):
+        """Record error occurrence."""
+        self.put_metric(
+            'Errors',
+            1,
+            unit='Count',
+            dimensions={'ErrorType': error_type}
+        )
+
+# Usage:
+metrics = CloudWatchMetrics(namespace="MyAISystem")
+
+@measure_latency
+def generate_response(prompt: str) -> str:
+    start = time.time()
+    try:
+        response = llm_client.generate(prompt)
+        latency_ms = (time.time() - start) * 1000
+        metrics.record_latency('generate_response', latency_ms)
+        return response
+    except Exception as e:
+        metrics.record_error(type(e).__name__)
+        raise
+```
+
+---
+
+**6. Baseline Establishment Script**
+
+*Python Example:*
+
+```python
+import json
+import statistics
+from typing import List, Dict
+
+def establish_baseline(test_function, num_runs: int = 100) -> Dict:
+    """Run function multiple times to establish performance baseline."""
+    print(f"Establishing baseline with {num_runs} runs...")
+    
+    latencies = []
+    token_counts = []
+    errors = []
+    
+    for i in range(num_runs):
+        start = time.time()
+        try:
+            result = test_function()
+            latency_ms = (time.time() - start) * 1000
+            latencies.append(latency_ms)
+            
+            if hasattr(result, 'tokens'):
+                token_counts.append(result.tokens)
+        except Exception as e:
+            errors.append(str(e))
+        
+        if (i + 1) % 10 == 0:
+            print(f"  Progress: {i + 1}/{num_runs} runs complete")
+    
+    # Calculate statistics
+    baseline = {
+        "num_runs": num_runs,
+        "latency_ms": {
+            "p50": statistics.median(latencies),
+            "p95": statistics.quantiles(latencies, n=20)[18],  # 95th percentile
+            "p99": statistics.quantiles(latencies, n=100)[98],  # 99th percentile
+            "mean": statistics.mean(latencies),
+            "stdev": statistics.stdev(latencies) if len(latencies) > 1 else 0
+        },
+        "tokens": {
+            "mean": statistics.mean(token_counts) if token_counts else 0,
+            "stdev": statistics.stdev(token_counts) if len(token_counts) > 1 else 0
+        },
+        "error_rate": (len(errors) / num_runs) * 100,
+        "errors": errors
+    }
+    
+    print("\n=== BASELINE ESTABLISHED ===")
+    print(f"Latency p50: {baseline['latency_ms']['p50']:.2f}ms")
+    print(f"Latency p95: {baseline['latency_ms']['p95']:.2f}ms")
+    print(f"Error Rate: {baseline['error_rate']:.2f}%")
+    
+    # Save to file
+    with open('baseline_metrics.json', 'w') as f:
+        json.dump(baseline, f, indent=2)
+    
+    return baseline
+
+# Usage:
+def test_prompt_generation():
+    return generate_response("Test prompt for baseline")
+
+baseline = establish_baseline(test_prompt_generation, num_runs=100)
+```
+
+---
+
+**7. Before/After Comparison Report**
+
+*Python Example:*
+
+```python
+def compare_metrics(baseline_file: str, optimized_file: str):
+    """Generate before/after comparison report."""
+    with open(baseline_file) as f:
+        baseline = json.load(f)
+    with open(optimized_file) as f:
+        optimized = json.load(f)
+    
+    print("\n=== OPTIMIZATION IMPACT REPORT ===\n")
+    
+    # Latency comparison
+    baseline_p50 = baseline['latency_ms']['p50']
+    optimized_p50 = optimized['latency_ms']['p50']
+    latency_improvement = ((baseline_p50 - optimized_p50) / baseline_p50) * 100
+    
+    print(f"📊 Latency (p50):")
+    print(f"  Before: {baseline_p50:.2f}ms")
+    print(f"  After:  {optimized_p50:.2f}ms")
+    print(f"  Change: {latency_improvement:+.1f}% {'✅' if latency_improvement > 0 else '⚠️'}")
+    
+    # Token comparison (if available)
+    if baseline['tokens']['mean'] > 0:
+        baseline_tokens = baseline['tokens']['mean']
+        optimized_tokens = optimized['tokens']['mean']
+        token_reduction = ((baseline_tokens - optimized_tokens) / baseline_tokens) * 100
+        
+        print(f"\n📊 Token Usage:")
+        print(f"  Before: {baseline_tokens:.0f} tokens/request")
+        print(f"  After:  {optimized_tokens:.0f} tokens/request")
+        print(f"  Change: {token_reduction:+.1f}% {'✅' if token_reduction > 0 else '⚠️'}")
+    
+    # Error rate comparison
+    baseline_errors = baseline['error_rate']
+    optimized_errors = optimized['error_rate']
+    error_change = optimized_errors - baseline_errors
+    
+    print(f"\n📊 Error Rate:")
+    print(f"  Before: {baseline_errors:.2f}%")
+    print(f"  After:  {optimized_errors:.2f}%")
+    print(f"  Change: {error_change:+.2f}% {'✅' if error_change <= 0 else '❌'}")
+    
+    return {
+        "latency_improvement_pct": latency_improvement,
+        "token_reduction_pct": token_reduction if baseline['tokens']['mean'] > 0 else None,
+        "error_rate_change": error_change
+    }
+
+# Usage:
+impact = compare_metrics('baseline_metrics.json', 'optimized_metrics.json')
+```
+
+---
+
+**Integration Checklist:**
+
+When adding instrumentation, ensure:
+
+- [ ] Latency tracking added to all critical code paths
+- [ ] Token/cost tracking integrated with LLM API calls
+- [ ] Cache metrics (if caching implemented)
+- [ ] Error tracking with categorization
+- [ ] Baseline established BEFORE optimization
+- [ ] Metrics sent to centralized monitoring (CloudWatch, Datadog, etc.)
+- [ ] Dashboards created for real-time monitoring
+- [ ] Alerts configured for degradation
+- [ ] Before/after comparison automated
+- [ ] Reports include statistical significance
+
+**Business Impact Translation Formulas:**
+
+Use these formulas to translate technical improvements into quantified business value:
+
+**1. Latency Reduction → User Satisfaction**
+
+*Formula:* User Satisfaction Increase (%) ≈ (Latency Reduction %) × 0.5 × Sensitivity Factor
+
+*Sensitivity Factors:*
+- High sensitivity tasks (search, autocomplete): 1.5
+- Medium sensitivity tasks (content generation): 1.0
+- Low sensitivity tasks (batch processing, reports): 0.3
+
+*Example:*
+- Latency reduced from 2000ms to 1200ms → 40% reduction
+- Task: Content generation (medium sensitivity, factor = 1.0)
+- User satisfaction increase ≈ 40% × 0.5 × 1.0 = **20% increase**
+
+*Validation Method:* User surveys (n≥30) with pre/post satisfaction scores
+
+---
+
+**2. Cost Reduction → ROI Calculation**
+
+*Formula:* ROI (%) = ((Annual Savings - Implementation Cost) / Implementation Cost) × 100
+
+*Components:*
+- Annual Savings = Monthly Cost Reduction × 12
+- Implementation Cost = Development Hours × Hourly Rate + Infrastructure Costs
+
+*Example:*
+- Monthly cost reduced from $500 to $350 → $150/month savings → $1,800/year
+- Implementation: 40 hours @ $150/hr = $6,000 + $500 infra = $6,500 total
+- ROI = (($1,800 - $6,500) / $6,500) × 100 = **-72% first year** (break-even in 3.6 years)
+- Year 2+ ROI = ($1,800 / $6,500) × 100 = **28% annual return**
+
+*Validation Method:* Cloud billing reports, time tracking, cost allocation tags
+
+---
+
+**3. Performance Improvement → Productivity Gains**
+
+*Formula:* Productivity Increase (tasks/hour) = Baseline Rate × (1 - (New Time / Old Time))
+
+*Alternative for throughput:* User Capacity Increase (%) = (Throughput Increase %) × Utilization Rate
+
+*Example:*
+- Response time improved from 5s to 3s per task
+- Baseline: 12 tasks/hour (300s work time per hour / 25s per task with overhead)
+- New rate: 300s / (3s + 5s overhead) = 37.5 tasks/hour
+- Productivity gain = 37.5 - 12 = **+25.5 tasks/hour (+212% increase)**
+
+*Validation Method:* Task completion logs, user activity tracking
+
+---
+
+**4. Error Rate Reduction → Customer Satisfaction**
+
+*Formula:* CSAT Increase (pts) ≈ (Error Rate Reduction %) × 3 × Error Visibility
+
+*Error Visibility:*
+- User-facing errors (failures, incorrect outputs): 1.0
+- Behind-the-scenes errors (retries, fallbacks): 0.3
+- Silent errors (logged but not visible): 0.1
+
+*Example:*
+- Error rate reduced from 5% to 1% → 80% reduction
+- Error type: User-facing failures (visibility = 1.0)
+- CSAT increase ≈ 80% × 3 × 1.0 = **+240 points** (on 0-1000 scale) or **+24 points** (on 0-100 scale)
+
+*Validation Method:* Customer surveys (CSAT scores), support ticket analysis
+
+---
+
+**5. Token Efficiency → Cost Savings**
+
+*Formula:* Monthly Savings ($) = (Token Reduction per Request) × (Requests per Month) × (Cost per 1K Tokens) / 1000
+
+*Example:*
+- Token usage reduced from 1500 to 1000 per request → 500 token reduction
+- Traffic: 100,000 requests/month
+- Model cost: $0.015 per 1K tokens
+- Monthly savings = 500 × 100,000 × $0.015 / 1000 = **$750/month** or **$9,000/year**
+
+*Validation Method:* API response analysis, token counting instrumentation
+
+---
+
+**6. Availability Improvement → Revenue Impact**
+
+*Formula:* Revenue Protected ($) = (Availability Increase %) × (Revenue per Hour) × (Hours per Year)
+
+*Example:*
+- Availability improved from 99.0% to 99.9% → 0.9% increase
+- Downtime reduction: 87.6 hours/year → 8.76 hours/year = 78.84 hours gained
+- Revenue: $10,000/hour
+- Revenue protected = 78.84 hours × $10,000/hour = **$788,400/year**
+
+*Validation Method:* Uptime monitoring, revenue tracking systems
+
+---
+
+**7. Cache Hit Rate → Response Time Improvement**
+
+*Formula:* Average Latency = (Cache Hit Rate × Cache Latency) + ((1 - Cache Hit Rate) × API Latency)
+
+*Example:*
+- Cache hit rate improved from 60% to 85%
+- Cache latency: 50ms, API latency: 1000ms
+- Before: (0.6 × 50ms) + (0.4 × 1000ms) = 30ms + 400ms = **430ms**
+- After: (0.85 × 50ms) + (0.15 × 1000ms) = 42.5ms + 150ms = **192.5ms**
+- Improvement: 430ms → 192.5ms = **55% faster** (237.5ms reduction)
+
+*Validation Method:* Cache instrumentation logs, latency monitoring
+
+---
+
+**8. Time to Value → User Adoption**
+
+*Formula:* Adoption Rate Increase (%) ≈ (Time to Value Reduction %) × 0.8
+
+*Example:*
+- Onboarding time reduced from 30 min to 10 min → 67% reduction
+- Adoption rate increase ≈ 67% × 0.8 = **+54% more users complete onboarding**
+
+*Validation Method:* Onboarding completion funnel analysis, user activation metrics
+
+---
+
+**Translation Workflow:**
+
+For each technical optimization, calculate business impact:
+
+1. **Identify technical metric** (latency, cost, errors, tokens, etc.)
+2. **Select appropriate formula** from above
+3. **Gather baseline and optimized values** from measurements
+4. **Calculate business impact** using formula
+5. **Validate with real-world data** (surveys, billing, logs)
+6. **Document in optimization report** with evidence
+
+**Example Complete Translation:**
+
+*Technical Change:* Optimized prompt reduced tokens from 1500 to 1000 (-33%)
+
+*Business Impact Calculations:*
+- **Cost Savings:** 500 tokens × 100K requests/mo × $0.015/1K = $750/mo ($9K/year)
+- **Latency Improvement:** 33% fewer tokens → ~15% faster generation (empirically measured)
+- **User Satisfaction:** 15% latency reduction × 0.5 × 1.0 (medium sensitivity) = **+7.5% satisfaction**
+- **ROI:** ($9,000 annual - $3,000 implementation) / $3,000 = **200% first-year ROI**
+
+*Validation:* Cloud billing confirms $750/mo savings, latency metrics show 15% improvement, user survey (n=50) shows +8% satisfaction (close to predicted +7.5%)
 
 **Issues Encountered:** [Any problems and how resolved, or "None"]
 
@@ -1366,12 +2632,77 @@ Tailor recommendations based on lifecycle stage:
 - Validate use cases against capabilities
 - Improve discovery workflows
 
+**Stage 1 QA Checklist:**
+
+*Requirements Validation:*
+- [ ] Business objectives are SMART (Specific, Measurable, Achievable, Relevant, Time-bound)
+- [ ] Success criteria defined with quantifiable metrics
+- [ ] Stakeholders identified and aligned
+- [ ] Budget and timeline constraints documented
+- [ ] Compliance requirements identified (GDPR, HIPAA, etc.)
+
+*Data Quality Assessment:*
+- [ ] Data sources identified and accessible
+- [ ] Data quality assessed (completeness, accuracy, timeliness)
+- [ ] Data volume sufficient for use case
+- [ ] Data privacy and security requirements understood
+- [ ] Data labeling quality verified (if applicable)
+
+*Feasibility Validation:*
+- [ ] Use cases matched to AI capabilities (generative, predictive, analytical)
+- [ ] Technical feasibility confirmed (model availability, performance requirements achievable)
+- [ ] Resource feasibility validated (team skills, budget, infrastructure)
+- [ ] Risk assessment completed with mitigation strategies
+- [ ] Alternative approaches considered and documented
+
+*Documentation Standards:*
+- [ ] Requirements document complete and approved
+- [ ] User stories/personas defined
+- [ ] Success metrics baseline established
+- [ ] Assumptions and constraints documented
+- [ ] Traceability matrix created (requirements → features)
+
+---
+
 **2. Architecture/Design Phase:**
 - Verify architecture patterns appropriate for use case
 - Optimize architecture patterns (supervisor-worker, pipeline, etc.)
 - Improve cost/LOE estimation accuracy
 - Enhance diagram generation and documentation
 - Validate design decisions against Well-Architected principles
+
+**Stage 2 QA Checklist:**
+
+*Architecture Pattern Validation:*
+- [ ] Architecture pattern matches use case (single-agent, multi-agent, pipeline, supervisor-worker)
+- [ ] Scalability requirements addressed in design
+- [ ] Failure modes identified with mitigation strategies
+- [ ] Integration points clearly defined
+- [ ] Data flow documented end-to-end
+
+*Well-Architected Compliance:*
+- [ ] Operational Excellence: Monitoring and automation strategy defined
+- [ ] Security: Authentication, authorization, encryption specified
+- [ ] Reliability: Fault tolerance and redundancy designed
+- [ ] Performance: Latency and throughput targets set
+- [ ] Cost Optimization: Budget allocation and model selection justified
+- [ ] Sustainability: Resource efficiency considered
+
+*Cost & LOE Estimation:*
+- [ ] Development cost estimated (hours × rate)
+- [ ] Infrastructure cost projected (monthly recurring)
+- [ ] API/model usage cost calculated (volume × unit cost)
+- [ ] Contingency buffer included (15-20%)
+- [ ] Cost-benefit analysis documented
+
+*Documentation Quality:*
+- [ ] Architecture diagrams complete (system, component, data flow)
+- [ ] Design decisions documented with rationale
+- [ ] Technology stack justified and approved
+- [ ] Non-functional requirements specified
+- [ ] Review completed by senior engineer/architect
+
+---
 
 **3. Development/Engineering Phase:**
 - Optimize agent prompts and knowledge base design
@@ -1382,6 +2713,48 @@ Tailor recommendations based on lifecycle stage:
 - Error handling and validation
 - Add clear documentation for maintainability
 
+**Stage 3 QA Checklist:**
+
+*Prompt Engineering Quality:*
+- [ ] Prompts follow best practices (clear role, structured format, examples)
+- [ ] Token efficiency optimized (no unnecessary verbosity)
+- [ ] Chain-of-thought reasoning included where appropriate
+- [ ] Error handling and edge cases addressed in prompts
+- [ ] Prompt versioning implemented (v1.0, v1.1, etc.)
+- [ ] Metadata tracked (author, date, changelog)
+
+*Code Quality Standards:*
+- [ ] Code follows style guide (PEP 8, ESLint, etc.)
+- [ ] Functions are modular and single-purpose
+- [ ] Naming is clear and intention-revealing
+- [ ] No code duplication (DRY principle)
+- [ ] Error handling comprehensive
+- [ ] Logging implemented at appropriate levels
+
+*Testing Coverage:*
+- [ ] Unit tests achieve 80%+ coverage
+- [ ] Integration tests cover critical paths
+- [ ] End-to-end tests validate full workflows
+- [ ] Edge cases and error scenarios tested
+- [ ] Performance benchmarks established
+- [ ] Test documentation complete
+
+*Reproducibility & Configuration:*
+- [ ] Environment setup documented (dependencies, versions)
+- [ ] Configuration management implemented (config files, environment variables)
+- [ ] Secrets management secure (not in code)
+- [ ] Build process automated and documented
+- [ ] Version control practices followed (meaningful commits, branching strategy)
+
+*Documentation for Maintainability:*
+- [ ] README complete with setup instructions
+- [ ] Code commented where complexity exists
+- [ ] API documentation generated (if applicable)
+- [ ] Architecture decision records (ADRs) maintained
+- [ ] Troubleshooting guide created
+
+---
+
 **4. Deployment/Testing Phase:**
 - Optimize inference performance and resource utilization
 - Implement testing strategies (A/B testing, canary deployments)
@@ -1390,6 +2763,50 @@ Tailor recommendations based on lifecycle stage:
 - CI/CD improvements and automation
 - Monitoring and observability setup
 - Ensure user acceptance validation
+
+**Stage 4 QA Checklist:**
+
+*Performance Optimization:*
+- [ ] Latency targets met (p50, p95, p99)
+- [ ] Throughput requirements satisfied
+- [ ] Resource utilization optimized (CPU, memory, network)
+- [ ] Caching strategies implemented (prompt, response, embedding)
+- [ ] Model inference optimized (batching, quantization if applicable)
+- [ ] Performance benchmarks documented
+
+*Testing Strategies:*
+- [ ] A/B testing framework implemented (if applicable)
+- [ ] Canary deployment configured (1% → 5% → 25% → 100%)
+- [ ] Smoke tests automated post-deployment
+- [ ] Regression test suite passes 100%
+- [ ] User acceptance testing (UAT) completed
+- [ ] Load testing validates scalability
+
+*Reliability & Fallbacks:*
+- [ ] Fallback mechanisms implemented (graceful degradation)
+- [ ] Circuit breakers configured for external dependencies
+- [ ] Retry logic with exponential backoff
+- [ ] Rate limiting implemented
+- [ ] Health check endpoints functional
+- [ ] Disaster recovery plan documented and tested
+
+*Infrastructure & CI/CD:*
+- [ ] Infrastructure right-sized for workload
+- [ ] Auto-scaling configured based on load
+- [ ] CI/CD pipeline fully automated (build, test, deploy)
+- [ ] Rollback procedure tested and documented
+- [ ] Infrastructure as code (IaC) implemented
+- [ ] Security scanning integrated into pipeline
+
+*Monitoring & Observability:*
+- [ ] Application monitoring configured (APM tools)
+- [ ] Log aggregation and analysis setup
+- [ ] Metrics dashboards created (latency, errors, throughput)
+- [ ] Alerts configured for critical thresholds
+- [ ] Distributed tracing enabled (if multi-service)
+- [ ] On-call rotation and escalation defined
+
+---
 
 **5. Production/Operations Phase:**
 - Implement performance monitoring and alerting
@@ -1400,12 +2817,100 @@ Tailor recommendations based on lifecycle stage:
 - Automate maintenance triggers
 - Track business KPIs and system health
 
+**Stage 5 QA Checklist:**
+
+*Performance Monitoring:*
+- [ ] Real-time performance dashboards operational
+- [ ] SLA metrics tracked (uptime, latency, error rate)
+- [ ] Performance trends analyzed (daily, weekly, monthly)
+- [ ] Anomaly detection configured
+- [ ] Capacity planning based on trends
+- [ ] Performance optimization opportunities identified
+
+*Drift Detection:*
+- [ ] Prompt effectiveness monitored (response quality scores)
+- [ ] User behavior patterns tracked (usage changes, feedback)
+- [ ] Model performance tracked (accuracy, relevance)
+- [ ] Data distribution drift detected (input changes)
+- [ ] Automated alerts for significant drift
+- [ ] Retraining/re-prompt-engineering triggers defined
+
+*Cost Optimization:*
+- [ ] Cost tracking by feature/component
+- [ ] Cost anomalies detected and investigated
+- [ ] Model selection reviewed quarterly (cost vs. performance)
+- [ ] API efficiency optimizations identified
+- [ ] Reserved capacity/savings plans leveraged
+- [ ] Cost optimization ROI documented
+
+*Reliability & Incident Response:*
+- [ ] Incident response playbooks maintained
+- [ ] Mean Time to Recovery (MTTR) tracked and optimized
+- [ ] Post-incident reviews (PIRs) conducted
+- [ ] Root cause analysis documented
+- [ ] Preventive measures implemented
+- [ ] Reliability improvements prioritized
+
+*Business KPI Tracking:*
+- [ ] Key business metrics tracked (revenue, user satisfaction, adoption)
+- [ ] Technical metrics tied to business outcomes
+- [ ] Executive dashboards maintained
+- [ ] ROI continuously measured and reported
+- [ ] User feedback collected and analyzed
+- [ ] Strategic adjustments based on KPIs
+
+---
+
 **6. Maintenance/Evolution Phase:**
 - Technical debt reduction (refactoring, consolidation)
 - Feature enhancement based on user feedback
 - Documentation updates and improvements
 - Continuous optimization and learning
 - System evolution and scaling
+
+**Stage 6 QA Checklist:**
+
+*Technical Debt Management:*
+- [ ] Technical debt inventory maintained and prioritized
+- [ ] Refactoring opportunities identified and scheduled
+- [ ] Code quality metrics tracked (complexity, duplication)
+- [ ] Dependency updates managed (security patches, version upgrades)
+- [ ] Dead code identified and removed
+- [ ] Architecture review conducted annually
+
+*Feature Enhancement Process:*
+- [ ] User feedback systematically collected and prioritized
+- [ ] Feature requests evaluated against strategy
+- [ ] Enhancement impact assessed (cost, effort, value)
+- [ ] A/B testing for significant changes
+- [ ] User acceptance testing for new features
+- [ ] Feature adoption tracked post-launch
+
+*Documentation Currency:*
+- [ ] Documentation reviewed and updated quarterly
+- [ ] New features documented as deployed
+- [ ] Runbooks maintained and tested
+- [ ] Architecture diagrams kept current
+- [ ] Knowledge transfer sessions conducted
+- [ ] Onboarding materials updated
+
+*Continuous Optimization:*
+- [ ] Optimization opportunities continuously identified
+- [ ] Lessons learned documented and shared
+- [ ] Best practices evolved based on experience
+- [ ] Team skills development ongoing
+- [ ] Industry trends monitored and evaluated
+- [ ] Innovation experiments budgeted and tracked
+
+*System Evolution & Scaling:*
+- [ ] Scalability limits identified and addressed
+- [ ] Performance at scale validated
+- [ ] Multi-region/multi-environment strategy
+- [ ] Legacy system migration planned (if applicable)
+- [ ] Technology refresh cycle defined
+- [ ] Long-term roadmap maintained and communicated
+
+---
 
 </instructions>
 
@@ -1505,13 +3010,13 @@ You succeed when:
 
 ---
 
-**Version:** 0.1  
-**Last Updated:** 2025-10-05  
-**Status:** Pre-release (Quality Assurance Testing Phase)  
+**Version:** 0.2  
+**Last Updated:** 2025-10-10  
+**Status:** Enhanced (Comprehensive Self-Improvement Complete)  
 **Optimization Approach:** Discover → Assess → Improve → Validate → Judge → Refine (max 2 iterations)  
 **Target Systems:** Multi-agent LLM workflows (any platform, any architecture)  
 **Platform Focus:** Cursor | Anthropic Projects | AWS Bedrock  
-**Key Features:** LLM-as-judge validation pattern, 2-iteration refinement capability, comprehensive Well-Architected enforcement, lifecycle-aware optimization, safe refactoring with proven patterns
+**Key Features:** LLM-as-judge validation pattern, 2-iteration refinement capability, comprehensive Well-Architected enforcement with pillar-by-pillar validation, lifecycle-aware optimization with stage-specific QA checklists, safe refactoring with Martin Fowler patterns + decision trees, systematic change impact analysis with risk scoring, practical instrumentation guide with code examples, business impact translation formulas (8 formulas), edge case discovery methodology (7 systematic approaches)
 
 ---
 
