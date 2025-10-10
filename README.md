@@ -1,44 +1,61 @@
 # AI Engineering Assistant
 
-**Systematic AI development framework** for Cursor IDE. Design, architect, and deploy production AI systems through a multi-agent workflow—from requirements gathering to deployment guidance.
+**Multi-platform AI development framework.** Design, architect, and deploy production AI systems through a multi-agent workflow—from requirements gathering to deployment guidance.
+
+**Deploy this framework to:** Cursor IDE • Claude Projects • GitHub Copilot  
+**Build systems for:** Cursor IDE • Claude Projects • GitHub Copilot • AWS Bedrock • Custom platforms
 
 ## Overview
 
-Developing AI systems requires coordinated expertise across requirements, architecture, engineering, and deployment. This framework provides 6 specialized agents running in Cursor IDE that guide you through the complete development lifecycle with systematic rigor.
+Developing AI systems requires coordinated expertise across requirements, architecture, engineering, and deployment. This framework provides 6 specialized agents that guide you through the complete development lifecycle with systematic rigor.
 
 **What it does**: Transforms your AI system concept into production-ready implementations through structured, multi-agent workflows.
 
-**Where it runs**: Cursor IDE (or VS Code with GitHub Copilot). Generates AI systems deployable to any platform including OpenAI, Claude Projects, AWS Bedrock, and custom infrastructure.
+**Where THIS framework runs**: Cursor IDE, Claude Projects, or VS Code with GitHub Copilot
+
+**What it BUILDS**: AI systems deployable to any platform including Cursor, Claude Projects, GitHub Copilot, AWS Bedrock, and custom infrastructure.
 
 ## Quick Start
 
-### Choose Your Platform
+### Choose Your Deployment Platform
 
-**Option A: Cursor IDE** (Recommended for developers)
+**Option A: Cursor IDE** (Recommended for solo developers)
 - Full multi-agent support (7 custom chat modes)
 - Local execution with file system access
-- Best for: Individual developers or teams using Cursor
+- Best for: Individual developers working locally
 
 **Option B: Claude Projects** (Recommended for teams)
 - Cloud-based collaboration
 - Persistent project knowledge
 - Best for: Remote teams, no local setup needed
 
-### Complete System Development (15-30 minutes)
+**Option C: GitHub Copilot** (VS Code users)
+- Native VS Code integration
+- Familiar Copilot interface
+- Best for: Teams already using GitHub Copilot
 
-**Cursor:**
+### Platform-Specific Setup
+
+**Cursor (5 minutes):**
 1. **Install**: Copy `supervisor_agent.system.prompt.md` to Cursor Settings → Chat → Custom Modes
 2. **Start**: Open Cursor AI Pane, select "Supervisor Agent"
 3. **Request**: "Build a customer support chatbot"
 4. **Follow**: Requirements → Architecture → Engineering → Deployment
 5. **Outputs**: All deliverables saved to `outputs/` directory
 
-**Claude Projects:**
+**Claude Projects (10 minutes):**
 1. **Create**: New Claude Project named "AI Engineering Assistant"
 2. **Upload**: All files from `knowledge_base/` to Project Knowledge
 3. **Configure**: Paste `supervisor_agent.system.prompt.md` into Custom Instructions
 4. **Request**: "Build a customer support chatbot"
 5. **Outputs**: Copy deliverables to your repository or documentation
+
+**GitHub Copilot (10 minutes):**
+1. **Configure**: Create `.github/copilot-instructions.md` in your workspace
+2. **Paste**: Contents of `supervisor_agent.system.prompt.md`
+3. **Start**: Open VS Code, invoke Copilot Chat
+4. **Request**: "Build a customer support chatbot"
+5. **Outputs**: Copy deliverables to your workspace
 
 **Full deployment guide:** [docs/deployment-guide.md](docs/deployment-guide.md)
 

@@ -1,6 +1,6 @@
-# Deployment Guide - Cursor & Claude Projects
+# Deployment Guide - Multi-Platform
 
-**Complete deployment instructions** for running the AI Engineering Assistant on Cursor IDE and Claude Projects.
+**Complete deployment instructions** for running the AI Engineering Assistant on Cursor IDE, Claude Projects, and GitHub Copilot.
 
 ---
 
@@ -191,25 +191,144 @@ Expected: Successfully reads and references the JSON content
 
 ---
 
-## Deployment Comparison
+## Deployment Option 3: GitHub Copilot (VS Code)
 
-| Feature | Cursor Custom Modes | Claude Projects |
-|---------|-------------------|-----------------|
-| **Multiple Agents** | ✅ 7 separate custom modes | ⚠️ 1 supervisor in custom instructions |
-| **Knowledge Base** | ✅ File system access | ✅ Project Knowledge upload |
-| **Team Collaboration** | ⚠️ Same Cursor workspace | ✅ Cloud-based sharing |
-| **Context Persistence** | ⚠️ Per conversation | ✅ Project-level persistence |
-| **Setup Complexity** | ⭐ Simple (paste prompts) | ⭐⭐ Moderate (upload files) |
-| **Agent Switching** | ✅ Dropdown selection | ⚠️ Request in conversation |
-| **Local Execution** | ✅ Runs locally | ❌ Cloud-based only |
-| **Cost** | ✅ Cursor license only | 💰 Claude Pro/Team required |
-| **Best For** | Solo developers, teams in Cursor | Remote teams, cloud preference |
+**Best for:** VS Code users and teams already using GitHub Copilot  
+**Setup time:** 10-15 minutes  
+**Complexity:** ⭐⭐ Moderate
+
+### Prerequisites
+
+- VS Code installed with GitHub Copilot extension
+- GitHub Copilot subscription (Individual, Business, or Enterprise)
+- This repository cloned locally
+- Basic familiarity with Copilot Chat
+
+### Setup Instructions
+
+#### 1. Configure Workspace Instructions
+
+GitHub Copilot supports workspace-level instructions that guide AI behavior. Create a configuration file:
+
+1. **Create file**: `.github/copilot-instructions.md` in your workspace root
+2. **Paste content**: Copy entire contents of `supervisor_agent.system.prompt.md`
+3. **Save**: Copilot will automatically detect and use these instructions
+
+**File structure:**
+```
+AI-engineering-assistant/
+├── .github/
+│   └── copilot-instructions.md    ← Supervisor Agent prompt here
+├── ai_agents/
+├── knowledge_base/
+└── ... other files
+```
+
+#### 2. Add Knowledge Base Context
+
+Since Copilot Chat can reference workspace files, structure your knowledge base for easy access:
+
+1. **Keep organized**: Leave `knowledge_base/*.json` files in their current location
+2. **Reference explicitly**: When prompting, mention files: "Using @knowledge_base/system_config.json, show me..."
+3. **Use @workspace**: Copilot can search across all files with @workspace
+
+#### 3. Configure Additional Agents (Optional)
+
+For specialized agent access, create additional instruction files:
+
+```
+.github/
+├── copilot-instructions.md           ← Supervisor (main)
+└── agents/
+    ├── requirements-agent.md         ← Requirements Agent
+    ├── architecture-agent.md         ← Architecture Agent
+    ├── engineering-agent.md          ← Engineering Agent
+    ├── deployment-agent.md           ← Deployment Agent
+    ├── optimization-agent.md         ← Optimization Agent
+    └── prompt-engineering-agent.md   ← Prompt Engineering Agent
+```
+
+**To switch agents**: Copy the relevant agent prompt from `ai_agents/` and use it in your conversation context.
+
+#### 4. Verify Setup
+
+**Test the supervisor:**
+```
+1. Open VS Code Copilot Chat (Ctrl+Alt+I or Cmd+Alt+I)
+2. Type: "I want to build a customer support chatbot"
+3. Copilot should respond using the Supervisor Agent behavior
+4. Verify: It explains the workflow and asks discovery questions
+```
+
+**Test knowledge base access:**
+```
+1. In Copilot Chat, type: "Show me the contents of @knowledge_base/system_config.json"
+2. Expected: Copilot reads and references the file
+3. Confirm: File content is accessible and parsed
+```
+
+### 5. Start Using
+
+**Supervisor-guided workflow:**
+```
+1. Open Copilot Chat in VS Code
+2. Request: "Build an email automation system"
+3. Copilot (as Supervisor) routes through:
+   - Requirements discovery
+   - Architecture design
+   - Implementation guidance
+   - Deployment recommendations
+```
+
+**Direct agent workflow:**
+```
+1. Open relevant agent file from ai_agents/
+2. Copy the agent prompt
+3. In Copilot Chat: "Act as [Agent Name] and [specific task]"
+4. Provide the agent prompt context if needed
+```
+
+### GitHub Copilot-Specific Considerations
+
+**Limitations:**
+- ⚠️ Workspace instructions are project-wide (not per-conversation modes)
+- ⚠️ Can't switch between discrete agent modes like Cursor
+- ⚠️ File access requires explicit @mentions or @workspace
+
+**Workarounds:**
+- ✅ Use Supervisor approach (single instruction file with routing logic)
+- ✅ Explicitly reference agents: "Act as the Architecture Agent and..."
+- ✅ Use @workspace and @file mentions for knowledge base access
+- ✅ Copy specific agent prompts into conversations for specialized tasks
+
+**Advantages:**
+- ✅ Native VS Code integration (familiar interface)
+- ✅ Works with existing GitHub Copilot subscription
+- ✅ Team-wide consistency (same instructions across team)
+- ✅ Automatic workspace file access
+- ✅ Version control friendly (instructions in git)
 
 ---
 
-## Hybrid Deployment
+## Deployment Comparison
 
-**Use both platforms simultaneously:**
+| Feature | Cursor Custom Modes | Claude Projects | GitHub Copilot |
+|---------|-------------------|-----------------|-----------------|
+| **Multiple Agents** | ✅ 7 separate custom modes | ⚠️ 1 supervisor in custom instructions | ⚠️ 1 supervisor in workspace instructions |
+| **Knowledge Base** | ✅ File system access | ✅ Project Knowledge upload | ✅ @workspace and @file mentions |
+| **Team Collaboration** | ⚠️ Same Cursor workspace | ✅ Cloud-based sharing | ✅ Git-based (shared instructions) |
+| **Context Persistence** | ⚠️ Per conversation | ✅ Project-level persistence | ⚠️ Per conversation |
+| **Setup Complexity** | ⭐ Simple (paste prompts) | ⭐⭐ Moderate (upload files) | ⭐⭐ Moderate (create config files) |
+| **Agent Switching** | ✅ Dropdown selection | ⚠️ Request in conversation | ⚠️ Request in conversation |
+| **Local Execution** | ✅ Runs locally | ❌ Cloud-based only | ✅ Runs locally |
+| **Cost** | ✅ Cursor license only | 💰 Claude Pro/Team required | ✅ GitHub Copilot subscription |
+| **Best For** | Solo developers, teams in Cursor | Remote teams, cloud preference | VS Code users, GitHub teams |
+
+---
+
+## Multi-Platform Deployment
+
+**Use multiple platforms simultaneously:**
 
 1. **Design in Cursor** (full agent access)
    - Use all 7 agents as custom modes
@@ -221,16 +340,16 @@ Expected: Successfully reads and references the JSON content
    - Team reviews and provides feedback
    - Shared project knowledge
 
-3. **Deploy from Cursor** (implementation)
-   - Use Deployment Agent in Cursor
-   - Generate platform-specific guides
-   - Execute deployment
+3. **Develop in VS Code with Copilot** (familiar IDE)
+   - Use workspace instructions for consistency
+   - Leverage existing Copilot workflows
+   - Git-based collaboration
 
 **Benefits:**
-- ✅ Best of both worlds
-- ✅ Solo work in Cursor (full capabilities)
-- ✅ Team collaboration in Claude (shared context)
-- ✅ Version control in git (Cursor workspace)
+- ✅ Choose the best platform for each task
+- ✅ Team members use their preferred tools
+- ✅ Consistent agent behavior across platforms
+- ✅ Version control for all configurations
 
 ---
 

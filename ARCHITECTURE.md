@@ -1,6 +1,6 @@
 # System Architecture
 
-**Multi-agent AI development framework** featuring supervisor-worker architecture pattern, shared knowledge base state management, and two-tier deployment model.
+**Multi-agent AI development framework** featuring supervisor-worker architecture pattern, shared knowledge base state management, and two-tier deployment model supporting three primary platforms: Cursor IDE, Claude Projects, and GitHub Copilot.
 
 ## Core Architecture
 
@@ -40,21 +40,31 @@ Shared Knowledge Base
 
 ### Tier 1: This Repository (Development Workspace)
 
-**Execution Environment**: Cursor IDE / VS Code with Copilot  
+**Execution Environment**: Cursor IDE • Claude Projects • GitHub Copilot (VS Code)
 **Purpose**: AI engineering assistance for developers  
-**Components**: 6 specialized agents + User prompts
+**Components**: 6 specialized agents + Supervisor + User prompts
 
-**Installation**:
+**Platform Options:**
+
+**Cursor IDE Installation**:
 ```bash
 .\scripts\deploy_cursor.ps1    # Windows
 ./scripts/deploy_cursor.sh     # Linux/Mac
 ```
 
-**Usage**: Agents run as Cursor custom chat modes in your workspace
+**Claude Projects Installation**:
+- Upload knowledge base files to Project Knowledge
+- Add supervisor prompt to Custom Instructions
+
+**GitHub Copilot Installation**:
+- Configure `.github/copilot-instructions.md` with supervisor prompt
+- Use Copilot Chat in VS Code
+
+**Usage**: Agents run as custom chat modes (Cursor), project assistants (Claude), or Copilot instructions (VS Code)
 
 ### Tier 2: Generated Systems (External Deployment)
 
-**Execution Environment**: Target platforms (OpenAI, Claude, Bedrock, etc.)  
+**Execution Environment**: Cursor IDE • Claude Projects • GitHub Copilot • AWS Bedrock • Custom platforms
 **Purpose**: Production AI systems for end users  
 **Components**: Complete systems created by Tier 1 agents
 
@@ -65,7 +75,7 @@ Shared Knowledge Base
 ```
 ┌───────────────────────────────────────────────┐
 │ TIER 1: YOUR WORKSPACE (This Repository)     │
-│ Runs in: Cursor IDE                           │
+│ Runs on: Cursor • Claude Projects • Copilot  │
 │                                               │
 │ ┌───────────────────────────────────────┐    │
 │ │ Supervisor Agent                      │    │

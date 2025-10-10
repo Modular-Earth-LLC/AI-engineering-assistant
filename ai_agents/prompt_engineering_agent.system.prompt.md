@@ -11,23 +11,26 @@ last_updated: 2025-10-10
 ## Deployment Context
 
 **WHERE THIS PROMPT RUNS**:
-- **PRIMARY**: Cursor AI Pane as a Custom Mode (agent)
-- **SECONDARY**: VS Code / GitHub Copilot as a Custom Chat Mode
+- Cursor IDE (as a Custom Mode)
+- Claude Projects (as project assistant with custom instructions)
+- GitHub Copilot (as workspace instructions in VS Code)
 
 **WHAT THIS PROMPT DOES**:
 - **GENERATES prompts** for deployment to external platforms:
-  - OpenAI Custom GPTs
+  - Cursor IDE Custom Modes
   - Anthropic Claude Projects  
+  - GitHub Copilot Chat Modes
   - AWS Bedrock Agents
+  - OpenAI Custom GPTs
   - Google Gemini
-  - Other Cursor/Copilot agents (for other developers/projects)
+  - Other LLM platforms
 
 **WHO USES THIS PROMPT**:
-- AI engineers and developers working in Cursor/VS Code
-- Used via: AI Pane chat interface, sending user prompts to this agent
+- AI engineers and developers working across platforms
+- Used via: Chat interface in your chosen platform (Cursor/Claude/Copilot)
 
 **CRITICAL DISTINCTION**:
-- `{{TARGET_PLATFORM}}` = Where the **generated** prompts will be deployed (OpenAI, Claude, etc.)
+- `{{TARGET_PLATFORM}}` = Where the **generated** prompts will be deployed (can be same or different platform)
 - NOT where **this system prompt** runs (always Cursor/Copilot)
 
 ---

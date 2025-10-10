@@ -1,23 +1,45 @@
 # Getting Started
 
-**Complete setup and first project** in 15-30 minutes.
+**Complete setup and first project** in 15-30 minutes on your platform of choice.
+
+## Choose Your Platform
+
+This framework runs on three platforms. Choose the one that fits your workflow:
+
+**Cursor IDE**: Best for solo developers wanting full multi-agent capabilities  
+**Claude Projects**: Best for teams needing cloud-based collaboration  
+**GitHub Copilot**: Best for VS Code users with existing Copilot subscriptions
 
 ## What You'll Build
 
 By the end of this guide:
-- ✅ Multi-agent system installed in Cursor
+- ✅ Multi-agent system installed on your chosen platform
 - ✅ Complete AI system built from requirements to deployment
 - ✅ Understanding of agent workflow and capabilities
 
 ## Prerequisites
 
-- **Cursor IDE** (recommended) or VS Code with GitHub Copilot
-- **Git** for cloning the repository
-- **15-30 minutes** for complete walkthrough
+Choose your platform requirements:
 
-## Step 1: Installation (5 minutes)
+**For Cursor IDE:**
+- Cursor IDE installed ([cursor.com](https://cursor.com))
+- Git for cloning repository
+- 15-30 minutes for walkthrough
 
-### Setup Process
+**For Claude Projects:**
+- Claude Pro or Claude Team subscription
+- Web browser
+- 20-30 minutes for walkthrough
+
+**For GitHub Copilot:**
+- VS Code with GitHub Copilot extension
+- GitHub Copilot subscription (Individual, Business, or Enterprise)
+- Git for cloning repository
+- 20-30 minutes for walkthrough
+
+## Step 1: Installation
+
+### Option A: Cursor IDE (5 minutes)
 
 1. **Clone repository**:
    ```bash
@@ -40,13 +62,68 @@ By the end of this guide:
 
 **Optional**: Create additional custom modes for specialized agents (`ai_agents/*.system.prompt.md`) for direct access without routing through supervisor
 
+### Option B: Claude Projects (10 minutes)
+
+1. **Create project**:
+   - Go to [claude.ai](https://claude.ai)
+   - Click "New Project"
+   - Name: "AI Engineering Assistant"
+
+2. **Upload knowledge base**:
+   - Click "Add Content" → "Upload Files"
+   - Upload all files from `knowledge_base/` directory:
+     - `system_config.json`
+     - `user_requirements.json`
+     - `design_decisions.json`
+   - Upload `README.md` for reference
+
+3. **Configure instructions**:
+   - Click "Project Settings" → "Custom Instructions"
+   - Paste entire contents of `supervisor_agent.system.prompt.md`
+   - Save
+
+4. **Verify**:
+   - Start a conversation: "I want to build an AI system"
+   - Verify supervisor responds with workflow guidance
+
+### Option C: GitHub Copilot (10 minutes)
+
+1. **Clone repository**:
+   ```bash
+   git clone https://github.com/Modular-Earth-LLC/AI-engineering-assistant.git
+   cd AI-engineering-assistant
+   ```
+
+2. **Create Copilot instructions**:
+   - Create directory: `.github/` (if it doesn't exist)
+   - Create file: `.github/copilot-instructions.md`
+   - Paste contents of `supervisor_agent.system.prompt.md`
+   - Save
+
+3. **Verify**:
+   - Open VS Code in the repository
+   - Open Copilot Chat (`Ctrl+Alt+I` or `Cmd+Alt+I`)
+   - Type: "I want to build an AI system"
+   - Verify Copilot responds with workflow guidance
+
 ## Step 2: Your First System (20 minutes)
 
 ### Start with Supervisor
 
+**Cursor:**
 1. **Open Cursor AI Pane**: `Ctrl+Shift+L` (or `Cmd+Shift+L`)
 2. **Select**: "Supervisor Agent" from dropdown
 3. **Request**: "Build a customer support AI assistant for my e-commerce business"
+
+**Claude Projects:**
+1. **Open your project**: AI Engineering Assistant
+2. **Start conversation**: "Build a customer support AI assistant for my e-commerce business"
+3. **Follow prompts**: Supervisor will guide you through the workflow
+
+**GitHub Copilot:**
+1. **Open Copilot Chat**: `Ctrl+Alt+I` (or `Cmd+Alt+I`)
+2. **Request**: "Build a customer support AI assistant for my e-commerce business"
+3. **Follow prompts**: Copilot (using workspace instructions) will guide you
 
 ### Follow the Workflow
 

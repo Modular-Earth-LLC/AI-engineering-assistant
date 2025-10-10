@@ -2,12 +2,14 @@
 
 **Complete documentation** for the AI Engineering Assistant multi-agent framework.
 
+**Supported Platforms:** Cursor IDE • Claude Projects • GitHub Copilot
+
 ---
 
 ## Quick Navigation
 
 ### Getting Started
-- **[getting-started.md](getting-started.md)** - Complete setup and first project walkthrough (15-30 minutes)
+- **[getting-started.md](getting-started.md)** - Complete setup and first project walkthrough for all three platforms (15-30 minutes)
 - **[workflow_guide.md](workflow_guide.md)** - Step-by-step guide through the complete AI development lifecycle
 
 ### Agent Documentation
@@ -15,7 +17,8 @@
 - **[agent-design-patterns.md](agent-design-patterns.md)** - Reusable AI agent design patterns and best practices
 
 ### Deployment & Operations
-- **[platform_deployment.md](platform_deployment.md)** - Platform-specific deployment guidance (Cursor, Claude Projects, AWS Bedrock, custom)
+- **[deployment-guide.md](deployment-guide.md)** - Platform-specific deployment guidance for Cursor IDE, Claude Projects, and GitHub Copilot
+- **[platform_deployment.md](platform_deployment.md)** - Advanced platform-specific configurations
 - **[executive_overview.md](executive_overview.md)** - Business perspective, value proposition, and ROI analysis
 
 ### Examples
