@@ -7,7 +7,7 @@
 
 ## Overview
 
-The knowledge base is the "memory" of the AI Architecture Assistant system.
+The knowledge base is the "memory" of the Multi-Agent AI Development Framework.
 
 ```
 Requirements Agent → WRITES user_requirements.json
@@ -222,6 +222,8 @@ This prompt enforces best practices for:
 - `system_config.schema.json` - Validates system configuration structure
 - `user_requirements.schema.json` - Validates requirements format
 - `design_decisions.schema.json` - Validates architecture decisions
+
+**💡 Schemas Are the Documentation**: The JSON Schema files are human-readable and self-documenting. Each field includes descriptions, types, constraints, and examples. Read the schema files directly to understand the data structures—they're the authoritative source of truth for what fields exist, what they mean, and what values are valid.
 
 **Using Schemas:**
 

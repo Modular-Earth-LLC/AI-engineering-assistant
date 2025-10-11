@@ -1,12 +1,14 @@
 # Self-Improvement User Prompts
 
-**Purpose:** Prompts for improving the AI agents within the AI Engineering Assistant repository itself.
+**Purpose:** Prompts for improving the agents within the Multi-Agent AI Development Framework repository itself.
 
 ---
 
 ## Overview
 
 This directory contains specialized user prompts that instruct agents to improve the agents and systems **in this repository**. These are self-referential improvement tasks where the framework improves itself.
+
+**📖 Read the Prompts**: Each improvement prompt in this directory is self-documenting with clear objectives, execution steps, and validation criteria. Read the prompt file directly before using it—the YAML frontmatter and structured sections explain exactly what will be improved and how. Like reviewing code before running it, understand the improvement strategy first.
 
 **Key Distinction:** These prompts improve THIS repository's agents, not external AI systems or generic prompts.
 
@@ -17,7 +19,7 @@ This directory contains specialized user prompts that instruct agents to improve
 Use prompts in this directory when you want to:
 
 - Improve a specific agent in this framework (Requirements, Architecture, Engineering, Deployment, Optimization, Supervisor)
-- Conduct system-wide optimization of the entire AI Engineering Assistant
+- Conduct system-wide optimization of the entire Multi-Agent AI Development Framework
 - Apply latest research findings to agents in this repo
 - Prepare for framework releases with quality improvements
 - Fix issues identified in agents
@@ -34,7 +36,7 @@ Use prompts in this directory when you want to:
 ### System-Wide Improvement
 
 #### `improve_ai_engineering_assistant.user.prompt.md`
-**Scope:** Entire AI Engineering Assistant repository  
+**Scope:** Entire Multi-Agent AI Development Framework repository  
 **What it does:** Comprehensive optimization of all agents, user prompts, knowledge base, documentation, and workflows  
 **When to use:** Quarterly reviews, after major research updates, before releases  
 **Estimated time:** 2-4 hours  
@@ -251,5 +253,5 @@ When adding new self-improvement prompts:
 ---
 
 **Version:** 1.0  
-**Last Updated:** 2025-10-10  
-**Maintained By:** AI Engineering Assistant Core Team
+**Last Updated:** 2025-10-11  
+**Maintained By:** Multi-Agent AI Development Framework Core Team

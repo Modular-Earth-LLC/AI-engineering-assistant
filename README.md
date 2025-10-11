@@ -159,6 +159,8 @@ Building reliable AI systems demands expertise across requirements analysis, sys
 **File**: `ai_agents/prompt_engineering_agent.system.prompt.md`  
 **Use**: "Create production-ready technical documentation assistant"
 
+**💡 Understanding the Agents**: The best way to understand each agent is to read its prompt file directly. These files are designed to be human-readable and self-documenting—they're not code, they're structured instructions written in clear English. Like reviewing any code before running it, read each agent prompt to understand its capabilities, limitations, and decision-making process. The prompts ARE the documentation.
+
 ## Agent Relationships & Collaboration
 
 ### System Architecture
@@ -372,6 +374,8 @@ Specialized task instructions organized by category in `user_prompts/`:
 - `proposals/`: Executive presentations (4 prompts)
 
 **Total**: 32 user prompts organized across 7 categories
+
+**📖 Read Before Using**: User prompts are task-specific instructions that guide agents through complex workflows. Like any script or API call, review each prompt before using it to understand what it will do, what inputs it requires, and what outputs to expect. The YAML frontmatter and clear structure make them easy to scan. Treat prompt engineering like any other engineering discipline—understand the tool before applying it.
 
 ## Glossary
 
