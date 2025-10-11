@@ -52,12 +52,12 @@ We are committed to providing a welcoming and inclusive environment for all cont
 1. **Fork the repository** on GitHub
 2. **Clone your fork:**
    ```bash
-   git clone https://github.com/YOUR-USERNAME/AI-engineering-assistant.git
-   cd AI-engineering-assistant
+   git clone https://github.com/YOUR-USERNAME/multi-agent-ai-development-framework.git
+   cd multi-agent-ai-development-framework
    ```
 3. **Add upstream remote:**
    ```bash
-   git remote add upstream https://github.com/Modular-Earth-LLC/AI-engineering-assistant.git
+   git remote add upstream https://github.com/paulpham157/multi-agent-ai-development-framework.git
    ```
 4. **Deploy to Cursor** (for testing):
    ```bash

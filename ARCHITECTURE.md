@@ -64,7 +64,7 @@ Shared Knowledge Base
 
 ### Tier 2: Generated Systems (External Deployment)
 
-**Execution Environment**: Cursor IDE • Claude Projects • GitHub Copilot • AWS Bedrock • Custom platforms
+**Execution Environment**: Cursor IDE • Claude Projects • GitHub Copilot • AWS Bedrock • Self-hosted platforms
 **Purpose**: Production AI systems for end users  
 **Components**: Complete systems created by Tier 1 agents
 
@@ -94,7 +94,7 @@ Shared Knowledge Base
                       ↓
 ┌───────────────────────────────────────────────┐
 │ TIER 2: GENERATED SYSTEMS (External)          │
-│ Deploy to: OpenAI • Claude • Bedrock • Custom │
+│ Deploy to: OpenAI • Claude • Bedrock • Self-hosted │
 │                                               │
 │ ┌───────────────────────────────────────┐    │
 │ │ Financial Operations Assistant        │    │
@@ -212,7 +212,7 @@ Deployment Agent deploys update
 ## File Organization
 
 ```
-AI-engineering-assistant/
+multi-agent-ai-development-framework/
 ├── supervisor_agent.system.prompt.md    # Entry point
 ├── ai_agents/                           # Specialized agents
 │   ├── requirements_agent.system.prompt.md
@@ -256,7 +256,7 @@ AI-engineering-assistant/
 
 ### Tier 2 Deployment (Generated Systems)
 
-**Targets**: OpenAI, Claude, Bedrock, Cursor, custom  
+**Targets**: OpenAI, Claude, Bedrock, Cursor, self-hosted platforms  
 **Method**: Platform-specific (guided by Deployment Agent)  
 **Scope**: End users, production systems
 
@@ -321,5 +321,5 @@ AI-engineering-assistant/
 ## Version
 
 **Current**: 1.0  
-**Framework Platform**: Cursor IDE (required)  
-**Generated System Platforms**: OpenAI • Claude • Bedrock • Cursor • Custom
+**Framework Platform**: Cursor IDE • GitHub Copilot • Claude Projects  
+**Generated System Platforms**: OpenAI • Claude • Bedrock • Cursor • Self-hosted

@@ -1,7 +1,7 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Modular-Earth-LLC/AI-engineering-assistant/schemas/user_requirements.schema.json",
-  "title": "AI Architecture Assistant - User Requirements Schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/paulpham157/multi-agent-ai-development-framework/schemas/user_requirements.schema.json",
+  "title": "User Requirements",
   "description": "Schema for business requirements and technical specifications gathered during discovery",
   "type": "object",
   "required": ["customer", "use_case", "business", "technical"],

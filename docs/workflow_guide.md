@@ -158,9 +158,9 @@ python app.py  # or follow README.md for platform-specific instructions
 - Deploy as Bedrock Agents with infrastructure
 - Best for: Production, enterprise scale
 
-**Custom Platforms**
-- Deploy to Ollama, LangChain, self-hosted
-- Best for: Specific requirements
+**Self-Hosted Platforms**
+- Deploy to Ollama, LangChain, custom infrastructure, on-premise
+- Best for: Specific security/compliance requirements, full control
 
 ### Process
 

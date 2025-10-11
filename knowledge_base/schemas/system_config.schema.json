@@ -1,7 +1,7 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Modular-Earth-LLC/AI-engineering-assistant/schemas/system_config.schema.json",
-  "title": "AI Architecture Assistant - System Configuration Schema",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/paulpham157/multi-agent-ai-development-framework/schemas/system_config.schema.json",
+  "title": "System Configuration",
   "description": "Schema for platform settings, constraints, stakeholders, and team information",
   "type": "object",
   "required": ["project", "platform", "stakeholders", "constraints"],

@@ -47,8 +47,8 @@ Choose your platform requirements:
 
 1. **Clone repository**:
    ```bash
-   git clone https://github.com/Modular-Earth-LLC/AI-engineering-assistant.git
-   cd AI-engineering-assistant
+   git clone https://github.com/paulpham157/multi-agent-ai-development-framework.git
+   cd multi-agent-ai-development-framework
    ```
 
 2. **Configure Cursor**:
@@ -94,8 +94,8 @@ Choose your platform requirements:
 
 1. **Clone repository**:
    ```bash
-   git clone https://github.com/Modular-Earth-LLC/AI-engineering-assistant.git
-   cd AI-engineering-assistant
+   git clone https://github.com/paulpham157/multi-agent-ai-development-framework.git
+   cd multi-agent-ai-development-framework
    ```
 
 2. **Create Copilot instructions**:
@@ -244,9 +244,9 @@ Optimization Agent → analyze → recommend
 - Deploy as Bedrock Agents
 - Best for: Production, enterprise
 
-**Custom Platforms**
-- Ollama, LangChain, self-hosted
-- Best for: Specific needs
+**Self-Hosted Platforms**
+- Ollama, LangChain, custom infrastructure, on-premise deployments
+- Best for: Security/compliance requirements, full infrastructure control
 
 ### Deployment Process
 
@@ -258,7 +258,7 @@ Optimization Agent → analyze → recommend
 ## Troubleshooting
 
 **Agent can't find knowledge base**  
-→ Run from repository root: `cd AI-engineering-assistant`
+→ Run from repository root: `cd multi-agent-ai-development-framework`
 
 **Supervisor not routing correctly**  
 → Be specific: "Build customer support system"

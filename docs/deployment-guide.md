@@ -223,7 +223,7 @@ GitHub Copilot supports workspace-level instructions that guide AI behavior. Cre
 
 **File structure:**
 ```
-AI-engineering-assistant/
+multi-agent-ai-development-framework/
 ├── .github/
 │   └── copilot-instructions.md    ← Supervisor Agent prompt here
 ├── ai_agents/
