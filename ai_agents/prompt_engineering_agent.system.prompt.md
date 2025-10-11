@@ -18,11 +18,11 @@ last_updated: 2025-10-10
 **WHAT THIS PROMPT DOES**:
 - **GENERATES prompts** for deployment to external platforms:
   - Cursor IDE Custom Modes
-  - Anthropic Claude Projects  
   - GitHub Copilot Chat Modes
+  - Anthropic Claude Projects  
   - AWS Bedrock Agents
   - OpenAI Custom GPTs
-  - Google Gemini
+  - Google Gemini Gems
   - Other LLM platforms
 
 **WHO USES THIS PROMPT**:
