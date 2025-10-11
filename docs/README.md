@@ -1,8 +1,8 @@
 # Documentation
 
-**Complete documentation** for the AI Engineering Assistant multi-agent framework.
+**Complete documentation** for the Multi-Agent AI Development Framework.
 
-**Supported Platforms:** Cursor IDE • Claude Projects • GitHub Copilot
+**Supported Platforms:** Cursor IDE • GitHub Copilot • Claude Projects
 
 ---
 

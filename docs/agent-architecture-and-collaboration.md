@@ -1,8 +1,8 @@
 # Agent Architecture and Collaboration Guide
 
-**Purpose**: Comprehensive guide to the 6 specialized agents, their relationships, and how they work together in the AI Engineering Assistant framework.
+**Purpose**: Comprehensive guide to the 6 specialized agents, their relationships, and how they work together in the Multi-Agent AI Development Framework.
 
-**Audience**: AI engineers, developers, and teams using this multi-agent system in Cursor IDE or VS Code with GitHub Copilot.
+**Audience**: AI engineers, developers, and teams using this multi-agent system in Cursor IDE, GitHub Copilot, or Claude Projects.
 
 ---
 
