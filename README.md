@@ -77,8 +77,6 @@ Building reliable AI systems demands expertise across requirements analysis, sys
 
 **What it BUILDS**: Complete AI systems deployable to Cursor, GitHub Copilot, Claude Projects, AWS Bedrock, or self-hosted platforms. From simple chatbots to complex multi-agent systems.
 
-**Why multi-agent systems matter**: Single AI agents are generalists—mediocre at everything. Multi-agent systems use specialized agents, each expert in one domain. Result: 40% better accuracy, 60% lower costs, and infinitely easier to scale.
-
 ## Quick Start
 
 ### Choose Your Deployment Platform
@@ -399,7 +397,7 @@ Specialized task instructions organized by category in `user_prompts/`:
 
 ### Deployment Terms
 
-**Meta-level** — This AI Architecture Assistant framework itself, running in Cursor IDE to help developers build AI systems.
+**Meta-level** — This Multi-Agent AI Development Framework itself, running in Cursor IDE, GitHub Copilot, or Claude Projects to help developers build AI systems.
 
 **Target-level** — The AI systems that users design and build using this framework, which are deployed to external platforms (OpenAI, Claude Projects, AWS Bedrock, etc.).
 
