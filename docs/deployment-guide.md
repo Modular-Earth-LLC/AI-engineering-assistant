@@ -1,6 +1,6 @@
-# Deployment Guide - AI Engineering Assistant Framework
+# Deployment Guide - Multi-Agent AI Development Framework
 
-**Complete deployment instructions** for running the AI Engineering Assistant framework (THIS repository) on Cursor IDE, Claude Projects, and GitHub Copilot.
+**Complete deployment instructions** for running the Multi-Agent AI Development Framework (THIS repository) on Cursor IDE, GitHub Copilot, and Claude Projects.
 
 **Scope:** Tier 1 deployment (the framework itself)  
 **For deploying generated AI systems:** See `platform_deployment.md` (Tier 2 deployment)
@@ -118,7 +118,7 @@ The agents read/write to `knowledge_base/*.json` files automatically via Cursor'
 1. Go to [claude.ai](https://claude.ai)
 2. Click **Projects** in sidebar
 3. Click **"+ New Project"**
-4. Name: `AI Engineering Assistant`
+4. Name: `Multi-Agent AI Development Framework`
 5. Click **Create**
 
 #### 2. Upload Knowledge Base
@@ -470,7 +470,7 @@ Create `.claude/setup_project.md`:
 ## Step 1: Create Project
 - [ ] Go to claude.ai/projects
 - [ ] Click "+ New Project"
-- [ ] Name: "AI Engineering Assistant"
+- [ ] Name: "Multi-Agent AI Development Framework"
 
 ## Step 2: Upload Knowledge Base
 - [ ] Upload: knowledge_base/system_config.json

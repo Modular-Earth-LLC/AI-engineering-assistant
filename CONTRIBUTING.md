@@ -1,6 +1,6 @@
-# Contributing to AI Engineering Assistant
+# Contributing to Multi-Agent AI Development Framework
 
-Thank you for your interest in contributing to the AI Engineering Assistant! This document provides guidelines for contributing to this open-source multi-agent AI development framework.
+Thank you for your interest in contributing to the Multi-Agent AI Development Framework! This document provides guidelines for contributing to this open-source framework for building production AI systems.
 
 ## Table of Contents
 
@@ -780,7 +780,7 @@ Use the specialized improvement prompts in `user_prompts/self_improvement/`:
 
 ## License
 
-By contributing to AI Engineering Assistant, you agree that your contributions will be licensed under the MIT License.
+By contributing to the Multi-Agent AI Development Framework, you agree that your contributions will be licensed under the MIT License.
 
 ---
 
@@ -795,11 +795,11 @@ We deeply appreciate all contributions:
 
 **Every contribution**, no matter how small, helps make AI development more accessible and effective for everyone.
 
-Thank you for being part of the AI Engineering Assistant community! 🚀
+Thank you for being part of the Multi-Agent AI Development Framework community! 🚀
 
 ---
 
 **Version:** 1.0  
 **Last Updated:** 2025-10-10  
-**Maintained By:** AI Engineering Assistant Core Team  
+**Maintained By:** Multi-Agent AI Development Framework Core Team  
 **Contact:** GitHub Issues and Discussions

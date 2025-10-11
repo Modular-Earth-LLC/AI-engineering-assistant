@@ -71,7 +71,7 @@ Choose your platform requirements:
 1. **Create project**:
    - Go to [claude.ai](https://claude.ai)
    - Click "New Project"
-   - Name: "AI Engineering Assistant"
+   - Name: "Multi-Agent AI Development Framework"
 
 2. **Upload knowledge base**:
    - Click "Add Content" → "Upload Files"
@@ -120,7 +120,7 @@ Choose your platform requirements:
 3. **Request**: "Build a customer support AI assistant for my e-commerce business"
 
 **Claude Projects:**
-1. **Open your project**: AI Engineering Assistant
+1. **Open your project**: Multi-Agent AI Development Framework
 2. **Start conversation**: "Build a customer support AI assistant for my e-commerce business"
 3. **Follow prompts**: Supervisor will guide you through the workflow
 

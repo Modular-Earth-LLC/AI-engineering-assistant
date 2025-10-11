@@ -1,6 +1,6 @@
-# AI Engineering Assistant
+# Multi-Agent AI Development Framework
 
-**Supervisor-worker multi-agent framework for AI system development.** Orchestrates specialized agents through the complete lifecycle: requirements → architecture → engineering → deployment. Supports Cursor IDE, GitHub Copilot, Claude Projects, AWS Bedrock.
+**Supervisor-worker architecture for building production AI systems.** Orchestrates specialized agents through the complete lifecycle: requirements → architecture → engineering → deployment. Supports Cursor IDE, GitHub Copilot, Claude Projects, AWS Bedrock.
 
 **Build production AI systems in days, not months.** This open-source framework eliminates 70% of repetitive AI development tasks, letting you focus on solving real problems instead of reinventing infrastructure.
 
@@ -115,7 +115,7 @@ Building reliable AI systems demands expertise across requirements analysis, sys
 5. **Outputs**: Copy deliverables to your workspace
 
 **Claude Projects (10 minutes):**
-1. **Create**: New Claude Project named "AI Engineering Assistant"
+1. **Create**: New Claude Project named "Multi-Agent AI Development Framework"
 2. **Upload**: All files from `knowledge_base/` to Project Knowledge
 3. **Configure**: Paste `supervisor_agent.system.prompt.md` into Custom Instructions
 4. **Request**: "Build a customer support chatbot"
